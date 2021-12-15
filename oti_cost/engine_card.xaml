@@ -1,0 +1,55 @@
+﻿<Window x:Class="oti_cost.engine_card"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+
+        xmlns:local="clr-namespace:oti_cost"
+        mc:Ignorable="d"
+        Title="engine_card"  WindowState="Maximized" >
+    <Grid  >
+        <Image   Stretch="Fill" Source="./image/aa.jpg" />
+
+
+        <!--<Button Panel.ZIndex="1" Name="close" Click="close_Click" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Height="Auto" ></Button>
+        <Image Panel.ZIndex="0" Source="/image/q.png" ></Image>-->
+
+
+        <StackPanel  Background="WhiteSmoke" Margin="321,153,48,153" >
+
+            <Label HorizontalContentAlignment="Center" FlowDirection="RightToLeft" HorizontalAlignment="Center" Content="بــطــاقــة مــــحـــــــرك" FontSize="40" FontWeight="Bold"/>
+                
+            <StackPanel Orientation="Horizontal">
+                    <TextBox  VerticalAlignment="Center"  Name="card_number"  FlowDirection="RightToLeft" Width="243"  materialDesign:HintAssist.Hint="رقم البطاقة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+
+                    <Button Click="addnumber_Click" Name="addnumber" FlowDirection="RightToLeft"  Content="إضافة رقم بطاقة " Background="#9EC43D" Foreground="Black"  Width="186" />
+
+                </StackPanel>
+                <TextBox  Name="dept"  FlowDirection="RightToLeft" Width="500"  materialDesign:HintAssist.Hint="الجهة الطالبة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+                <TextBox  Name="sender_name"  FlowDirection="RightToLeft" Width="500"  materialDesign:HintAssist.Hint="المسلم" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+                <TextBox  Name="receiver_name"  FlowDirection="RightToLeft" Width="500"  materialDesign:HintAssist.Hint="المستلم" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+                <TextBox  Name="received_date"  FlowDirection="RightToLeft" Width="500"  materialDesign:HintAssist.Hint="تاريخ الاستلام" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+                <TextBox  Name="sent_date"  FlowDirection="RightToLeft" Width="500"  materialDesign:HintAssist.Hint="تاريخ التسليم" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+
+
+
+                <StackPanel Orientation="Horizontal">
+                    <!--<Button Margin="50,0,0,0" VerticalContentAlignment="Center" Name="engine_data" Visibility="Visible"  Click="engine_data_Click"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="إضافة بيانات الـمــحرك"   FontWeight="Bold"  />-->
+
+                <Button Click="edit_Click" Name="abrogation" Visibility="Visible"    BorderBrush="Black" Background="#CA995B" Foreground="Black" Width="115" Content="الـــغـــاء"   />
+                    <!--<Button Click="delete_Click" Name="delete" Visibility="Visible"   BorderBrush="Black" Background="#E93C2D" Foreground="Black" Width="115" Content="حــــــذف"  Margin="30,0,0,0" />-->
+
+
+
+                    <Button Name="add" Visibility="Visible"  Click="add_Click"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Width="115" Content="ادخــــال"  />
+
+                </StackPanel>
+
+
+            </StackPanel>
+
+
+    </Grid>
+
+</Window>

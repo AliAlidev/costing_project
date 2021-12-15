@@ -1,0 +1,22 @@
+﻿<Window x:Class="oti_cost.note"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:oti_cost"
+        mc:Ignorable="d"
+        Title="note" WindowStartupLocation="CenterScreen"   ResizeMode="NoResize"  ShowInTaskbar="False" BorderThickness="2" BorderBrush="MediumAquamarine" WindowStyle="ToolWindow" Height="250" Width="500">
+    <Grid  Height="250" Width="500">
+
+        <TextBox Text="  "  HorizontalContentAlignment="Center" VerticalContentAlignment="Top"   TextWrapping="Wrap"  Focusable="False" IsReadOnly="True" BorderThickness="0" FlowDirection="RightToLeft"  Name="notes" HorizontalAlignment="Center" Grid.Row="0" Margin="33,44,33,109" FontSize="16" Width="434" />
+
+
+
+        <Button x:Name="btnOk" Click="btnOk_Click" Background="MediumAquamarine" Foreground="WhiteSmoke" BorderBrush="Gray" Style="{StaticResource MaterialDesignRaisedButton}" Margin="130,146,270,72" Width="100" Content="إلــــغـــاء" ToolTip="cancel"/>
+        <Button  x:Name="btnCancel" Click="btnCancel_Click" Background="MediumAquamarine" Foreground="WhiteSmoke" BorderBrush="Gray" Style="{StaticResource MaterialDesignRaisedButton}" Margin="272,146,128,72" Width="100" Content="مـــوافـــق" ToolTip="Ok"  />
+
+
+
+
+    </Grid>
+</Window>

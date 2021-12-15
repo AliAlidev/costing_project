@@ -1,0 +1,22 @@
+﻿<Window x:Class="oti_cost.oknote"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:oti_cost"
+        mc:Ignorable="d"
+         Title="تــــنــــبـــيـــه" Height="250" Width="500" 
+        WindowStartupLocation="CenterScreen"   Background="White" 
+        ResizeMode="NoResize" Topmost="True" ShowInTaskbar="False"  WindowStyle="ToolWindow" BorderBrush="MediumAquamarine">
+    
+    <Grid Height="250" Width="500"  >
+
+
+        <TextBox TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Focusable="False" IsReadOnly="True"  BorderThickness="0" FlowDirection="RightToLeft"  Name="txtMessage" HorizontalAlignment="Center"  FontSize="14" Width="373" Margin="65,50,62,108" />
+
+
+        <Button  x:Name="btnCancel" Click="btnCancel_Click" Background="MediumAquamarine" Foreground="White" BorderBrush="Gray" Style="{StaticResource MaterialDesignRaisedButton}" Margin="200,147,200,71" Width="100" Content="مـــوافـــق" ToolTip="ok"  />
+
+
+    </Grid>
+</Window>
