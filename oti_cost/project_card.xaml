@@ -7,79 +7,135 @@
                                 xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
 
         mc:Ignorable="d"
-        Title="project_card" Height="900" Width="1600" WindowState="Maximized" WindowStyle="None">
-    <Grid  Height="900" Width="1600">
-        <Image  Stretch="Fill" Source="./image/aa.jpg"  Height="900" Width="1600"  HorizontalAlignment="Right" />
+        Title="project_card" Height="900" Width="1600" WindowState="Maximized" >
+    <Grid >
+        <Image  Stretch="Fill" Source="./image/aa.jpg" />
 
-        <Button Panel.ZIndex="1" Name="close" Click="close_Click" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Height="Auto" Margin="1398,37,138,802"></Button>
-        <Image Panel.ZIndex="0" Source="/image/q.png" Margin="1398,37,138,802"></Image>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
 
-        <Border Background="GhostWhite"   VerticalAlignment="Top" Padding="30" Height="528" Margin="622,284,173,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="173*"></ColumnDefinition>
 
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
-            </Border.Effect>
+                <ColumnDefinition Width="330*"></ColumnDefinition>
+                <ColumnDefinition Width="315*"></ColumnDefinition>
 
-            <StackPanel  Background="GhostWhite" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" Width="736" Margin="0,-25,-20,-30">
+                <ColumnDefinition Width="699*"></ColumnDefinition>
+                <ColumnDefinition Width="75*"></ColumnDefinition>
 
+            </Grid.ColumnDefinitions>
 
-                <Label HorizontalAlignment="Center" Content="  بطاقة مشروع" FontWeight="Bold" FontSize="40"></Label>
-
-
-
-
-                <TextBox Name="team_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="اسم الفريق" Width="500" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 5"/>
-                <TextBox  Name="project_name"  FlowDirection="RightToLeft" Width="500"  materialDesign:HintAssist.Hint="اسم المشروع" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
-
-                <StackPanel Orientation="Horizontal" Margin="30,10,0,0" Height="57">
-                    <TextBox  VerticalAlignment="Center" Margin="90,0,0,0" Name="project_number"  FlowDirection="RightToLeft" Width="243"  materialDesign:HintAssist.Hint="رقم المشروع" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
-
-                    <Button Click="addnumber_Click" Name="addnumber" FlowDirection="RightToLeft"  Content="إضافة رقم للمشروع" Background="#9EC43D" Foreground="Black" Margin="70,15,353.2,0" Width="186" />
-
-                </StackPanel>
-
-                <TextBox Name="dept_name" FlowDirection="RightToLeft" Width="500" materialDesign:HintAssist.Hint="الجهة الطالبة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
-                <TextBox Name="help_team" FlowDirection="RightToLeft" Width="500" materialDesign:HintAssist.Hint="الفرق المساعدة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
-
-                <StackPanel Orientation="Horizontal">
-                    <ComboBox VerticalContentAlignment="Top" Margin="120,8,0,0" Name="governorate" FlowDirection="RightToLeft" Width="395" Height="30">
-                        <ComboBoxItem Content=" "></ComboBoxItem>
-
-                        <ComboBoxItem Content="دمشق"></ComboBoxItem>
-                        <ComboBoxItem Content="اللاذقية"></ComboBoxItem>
-                        <ComboBoxItem Content="طرطوس"></ComboBoxItem>
-                        <ComboBoxItem Content="حمص"></ComboBoxItem>
-                        <ComboBoxItem Content="حماه"></ComboBoxItem>
-                        <ComboBoxItem Content="حلب"></ComboBoxItem>
-                        <ComboBoxItem Content="ادلب"></ComboBoxItem>
-                        <ComboBoxItem Content="ديرالزور"></ComboBoxItem>
-                        <ComboBoxItem Content="الرقة"></ComboBoxItem>
-                        <ComboBoxItem Content="الحسكة"></ComboBoxItem>
-                        <ComboBoxItem Content="درعا"></ComboBoxItem>
-                        <ComboBoxItem Content="القنيطرة"></ComboBoxItem>
-                        <ComboBoxItem Content="السويدا"></ComboBoxItem>
-                        <ComboBoxItem Content="ريف دمشق"></ComboBoxItem>
-                    </ComboBox>
-
-                    <Label VerticalContentAlignment="Bottom" Foreground="Gray" Content="اختر المحافظة :" FlowDirection="RightToLeft" Width="108"></Label>
-
-                </StackPanel>
-
-                <TextBox Name="start_date" FlowDirection="RightToLeft" Width="500" materialDesign:HintAssist.Hint="تاريخ البدء" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
-                <TextBox Name="finsh_date" FlowDirection="RightToLeft" Width="500" materialDesign:HintAssist.Hint="تاريخ الانتهاء" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+            <Button Name="addteam" Click="addteam_Click" Content="إضافة فريق العمل" Foreground="Black" Grid.Column="1" Grid.Row="7" Height="auto" Background="#9EC43D"  ></Button>
 
 
+            <Button  Name="addmaterial" Click="addmaterial_Click" Content="إضافة المواد المستخدمة"  Foreground="Black" Grid.Column="1" Grid.Row="10" Height="Auto" Background="#9EC43D"  />
+
+            <Border Background="GhostWhite" Grid.Column="3" Grid.Row="3" Grid.RowSpan="11" BorderThickness="3" BorderBrush="GhostWhite">
+
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+                </Border.Effect>
+            </Border>
+            <Label HorizontalAlignment="Center" BorderBrush="DarkGreen" Content="  بطاقة مشروع" FontWeight="Bold" Grid.Column="3" Grid.Row="3" FontSize="25" VerticalContentAlignment="Center"  />
+
+            <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="3" FlowDirection="RightToLeft" Margin="0,0,50,0">
+
+                <Button Grid.Row="3" Grid.Column="3" Click="add_card_number_Click" Name="add_card_number" VerticalAlignment="Bottom" HorizontalAlignment="Right" FlowDirection="RightToLeft"  Content="إضافة رقم مشروع " Background="#9EC43D" Foreground="Black"   />
+                <TextBox Grid.Row="3" Grid.Column="3"  Name="card_number"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="رقم المشروع" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Bottom"  VerticalContentAlignment="Center" Margin="50,0,0,0" ></TextBox>
 
 
-                <!--<TextBox Name="director_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="مـديــر الـفـعـالـيـــة الـفـرعـيـــة" Width="500" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>-->
+            </StackPanel>
+
+
+            <TextBox Grid.Row="5" Grid.Column="3" Name="team_name" Margin="100,0,50,0" VerticalAlignment="Bottom"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="اسم الفريق" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="37"  />
+            <TextBox Grid.Row="6" Grid.Column="3" Name="project_name" Margin="100,0,50,0" FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="اسم المشروع" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="project_name_TextChanged"></TextBox>
+
+            <TextBox  Grid.Row="7" Grid.Column="3" Name="dept_name"  Margin="100,0,50,0" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الجهة الطالبة" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="dept_name_TextChanged"></TextBox>
+            <TextBox  Grid.Row="8" Grid.Column="3" Name="help_team"  Margin="100,0,50,0" FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="الفرق المساعدة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+
+
+            <StackPanel Orientation="Horizontal" Grid.Row="9" Grid.Column="3" FlowDirection="RightToLeft" HorizontalAlignment="Right" Margin="0,0,50,0">
+                <Label VerticalContentAlignment="Bottom" Foreground="Gray" Content="اختر المحافظة :" VerticalAlignment="Bottom" FlowDirection="RightToLeft" ></Label>
+
+                <ComboBox VerticalContentAlignment="Top" Margin="50,0,0,0" VerticalAlignment="Bottom" Name="governorate" FlowDirection="RightToLeft" Width="310" >
+                    <ComboBoxItem Content=" "></ComboBoxItem>
+
+                    <ComboBoxItem Content="دمشق"></ComboBoxItem>
+                    <ComboBoxItem Content="اللاذقية"></ComboBoxItem>
+                    <ComboBoxItem Content="طرطوس"></ComboBoxItem>
+                    <ComboBoxItem Content="حمص"></ComboBoxItem>
+                    <ComboBoxItem Content="حماه"></ComboBoxItem>
+                    <ComboBoxItem Content="حلب"></ComboBoxItem>
+                    <ComboBoxItem Content="ادلب"></ComboBoxItem>
+                    <ComboBoxItem Content="ديرالزور"></ComboBoxItem>
+                    <ComboBoxItem Content="الرقة"></ComboBoxItem>
+                    <ComboBoxItem Content="الحسكة"></ComboBoxItem>
+                    <ComboBoxItem Content="درعا"></ComboBoxItem>
+                    <ComboBoxItem Content="القنيطرة"></ComboBoxItem>
+                    <ComboBoxItem Content="السويدا"></ComboBoxItem>
+                    <ComboBoxItem Content="ريف دمشق"></ComboBoxItem>
+                </ComboBox>
+
+
+            </StackPanel>
+
+            <TextBox Grid.Row="10" Grid.Column="3" Name="start_date" FlowDirection="RightToLeft" Margin="100,0,50,0" materialDesign:HintAssist.Hint="تاريخ البدء" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+            <TextBox Grid.Row="11" Grid.Column="3" Name="finsh_date" FlowDirection="RightToLeft"  Margin="100,0,50,0" materialDesign:HintAssist.Hint="تاريخ الانتهاء" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="12" Grid.Column="3" HorizontalAlignment="Center" >
+                <Button VerticalAlignment="Bottom" Click="add_Click_2" Name="add" Visibility="Visible"   BorderBrush="Black" Background="#9EC43D" Foreground="Black"  Content="حــــــــــفــــــــــظ"  Margin="0,0,50,0"  />
+                <Button VerticalAlignment="Bottom" Click="abrogation_Click_1" Name="abrogation" Visibility="Visible"    BorderBrush="Black"  Background="#CA995B" Foreground="Black"  Content="إلــــــــــغــــــــــاء"   />
+
+
+            </StackPanel>
+
+            <!--<Button Name="team" Visibility="Visible"  Click="team_Click"  BorderBrush="Black" Background="GreenYellow" Foreground="Black" Width="110" Content="فريق العمل"  Margin="20,0,0,0" />
+
+            <Button Name="next" Visibility="Visible"  Click="next_Click"  BorderBrush="Black" Background="GreenYellow" Foreground="Black" Width="136" Content="المواد المستخدمة"  Margin="20,0,0,0" />-->
+
+
+        </Grid>
+        <!--<Border Background="GhostWhite"   VerticalAlignment="Top" Padding="30" Height="528" Margin="622,284,173,0">
+
+        
+
+
+
+
+
+               
+                
+
+
+               
 
 
                 <StackPanel Orientation="Horizontal" Margin="-13,30,13,0" HorizontalAlignment="Right" Width="736" >
-                    <!--<Button Name="team" Visibility="Visible"  Click="team_Click"  BorderBrush="Black" Background="GreenYellow" Foreground="Black" Width="110" Content="فريق العمل"  Margin="20,0,0,0" />-->
+                    -->
+        <!--<Button Name="team" Visibility="Visible"  Click="team_Click"  BorderBrush="Black" Background="GreenYellow" Foreground="Black" Width="110" Content="فريق العمل"  Margin="20,0,0,0" />-->
 
-                    <!--<Button Name="next" Visibility="Visible"  Click="next_Click"  BorderBrush="Black" Background="GreenYellow" Foreground="Black" Width="136" Content="المواد المستخدمة"  Margin="20,0,0,0" />-->
+        <!--<Button Name="next" Visibility="Visible"  Click="next_Click"  BorderBrush="Black" Background="GreenYellow" Foreground="Black" Width="136" Content="المواد المستخدمة"  Margin="20,0,0,0" />-->
+        <!--
                     <Button Click="abrogation_Click" Name="abrogation" Visibility="Visible"    BorderBrush="Black"  Background="#CA995B" Foreground="Black" Width="115" Content="الــغــــاء"  Margin="200,0,0,0" />
-                    <!--<Button Click="delete_Click" Name="delete" Visibility="Visible"   BorderBrush="Black" Background="Beige" Foreground="Black" Width="115" Content="حــــــذف"  Margin="20,0,0,0" />-->
+                    -->
+        <!--<Button Click="delete_Click" Name="delete" Visibility="Visible"   BorderBrush="Black" Background="Beige" Foreground="Black" Width="115" Content="حــــــذف"  Margin="20,0,0,0" />-->
+        <!--
 
 
 
@@ -88,7 +144,7 @@
 
             </StackPanel>
 
-        </Border>
+        </Border>-->
 
     </Grid>
 </Window>

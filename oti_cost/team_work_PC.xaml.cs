@@ -26,11 +26,25 @@ namespace oti_cost
             InitializeComponent();
         }
 
-        private void close_Click(object sender, RoutedEventArgs e)
+        //private void Button_Click_1(object sender, RoutedEventArgs e)
+        //{
+        //    this.Close();
+        //}
+        public class Add
         {
-            this.Close();
-        }
+            public string worker_name { get; set; }
 
+            public string index_number { get; set; }
+
+            public string category { get; set; }
+
+            public string work_done { get; set; }
+
+            public string hours_number { get; set; }
+
+            public string notes { get; set; }
+
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (worker_name.Text == "")
@@ -58,22 +72,13 @@ namespace oti_cost
                 ok = new oknote("يجب إدخال  عدد ساعات العمل ! ");
                 ok.ShowDialog();
             }
-            //else if (hours_number.Text == "")
+            //else if (notes.Text == "")
             //{
-            //    ok = new oknote("يجب إدخال  عدد ساعات العمل ! ");
-            //    ok.ShowDialog();
-            //}
-            //else if (sent_date.Text == "")
-            //{
-            //    ok = new oknote("يجب إدخال قيمة صحيحة  لتاريخ الاستلام  !    ");
+            //    ok = new oknote("يجب إدخال   ملاحظات ! ");
             //    ok.ShowDialog();
             //}
 
-            //else if (!sharedvariables.isDate(received_date.Text))
-            //{
-            //    ok = new oknote("يجب إدخال قيمة صحيحة  لتاريخ التسليم  !    ");
-            //    ok.ShowDialog();
-            //}
+
             else
             {
 
@@ -82,60 +87,92 @@ namespace oti_cost
 
 
 
+                //if (sharedvariables.confirmationmessagebox == "ok")
+                //{
+
+                //        try
+                //        {
+
+                //            DBVariables.executenq("INSERT INTO engine_card (worker_name , index_number , category ,  work_done , hours_number  )  VALUES('" +
+                //                   worker_name.Text +
+                //                   "' , '" + index_number.Text +
+                //                  "' , '" + category.Text +
+                //                  "' , '" + work_done.Text +
+                //                   "' , '" + hours_number.Text + "' ) ");
+
+                //            sharedvariables.confirmationmessagebox = "";
+                //            ok = new oknote("تم الإدخال بنجاح");
+                //            ok.ShowDialog();
+
+                //            worker_name.Text = "";
+                //            index_number.Text = "";
+                //            category.Text = "";
+                //            work_done.Text = "";
+                //            hours_number.Text = "";
+
+
+
+                //        }
+                //        catch (Exception)
+                //        {
+                //            ok = new oknote("حدثت مشكلة أثناء عملية الإدخال");
+                //            ok.ShowDialog();
+                //        }
+
+
+
+                //    }
+                //    else
+                //    {
+
+                //        sharedvariables.confirmationmessagebox = "";
+                //        ok = new oknote("لم يتم إدخال البيانات ");
+                //        ok.ShowDialog();
+                //        worker_name.Text = "";
+                //        index_number.Text = "";
+                //        category.Text = "";
+                //        work_done.Text = "";
+                //        hours_number.Text = "";
+                //    }
+                //}
                 if (sharedvariables.confirmationmessagebox == "ok")
                 {
 
-                    try
+
+                    this.teamgrid.Items.Add((object)new team_work_PC.Add()
                     {
-
-                        DBVariables.executenq("INSERT INTO engine_card (worker_name , index_number , category ,  work_done , hours_number  )  VALUES('" +
-                               worker_name.Text +
-                               "' , '" + index_number.Text +
-                              "' , '" + category.Text +
-                              "' , '" + work_done.Text +
-                               "' , '" + hours_number.Text + "' ) ");
-
-                        sharedvariables.confirmationmessagebox = "";
-                        ok = new oknote("تم الإدخال بنجاح");
-                        ok.ShowDialog();
-
-                        worker_name.Text = "";
-                        index_number.Text = "";
-                        category.Text = "";
-                        work_done.Text = "";
-                        hours_number.Text = "";
+                        worker_name = this.worker_name.Text,
+                        index_number = this.index_number.Text,
+                        category = this.category.Text,
+                        work_done = this.work_done.Text,
+                        hours_number = this.hours_number.Text,
+                        notes = this.notes.Text,
 
 
+                    });
 
-                    }
-                    catch (Exception)
-                    {
-                        ok = new oknote("حدثت مشكلة أثناء عملية الإدخال");
-                        ok.ShowDialog();
-                    }
+                    this.worker_name.Text = "";
+                    this.index_number.Text = "";
+                    this.category.Text = "";
+                    this.work_done.Text = "";
+                    this.hours_number.Text = "";
+                    this.notes.Text = "";
+
 
 
 
                 }
                 else
                 {
-
-                    sharedvariables.confirmationmessagebox = "";
-                    ok = new oknote("لم يتم إدخال البيانات ");
+                    ok = new oknote("لم يتم إدخال المعلومات المطلوبة !");
                     ok.ShowDialog();
-                    worker_name.Text = "";
-                    index_number.Text = "";
-                    category.Text = "";
-                    work_done.Text = "";
-                    hours_number.Text = "";
                 }
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             this.Close();
-
         }
     }
-}
+    }

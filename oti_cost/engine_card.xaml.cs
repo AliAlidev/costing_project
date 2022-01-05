@@ -38,7 +38,7 @@ namespace oti_cost
             w1.ShowDialog();
         }
 
-        private void add_Click(object sender, RoutedEventArgs e)
+        private void add_Click_2(object sender, RoutedEventArgs e)
         {
 
             if ( DBVariables.isFound(card_number.Text, "card_number", "engine_card"))
@@ -66,13 +66,24 @@ namespace oti_cost
             {
                 ok = new oknote("يجب إدخال اسم المستلم ! ");
                 ok.ShowDialog();
-            }  else if (sent_date.Text == "" )
+            } 
+            else if (received_date.Text == "" )
             {
-                ok = new oknote("يجب إدخال قيمة صحيحة  لتاريخ الاستلام  !    ");
+                ok = new oknote("يجب إدخال قيمة  لتاريخ الاستلام  !    ");
                 ok.ShowDialog();
             }
          
             else if (!sharedvariables.isDate(received_date.Text))
+            {
+                ok = new oknote("يجب إدخال قيمة صحيحة  لتاريخ الاستلام  !    ");
+                ok.ShowDialog();
+            }
+            else if (sent_date.Text == "")
+            {
+                ok = new oknote("يجب إدخال قيمة  لتاريخ التسليم  !    ");
+                ok.ShowDialog();
+            }
+            else if (!sharedvariables.isDate(sent_date.Text))
             {
                 ok = new oknote("يجب إدخال قيمة صحيحة  لتاريخ التسليم  !    ");
                 ok.ShowDialog();
@@ -293,7 +304,7 @@ namespace oti_cost
             }
         }
 
-        private void addnumber_Click(object sender, RoutedEventArgs e)
+        private void add_card_number_Click(object sender, RoutedEventArgs e)
         {
             ok = new oknote("انتبه .. ان رقم البطاقة هو رقم تسلسلي فقط للتمييز بين البطاقات ! ");
             ok.ShowDialog();
@@ -386,9 +397,26 @@ namespace oti_cost
 
         }
 
-        private void close_Click(object sender, RoutedEventArgs e)
+        private void cancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void add_engine_info_Click(object sender, RoutedEventArgs e)
+        {
+            engine_info en = new engine_info();
+            en.ShowDialog();
+        }
+
+        private void receiver_name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void result_Click(object sender, RoutedEventArgs e)
+        {
+            results r1 = new results();
+            r1.ShowDialog();
         }
     }
 }

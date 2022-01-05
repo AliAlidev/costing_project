@@ -352,6 +352,9 @@
     <Compile Include="report2.xaml.cs">
       <DependentUpon>report2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="results.xaml.cs">
+      <DependentUpon>results.xaml</DependentUpon>
+    </Compile>
     <Compile Include="sharedvariables.cs" />
     <Compile Include="team_work_PC.xaml.cs">
       <DependentUpon>team_work_PC.xaml</DependentUpon>
@@ -437,6 +440,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="report2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="results.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

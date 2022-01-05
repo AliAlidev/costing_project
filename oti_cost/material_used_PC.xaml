@@ -7,62 +7,104 @@
                                         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
 
         mc:Ignorable="d"
-        Title="material_used_PC" Height="900" Width="1600" WindowState="Maximized" WindowStyle="None">
-    <Grid Height="900" Width="1600">
-        <Image  Stretch="Fill" Source="./image/aa.jpg"  Height="900" Width="1600"  HorizontalAlignment="Right" RenderTransformOrigin="1.044,0.193" />
+        Title="material_used_PC" Height="900" Width="1600" WindowState="Maximized" >
+    <Grid >
+        <Image  Stretch="Fill" Source="./image/aa.jpg"  />
 
 
-        <Button Panel.ZIndex="1" Name="close" Click="close_Click" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Height="Auto" Margin="1398,37,138,802"></Button>
-        <Image Panel.ZIndex="0" Source="/image/q.png" Margin="1398,37,138,802"></Image>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70*"></ColumnDefinition>
+                <ColumnDefinition Width="601*"></ColumnDefinition>
+                <ColumnDefinition Width="194*"></ColumnDefinition>
+                <ColumnDefinition Width="145*"></ColumnDefinition>
+                <ColumnDefinition Width="478*"></ColumnDefinition>
+                <ColumnDefinition Width="104*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <StackPanel Margin="1049,251,142,305" Background="WhiteSmoke">
-            <Label FlowDirection="RightToLeft" Content=" الرجاء ادخال المعلومات من هنا :  " FontStyle="Italic" Foreground="DarkGreen" FontSize="10" Margin="200,20,52,0"  />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="49*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="49*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="49*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="49*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="38*"></RowDefinition>
+                <RowDefinition Height="59*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-            <Label FlowDirection="RightToLeft" Content="المواد المستخدمة : " Foreground="DarkGreen" FontSize="16" Margin="200,20,51.8,0"  />
-            <TextBox Name="material_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="اسم المادة " Width="300" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <Border Grid.Row="4" Grid.RowSpan="10" Grid.Column="4" BorderBrush="GhostWhite" Background="WhiteSmoke">
+                <!--<Border.Effect>
+                    <DropShadowEffect></DropShadowEffect>
+                </Border.Effect>-->
+            </Border>
 
-            <TextBox Name="index_number" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" رقم الفهرسة " Width="300" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
-            <TextBox Name="unit" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الواحدة" Width="300" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
-            <TextBox Name="quantity" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الكمية" Width="300" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
-            <TextBox Name="origin" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" المنشأ " Width="300" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-            <TextBox Name="notes" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="ملاحظات " Width="300" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
-        </StackPanel>
 
-        <DataGrid FlowDirection="RightToLeft" Margin="101,251,699,305" HorizontalContentAlignment="Center" BorderBrush="Black" BorderThickness="2">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="اسم المادة" IsReadOnly="True" CanUserSort="True" Width="150"></DataGridTextColumn>
-                <DataGridTextColumn Header="رقم الفهرسة"  IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
-                <DataGridTextColumn Header="الواحدة"  IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
-                <DataGridTextColumn Header="الكمية"  IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
-                <DataGridTextColumn Header="المنشأ"  IsReadOnly="True" CanUserSort="True" Width="150"></DataGridTextColumn>
-                <DataGridTextColumn Header="ملاحظات"  IsReadOnly="True" CanUserSort="True" Width="160"></DataGridTextColumn>
+            <Label Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" FlowDirection="RightToLeft" Content=" الرجاء ادخال المعلومات من هنا :  "  Foreground="DarkGreen" HorizontalAlignment="Center"   />
+            <Label Grid.Row="5" Grid.Column="4"  FlowDirection="RightToLeft" Content="المواد المستخدمة " Foreground="DarkGreen" FontSize="20" HorizontalAlignment="Center"   />
 
-            </DataGrid.Columns>
+            <TextBox Margin="50,0,50,0" Grid.Row="6" Grid.Column="4" Name="material_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="اسم المادة " Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
-            <DataGrid.Resources>
-                <Style TargetType="{x:Type DataGridColumnHeader}">
+            <TextBox Margin="50,0,50,0" Grid.Row="7" Grid.Column="4" Name="index_number" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" رقم الفهرسة "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+            <TextBox Margin="50,0,50,0" Grid.Row="8" Grid.Column="4" Name="unit" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الواحدة"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+            <TextBox Margin="50,0,50,0" Grid.Row="9" Grid.Column="4" Name="quantity" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الكمية" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+            <TextBox Margin="50,0,50,0" Grid.Row="10" Grid.Column="4" Name="origin" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" المنشأ "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <TextBox Margin="50,0,50,0" Grid.Row="11" Grid.Column="4" Name="notes" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="ملاحظات " TextWrapping="Wrap"
+VerticalScrollBarVisibility="Visible" 
+AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
-                    <Setter Property="Focusable" Value="False"></Setter>
-                    <Setter Property="Background" Value="#9FB754"></Setter>
-                    <Setter Property="FontWeight" Value="Bold"></Setter>
-                    <Setter Property="FlowDirection" Value="RightToLeft"></Setter>
-                    <Setter Property="FontSize" Value="18"></Setter>
-                    <Setter Property="Padding" Value="5"></Setter>
-                    <Setter Property="IsTabStop" Value="True"></Setter>
-                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
-                    <Setter Property="IsTabStop" Value="True"></Setter>
-                    <Setter Property="IsTabStop" Value="True"></Setter>
-                </Style>
-            </DataGrid.Resources>
-        </DataGrid>
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="13" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <Button Click="Button_Click" Content="إضــــــــــافــــــــــة" BorderBrush="Black" Margin="0,0,50,0"  Background="#9EC43D" Foreground="Black" ></Button>
+                <Button Click="Button_Click_1" Content="الــــــــــغــــــــــاء" BorderBrush="Black"   Background="#CA995B" Foreground="Black"></Button>
 
-        <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Margin="821,635,142,158">
-            <Button Click="Button_Click" Content="إضافة" BorderBrush="Black" Margin="0,38,20,37.2" Width="120" Background="#9EC43D" Foreground="Black" ></Button>
-            <Button Click="Button_Click_1" Content="الغاء" BorderBrush="Black" Margin="100,0,20,0" Width="120" Background="#CA995B" Foreground="Black"></Button>
-            <!--<Button Content="حذف" Margin="0,0,20,0" Width="120" Background="Maroon"></Button>-->
-            <!--<Button Content="تعديل" Margin="0,0,20,0" Width="120" Background="Orange"></Button>-->
-        </StackPanel>
+            </StackPanel>
+
+
+            <DataGrid  x:Name="gridmaterial" FlowDirection="RightToLeft" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="8" BorderBrush="Black" BorderThickness="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="اسم المادة" Binding="{Binding material_name}" IsReadOnly="True" CanUserSort="True" Width="150"></DataGridTextColumn>
+                    <DataGridTextColumn Header="رقم الفهرسة"  Binding="{Binding index_number}" IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Header="الواحدة"  Binding="{Binding unit}" IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Header="الكمية"  Binding="{Binding quantity}"  IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Header="المنشأ"  Binding="{Binding origin}"  IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Header="ملاحظات"  Binding="{Binding notes}" IsReadOnly="True" CanUserSort="True" Width="160"></DataGridTextColumn>
+
+                </DataGrid.Columns>
+
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+
+                        <Setter Property="Focusable" Value="False"></Setter>
+                        <Setter Property="Background" Value="#9FB754"></Setter>
+                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                        <Setter Property="FlowDirection" Value="RightToLeft"></Setter>
+                        <Setter Property="Padding" Value="5"></Setter>
+                        <Setter Property="IsTabStop" Value="True"></Setter>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                        <Setter Property="IsTabStop" Value="True"></Setter>
+                        <Setter Property="IsTabStop" Value="True"></Setter>
+                    </Style>
+                </DataGrid.Resources>
+            </DataGrid>
+
+
+        </Grid>
+
+
+
+
+
 
     </Grid>
 </Window>

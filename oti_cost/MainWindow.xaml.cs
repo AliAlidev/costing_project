@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -15,74 +16,27 @@ namespace oti_cost
         public MainWindow()
         {
             InitializeComponent();
+            double h = SystemParameters.PrimaryScreenHeight;
+            double w = SystemParameters.PrimaryScreenWidth;
+            Height = h;
+            Width = w;
         }
 
-        private void card_Click(object sender, RoutedEventArgs e)
+
+       
+
+
+
+        private void engine_card_Click(object sender, RoutedEventArgs e)
         {
-            engine_card g1 = new engine_card();
-            g1.ShowDialog();
+            engine_card en = new engine_card();
+            en.ShowDialog();
         }
 
-        private void card1_Click(object sender, RoutedEventArgs e)
+        private void jhv_Click(object sender, RoutedEventArgs e)
         {
-            project_card p1 = new project_card();
-            p1.ShowDialog();
-        }
-
-        private void card2_Click(object sender, RoutedEventArgs e)
-        {
-            project_cost p2 = new project_cost();
-            p2.ShowDialog();
-        }
-
-        private void close_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void addcard_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void adddata_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void addresults_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            engine_card n = new engine_card();
-            n.ShowDialog();
-
-
-
-
-
-
-
-
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-
+            project_card i = new project_card();
+            i.ShowDialog();
         }
 
         //private void next_Click(object sender, RoutedEventArgs e)

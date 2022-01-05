@@ -26,9 +26,15 @@ namespace oti_cost
         public project_card()
         {
             InitializeComponent();
+
+            double h = SystemParameters.PrimaryScreenHeight;
+            double w = SystemParameters.PrimaryScreenWidth;
+
+            Width = w;
+            Height = h;
         }
 
-        private void addnumber_Click(object sender, RoutedEventArgs e)
+        private void add_card_number_Click(object sender, RoutedEventArgs e)
         {
             ok = new oknote("انتبه .. ان رقم المشروع هو رقم تسلسلي فقط للتمييز بين المشاريع ! ");
             ok.ShowDialog();
@@ -60,7 +66,7 @@ namespace oti_cost
 
             }
 
-            project_number.Text = id0;
+            //project_number.Text = id0;
         }
 
         private void add_Click(object sender, RoutedEventArgs e)
@@ -95,20 +101,20 @@ namespace oti_cost
             t.ShowDialog();
         }
 
-        private void add_Click_1(object sender, RoutedEventArgs e)
+        private void add_Click_2(object sender, RoutedEventArgs e)
         {
-            if (DBVariables.isFound(project_number.Text, "card_number", "engine_card"))
-            {
-                ok = new oknote("يجب ادخال رقم المشروع  !");
-                ok.ShowDialog();
-            }
-            else
-         if (!sharedvariables.isNumber(this.project_number.Text))
-            {
-                ok = new oknote("يجب ادخال قيمة صحيحة لرقم المشروع !");
-                ok.ShowDialog();
-            }
-            else
+         //   if (DBVariables.isFound(project_number.Text, "card_number", "engine_card"))
+         //   {
+         //       ok = new oknote("يجب ادخال رقم المشروع  !");
+         //       ok.ShowDialog();
+         //   }
+         //   else
+         //if (!sharedvariables.isNumber(this.project_number.Text))
+         //   {
+         //       ok = new oknote("يجب ادخال قيمة صحيحة لرقم المشروع !");
+         //       ok.ShowDialog();
+         //   }
+         //   else
          if (team_name.Text == "")
             {
                 ok = new oknote("يجب إدخال اسم الفريق !");
@@ -170,7 +176,7 @@ namespace oti_cost
                     {
 
                         DBVariables.executenq("INSERT INTO engine_card (card_number , dept , sender_name ,  receiver_name , received_date ,sent_date )  VALUES('" +
-                               project_number.Text +
+                               //project_number.Text +
                                "' , '" + team_name.Text +
                                "' , '" + project_name.Text +
                                 "' , '" + dept_name.Text +
@@ -184,7 +190,7 @@ namespace oti_cost
                         ok = new oknote("تم الإدخال بنجاح");
                         ok.ShowDialog();
 
-                        project_number.Text = "";
+                        //project_number.Text = "";
                         team_name.Text = "";
                         project_name.Text = "";
                         dept_name.Text = "";
@@ -211,7 +217,7 @@ namespace oti_cost
                     sharedvariables.confirmationmessagebox = "";
                     ok = new oknote("لم يتم إدخال البيانات ");
                     ok.ShowDialog();
-                    project_number.Text = "";
+                    //project_number.Text = "";
                     team_name.Text = "";
                     project_name.Text = "";
                     dept_name.Text = "";
@@ -223,9 +229,40 @@ namespace oti_cost
             }
         }
 
-        private void abrogation_Click(object sender, RoutedEventArgs e)
+        //private void abrogation_Click(object sender, RoutedEventArgs e)
+        //{
+        //    this.Close();
+
+        //}
+
+        private void addmaterial_Click(object sender, RoutedEventArgs e)
+        {
+            material_used_PC m = new material_used_PC();
+            m.ShowDialog();
+        }
+
+        private void addteam_Click(object sender, RoutedEventArgs e)
+        {
+            team_work_PC o = new team_work_PC();
+            o.ShowDialog();
+        }
+
+      
+       
+
+        private void abrogation_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
+
+        }
+
+        private void project_name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void dept_name_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
         }
     }

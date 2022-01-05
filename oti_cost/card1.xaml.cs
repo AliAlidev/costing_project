@@ -22,6 +22,12 @@ namespace oti_cost
         public card1()
         {
             InitializeComponent();
+
+            double h = SystemParameters.PrimaryScreenHeight;
+            double w = SystemParameters.PrimaryScreenWidth;
+            Height = h;
+            Width = w;
+
         }
     }
 }

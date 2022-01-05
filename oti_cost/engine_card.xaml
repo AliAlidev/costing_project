@@ -7,16 +7,100 @@
 
         xmlns:local="clr-namespace:oti_cost"
         mc:Ignorable="d"
-        Title="engine_card"  WindowState="Maximized" >
-    <Grid  >
+        Title="engine_card"  WindowState="Maximized"  Width="1600" Height="900" >
+    <Grid >
         <Image   Stretch="Fill" Source="./image/aa.jpg" />
+        <Grid ShowGridLines="False">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="707*"></ColumnDefinition>
+                <ColumnDefinition Width="792*"></ColumnDefinition>
+                <ColumnDefinition Width="93*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="2" Grid.RowSpan="9" Grid.Column="1" Background="White" BorderBrush="GhostWhite" BorderThickness="3" >
+            <!--<Border Grid.Row="2" Grid.RowSpan="9" Grid.Column="1" CornerRadius="50" Background="White" BorderBrush="#94A76D" BorderThickness="3" >-->
+                <!--<Border.Effect >
+                    <DropShadowEffect Color="#94A76D" ShadowDepth="10" />
+                </Border.Effect>-->
+            </Border>
+
+            <Label Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"  HorizontalContentAlignment="Center" FlowDirection="RightToLeft" HorizontalAlignment="Center" Content="بــطــاقــة مــــحـــــــرك" FontSize="25" FontWeight="Bold"  />
+          
+
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" FlowDirection="RightToLeft"  Margin="0,0,50,0">
+
+                 <Button Grid.Row="3" Grid.Column="1" Click="add_card_number_Click" Name="add_card_number" VerticalAlignment="Bottom" HorizontalAlignment="Right" FlowDirection="RightToLeft"  Content="إضافة رقم بطاقة " Background="#9EC43D" Foreground="Black"   />
+                <TextBox Grid.Row="3" Grid.Column="1"  Name="card_number"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="رقم البطاقة" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Bottom"  VerticalContentAlignment="Center" Margin="50,0,0,0" ></TextBox>
+
+            </StackPanel>
+
+
+            <TextBox Margin="100,0,50,0" Grid.Row="4" Grid.Column="1"  Name="dept"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="الجهة الطالبة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+            <TextBox Margin="100,0,50,0" Grid.Row="5" Grid.Column="1"   Name="sender_name"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="المسلم" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+            <TextBox Margin="100,0,50,0"  Grid.Row="6" Grid.Column="1"    Name="receiver_name"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="المستلم" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="receiver_name_TextChanged"></TextBox>
+            <TextBox Margin="100,0,50,0" Grid.Row="7" Grid.Column="1"    Name="received_date"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="تاريخ الاستلام" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+            <TextBox Margin="100,0,50,0"  Grid.Row="8" Grid.Column="1"    Name="sent_date"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="تاريخ التسليم" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center">
+
+                <Button VerticalAlignment="Bottom" Width="150" Click="add_Click_2" Name="add" Visibility="Visible"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="اضــافــة" Margin="0,0,50,0"  />
+
+                <Button  VerticalAlignment="Bottom" Width="150"  Click="cancel_Click" Name="cancel" Visibility="Visible"  BorderBrush="Black" Background="#CA995B" Foreground="Black" Content="إلـــــغـــــاء"    />
+
+            <!--<Button VerticalAlignment="Bottom" Width="150" Name="add_engine_info" Click="add_engine_info_Click" Visibility="Visible"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="إضافة بيانات المحرك" Margin="50,0,0,0"   />-->
+            </StackPanel>
+            <Button VerticalAlignment="Bottom" Width="150" Name="add_engine_info" Click="add_engine_info_Click" Visibility="Visible"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="إضافة بيانات المحرك" Grid.Column="0" Grid.Row="5"   />
+            <Button VerticalAlignment="Bottom" Width="150" Name="result" Click="result_Click" Visibility="Visible"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="  نتائج اختبار المحرك  " Grid.Column="0" Grid.Row="7"   />
+
+
+
+            <!--<Grid ShowGridLines="False" Height="274" VerticalAlignment="Top" Margin="0,30,0,0">
+
+                    
+                   
+                   
+
+
+                </Grid>
+                <Button  HorizontalAlignment="Center" Name="add" Visibility="Visible"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="إدخــال" Margin="288,282,37,-24"   />
+
+                <Button  HorizontalAlignment="Center" Name="cancel" Visibility="Visible"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="إلــغــاء" Margin="204,282,122,-24"   />
+
+                <Button  HorizontalAlignment="Center" Name="add_engine_info" Click="add_engine_info_Click" Visibility="Visible"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="إضافة بيانات المحرك" Margin="61,282,259,-24"   />-->
+
+
+
+
+
+
+
+
+
+
+        </Grid>
 
 
         <!--<Button Panel.ZIndex="1" Name="close" Click="close_Click" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Height="Auto" ></Button>
         <Image Panel.ZIndex="0" Source="/image/q.png" ></Image>-->
 
 
-        <StackPanel  Background="WhiteSmoke" Margin="321,153,48,153" >
+        <!--<StackPanel  Background="WhiteSmoke" Margin="321,153,48,153" >
 
             <Label HorizontalContentAlignment="Center" FlowDirection="RightToLeft" HorizontalAlignment="Center" Content="بــطــاقــة مــــحـــــــرك" FontSize="40" FontWeight="Bold"/>
                 
@@ -35,10 +119,14 @@
 
 
                 <StackPanel Orientation="Horizontal">
-                    <!--<Button Margin="50,0,0,0" VerticalContentAlignment="Center" Name="engine_data" Visibility="Visible"  Click="engine_data_Click"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="إضافة بيانات الـمــحرك"   FontWeight="Bold"  />-->
+                    -->
+        <!--<Button Margin="50,0,0,0" VerticalContentAlignment="Center" Name="engine_data" Visibility="Visible"  Click="engine_data_Click"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="إضافة بيانات الـمــحرك"   FontWeight="Bold"  />-->
+        <!--
 
                 <Button Click="edit_Click" Name="abrogation" Visibility="Visible"    BorderBrush="Black" Background="#CA995B" Foreground="Black" Width="115" Content="الـــغـــاء"   />
-                    <!--<Button Click="delete_Click" Name="delete" Visibility="Visible"   BorderBrush="Black" Background="#E93C2D" Foreground="Black" Width="115" Content="حــــــذف"  Margin="30,0,0,0" />-->
+                    -->
+        <!--<Button Click="delete_Click" Name="delete" Visibility="Visible"   BorderBrush="Black" Background="#E93C2D" Foreground="Black" Width="115" Content="حــــــذف"  Margin="30,0,0,0" />-->
+        <!--
 
 
 
@@ -47,7 +135,7 @@
                 </StackPanel>
 
 
-            </StackPanel>
+            </StackPanel>-->
 
 
     </Grid>

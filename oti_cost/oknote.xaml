@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:oti_cost"
         mc:Ignorable="d"
-         Title="تــــنــــبـــيـــه" Height="250" Width="500" 
+         Title="تــــنــــبـــيـــه"  Height="250" Width="500" 
         WindowStartupLocation="CenterScreen"   Background="White" 
         ResizeMode="NoResize" Topmost="True" ShowInTaskbar="False"  WindowStyle="ToolWindow" BorderBrush="MediumAquamarine">
     
     <Grid Height="250" Width="500"  >
 
 
-        <TextBox TextWrapping="Wrap" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Focusable="False" IsReadOnly="True"  BorderThickness="0" FlowDirection="RightToLeft"  Name="txtMessage" HorizontalAlignment="Center"  FontSize="14" Width="373" Margin="65,50,62,108" />
+        <TextBox TextWrapping="Wrap" HorizontalContentAlignment="Center"   VerticalContentAlignment="Top" Focusable="False" IsReadOnly="True"  BorderThickness="0" FlowDirection="RightToLeft"  Name="txtMessage" HorizontalAlignment="Center"  FontSize="14" Width="373" Margin="65,50,62,108" />
 
 
-        <Button  x:Name="btnCancel" Click="btnCancel_Click" Background="MediumAquamarine" Foreground="White" BorderBrush="Gray" Style="{StaticResource MaterialDesignRaisedButton}" Margin="200,147,200,71" Width="100" Content="مـــوافـــق" ToolTip="ok"  />
+        <Button  x:Name="btnCancel" Click="btnCancel_Click" Background="LightBlue" Foreground="Black" BorderBrush="Gray" Style="{StaticResource MaterialDesignRaisedButton}" Margin="200,147,200,71" Width="100" Content="مـــوافـــق" ToolTip="ok"  />
 
 
     </Grid>

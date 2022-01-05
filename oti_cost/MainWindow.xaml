@@ -6,15 +6,32 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         xmlns:local="clr-namespace:oti_cost"
         mc:Ignorable="d"
-        Title="MainWindow"  WindowState="Maximized"  >
+        Title="MainWindow" WindowState="Maximized"  >
     <Grid>
+        <Image Stretch="Fill" Source="/c1.jpg"></Image>
 
-        <Image Source="c1.jpg" Stretch="Fill"></Image>
+        <Grid ShowGridLines="False" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="107*"></ColumnDefinition>
+                <ColumnDefinition Width="107*"></ColumnDefinition>
+                <ColumnDefinition Width="179*"></ColumnDefinition>
+                <ColumnDefinition Width="171*"></ColumnDefinition>
+                <ColumnDefinition Width="171*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <Button Click="Button_Click_1" Content="بطاقة محرك" Margin="566,65,52,390" Height="Auto" Background="YellowGreen" BorderBrush="Black" Foreground="Black"></Button>
-        <Button Click="Button_Click_2" Content=" بطاقة مشروع" Margin="389,243,229,221" Height="Auto" Background="YellowGreen" BorderBrush="Black" Foreground="Black"></Button>
-        <Button Click="Button_Click_3" Content="حساب تكلفة مشروع " Margin="486,159,122,301" Height="Auto" Background="YellowGreen" BorderBrush="Black" Foreground="Black"></Button>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
 
+            <Button Content="بــطــاقـة مــحــرك" FlowDirection="RightToLeft" Grid.Column="3" Grid.Row="1" Background="YellowGreen"  HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="Black" Height="40" Name="engine_card" Click="engine_card_Click" ></Button>
+            <Button Content=" بــطــاقـة مــشــروع " FlowDirection="RightToLeft" Grid.Column="3" Grid.Row="2" Background="YellowGreen" HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="Black" Height="40" Name="jhv" Click="jhv_Click"></Button>
+            <Button Visibility="Hidden"  Content="حــسـاب تــكــلـفــة مــشــروع " FlowDirection="RightToLeft" Grid.Column="3" Grid.Row="3" Background="YellowGreen"  HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="Black" Height="40" ></Button>
+        </Grid>
     </Grid>
 
 </Window>

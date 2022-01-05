@@ -12,8 +12,8 @@
 
 
 
-        <Button x:Name="btnOk" Click="btnOk_Click" Background="MediumAquamarine" Foreground="WhiteSmoke" BorderBrush="Gray" Style="{StaticResource MaterialDesignRaisedButton}" Margin="130,146,270,72" Width="100" Content="إلــــغـــاء" ToolTip="cancel"/>
-        <Button  x:Name="btnCancel" Click="btnCancel_Click" Background="MediumAquamarine" Foreground="WhiteSmoke" BorderBrush="Gray" Style="{StaticResource MaterialDesignRaisedButton}" Margin="272,146,128,72" Width="100" Content="مـــوافـــق" ToolTip="Ok"  />
+        <Button x:Name="btnOk" Click="btnOk_Click" Background="LightBlue" Foreground="Black" BorderBrush="Gray" Style="{StaticResource MaterialDesignRaisedButton}" Margin="130,146,270,72" Width="100" Content="إلــــغـــاء" ToolTip="cancel"/>
+        <Button  x:Name="btnCancel" Click="btnCancel_Click" Background="LightBlue" Foreground="Black" BorderBrush="Gray" Style="{StaticResource MaterialDesignRaisedButton}" Margin="272,146,128,72" Width="100" Content="مـــوافـــق" ToolTip="Ok"  />
 
 
 
