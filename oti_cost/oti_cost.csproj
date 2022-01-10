@@ -516,6 +516,12 @@
   <ItemGroup>
     <Resource Include="image\q.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\R1.jpg" />
+    <Resource Include="image\R2.jpg" />
+    <Resource Include="image\R3.jpg" />
+    <Resource Include="image\R4.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\build\Microsoft.TeamFoundationServer.ExtendedClient.targets" Condition="Exists('..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\build\Microsoft.TeamFoundationServer.ExtendedClient.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

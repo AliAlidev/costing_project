@@ -44,7 +44,8 @@ namespace oti_cost
 
             public string quantity { get; set; }
 
-            public string origin { get; set; }
+            public string unit_price { get; set; }
+            public string total_price { get; set; }
 
             public string notes { get; set; }
 
@@ -71,9 +72,14 @@ namespace oti_cost
                 ok = new oknote("يجب إدخال   الكمية ! ");
                 ok.ShowDialog();
             }
-            else if (origin.Text == "")
+            else if (unit_price.Text == "")
             {
-                ok = new oknote("يجب إدخال المنشأ  ! ");
+                ok = new oknote("يجب إدخال السعر الافرادي  ! ");
+                ok.ShowDialog();
+            }
+            else if (total_price.Text == "")
+            {
+                ok = new oknote("يجب إدخال   السعر الاجمالي ! ");
                 ok.ShowDialog();
             }
             //else if (hours_number.Text == "")
@@ -158,7 +164,8 @@ namespace oti_cost
                         index_number = this.index_number.Text,
                         unit = this.unit.Text,
                         quantity = this.quantity.Text,
-                        origin = this.origin.Text,
+                        unit_price = this.unit_price.Text,
+                        total_price = this.total_price.Text,
                         notes = this.notes.Text,
 
 
@@ -168,7 +175,8 @@ namespace oti_cost
                     this.index_number.Text = "";
                     this.unit.Text = "";
                     this.quantity.Text = "";
-                    this.origin.Text = "";
+                    this.unit_price.Text = "";
+                    this.total_price.Text = "";
                     this.notes.Text = "";
 
 

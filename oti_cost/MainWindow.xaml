@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" WindowState="Maximized"  >
     <Grid>
-        <Image Stretch="Fill" Source="/c1.jpg"></Image>
+        <Image Stretch="Fill" Source="./image/R2.jpg"  ></Image>
 
         <Grid ShowGridLines="False" >
             <Grid.ColumnDefinitions>

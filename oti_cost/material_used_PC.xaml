@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="material_used_PC" Height="900" Width="1600" WindowState="Maximized" >
     <Grid >
-        <Image  Stretch="Fill" Source="./image/aa.jpg"  />
+        <Image  Stretch="Fill" Source="./image/aa.jpg" RenderTransformOrigin="1.035,0.339"  />
 
 
         <Grid>
@@ -59,12 +59,13 @@
             <TextBox Margin="50,0,50,0" Grid.Row="7" Grid.Column="4" Name="index_number" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" رقم الفهرسة "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
             <TextBox Margin="50,0,50,0" Grid.Row="8" Grid.Column="4" Name="unit" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الواحدة"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
             <TextBox Margin="50,0,50,0" Grid.Row="9" Grid.Column="4" Name="quantity" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الكمية" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
-            <TextBox Margin="50,0,50,0" Grid.Row="10" Grid.Column="4" Name="origin" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" المنشأ "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-            <TextBox Margin="50,0,50,0" Grid.Row="11" Grid.Column="4" Name="notes" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="ملاحظات " TextWrapping="Wrap"
+            <TextBox Margin="50,0,50,0" Grid.Row="10" Grid.Column="4" Name="unit_price" FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint=" السعر الافرادي "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <TextBox Margin="50,0,50,0" Grid.Row="11" Grid.Column="4" Name="total_price" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" السعر الاجمالي "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <TextBox Margin="50,0,50,0" Grid.Row="12"  Grid.Column="4" Name="notes" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="ملاحظات " TextWrapping="Wrap"
 VerticalScrollBarVisibility="Visible" 
-AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="62" VerticalAlignment="Top" Grid.RowSpan="2"/>
 
-            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="13" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="14" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" >
                 <Button Click="Button_Click" Content="إضــــــــــافــــــــــة" BorderBrush="Black" Margin="0,0,50,0"  Background="#9EC43D" Foreground="Black" ></Button>
                 <Button Click="Button_Click_1" Content="الــــــــــغــــــــــاء" BorderBrush="Black"   Background="#CA995B" Foreground="Black"></Button>
 
@@ -73,12 +74,13 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/
 
             <DataGrid  x:Name="gridmaterial" FlowDirection="RightToLeft" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="8" BorderBrush="Black" BorderThickness="2">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="اسم المادة" Binding="{Binding material_name}" IsReadOnly="True" CanUserSort="True" Width="150"></DataGridTextColumn>
+                    <DataGridTextColumn Header="اسم المادة" Binding="{Binding material_name}" IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
                     <DataGridTextColumn Header="رقم الفهرسة"  Binding="{Binding index_number}" IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
-                    <DataGridTextColumn Header="الواحدة"  Binding="{Binding unit}" IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
-                    <DataGridTextColumn Header="الكمية"  Binding="{Binding quantity}"  IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
-                    <DataGridTextColumn Header="المنشأ"  Binding="{Binding origin}"  IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
-                    <DataGridTextColumn Header="ملاحظات"  Binding="{Binding notes}" IsReadOnly="True" CanUserSort="True" Width="160"></DataGridTextColumn>
+                    <DataGridTextColumn Header="الواحدة"  Binding="{Binding unit}" IsReadOnly="True" CanUserSort="True" Width="80"></DataGridTextColumn>
+                    <DataGridTextColumn Header="الكمية"  Binding="{Binding quantity}"  IsReadOnly="True" CanUserSort="True" Width="80"></DataGridTextColumn>
+                    <DataGridTextColumn Header="السعر الافرادي"  Binding="{Binding unit_price}"  IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Header="السعر الاجمالي"  Binding="{Binding total_price}"  IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Header="ملاحظات"  Binding="{Binding notes}" IsReadOnly="True" CanUserSort="True" Width="150"></DataGridTextColumn>
 
                 </DataGrid.Columns>
 
