@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="engine_card"  WindowState="Maximized"  Width="1600" Height="900" >
     <Grid >
-        <Image   Stretch="Fill" Source="./image/aa.jpg" />
+        <Image   Stretch="Fill" Source="./image/J5.jpg" />
         <Grid ShowGridLines="False">
 
             <Grid.ColumnDefinitions>
@@ -45,7 +45,7 @@
 
             <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" FlowDirection="RightToLeft"  Margin="0,0,50,0">
 
-                 <Button Grid.Row="3" Grid.Column="1" Click="add_card_number_Click" Name="add_card_number" VerticalAlignment="Bottom" HorizontalAlignment="Right" FlowDirection="RightToLeft"  Content="إضافة رقم بطاقة " Background="#9EC43D" Foreground="Black"   />
+                <Button Grid.Row="3" Grid.Column="1" Click="add_card_number_Click" Name="add_card_number" VerticalAlignment="Bottom" HorizontalAlignment="Right" FlowDirection="RightToLeft"  Content="إضافة رقم بطاقة " Background="#599DCC" Foreground="Black"   />
                 <TextBox Grid.Row="3" Grid.Column="1"  Name="card_number"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="رقم البطاقة" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Bottom"  VerticalContentAlignment="Center" Margin="50,0,0,0" ></TextBox>
 
             </StackPanel>
@@ -59,14 +59,14 @@
 
             <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center">
 
-                <Button VerticalAlignment="Bottom" Width="150" Click="add_Click_2" Name="add" Visibility="Visible"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="اضــافــة" Margin="0,0,50,0"  />
+                <Button VerticalAlignment="Bottom" Width="150" Click="add_Click_2" Name="add" Visibility="Visible"  BorderBrush="Black" Background="#599DCC" Foreground="Black" Content="اضــافــة" Margin="0,0,50,0"  />
 
                 <Button  VerticalAlignment="Bottom" Width="150"  Click="cancel_Click" Name="cancel" Visibility="Visible"  BorderBrush="Black" Background="#CA995B" Foreground="Black" Content="إلـــــغـــــاء"    />
 
             <!--<Button VerticalAlignment="Bottom" Width="150" Name="add_engine_info" Click="add_engine_info_Click" Visibility="Visible"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="إضافة بيانات المحرك" Margin="50,0,0,0"   />-->
             </StackPanel>
-            <Button VerticalAlignment="Bottom" Width="150" Name="add_engine_info" Click="add_engine_info_Click" Visibility="Visible"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="إضافة بيانات المحرك" Grid.Column="0" Grid.Row="5"   />
-            <Button VerticalAlignment="Bottom" Width="150" Name="result" Click="result_Click" Visibility="Visible"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="  نتائج اختبار المحرك  " Grid.Column="0" Grid.Row="7"   />
+            <Button VerticalAlignment="Bottom" Width="150" Name="add_engine_info" Click="add_engine_info_Click" Visibility="Visible"  BorderBrush="Black" Background="#599DCC" Foreground="Black" Content="إضافة بيانات المحرك" Grid.Column="0" Grid.Row="5"   />
+            <Button VerticalAlignment="Bottom" Width="150" Name="result" Click="result_Click" Visibility="Visible"  BorderBrush="Black" Background="#599DCC" Foreground="Black" Content="  نتائج اختبار المحرك  " Grid.Column="0" Grid.Row="7"   />
 
 
 

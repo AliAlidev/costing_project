@@ -522,6 +522,33 @@
     <Resource Include="image\R3.jpg" />
     <Resource Include="image\R4.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\.تكاليفpng.png" />
+    <Resource Include="image\OIP.jpg" />
+    <Resource Include="image\t1.jpg" />
+    <Resource Include="image\t2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\t7.jpg" />
+    <Resource Include="image\t8.jpg" />
+    <Resource Include="image\y1.jpg" />
+    <Resource Include="image\y2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\h1.jpg" />
+    <Resource Include="image\h2.jpg" />
+    <Resource Include="image\h3.jpg" />
+    <Resource Include="image\h5.jpg" />
+    <Resource Include="image\h6.jpg" />
+    <Resource Include="image\j1.jpg" />
+    <Resource Include="image\j2.jpg" />
+    <Resource Include="image\j4.jpg" />
+    <Resource Include="image\j5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\a1.jpg" />
+    <Resource Include="image\a2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\build\Microsoft.TeamFoundationServer.ExtendedClient.targets" Condition="Exists('..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\build\Microsoft.TeamFoundationServer.ExtendedClient.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

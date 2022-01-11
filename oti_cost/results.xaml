@@ -9,7 +9,7 @@
         mc:Ignorable="d" Width="1600" Height="900"
         Title="results" WindowState="Maximized">
     <Grid>
-        <Image Source="/image/aa.jpg" Stretch="Fill"></Image>
+        <Image Source="/image/J5.jpg" Stretch="Fill"></Image>
 
         <Grid ShowGridLines="False">
             <Grid.ColumnDefinitions>
@@ -41,7 +41,7 @@
                         <DropShadowEffect Color="#94A76D" ShadowDepth="10" />
                     </Border.Effect>-->
                 </Border>
-                <Label Grid.Row="2" VerticalContentAlignment="Center" FontWeight="DemiBold" Content="نتائج اختبار المحرك بعد الصيانة  "  FontSize="16"  Foreground="DarkGreen" FlowDirection="RightToLeft" HorizontalAlignment="Center"   />
+                <Label Grid.Row="2" VerticalContentAlignment="Center" FontWeight="DemiBold" Content="نتائج اختبار المحرك بعد الصيانة  "  FontSize="16"  Foreground="#0063C0" FlowDirection="RightToLeft" HorizontalAlignment="Center"   />
                 <!--<TextBox Padding="10,20,0,0"  BorderBrush="WhiteSmoke" BorderThickness="3" Margin="30,0,30,0" Grid.Row="3" Grid.RowSpan="2"  x:Name="rhffth"  materialDesign:HintAssist.Hint="نتائج اختبار المحرك بعد الصيانة ............................................" Text="" VerticalContentAlignment="Top"  FlowDirection="RightToLeft" TextWrapping="WrapWithOverflow"/>-->
 
                 <TextBox Padding="10,20,0,0" TextWrapping="Wrap"
@@ -52,7 +52,7 @@ AcceptsReturn="True" BorderBrush="WhiteSmoke" BorderThickness="3" Margin="30,0,3
 
                 <StackPanel Orientation="Horizontal" Grid.Row="7" HorizontalAlignment="Center" FlowDirection="RightToLeft"  >
 
-                    <Button x:Name="add" Click="add_Click" Content="حفظ" Margin="0,0,100,0" Width="130" Background="#9EC43D"  Foreground="Black"></Button>
+                    <Button x:Name="add" Click="add_Click" Content="حفظ" Margin="0,0,100,0" Width="130" Background="#599DCC"  Foreground="Black"></Button>
 
                     <Button Content="إلغاء" Name="delete" Click="delete_Click" Width="130" Background="#CA995B"  Foreground="Black" ></Button>
                 </StackPanel>

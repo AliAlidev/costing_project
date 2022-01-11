@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="team_work_PC" Height="900" Width="1600" WindowState="Maximized" >
     <Grid >
-        <Image  Stretch="Fill" Source="./image/aa.jpg"  />
+        <Image  Stretch="Fill" Source="./image/J5.jpg"  />
 
 
         <Grid>
@@ -50,7 +50,7 @@
 
 
             <Label Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" FlowDirection="RightToLeft" Content=" الرجاء ادخال المعلومات من هنا :  "  Foreground="DarkGreen" HorizontalAlignment="Center"   />
-            <Label Grid.Row="5" Grid.Column="4"  FlowDirection="RightToLeft" Content="فريق العمل " Foreground="DarkGreen" FontSize="20" HorizontalAlignment="Center"   />
+            <Label Grid.Row="5" Grid.Column="4"  FlowDirection="RightToLeft" Content="فريق العمل " Foreground="#0063C0" FontSize="20" HorizontalAlignment="Center"   />
 
             <TextBox Margin="50,0,50,0" Grid.Row="6" Grid.Column="4" Name="worker_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="اسم العامل " Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
@@ -63,7 +63,7 @@ VerticalScrollBarVisibility="Visible"
 AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
             <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="13" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" >
-                <Button Click="Button_Click" Content="إضــــــــــافــــــــــة" BorderBrush="Black" Margin="0,0,50,0"  Background="#9EC43D" Foreground="Black" ></Button>
+                <Button Click="Button_Click" Content="إضــــــــــافــــــــــة" BorderBrush="Black" Margin="0,0,50,0"  Background="#599DCC" Foreground="Black" ></Button>
                 <Button Click="Button_Click_2" Content="الــــــــــغــــــــــاء" BorderBrush="Black"   Background="#CA995B" Foreground="Black"></Button>
 
             </StackPanel>
@@ -88,7 +88,7 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/
                     <Style TargetType="{x:Type DataGridColumnHeader}">
 
                         <Setter Property="Focusable" Value="False"></Setter>
-                        <Setter Property="Background" Value="#9FB754"></Setter>
+                        <Setter Property="Background" Value="#599DCC"></Setter>
                         <Setter Property="FontWeight" Value="Bold"></Setter>
                         <Setter Property="FlowDirection" Value="RightToLeft"></Setter>
                         <Setter Property="Padding" Value="5"></Setter>

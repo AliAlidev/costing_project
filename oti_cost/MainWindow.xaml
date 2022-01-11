@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" WindowState="Maximized"  >
     <Grid>
-        <Image Stretch="Fill" Source="./image/R2.jpg"  ></Image>
+        <Image Stretch="Fill" Source="./image/h5.jpg"  ></Image>
 
         <Grid ShowGridLines="False" >
             <Grid.ColumnDefinitions>
@@ -20,17 +20,17 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="6*"></RowDefinition>
+                <RowDefinition Height="8*"></RowDefinition>
+                <RowDefinition Height="7*"></RowDefinition>
+                <RowDefinition Height="7*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Button Content="بــطــاقـة مــحــرك" FlowDirection="RightToLeft" Grid.Column="3" Grid.Row="1" Background="YellowGreen"  HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="Black" Height="40" Name="engine_card" Click="engine_card_Click" ></Button>
-            <Button Content=" بــطــاقـة مــشــروع " FlowDirection="RightToLeft" Grid.Column="3" Grid.Row="2" Background="YellowGreen" HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="Black" Height="40" Name="jhv" Click="jhv_Click"></Button>
-            <Button Visibility="Hidden"  Content="حــسـاب تــكــلـفــة مــشــروع " FlowDirection="RightToLeft" Grid.Column="3" Grid.Row="3" Background="YellowGreen"  HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="Black" Height="40" ></Button>
+            <Button Content="بــطــاقـة مــحــرك" FlowDirection="RightToLeft" Grid.Column="3" Grid.Row="2" Background="#599DCC"  HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="Black" Height="40" Name="engine_card" Click="engine_card_Click" ></Button>
+            <Button Content=" بــطــاقـة مــشــروع " FlowDirection="RightToLeft" Grid.Column="3" Grid.Row="3" Background="#CA995B" HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="Black" Height="40" Name="jhv" Click="jhv_Click"></Button>
+            <Button Visibility="Hidden"  Content="حــسـاب تــكــلـفــة مــشــروع " FlowDirection="RightToLeft" Grid.Column="3" Grid.Row="3" Background="#CF4152" HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="Black" Height="40" ></Button>
         </Grid>
     </Grid>
 
