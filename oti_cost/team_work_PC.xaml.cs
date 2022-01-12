@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace oti_cost
 {
@@ -34,7 +23,7 @@ namespace oti_cost
         {
             public string worker_name { get; set; }
 
-            public string index_number { get; set; }
+            public string self_number { get; set; }
 
             public string category { get; set; }
 
@@ -52,7 +41,7 @@ namespace oti_cost
                 ok = new oknote("يجب إدخال اسم  العامل !");
                 ok.ShowDialog();
             }
-            else if (index_number.Text == "")
+            else if (self_number.Text == "")
             {
                 ok = new oknote("يجب إدخال الرقم الذاتي   !");
                 ok.ShowDialog();
@@ -142,7 +131,7 @@ namespace oti_cost
                     this.teamgrid.Items.Add((object)new team_work_PC.Add()
                     {
                         worker_name = this.worker_name.Text,
-                        index_number = this.index_number.Text,
+                        self_number = this.self_number.Text,
                         category = this.category.Text,
                         work_done = this.work_done.Text,
                         hours_number = this.hours_number.Text,
@@ -152,7 +141,7 @@ namespace oti_cost
                     });
 
                     this.worker_name.Text = "";
-                    this.index_number.Text = "";
+                    this.self_number.Text = "";
                     this.category.Text = "";
                     this.work_done.Text = "";
                     this.hours_number.Text = "";
@@ -174,5 +163,79 @@ namespace oti_cost
         {
             this.Close();
         }
-    }
+
+        private void add_Click(object sender, RoutedEventArgs e)
+        {
+
+            n = new note("هل أنت متأكد بأنك تريد القيام بهذه العملية ؟ .. ( الرجاء التأكد من صحة البيانات المدخلة قبل الموافقة )");
+            n.ShowDialog();
+
+
+
+            if (sharedvariables.confirmationmessagebox == "ok")
+            {
+
+
+
+                IEnumerable items = (IEnumerable)teamgrid.Items;
+
+                foreach (object obj1 in items)
+                {
+                    try
+                    {
+
+                        string str1 = (string)obj1.GetType().GetProperty("worker_name").GetValue(obj1, (object[])null);
+                        object str2 = obj1.GetType().GetProperty("self_number").GetValue(obj1, (object[])null);
+                        string str3 = (string)obj1.GetType().GetProperty("category").GetValue(obj1, (object[])null);
+                        string str4 = (string)obj1.GetType().GetProperty("work_done").GetValue(obj1, (object[])null);
+                        object str5 = obj1.GetType().GetProperty("hours_number").GetValue(obj1, (object[])null);
+                        string str6 = (string)obj1.GetType().GetProperty("notes").GetValue(obj1, (object[])null);
+
+                        string query = "insert into work_team(worker_name, self_number, category, work_done , hours_number , notes , project_number ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + card_number.Text + "' )";
+
+                        DBVariables.executenq(query);
+
+
+                    }
+                    catch (System.Exception)
+                    {
+
+                        ok = new oknote("حدثت مشكلة أثناء عملية الحفظ");
+                        ok.ShowDialog();
+                    }
+
+                }
+
+                ok = new oknote("تم إدخال البيانات بنجاح");
+                ok.ShowDialog();
+
+                worker_name.Text = "";
+                work_done.Text = "";
+                self_number.Text = "";
+                category.Text = "";
+                notes.Text = "";
+                hours_number.Text = "";
+
+
+                this.teamgrid.Items.Clear();
+            }
+            else
+            {
+                sharedvariables.confirmationmessagebox = "";
+                ok = new oknote("لم يتم إدخال البيانات المطلوبة !");
+                ok.ShowDialog();
+
+                worker_name.Text = "";
+                work_done.Text = "";
+                self_number.Text = "";
+                category.Text = "";
+                notes.Text = "";
+                hours_number.Text = "";
+
+
+            }
+
+
+        }
+        }
     }

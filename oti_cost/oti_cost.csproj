@@ -309,12 +309,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="card1.xaml.cs">
-      <DependentUpon>card1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="costt2.xaml.cs">
-      <DependentUpon>costt2.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DBVariables.cs" />
     <Compile Include="engine_card.xaml.cs">
       <DependentUpon>engine_card.xaml</DependentUpon>
@@ -325,15 +319,6 @@
     <Compile Include="material_used_PC.xaml.cs">
       <DependentUpon>material_used_PC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="motor1.xaml.cs">
-      <DependentUpon>motor1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="motor2.xaml.cs">
-      <DependentUpon>motor2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="motor3.xaml.cs">
-      <DependentUpon>motor3.xaml</DependentUpon>
-    </Compile>
     <Compile Include="note.xaml.cs">
       <DependentUpon>note.xaml</DependentUpon>
     </Compile>
@@ -342,9 +327,6 @@
     </Compile>
     <Compile Include="project_card.xaml.cs">
       <DependentUpon>project_card.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="project_cost.xaml.cs">
-      <DependentUpon>project_cost.xaml</DependentUpon>
     </Compile>
     <Compile Include="report1.xaml.cs">
       <DependentUpon>report1.xaml</DependentUpon>
@@ -359,27 +341,6 @@
     <Compile Include="team_work_PC.xaml.cs">
       <DependentUpon>team_work_PC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Win1.xaml.cs">
-      <DependentUpon>Win1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Work1.xaml.cs">
-      <DependentUpon>Work1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Work2.xaml.cs">
-      <DependentUpon>Work2.xaml</DependentUpon>
-    </Compile>
-    <Page Include="card1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="cost1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="costt2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="engine_card.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -396,26 +357,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="cost1.xaml.cs">
-      <DependentUpon>cost1.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="material_used_PC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="motor1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="motor2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="motor3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -428,10 +374,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="project_card.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="project_cost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -448,18 +390,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="team_work_PC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Win1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Work1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Work2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -490,14 +420,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="c1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="te.png" />
-    <Resource Include="team.jpg" />
-    <Resource Include="tte.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="otii.PNG" />

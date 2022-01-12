@@ -41,7 +41,7 @@ namespace oti_cost
 
             string id0 = "";
             string res1 = null;
-            string query = "select project_number from project_information order by id desc limit 1 ";
+            string query = "select project_number from project_card order by id desc limit 1 ";
             string res = DBVariables.executescaler(query);
             if (res != null)
             {
@@ -50,7 +50,7 @@ namespace oti_cost
 
                 verify:
                 id0 = res1;
-                query = "select count(*) from project_information where project_number= " + (int.Parse(res1));
+                query = "select count(*) from project_card where project_number= " + (int.Parse(res1));
                 res1 = DBVariables.executescaler(query);
 
                 if (int.Parse(res1) > 0)
@@ -66,7 +66,7 @@ namespace oti_cost
 
             }
 
-            //project_number.Text = id0;
+            card_number.Text = id0;
         }
 
         private void add_Click(object sender, RoutedEventArgs e)
@@ -175,16 +175,10 @@ namespace oti_cost
                     try
                     {
 
-                        DBVariables.executenq("INSERT INTO engine_card (card_number , dept , sender_name ,  receiver_name , received_date ,sent_date )  VALUES('" +
-                               //project_number.Text +
-                               "' , '" + team_name.Text +
-                               "' , '" + project_name.Text +
-                                "' , '" + dept_name.Text +
-                                  "' , '" + help_team.Text +
-                              "' , '" + governorate.Text +
-                              "' , '" + start_date.Text +
+                       string query = "insert into project_card(team_name, project_name, dept, help_team , governorate , start_date , finsh_date , project_number) values('" + team_name.Text + "','" + project_name.Text + "','" + dept_name.Text + "','" + help_team.Text+ "','" + governorate.Text + "','" + start_date.Text + "','" + finsh_date.Text + "','" + card_number.Text+ "' )";
 
-                               "' , '" + finsh_date.Text + "' ) ");
+                        DBVariables.executenq(query);
+
 
                         sharedvariables.confirmationmessagebox = "";
                         ok = new oknote("تم الإدخال بنجاح");
@@ -238,13 +232,15 @@ namespace oti_cost
         private void addmaterial_Click(object sender, RoutedEventArgs e)
         {
             material_used_PC m = new material_used_PC();
+            m.card_number.Text = card_number.Text;
             m.ShowDialog();
         }
 
         private void addteam_Click(object sender, RoutedEventArgs e)
         {
-            team_work_PC o = new team_work_PC();
-            o.ShowDialog();
+            team_work_PC tw = new team_work_PC();
+            tw.card_number.Text = card_number.Text;
+            tw.ShowDialog();
         }
 
       

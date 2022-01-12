@@ -235,12 +235,10 @@ namespace oti_cost
                 if (sharedvariables.confirmationmessagebox == "ok")
                 {
 
+                    string query = "update engine_card set engine_sequence_number='" + engine_sequence_number.Text + "', engine_power='" + engine_power.Text + "', engine_rpm ='" + engine_rpm.Text + "' where card_number=" + card_number1.Text;
 
-                    DBVariables.executenq("INSERT INTO engine_info (  engine_sequence_number , engine_power , engine_rpm  )  VALUES('" +
-                        engine_sequence_number.Text +
-                           "' , '" + engine_power.Text +
-                           "' , '" + engine_rpm.Text + "' , '" + card_number1.Text + "') ");
-
+                    DBVariables.executenq(query);
+                      
                     IEnumerable items = (IEnumerable)materialgrid.Items;
                     IEnumerable items1 = (IEnumerable)workersgrid.Items;
 
@@ -253,10 +251,10 @@ namespace oti_cost
                             string str2 = (string)obj1.GetType().GetProperty("unit").GetValue(obj1, (object[])null);
                             string str3 = (string)obj1.GetType().GetProperty("quantity").GetValue(obj1, (object[])null);
 
-                            DBVariables.executenq("INSERT INTO material_used_ec (material_name, unit, quantity , card_number )VALUES ('" + str1
-                                + "' , '" + str2 +
-                                "','" + str3 + "','" + card_number1.Text +
-                                " )");
+
+                             query = "insert into material_used_ec(material_name, unit, quantity, card_number ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + card_number1.Text  + "' )";
+
+                            DBVariables.executenq(query);
 
 
 
@@ -279,9 +277,9 @@ namespace oti_cost
                             string str2 = (string)obj1.GetType().GetProperty("worker_name").GetValue(obj1, (object[])null);
                             object obj2 = obj1.GetType().GetProperty("work_hours").GetValue(obj1, (object[])null);
 
-                            DBVariables.executenq("INSERT INTO maintenance_workers_ec (operation, worker_name, work_hours , card_number )VALUES ('" + str1
-                                + "' , '" + str2 +
-                                "','" + obj2 + "','" + card_number1.Text + "' )");
+                            query = "insert into maintenance_workers_ec(operation, worker_name, work_hours, card_number ) values('" + str1 + "','" + str2 + "','" + obj2 + "','" + card_number1.Text + "' )";
+
+                            DBVariables.executenq(query);
 
 
 

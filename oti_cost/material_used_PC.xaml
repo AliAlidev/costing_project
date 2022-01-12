@@ -43,7 +43,7 @@
                 <RowDefinition Height="48*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Border Grid.Row="4" Grid.RowSpan="10" Grid.Column="4" BorderBrush="GhostWhite" Background="WhiteSmoke">
+            <Border Grid.Row="4" Grid.RowSpan="11" Grid.Column="4" BorderBrush="GhostWhite" Background="WhiteSmoke">
                 <!--<Border.Effect>
                     <DropShadowEffect></DropShadowEffect>
                 </Border.Effect>-->
@@ -53,7 +53,11 @@
 
             <Label Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" FlowDirection="RightToLeft" Content=" الرجاء ادخال المعلومات من هنا :  "  Foreground="DarkGreen" HorizontalAlignment="Center"   />
             <Label Grid.Row="5" Grid.Column="4"  FlowDirection="RightToLeft" Content="المواد المستخدمة " Foreground="#0063C0" FontSize="20" HorizontalAlignment="Center"   />
+            <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="4" FlowDirection="RightToLeft" Margin="0,0,50,0" VerticalAlignment="Bottom">
 
+                <Label  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
+                <TextBox   x:Name="card_number" Text="8" HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"  Focusable="False" BorderThickness="0" BorderBrush="Transparent" FlowDirection="RightToLeft"    />
+            </StackPanel>
             <TextBox Margin="50,0,50,0" Grid.Row="6" Grid.Column="4" Name="material_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="اسم المادة " Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
             <TextBox Margin="50,0,50,0" Grid.Row="7" Grid.Column="4" Name="index_number" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" رقم الفهرسة "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
@@ -65,9 +69,9 @@
 VerticalScrollBarVisibility="Visible" 
 AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="62" VerticalAlignment="Top" Grid.RowSpan="2"/>
 
-            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="15" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="14" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" >
                 <Button Click="Button_Click" Content="إضــــــــــافــــــــــة" BorderBrush="Black" Margin="0,0,50,0"  Background="#599DCC" Foreground="Black" ></Button>
-                <Button Click="Button_Click_1" Content="الــــــــــغــــــــــاء" BorderBrush="Black"   Background="#CA995B" Foreground="Black"></Button>
+                <Button Click="Button_Click_2" Content="الــــــــــغــــــــــاء" BorderBrush="Black"   Background="#CA995B" Foreground="Black"></Button>
 
             </StackPanel>
 
@@ -99,6 +103,7 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                     </Style>
                 </DataGrid.Resources>
             </DataGrid>
+            <Button  Click="add_Click" Name="add" Visibility="Visible" VerticalAlignment="Bottom"   BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  Grid.Column="4"  Grid.Row="15" HorizontalAlignment="Center" />
 
 
         </Grid>

@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace oti_cost
 {
@@ -196,10 +185,97 @@ namespace oti_cost
             this.Close();
         }
 
-        //private void Button_Click_1(object sender, RoutedEventArgs e)
-        //{
-        //    this.Close();
+        private void add_Click(object sender, RoutedEventArgs e)
+        {
+            n = new note("هل أنت متأكد بأنك تريد القيام بهذه العملية ؟ .. ( الرجاء التأكد من صحة البيانات المدخلة قبل الموافقة )");
+            n.ShowDialog();
 
-        //}
+
+
+            if (sharedvariables.confirmationmessagebox == "ok")
+            {
+
+
+
+                IEnumerable items = (IEnumerable)gridmaterial.Items;
+
+                foreach (object obj1 in items)
+                {
+                    try
+                    {
+
+
+
+
+
+                        string str1 = (string)obj1.GetType().GetProperty("material_name").GetValue(obj1, (object[])null);
+                        object str2 = obj1.GetType().GetProperty("index_number").GetValue(obj1, (object[])null);
+                        string str3 = (string)obj1.GetType().GetProperty("unit").GetValue(obj1, (object[])null);
+                        string str4 = (string)obj1.GetType().GetProperty("quantity").GetValue(obj1, (object[])null);
+                        object str5 = obj1.GetType().GetProperty("unit_price").GetValue(obj1, (object[])null);
+                        object str6 = obj1.GetType().GetProperty("total_price").GetValue(obj1, (object[])null);
+                        string str7 = (string)obj1.GetType().GetProperty("notes").GetValue(obj1, (object[])null);
+
+                        string query = "insert into material_used(material_name, index_number, unit, quantity , unit_price , total_price , notes,project_number ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + str7 + "','" + card_number.Text + "' )";
+
+                        DBVariables.executenq(query);
+
+
+                    }
+                    catch (System.Exception)
+                    {
+
+                        ok = new oknote("حدثت مشكلة أثناء عملية الحفظ");
+                        ok.ShowDialog();
+                    }
+
+                }
+
+                ok = new oknote("تم إدخال البيانات بنجاح");
+                ok.ShowDialog();
+
+                material_name.Text = "";
+                index_number.Text = "";
+                unit.Text = "";
+                quantity.Text = "";
+                notes.Text = "";
+                total_price.Text = "";
+                unit_price.Text = "";
+
+
+                this.gridmaterial.Items.Clear();
+            }
+            else
+            {
+                sharedvariables.confirmationmessagebox = "";
+                ok = new oknote("لم يتم إدخال البيانات المطلوبة !");
+                ok.ShowDialog();
+
+                material_name.Text = "";
+                index_number.Text = "";
+                unit.Text = "";
+                quantity.Text = "";
+                notes.Text = "";
+                total_price.Text = "";
+                unit_price.Text = "";
+
+
+            }
+
+
+        }
+
+    
+
+    private void Button_Click_2(object sender, RoutedEventArgs e)
+    {
+            this.Close();
     }
+
+    //private void Button_Click_1(object sender, RoutedEventArgs e)
+    //{
+    //    this.Close();
+
+    //}
+}
 }

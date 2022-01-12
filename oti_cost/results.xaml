@@ -43,10 +43,14 @@
                 </Border>
                 <Label Grid.Row="2" VerticalContentAlignment="Center" FontWeight="DemiBold" Content="نتائج اختبار المحرك بعد الصيانة  "  FontSize="16"  Foreground="#0063C0" FlowDirection="RightToLeft" HorizontalAlignment="Center"   />
                 <!--<TextBox Padding="10,20,0,0"  BorderBrush="WhiteSmoke" BorderThickness="3" Margin="30,0,30,0" Grid.Row="3" Grid.RowSpan="2"  x:Name="rhffth"  materialDesign:HintAssist.Hint="نتائج اختبار المحرك بعد الصيانة ............................................" Text="" VerticalContentAlignment="Top"  FlowDirection="RightToLeft" TextWrapping="WrapWithOverflow"/>-->
+                <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" FlowDirection="RightToLeft" Margin="0,0,50,0" VerticalAlignment="Bottom">
 
+                    <Label  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
+                    <TextBox   x:Name="card_number" Text="8" HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"  Focusable="False" BorderThickness="0" BorderBrush="Transparent" FlowDirection="RightToLeft"    />
+                </StackPanel>
                 <TextBox Padding="10,20,0,0" TextWrapping="Wrap"
 VerticalScrollBarVisibility="Visible"
-AcceptsReturn="True" BorderBrush="WhiteSmoke" BorderThickness="3" Margin="30,0,30,0" Grid.Row="3" Grid.RowSpan="2"  x:Name="rhffth"  materialDesign:HintAssist.Hint="نتائج اختبار المحرك بعد الصيانة ............................................" Text="" VerticalContentAlignment="Top"  FontSize="16" FlowDirection="RightToLeft" />
+AcceptsReturn="True" BorderBrush="WhiteSmoke" BorderThickness="3" Margin="30,0,30,0" Grid.Row="3" Grid.RowSpan="2"  x:Name="resultafter"  materialDesign:HintAssist.Hint="نتائج اختبار المحرك بعد الصيانة ............................................" Text="" VerticalContentAlignment="Top"  FontSize="16" FlowDirection="RightToLeft" />
                 <TextBox Grid.Row="5" VerticalAlignment="Center" FontSize="16"  Margin="100,0,100,0"  x:Name="sender_after" materialDesign:HintAssist.Hint="اسم المسلم بعد الصيانة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FlowDirection="RightToLeft"  />
                 <TextBox Grid.Row="6" VerticalAlignment="Top" x:Name="receiver_after" FontSize="16"  Margin="100,0,100,0" materialDesign:HintAssist.Hint="اسم المستلم بعد الصيانة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft"  />
 

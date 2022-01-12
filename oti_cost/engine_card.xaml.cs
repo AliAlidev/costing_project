@@ -32,11 +32,7 @@ namespace oti_cost
             Height = h;
         }
 
-        private void next_Click(object sender, RoutedEventArgs e)
-        {
-            Win1 w1 = new Win1();
-            w1.ShowDialog();
-        }
+    
 
         private void add_Click_2(object sender, RoutedEventArgs e)
         {
@@ -114,7 +110,6 @@ namespace oti_cost
                         ok = new oknote("تم الإدخال بنجاح");
                         ok.ShowDialog();
 
-                        card_number.Text = "";
                         dept.Text = "";
                         sender_name.Text = "";
                         sent_date.Text = "";
@@ -371,31 +366,7 @@ namespace oti_cost
             
         }
 
-        private void next_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void add_Click_1(object sender, RoutedEventArgs e)
-        {
-            motor1 m1 = new motor1();
-            m1.ShowDialog();
-        }
-
-        private void card_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void card1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void card2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+     
 
         private void cancel_Click(object sender, RoutedEventArgs e)
         {
@@ -404,7 +375,9 @@ namespace oti_cost
 
         private void add_engine_info_Click(object sender, RoutedEventArgs e)
         {
+            
             engine_info en = new engine_info();
+            en.card_number1.Text = card_number.Text;
             en.ShowDialog();
         }
 
@@ -416,6 +389,7 @@ namespace oti_cost
         private void result_Click(object sender, RoutedEventArgs e)
         {
             results r1 = new results();
+            r1.card_number.Text = card_number.Text;
             r1.ShowDialog();
         }
     }

@@ -33,7 +33,7 @@ namespace oti_cost
 
         private void add_Click(object sender, RoutedEventArgs e)
         {
-            if (rhffth.Text == "")
+            if (resultafter.Text == "")
             {
                 ok = new oknote("يجب إدخال نتائج الاختبار   !    ");
                 ok.ShowDialog();
@@ -60,19 +60,20 @@ namespace oti_cost
                     try
                     {
 
-                        DBVariables.executenq("INSERT INTO engine_card (rhffth , sender_after , receiver_after )  VALUES('" +
-                               //project_number.Text +
-                               "' , '" + rhffth.Text +
-                               "' , '" + sender_after.Text +
 
-                               "' , '" + receiver_after.Text + "' ) ");
+                        string query = "update engine_card set results='" + resultafter.Text + "', sender_after='" + sender_after.Text + "', receiver_after ='" + receiver_after.Text + "' where card_number=" + card_number.Text;
+
+                        DBVariables.executenq(query);
+
+
+                        
 
                         sharedvariables.confirmationmessagebox = "";
                         ok = new oknote("تم الإدخال بنجاح");
                         ok.ShowDialog();
 
                         //project_number.Text = "";
-                        rhffth.Text = "";
+                        resultafter.Text = "";
                         sender_after.Text = "";
                         receiver_after.Text = "";
                       
@@ -96,7 +97,7 @@ namespace oti_cost
                     ok = new oknote("لم يتم إدخال البيانات ");
                     ok.ShowDialog();
                     //project_number.Text = "";
-                    rhffth.Text = "";
+                    resultafter.Text = "";
                     sender_after.Text = "";
                     receiver_after.Text = "";
                   
