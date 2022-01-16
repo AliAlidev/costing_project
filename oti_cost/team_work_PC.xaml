@@ -43,7 +43,7 @@
                 <RowDefinition Height="48*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Border Grid.Row="4" Grid.RowSpan="10" Grid.Column="4" BorderBrush="GhostWhite" Background="WhiteSmoke">
+            <Border Grid.Row="4" Grid.RowSpan="10" Grid.Column="4"  BorderBrush="GhostWhite" Background="WhiteSmoke">
                
             </Border>
 
@@ -68,8 +68,8 @@ VerticalScrollBarVisibility="Visible"
 AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
             <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="13" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" >
-                <Button Click="Button_Click" Content="إضــــــــــافــــــــــة" BorderBrush="Black" Margin="0,0,50,0"  Background="#599DCC" Foreground="Black" ></Button>
-                <Button Click="Button_Click_2" Content="الــــــــــغــــــــــاء" BorderBrush="Black"   Background="#CA995B" Foreground="Black"></Button>
+                <Button Click="Button_Click" Content="إضــــــــــافــــــــــة" BorderBrush="Black" Margin="0,0,50,0"  Background="#599DCC" Foreground="Black" FontSize="19" ></Button>
+                <Button Click="Button_Click_2" Content="الــــــــــغــــــــــاء" BorderBrush="Black"   Background="#CA995B" Foreground="Black" FontSize="19" ></Button>
 
             </StackPanel>
 
@@ -81,10 +81,10 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="اسم العامل" Binding="{Binding worker_name}" IsReadOnly="True" CanUserSort="True" Width="150"   
  ></DataGridTextColumn>
-                    <DataGridTextColumn Header="الرقم الذاتي" Binding="{Binding index_number}" IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Header="الرقم الذاتي" Binding="{Binding self_number}" IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
                     <DataGridTextColumn Header="الفئة" Binding="{Binding category}" IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
                     <DataGridTextColumn Header="العمل المنجز" Binding="{Binding work_done}"  IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
-                    <DataGridTextColumn Header="عدد ساعات العمل" Binding="{Binding hours_number}" IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
+                    <DataGridTextColumn Header="عدد ساعات العمل" Binding="{Binding hours_number}" IsReadOnly="True" CanUserSort="True" Width="110"></DataGridTextColumn>
                     <DataGridTextColumn Header="ملاحظات"  Binding="{Binding notes}"  IsReadOnly="True" CanUserSort="True" Width="160"></DataGridTextColumn>
 
                 </DataGrid.Columns>
@@ -105,7 +105,7 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/
                 </DataGrid.Resources>
             </DataGrid>
 
-            <Button  Click="add_Click" Name="add" Visibility="Visible"   BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  Grid.Column="4"  Grid.Row="15" HorizontalAlignment="Center" />
+            <Button  Click="add_Click" Name="add" Visibility="Visible" FontSize="19"  BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  Grid.Column="4"  Grid.Row="15" HorizontalAlignment="Center" />
 
 
         </Grid>

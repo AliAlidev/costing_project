@@ -39,6 +39,12 @@ namespace oti_cost
             i.ShowDialog();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            report1 r1 = new report1();
+            r1.ShowDialog();
+        }
+
         //private void next_Click(object sender, RoutedEventArgs e)
         //{
         //    bool msg = false;

@@ -70,8 +70,8 @@ VerticalScrollBarVisibility="Visible"
 AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="62" VerticalAlignment="Top" Grid.RowSpan="2"/>
 
             <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="14" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" >
-                <Button Click="Button_Click" Content="إضــــــــــافــــــــــة" BorderBrush="Black" Margin="0,0,50,0"  Background="#599DCC" Foreground="Black" ></Button>
-                <Button Click="Button_Click_2" Content="الــــــــــغــــــــــاء" BorderBrush="Black"   Background="#CA995B" Foreground="Black"></Button>
+                <Button Click="Button_Click" Content="إضــــــــــافــــــــــة" BorderBrush="Black" Margin="0,0,50,0"  Background="#599DCC" Foreground="Black" FontSize="18" ></Button>
+                <Button Click="Button_Click_2" Content="الــــــــــغــــــــــاء" BorderBrush="Black"   Background="#CA995B" Foreground="Black" FontSize="18"></Button>
 
             </StackPanel>
 
@@ -103,7 +103,7 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                     </Style>
                 </DataGrid.Resources>
             </DataGrid>
-            <Button  Click="add_Click" Name="add" Visibility="Visible" VerticalAlignment="Bottom"   BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  Grid.Column="4"  Grid.Row="15" HorizontalAlignment="Center" />
+            <Button  Click="add_Click" Name="add" Visibility="Visible" VerticalAlignment="Bottom"   BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  Grid.Column="4"  Grid.Row="15" HorizontalAlignment="Center" FontSize="20" />
 
 
         </Grid>

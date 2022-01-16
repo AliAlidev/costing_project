@@ -1,0 +1,52 @@
+﻿<Window x:Class="oti_cost.motor2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+
+        xmlns:local="clr-namespace:oti_cost"
+        mc:Ignorable="d"
+        Title="motor2" Height="903" Width="1600">
+    <Grid  Margin="0,1,2,-21">
+        <TextBlock  FlowDirection="RightToLeft" HorizontalAlignment="Center" Text="المواد المستخدمة " FontSize="25" FontWeight="Bold" Margin="720,54,576,792" Width="304"/>
+        <Button Margin="627,464,808,377" Content="إضافة  " Background="YellowGreen" Foreground="Black" Height="Auto" RenderTransformOrigin="1.12,-0.702" Click="Button_Click_1" />
+
+        <Button Margin="627,714,808,118" Name="next"  Click="next_Click_1" Content="الــتــالــــي" Background="YellowGreen" Foreground="Black"  Height="Auto" RenderTransformOrigin="0.583,-0.285" />
+        <Button Margin="627,649,808,184" Name="delete"  Content="حـــــــــــــــذف" Background="YellowGreen" Foreground="black" Height="Auto" RenderTransformOrigin="1.12,-0.702" Click="delete_Click"   />
+
+        <Button Name="edit" Content="تــعــديـــــل" Background="YellowGreen" Foreground="Black" Height="Auto" RenderTransformOrigin="1.12,-0.702" Click="edit_Click_1" Margin="627,582,808,252" />
+
+        <Button Content="حـــفـــــظ" Background="YellowGreen" Foreground="Black" Height="Auto" RenderTransformOrigin="1.12,-0.702" Click="Button_Click_2" Margin="627,519,808,321" />
+
+
+        <StackPanel Background="WhiteSmoke" Orientation="Horizontal" Margin="228,108,439,670" >
+            <TextBox BorderBrush="black" Foreground="black" x:Name="quantity" Background="WhiteSmoke" TextWrapping="WrapWithOverflow" FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint= " الكمية " Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="200,0,0,0" Width="74" RenderTransformOrigin="0.524,0.52"  />
+            <TextBox BorderBrush="black" Foreground="black" x:Name="unit" Background="WhiteSmoke" TextWrapping="Wrap"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint= "   الواحدة" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="200,0,0,-0.2"  />
+            <TextBox BorderBrush="black" Foreground="black" x:Name="material_name" Background="WhiteSmoke" TextWrapping="NoWrap" FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint= "اسم المادة" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="200,0,0,-0.2"/>
+        </StackPanel>
+        <DataGrid Focusable="False" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="WhiteSmoke" BorderBrush="Gainsboro" BorderThickness="1" Name="mygrid" FlowDirection="RightToLeft" HorizontalAlignment="Center"  Width="925" Margin="228,229,439,0" Height="211" VerticalAlignment="Top">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="YellowGreen"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="FlowDirection" Value="RightToLeft" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+
+
+                </Style>
+
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn TextOptions.TextHintingMode="Animated" Foreground="black" Header="اسم المادة"  Binding="{Binding material_name}" Width="300"/>
+                <DataGridTextColumn Foreground="black"  Header="الواحدة " Width="300" Binding="{Binding unit}"/>
+                <DataGridTextColumn Foreground="black"  Header=" الكمية" Width="*" Binding="{Binding quantity}"/>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

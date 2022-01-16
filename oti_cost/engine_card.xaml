@@ -56,19 +56,19 @@
             <TextBox Margin="99.8,0,49.4,0.2" Grid.Row="4" Grid.Column="3"  Name="dept"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="الجهة الطالبة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
             <TextBox Margin="99.8,67,49.4,0.4" Grid.Row="4" Grid.Column="3"   Name="sender_name"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="المسلم" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.RowSpan="2"></TextBox>
             <TextBox Margin="99.8,66.8,49.4,0.6"  Grid.Row="5" Grid.Column="3"    Name="receiver_name"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="المستلم" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="receiver_name_TextChanged" Grid.RowSpan="2"></TextBox>
-            <TextBox Margin="99.8,66.6,49.4,67" Grid.Row="6" Grid.Column="3"    Name="received_date"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="تاريخ الاستلام" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.RowSpan="3"></TextBox>
+            <TextBox Margin="100,0,49,46" Grid.Row="7" Grid.Column="3"    Name="received_date"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="تاريخ الاستلام" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.RowSpan="2"></TextBox>
             <TextBox Margin="99.8,0.2,49.4,0"  Grid.Row="8" Grid.Column="3"    Name="sent_date"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="تاريخ التسليم" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
 
             <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Column="3" Grid.Row="9" HorizontalAlignment="Center" Margin="59.8,0,60.4,0.4" Width="351">
 
-                <Button VerticalAlignment="Bottom" Width="150" Click="add_Click_2" Name="add" Visibility="Visible"  BorderBrush="Black" Background="#599DCC" Foreground="Black" Content="اضــافــة" Margin="0,0,50,0"  />
+                <Button VerticalAlignment="Bottom" Width="150" Click="add_Click_2" Name="add" Visibility="Visible"  BorderBrush="Black" Background="#599DCC" Foreground="Black" Content="حــفـــظ" Margin="0,0,50,0" FontSize="20" />
 
-                <Button  VerticalAlignment="Bottom" Width="150"  Click="cancel_Click" Name="cancel" Visibility="Visible"  BorderBrush="Black" Background="#CA995B" Foreground="Black" Content="إلـــــغـــــاء"    />
+                <Button  VerticalAlignment="Bottom" Width="150"  Click="cancel_Click" Name="cancel" Visibility="Visible"  BorderBrush="Black" Background="#CA995B" Foreground="Black" Content="إلـــــغـــــاء"  FontSize="20"  />
 
                 <!--<Button VerticalAlignment="Bottom" Width="150" Name="add_engine_info" Click="add_engine_info_Click" Visibility="Visible"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="إضافة بيانات المحرك" Margin="50,0,0,0"   />-->
             </StackPanel>
-            <Button Name="add_engine_info" Click="add_engine_info_Click" Visibility="Visible"  BorderBrush="Black" Background="#599DCC" Foreground="Black" Content="إضافة بيانات المحرك" Grid.Column="1" Grid.Row="5" Height="auto"  />
-            <Button  Name="result" Click="result_Click" Visibility="Visible"  BorderBrush="Black" Background="#599DCC" Foreground="Black" Content="  نتائج اختبار المحرك  " Grid.Column="1" Grid.Row="7"   Height="auto"  />
+            <Button Name="add_engine_info" Click="add_engine_info_Click" Visibility="Visible"  FontSize="25" BorderBrush="Black" Background="#0063C0" Foreground="Black" Content="إضافة بيانات المحرك" Grid.Column="1" Grid.Row="5" Height="auto"  />
+            <Button  Name="result" Click="result_Click" Visibility="Visible"  FontSize="25" BorderBrush="Black" Background="#0063C0" Foreground="Black" Content="  نتائج اختبار المحرك  " Grid.Column="1" Grid.Row="7"   Height="auto"  />
 
 
 
