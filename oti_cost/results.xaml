@@ -9,7 +9,7 @@
         mc:Ignorable="d" Width="1600" Height="900"
         Title="results" WindowState="Maximized">
     <Grid>
-        <Image Source="/image/J5.jpg" Stretch="Fill"></Image>
+        <Image Source="/image/rr.png" Stretch="Fill"></Image>
 
         <Grid ShowGridLines="False">
             <Grid.ColumnDefinitions>
@@ -18,7 +18,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <Grid Grid.Column="1" >
+            <Grid Grid.Column="0" Margin="48,0,0,0" >
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -31,6 +31,7 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
+                    
                     <ColumnDefinition Width="721*"></ColumnDefinition>
                     <ColumnDefinition Width="76*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
@@ -58,7 +59,7 @@ AcceptsReturn="True" BorderBrush="WhiteSmoke" BorderThickness="3" Margin="30,0,3
 
                     <Button x:Name="add" Click="add_Click" BorderBrush="Black" Content="حفظ" Margin="0,0,100,0" Width="130" Background="#599DCC"  Foreground="Black"  FontSize="20" ></Button>
 
-                    <Button Content="إلغاء" Name="delete" Click="delete_Click"  BorderBrush="Black" Width="130" Background="#CA995B"  Foreground="Black" FontSize="20" ></Button>
+                    <Button Content="إلغاء" Name="delete" Click="delete_Click"  BorderBrush="Black" Width="130" Background="#FBB634"  Foreground="Black" FontSize="20" ></Button>
                 </StackPanel>
                 
                 

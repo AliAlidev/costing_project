@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="engine_info"  WindowState="Maximized"   Width="1600" Height="900">
     <Grid >
-        <Image Stretch="Fill" Source="./image/J5.jpg" />
+        <Image Stretch="Fill" Source="./image/rr.png" />
 
 
         <Grid ShowGridLines="False">
@@ -87,7 +87,7 @@
 
                 <Button Content="حفظ" Name="addd" Click="addd_Click" Margin="0,0,100,0" Width="130" Background="#599DCC"   BorderBrush="Black" Foreground="Black"  FontSize="19"></Button>
 
-                <Button Content="إلغاء" Name="delet" Click="delet_Click" Width="130" Background="#CA995B"  Foreground="Black"  BorderBrush="Black" FontSize="19" ></Button>
+                <Button Content="إلغاء" Name="delet" Click="delet_Click" Width="130" Background="#FBB634"  Foreground="Black"  BorderBrush="Black" FontSize="19" ></Button>
             </StackPanel>
 
            

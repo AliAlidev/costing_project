@@ -9,42 +9,42 @@
         mc:Ignorable="d"
         Title="project_card" Height="900" Width="1600" WindowState="Maximized" >
     <Grid >
-        <Image  Stretch="Fill" Source="./image/J5.jpg" />
+        <Image  Stretch="Fill" Source="./image/rr.png" />
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="58*"></RowDefinition>
+                <RowDefinition Height="58*"></RowDefinition>
+                <RowDefinition Height="57*"></RowDefinition>
+                <RowDefinition Height="58*"></RowDefinition>
+                <RowDefinition Height="58*"></RowDefinition>
+                <RowDefinition Height="58*"></RowDefinition>
+                <RowDefinition Height="58*"></RowDefinition>
+                <RowDefinition Height="58*"></RowDefinition>
+                <RowDefinition Height="72*"></RowDefinition>
+                <RowDefinition Height="60*"></RowDefinition>
+                <RowDefinition Height="42*"></RowDefinition>
+                <RowDefinition Height="58*"></RowDefinition>
+                <RowDefinition Height="58*"></RowDefinition>
+                <RowDefinition Height="58*"></RowDefinition>
+                <RowDefinition Height="58*"></RowDefinition>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="173*"></ColumnDefinition>
+                <ColumnDefinition Width="194*"></ColumnDefinition>
 
-                <ColumnDefinition Width="330*"></ColumnDefinition>
-                <ColumnDefinition Width="315*"></ColumnDefinition>
+                <ColumnDefinition Width="350*"></ColumnDefinition>
+                <ColumnDefinition Width="274*"></ColumnDefinition>
 
                 <ColumnDefinition Width="699*"></ColumnDefinition>
                 <ColumnDefinition Width="75*"></ColumnDefinition>
 
             </Grid.ColumnDefinitions>
 
-            <Button Name="addteam" Click="addteam_Click" Content="إضافة فريق العمل" BorderBrush="Black" FontSize="25" Foreground="Black" Grid.Column="1" Grid.Row="7" Height="auto" Background="#0063C0"  ></Button>
+            <Button Name="addteam" Click="addteam_Click" Content="إضافة فريق العمل" BorderBrush="Black" FontSize="25" Foreground="Black" Grid.Column="1" Grid.Row="5" Height="auto" Background="#599DCC"  ></Button>
 
 
-            <Button  Name="addmaterial" Click="addmaterial_Click" Content="إضافة المواد المستخدمة" BorderBrush="Black" FontSize="25" Foreground="Black" Grid.Column="1" Grid.Row="10" Height="Auto" Background="#0063C0"  />
+            <Button  Name="addmaterial" Click="addmaterial_Click" Content="إضافة المواد المستخدمة" BorderBrush="Black" FontSize="25" Foreground="Black" Grid.Column="1" Grid.Row="9" Height="Auto" Background="#599DCC"  />
 
             <Border Background="GhostWhite" Grid.Column="3" Grid.Row="3" Grid.RowSpan="11" BorderThickness="3" BorderBrush="GhostWhite">
 
@@ -52,7 +52,7 @@
                     <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
                 </Border.Effect>
             </Border>
-            <Label HorizontalAlignment="Center" BorderBrush="DarkGreen" Content="  بطاقة مشروع" FontWeight="Bold" Grid.Column="3" Grid.Row="3" FontSize="25" VerticalContentAlignment="Center"  />
+            <Label HorizontalAlignment="Center" BorderBrush="DarkGreen" Content="  بطاقة مشروع" FontWeight="Bold" Grid.Column="3" Grid.Row="3" FontSize="25" VerticalContentAlignment="Center"   />
 
             <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="3" FlowDirection="RightToLeft" Margin="0,0,50,0">
 
@@ -70,7 +70,7 @@
             <TextBox  Grid.Row="8" Grid.Column="3" Name="help_team"  Margin="100,0,50,0" FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="الفرق المساعدة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
 
 
-            <StackPanel Orientation="Horizontal" Grid.Row="9" Grid.Column="3" FlowDirection="RightToLeft" HorizontalAlignment="Right" Margin="0,0,50,0">
+            <StackPanel Orientation="Horizontal" Grid.Row="9" Grid.Column="3" FlowDirection="RightToLeft" HorizontalAlignment="Right" Margin="0,0,50,0" Width="444">
                 <Label VerticalContentAlignment="Bottom" Foreground="Gray" Content="اختر المحافظة :" VerticalAlignment="Bottom" FlowDirection="RightToLeft" ></Label>
 
                 <ComboBox VerticalContentAlignment="Top" Margin="50,0,0,0" VerticalAlignment="Bottom" Name="governorate" FlowDirection="RightToLeft" Width="310" >
@@ -100,7 +100,7 @@
 
             <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="12" Grid.Column="3" HorizontalAlignment="Center" >
                 <Button VerticalAlignment="Bottom" Click="add_Click_2" Name="add" Visibility="Visible"   BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  Margin="0,0,50,0" FontSize="18" />
-                <Button VerticalAlignment="Bottom" Click="abrogation_Click_1" Name="abrogation" Visibility="Visible"    BorderBrush="Black"  Background="#CA995B" Foreground="Black"  Content="إلــــــــــغــــــــــاء" FontSize="18"  />
+                <Button VerticalAlignment="Bottom" Click="abrogation_Click_1" Name="abrogation" Visibility="Visible"    BorderBrush="Black"  Background="#FBB634" Foreground="Black"  Content="إلــــــــــغــــــــــاء" FontSize="18"  />
 
 
             </StackPanel>

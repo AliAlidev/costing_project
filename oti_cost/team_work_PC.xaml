@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="team_work_PC" Height="900" Width="1600" WindowState="Maximized" >
     <Grid >
-        <Image  Stretch="Fill" Source="./image/J5.jpg"  />
+        <Image  Stretch="Fill" Source="./image/rr.png"  />
 
 
         <Grid>
@@ -69,7 +69,7 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/
 
             <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="13" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" >
                 <Button Click="Button_Click" Content="إضــــــــــافــــــــــة" BorderBrush="Black" Margin="0,0,50,0"  Background="#599DCC" Foreground="Black" FontSize="19" ></Button>
-                <Button Click="Button_Click_2" Content="الــــــــــغــــــــــاء" BorderBrush="Black"   Background="#CA995B" Foreground="Black" FontSize="19" ></Button>
+                <Button Click="Button_Click_2" Content="الــــــــــغــــــــــاء" BorderBrush="Black"   Background="#FBB634" Foreground="Black" FontSize="19" ></Button>
 
             </StackPanel>
 
@@ -78,8 +78,9 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/
                 <!--AllowResizingColumns="True"
                         AutoGenerateColumns="True"
                         ItemsSource="{Binding Orders}" />-->
+                
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="اسم العامل" Binding="{Binding worker_name}" IsReadOnly="True" CanUserSort="True" Width="150"   
+                    <DataGridTextColumn Header="اسم العامل" Binding="{Binding worker_name}" IsReadOnly="True"  CanUserSort="True" Width="150"   
  ></DataGridTextColumn>
                     <DataGridTextColumn Header="الرقم الذاتي" Binding="{Binding self_number}" IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
                     <DataGridTextColumn Header="الفئة" Binding="{Binding category}" IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
@@ -103,6 +104,7 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/
                         <Setter Property="IsTabStop" Value="True"></Setter>
                     </Style>
                 </DataGrid.Resources>
+                
             </DataGrid>
 
             <Button  Click="add_Click" Name="add" Visibility="Visible" FontSize="19"  BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  Grid.Column="4"  Grid.Row="15" HorizontalAlignment="Center" />
