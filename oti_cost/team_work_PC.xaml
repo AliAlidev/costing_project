@@ -87,7 +87,13 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/
                     <DataGridTextColumn Header="العمل المنجز" Binding="{Binding work_done}"  IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
                     <DataGridTextColumn Header="عدد ساعات العمل" Binding="{Binding hours_number}" IsReadOnly="True" CanUserSort="True" Width="110"></DataGridTextColumn>
                     <DataGridTextColumn Header="ملاحظات"  Binding="{Binding notes}"  IsReadOnly="True" CanUserSort="True" Width="160"></DataGridTextColumn>
-
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="Button_Click_3" BorderBrush="Black" Foreground="Black"  Background="#FBB634">حذف</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
 
                 <DataGrid.Resources>

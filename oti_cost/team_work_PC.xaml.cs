@@ -242,6 +242,10 @@ namespace oti_cost
         {
 
         }
-      
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            teamgrid.Items.RemoveAt(teamgrid.SelectedIndex);
+        }
     }
     }

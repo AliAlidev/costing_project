@@ -168,8 +168,19 @@ namespace oti_cost
                     this.total_price.Text = "";
                     this.notes.Text = "";
 
-
-
+                    ////////
+                    //var res = gridmaterial.Items["total_price"];
+                    //var res = null;
+                    double finalres = 0;
+                    foreach (var item in gridmaterial.Items)
+                    {
+                        var res =  item.GetType().GetProperty("total_price");
+                        var tt = res.GetValue(item, null);
+                        double res0 = 0;
+                        double.TryParse(tt.ToString(), out res0);
+                        finalres += res0;
+                    }
+                    total_prices.Content = finalres.ToString();
 
                 }
                 else
@@ -230,7 +241,7 @@ namespace oti_cost
                     }
 
                 }
-
+            
                 ok = new oknote("تم إدخال البيانات بنجاح");
                 ok.ShowDialog();
 
@@ -265,17 +276,43 @@ namespace oti_cost
 
         }
 
-    
 
-    private void Button_Click_2(object sender, RoutedEventArgs e)
-    {
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
             this.Close();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            gridmaterial.Items.RemoveAt(gridmaterial.SelectedIndex);
+            double finalres = 0;
+            foreach (var item in gridmaterial.Items)
+            {
+                var res = item.GetType().GetProperty("total_price");
+                var tt = res.GetValue(item, null);
+                double res0 = 0;
+                double.TryParse(tt.ToString(), out res0);
+                finalres += res0;
+            }
+            total_prices.Content = finalres.ToString();
+        }
+
+        private void total_price_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (quantity.Text != "" && unit_price.Text != "")
+            {
+                double count = 0, price =0;
+                double.TryParse(quantity.Text,out count);
+                double.TryParse(unit_price.Text, out price);
+                total_price.Text = (count * price).ToString();
+            }
+        }
+
+        //private void Button_Click_1(object sender, RoutedEventArgs e)
+        //{
+        //    this.Close();
+
+        //}
     }
-
-    //private void Button_Click_1(object sender, RoutedEventArgs e)
-    //{
-    //    this.Close();
-
-    //}
-}
 }

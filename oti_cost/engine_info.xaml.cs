@@ -331,6 +331,16 @@ namespace oti_cost
 
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            materialgrid.Items.RemoveAt(materialgrid.SelectedIndex);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            workersgrid.Items.RemoveAt(workersgrid.SelectedIndex);
+        }
+
         ////private void edit_Click(object sender, RoutedEventArgs e)
         ////{
         ////    bool msg =false ;

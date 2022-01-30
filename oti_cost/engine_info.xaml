@@ -96,6 +96,14 @@
                     <DataGridTextColumn Header="اسم المادة" Width="300"  IsReadOnly="True"  CanUserSort="True"  Binding="{Binding material_name}" ></DataGridTextColumn>
                     <DataGridTextColumn Header="الواحدة" Width="200"  IsReadOnly="True"  CanUserSort="True"  Binding="{Binding unit}"></DataGridTextColumn>
                     <DataGridTextColumn Header="الكمية" Width="200"  IsReadOnly="True"  CanUserSort="True"  Binding="{Binding quantity}" ></DataGridTextColumn>
+
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="Button_Click" Background="#FBB634" BorderBrush="Black" Foreground="Black" >حذف</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
 
                 <DataGrid.Resources>
@@ -121,7 +129,15 @@
                     <DataGridTextColumn Header="العملية" Width="300" IsReadOnly="True"  CanUserSort="True"  Binding="{Binding operation}"></DataGridTextColumn>
                     <DataGridTextColumn Header="اسم العامل" Width="200" IsReadOnly="True"  CanUserSort="True" Binding="{Binding worker_name}"></DataGridTextColumn>
                     <DataGridTextColumn Header="عدد ساعات العمل" Width="200" IsReadOnly="True"  CanUserSort="True" Binding="{Binding work_hours}" ></DataGridTextColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="Button_Click_1" Background="#FBB634" BorderBrush="Black" Foreground="Black" >حذف</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
+                
 
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">

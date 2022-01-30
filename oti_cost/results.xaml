@@ -51,7 +51,7 @@
                 </StackPanel>
                 <TextBox Padding="10,20,0,0" TextWrapping="Wrap"
 VerticalScrollBarVisibility="Visible"
-AcceptsReturn="True" BorderBrush="WhiteSmoke" BorderThickness="3" Margin="30,0,30,0" Grid.Row="3" Grid.RowSpan="2"  x:Name="resultafter"  materialDesign:HintAssist.Hint="نتائج اختبار المحرك بعد الصيانة ............................................" Text="" VerticalContentAlignment="Top"  FontSize="16" FlowDirection="RightToLeft" />
+AcceptsReturn="True" BorderBrush="WhiteSmoke" BorderThickness="3" Margin="30,0,30,0" Grid.Row="3" Grid.RowSpan="2"  x:Name="resultafter"  materialDesign:HintAssist.Hint="نتائج اختبار المحرك بعد الصيانة ............................................" Text="" VerticalContentAlignment="Top"  FontSize="16" FlowDirection="RightToLeft" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
                 <TextBox Grid.Row="5" VerticalAlignment="Center" FontSize="16"  Margin="100,0,100,0"  x:Name="sender_after" materialDesign:HintAssist.Hint="اسم المسلم بعد الصيانة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FlowDirection="RightToLeft"  />
                 <TextBox Grid.Row="6" VerticalAlignment="Top" x:Name="receiver_after" FontSize="16"  Margin="100,0,100,0" materialDesign:HintAssist.Hint="اسم المستلم بعد الصيانة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft"  />
 

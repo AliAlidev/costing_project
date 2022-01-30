@@ -64,7 +64,7 @@
             <TextBox Margin="50,0,50,0" Grid.Row="8" Grid.Column="4" Name="unit" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الواحدة"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
             <TextBox Margin="50,0,50,0" Grid.Row="9" Grid.Column="4" Name="quantity" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الكمية" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
             <TextBox Margin="50,0,50,0" Grid.Row="10" Grid.Column="4" Name="unit_price" FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint=" السعر الافرادي "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-            <TextBox Margin="50,0,50,0" Grid.Row="11" Grid.Column="4" Name="total_price" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" السعر الاجمالي "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <TextBox Margin="50,0,50,0" Grid.Row="11" Grid.Column="4" Name="total_price" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" السعر الاجمالي "  Style="{StaticResource MaterialDesignFloatingHintTextBox}" MouseEnter="total_price_MouseEnter"/>
             <TextBox Margin="50,0,50,0" Grid.Row="12"  Grid.Column="4" Name="notes" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="ملاحظات " TextWrapping="Wrap"
 VerticalScrollBarVisibility="Visible" 
 AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="62" VerticalAlignment="Top" Grid.RowSpan="2"/>
@@ -85,7 +85,13 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                     <DataGridTextColumn Header="السعر الافرادي"  Binding="{Binding unit_price}"  IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
                     <DataGridTextColumn Header="السعر الاجمالي"  Binding="{Binding total_price}"  IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
                     <DataGridTextColumn Header="ملاحظات"  Binding="{Binding notes}" IsReadOnly="True" CanUserSort="True" Width="150"></DataGridTextColumn>
-
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="Button_Click_3" BorderBrush="Black" Foreground="Black"  Background="#FBB634">حذف</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
 
                 <DataGrid.Resources>
@@ -104,6 +110,8 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                 </DataGrid.Resources>
             </DataGrid>
             <Button  Click="add_Click" Name="add" Visibility="Visible"   BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  Grid.Column="4"  Grid.Row="15" HorizontalAlignment="Center" FontSize="20"  />
+            <Label Content="0" Name="total_prices" Grid.Column="1" HorizontalAlignment="Left" Margin="29,10,0,0" Grid.Row="13" VerticalAlignment="Top"/>
+            <Label Content="المجموع الكلي" Grid.Column="1" HorizontalAlignment="Left" Margin="80,10,0,0" Grid.Row="13" VerticalAlignment="Top"/>
 
 
         </Grid>
