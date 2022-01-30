@@ -1,0 +1,37 @@
+﻿<Window x:Class="oti_cost.login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:oti_cost"
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+        mc:Ignorable="d"
+         Width="549.592" Height="613.339" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Title="تــســجــيــل الــدخــول" >
+
+    <Grid Background="GhostWhite" >
+
+        <Border Background="GhostWhite" Margin="0,0,0,-0.2" MinWidth="400" VerticalAlignment="Center" Padding="30" CornerRadius="10" MaxWidth="600" Height="617">
+
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+
+            <StackPanel  Background="GhostWhite">
+
+
+                <Image Source="/image/otii.jpg"></Image>
+                <Label FlowDirection="RightToLeft" Content=" البريد الالكتروني" Margin="0,40,0,0" HorizontalAlignment="Center"></Label>
+                <TextBox Name="user_email" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="أدخل البريد الالكتروني الخاص بك" Width="400" materialDesign:HintAssist.FloatingScale="1" materialDesign:HintAssist.FloatingOffset="0,-25" materialDesign:HintAssist.IsFloating="True"    Margin="0,10,0,0"/>
+
+                <Label HorizontalAlignment="Center" FlowDirection="RightToLeft" Content="كلمة المرور" Margin="0,40,0,0"></Label>
+                <PasswordBox Name="user_password" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="أدخل كلمة المرور الخاصة بك" Width="400"  materialDesign:HintAssist.FloatingScale="1" materialDesign:HintAssist.FloatingOffset="0,-25" materialDesign:HintAssist.IsFloating="True"   Margin="42,10,41.2,0" Height="43"/>
+
+                <Button Name="signin" Click="signin_Click" BorderBrush="Blue" Background="LightSkyBlue" Foreground="Black" Width="200" Content="تسجيل الدخول" Margin="0,40,0,0"/>
+
+
+
+            </StackPanel>
+        </Border>
+    </Grid>  
+</Window>

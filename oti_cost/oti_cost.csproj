@@ -316,6 +316,9 @@
     <Compile Include="engine_info.xaml.cs">
       <DependentUpon>engine_info.xaml</DependentUpon>
     </Compile>
+    <Compile Include="login.xaml.cs">
+      <DependentUpon>login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="material_used_PC.xaml.cs">
       <DependentUpon>material_used_PC.xaml</DependentUpon>
     </Compile>
@@ -327,6 +330,9 @@
     </Compile>
     <Compile Include="project_card.xaml.cs">
       <DependentUpon>project_card.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="register.xaml.cs">
+      <DependentUpon>register.xaml</DependentUpon>
     </Compile>
     <Compile Include="report1.xaml.cs">
       <DependentUpon>report1.xaml</DependentUpon>
@@ -341,11 +347,18 @@
     <Compile Include="team_work_PC.xaml.cs">
       <DependentUpon>team_work_PC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="toeditpassword.xaml.cs">
+      <DependentUpon>toeditpassword.xaml</DependentUpon>
+    </Compile>
     <Page Include="engine_card.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="engine_info.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -377,6 +390,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="report1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -390,6 +407,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="team_work_PC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="toeditpassword.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
