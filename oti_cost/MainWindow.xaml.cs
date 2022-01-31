@@ -45,6 +45,14 @@ namespace oti_cost
             r1.ShowDialog();
         }
 
+     
+
+        private void login_in_Click(object sender, RoutedEventArgs e)
+        {
+            login l = new login();
+            l.ShowDialog();
+        }
+
         //private void next_Click(object sender, RoutedEventArgs e)
         //{
         //    bool msg = false;
