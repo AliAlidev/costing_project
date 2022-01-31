@@ -115,12 +115,8 @@ namespace oti_cost
          //       ok.ShowDialog();
          //   }
          //   else
-         if (team_name.Text == "")
-            {
-                ok = new oknote("يجب إدخال اسم الفريق !");
-                ok.ShowDialog();
-            }
-            else if (project_name.Text == "")
+    
+            if (project_name.Text == "")
             {
                 ok = new oknote("يجب إدخال اسم المشروع !");
                 ok.ShowDialog();
@@ -161,6 +157,12 @@ namespace oti_cost
                 ok = new oknote("يجب إدخال قيمة صحيحة  لتاريخ الانتهاء  !    ");
                 ok.ShowDialog();
             }
+            else if (active_name.Text == "")
+            {
+                ok = new oknote("يجب إدخال اسم مركز النشاط !");
+                ok.ShowDialog();
+            }
+          
             else
             {
 
@@ -175,7 +177,7 @@ namespace oti_cost
                     try
                     {
 
-                       string query = "insert into project_card(team_name, project_name, dept, help_team , governorate , start_date , finsh_date , project_number) values('" + team_name.Text + "','" + project_name.Text + "','" + dept_name.Text + "','" + help_team.Text+ "','" + governorate.Text + "','" + start_date.Text + "','" + finsh_date.Text + "','" + card_number.Text+ "' )";
+                       string query = "insert into project_card( project_name, dept, help_team , governorate , start_date , finsh_date , project_number,active_name,) values('" + active_name.Text + "','" + project_name.Text + "','" + dept_name.Text + "','" + help_team.Text+ "','" + governorate.Text + "','" + start_date.Text + "','" + finsh_date.Text + "','" + card_number.Text+ "' )";
 
                         DBVariables.executenq(query);
 
@@ -185,14 +187,13 @@ namespace oti_cost
                         ok.ShowDialog();
 
                         //project_number.Text = "";
-                        team_name.Text = "";
                         project_name.Text = "";
                         dept_name.Text = "";
                         help_team.Text = "";
                         governorate.Text = "";
                         start_date.Text = "";
                         finsh_date.Text = "";
-
+                        active_name.Text = "";
 
 
                     }
@@ -212,13 +213,14 @@ namespace oti_cost
                     ok = new oknote("لم يتم إدخال البيانات ");
                     ok.ShowDialog();
                     //project_number.Text = "";
-                    team_name.Text = "";
                     project_name.Text = "";
                     dept_name.Text = "";
                     help_team.Text = "";
                     governorate.Text = "";
                     start_date.Text = "";
                     finsh_date.Text = "";
+                    active_name.Text = "";
+
                 }
             }
         }
@@ -238,8 +240,7 @@ namespace oti_cost
 
         private void addteam_Click(object sender, RoutedEventArgs e)
         {
-            team_work_PC tw = new team_work_PC();
-            tw.card_number.Text = card_number.Text;
+            works_result tw = new works_result();
             tw.ShowDialog();
         }
 
@@ -258,6 +259,11 @@ namespace oti_cost
         }
 
         private void dept_name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void team_name_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

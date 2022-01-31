@@ -36,6 +36,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>oti_cost.App</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Ben.Demystifier, Version=0.1.0.0, Culture=neutral, PublicKeyToken=a6d206e05440431a, processorArchitecture=MSIL">
       <HintPath>..\packages\Ben.Demystifier.0.1.3\lib\net45\Ben.Demystifier.dll</HintPath>
@@ -309,6 +312,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="active_center.xaml.cs">
+      <DependentUpon>active_center.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="add_active.xaml.cs">
+      <DependentUpon>add_active.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DBVariables.cs" />
     <Compile Include="engine_card.xaml.cs">
       <DependentUpon>engine_card.xaml</DependentUpon>
@@ -343,13 +352,30 @@
     <Compile Include="results.xaml.cs">
       <DependentUpon>results.xaml</DependentUpon>
     </Compile>
+    <Compile Include="revise.xaml.cs">
+      <DependentUpon>revise.xaml</DependentUpon>
+    </Compile>
     <Compile Include="sharedvariables.cs" />
+    <Compile Include="show_active.xaml.cs">
+      <DependentUpon>show_active.xaml</DependentUpon>
+    </Compile>
     <Compile Include="team_work_PC.xaml.cs">
       <DependentUpon>team_work_PC.xaml</DependentUpon>
     </Compile>
     <Compile Include="toeditpassword.xaml.cs">
       <DependentUpon>toeditpassword.xaml</DependentUpon>
     </Compile>
+    <Compile Include="works_result.xaml.cs">
+      <DependentUpon>works_result.xaml</DependentUpon>
+    </Compile>
+    <Page Include="active_center.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="add_active.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="engine_card.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -406,11 +432,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="revise.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="show_active.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="team_work_PC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="toeditpassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="works_result.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

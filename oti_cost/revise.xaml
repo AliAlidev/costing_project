@@ -1,0 +1,120 @@
+﻿<Window x:Class="oti_cost.revise"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                                                        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+
+        xmlns:local="clr-namespace:oti_cost"
+        mc:Ignorable="d"
+        Title="revise" Height="900" Width="1600" WindowState="Maximized">
+    <Grid>
+        <Image  Stretch="Fill" Source="./image/rr.png"  />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70*"></ColumnDefinition>
+                <ColumnDefinition Width="601*"></ColumnDefinition>
+                <ColumnDefinition Width="194*"></ColumnDefinition>
+                <ColumnDefinition Width="145*"></ColumnDefinition>
+                <ColumnDefinition Width="478*"></ColumnDefinition>
+                <ColumnDefinition Width="104*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="49*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="49*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="49*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="49*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="38*"></RowDefinition>
+                <RowDefinition Height="59*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="5" Grid.RowSpan="10" Grid.Column="4"  BorderBrush="GhostWhite" Background="WhiteSmoke">
+
+            </Border>
+
+
+
+
+            <Label Grid.Row="5" Grid.Column="4" VerticalAlignment="Center" FlowDirection="RightToLeft" Content=" الرجاء ادخال المعلومات من هنا :  "  Foreground="DarkGreen" HorizontalAlignment="Center"   />
+            <!--<Label Grid.Row="5" Grid.Column="4" VerticalAlignment="Top"  FlowDirection="RightToLeft" Content=" تقسيمات العمال " Foreground="#0063C0" FontSize="20" HorizontalAlignment="Center"   />-->
+            <!--<StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="4" FlowDirection="RightToLeft" Margin="0,0,50,0" VerticalAlignment="Bottom">
+
+                <Label  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
+                <TextBox   x:Name="card_number" Text=" " HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"  Focusable="False" BorderThickness="0" BorderBrush="Transparent" FlowDirection="RightToLeft"    />
+            </StackPanel>-->
+            <Label Grid.Row="8" Grid.Column="4" VerticalAlignment="Center" FlowDirection="RightToLeft" Content=" الرجاء ادخال  معلومات العامل  :  "  Foreground="DarkGreen" HorizontalAlignment="Center"   />
+
+            <TextBox Margin="50,0,50,0" Grid.Row="9" Grid.Column="4" Name="worker_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="اسم العامل " Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+
+            <TextBox Margin="50,0,50,0" Grid.Row="10" Grid.Column="4" Name="self_number" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الرقم الذاتي "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+            <TextBox Margin="50,0,50,0" Grid.Row="11" Grid.Column="4" Name="category" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الفئة"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+            <TextBox Margin="50,0,50,0" Grid.Row="6" Grid.Column="4" Name="team_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="اسم الفريق" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+            <TextBox Margin="50,0,50,0" Grid.Row="7" Grid.Column="4" Name="active_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="اسم مركز النشاط "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <!--<TextBox Margin="50,0,50,0" Grid.Row="11" Grid.Column="4" Name="notes" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="ملاحظات " TextWrapping="Wrap"
+VerticalScrollBarVisibility="Visible" 
+AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>-->
+
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="13" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <Button Click="Button_Click" Content="إضــــــــــافــــــــــة" BorderBrush="Black" Margin="0,0,50,0"  Background="#599DCC" Foreground="Black" FontSize="19" ></Button>
+                <Button Click="Button_Click_1" Content="الــــــــــغــــــــــاء" BorderBrush="Black"   Background="#FBB634" Foreground="Black" FontSize="19" ></Button>
+
+            </StackPanel>
+
+
+            <DataGrid x:Name="teamgrid" FlowDirection="RightToLeft" Grid.Row="6" Grid.Column="1"  Grid.RowSpan="8" BorderBrush="Black" BorderThickness="2"  >
+                <!--AllowResizingColumns="True"
+                        AutoGenerateColumns="True"
+                        ItemsSource="{Binding Orders}" />-->
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="اسم العامل" Binding="{Binding worker_name}" IsReadOnly="True"  CanUserSort="True" Width="200"   
+ ></DataGridTextColumn>
+                    <DataGridTextColumn Header="الرقم الذاتي" Binding="{Binding self_number}" IsReadOnly="True" CanUserSort="True" Width="200"></DataGridTextColumn>
+                    <DataGridTextColumn Header="الفئة" Binding="{Binding category}" IsReadOnly="True" CanUserSort="True" Width="150"></DataGridTextColumn>
+                    <!--<DataGridTextColumn Header="اسم الفريق" Binding="{Binding work_done}"  IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>-->
+                    <!--<DataGridTextColumn Header="عدد ساعات العمل" Binding="{Binding hours_number}" IsReadOnly="True" CanUserSort="True" Width="110"></DataGridTextColumn>-->
+                    <!--<DataGridTextColumn Header="ملاحظات"  Binding="{Binding notes}"  IsReadOnly="True" CanUserSort="True" Width="160"></DataGridTextColumn>-->
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="Button_Click_2" BorderBrush="Black" Foreground="Black"  Background="#FBB634">حذف</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+
+                        <Setter Property="Focusable" Value="False"></Setter>
+                        <Setter Property="Background" Value="#599DCC"></Setter>
+                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                        <Setter Property="FlowDirection" Value="RightToLeft"></Setter>
+                        <Setter Property="Padding" Value="5"></Setter>
+                        <Setter Property="IsTabStop" Value="True"></Setter>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                        <Setter Property="IsTabStop" Value="True"></Setter>
+                        <Setter Property="IsTabStop" Value="True"></Setter>
+                    </Style>
+                </DataGrid.Resources>
+
+            </DataGrid>
+
+            <Button  Click="add_Click_1" Name="add" Visibility="Visible" FontSize="19"  BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  Grid.Column="4"  Grid.Row="15" HorizontalAlignment="Center" />
+
+        </Grid>
+    </Grid>
+</Window>

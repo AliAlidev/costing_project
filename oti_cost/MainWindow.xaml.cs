@@ -53,6 +53,12 @@ namespace oti_cost
             l.ShowDialog();
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            active_center a1 = new active_center();
+            a1.ShowDialog();
+        }
+
         //private void next_Click(object sender, RoutedEventArgs e)
         //{
         //    bool msg = false;

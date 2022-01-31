@@ -1,0 +1,78 @@
+﻿<Window x:Class="oti_cost.works_result"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+
+        xmlns:local="clr-namespace:oti_cost"
+        mc:Ignorable="d"
+        Title="works_result" Height="450" Width="800">
+    <Grid>
+        <Image Source="/image/rr.png" Stretch="Fill"></Image>
+
+        <Grid ShowGridLines="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <Grid Grid.Column="0" Margin="48,0,0,0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0*"></ColumnDefinition>
+                    <ColumnDefinition Width="0*"></ColumnDefinition>
+                    <ColumnDefinition Width="0*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Row="3" Grid.RowSpan="5" Background="White" BorderBrush="#94A76D" BorderThickness="3" >
+
+                    <!--<Border Grid.Row="2" Grid.RowSpan="6" CornerRadius="50" Background="White" BorderBrush="#94A76D" BorderThickness="3" >-->
+                    <!--<Border.Effect >
+                        <DropShadowEffect Color="#94A76D" ShadowDepth="10" />
+                    </Border.Effect>-->
+                </Border>
+                <Label Grid.Row="2" VerticalContentAlignment="Center" FontWeight="DemiBold" Content="  "  FontSize="16"  Foreground="#0063C0" FlowDirection="RightToLeft" HorizontalAlignment="Center" Margin="34,0,96,0" Width="218"   />
+                <!--<TextBox Padding="10,20,0,0"  BorderBrush="WhiteSmoke" BorderThickness="3" Margin="30,0,30,0" Grid.Row="3" Grid.RowSpan="2"  x:Name="rhffth"  materialDesign:HintAssist.Hint="نتائج اختبار المحرك بعد الصيانة ............................................" Text="" VerticalContentAlignment="Top"  FlowDirection="RightToLeft" TextWrapping="WrapWithOverflow"/>-->
+                <!--<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" FlowDirection="RightToLeft" Margin="0,0,50,0" VerticalAlignment="Bottom" Height="26">
+
+                    <Label  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
+                    <TextBox   x:Name="card_number" Text="8" HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"  Focusable="False" BorderThickness="0" BorderBrush="Transparent" FlowDirection="RightToLeft"    />
+                </StackPanel>-->
+                <TextBox Grid.Row="3" VerticalAlignment="Top" x:Name="result_work" FontSize="16"  Margin="100,0,16,0" materialDesign:HintAssist.Hint="توصيف العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft" Height="42" TextWrapping="Wrap"
+VerticalScrollBarVisibility="Visible" 
+AcceptsReturn="True" />
+                <TextBox Grid.Row="4" VerticalAlignment="Center" FontSize="16"  Margin="100,2,16,2"  x:Name="hour_work" materialDesign:HintAssist.Hint=" عدد ساعات العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FlowDirection="RightToLeft" Height="42"  />
+                <TextBox Grid.Row="5" VerticalAlignment="Top" x:Name="notes" FontSize="16"  Margin="100,0,16,0" materialDesign:HintAssist.Hint="ملاحظات " Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft" Height="42" TextWrapping="Wrap"
+VerticalScrollBarVisibility="Visible" 
+AcceptsReturn="True" />
+
+                <StackPanel Orientation="Horizontal" Grid.Row="7" HorizontalAlignment="Center" FlowDirection="RightToLeft" Margin="-12,0,13,0" Width="347"   >
+
+                    <Button x:Name="add" Click="add_Click" BorderBrush="Black" Content="حفظ" Margin="0,7,100,7" Width="85" Background="#599DCC"  Foreground="Black"  FontSize="20" ></Button>
+
+                    <Button Content="إلغاء" Name="delete" Click="delete_Click"  BorderBrush="Black" Width="96" Background="#FBB634"  Foreground="Black" FontSize="20" Margin="0,7" ></Button>
+                </StackPanel>
+
+
+            </Grid>
+
+
+
+        </Grid>
+
+
+    </Grid>
+</Window>
