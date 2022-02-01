@@ -56,7 +56,6 @@
             <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="4" FlowDirection="RightToLeft" Margin="0,0,50,0" VerticalAlignment="Bottom">
 
                 <Label  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
-                <TextBox   x:Name="card_number" Text="8" HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"  Focusable="False" BorderThickness="0" BorderBrush="Transparent" FlowDirection="RightToLeft"    />
             </StackPanel>
             <TextBox Margin="50,0,50,0" Grid.Row="6" Grid.Column="4" Name="material_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="اسم المادة " Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
