@@ -55,19 +55,18 @@
                 <Label  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
                 <TextBox   x:Name="card_number" Text=" " HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"  Focusable="False" BorderThickness="0" BorderBrush="Transparent" FlowDirection="RightToLeft"    />
             </StackPanel>-->
-            <Label Grid.Row="8" Grid.Column="4" VerticalAlignment="Center" FlowDirection="RightToLeft" Content=" الرجاء ادخال  معلومات العامل  :  "  Foreground="DarkGreen" HorizontalAlignment="Center"   />
+            <Label Grid.Row="9" Grid.Column="4" VerticalAlignment="Center" FlowDirection="RightToLeft" Content=" الرجاء ادخال  معلومات العامل  :  "  Foreground="DarkGreen" HorizontalAlignment="Center"   />
 
-            <TextBox Margin="50,0,50,0" Grid.Row="9" Grid.Column="4" Name="worker_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="اسم العامل " Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <TextBox Margin="50,0,50,0" Grid.Row="10" Grid.Column="4" Name="worker_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="اسم العامل " Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
-            <TextBox Margin="50,0,50,0" Grid.Row="10" Grid.Column="4" Name="self_number" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الرقم الذاتي "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
-            <TextBox Margin="50,0,50,0" Grid.Row="11" Grid.Column="4" Name="category" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الفئة"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+            <TextBox Margin="50,0,50,0" Grid.Row="11" Grid.Column="4" Name="self_number" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الرقم الذاتي "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+            <TextBox Margin="50,0,50,0" Grid.Row="12" Grid.Column="4" Name="category" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الفئة"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
             <TextBox Margin="50,0,50,0" Grid.Row="6" Grid.Column="4" Name="team_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="اسم الفريق" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
             <TextBox Margin="50,0,50,0" Grid.Row="7" Grid.Column="4" Name="active_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="اسم مركز النشاط "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-            <!--<TextBox Margin="50,0,50,0" Grid.Row="11" Grid.Column="4" Name="notes" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="ملاحظات " TextWrapping="Wrap"
-VerticalScrollBarVisibility="Visible" 
-AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>-->
+            <Button Grid.Column="4" Grid.Row="8" VerticalAlignment="Bottom" Click="Button_Click_3" Content="إضافة مركز نشاط" BorderBrush="Black" HorizontalAlignment="Center" Background="#599DCC" Foreground="Black" FontSize="19" ></Button>
 
-            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="13" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" >
+
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="14" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" >
                 <Button Click="Button_Click" Content="إضــــــــــافــــــــــة" BorderBrush="Black" Margin="0,0,50,0"  Background="#599DCC" Foreground="Black" FontSize="19" ></Button>
                 <Button Click="Button_Click_1" Content="الــــــــــغــــــــــاء" BorderBrush="Black"   Background="#FBB634" Foreground="Black" FontSize="19" ></Button>
 
