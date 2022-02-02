@@ -43,7 +43,7 @@
                 <RowDefinition Height="48*"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Border Grid.Row="4" Grid.RowSpan="11" Grid.Column="4" BorderBrush="GhostWhite" Background="WhiteSmoke">
+            <Border Grid.Row="3" Grid.RowSpan="12" Grid.Column="4" BorderBrush="GhostWhite" Background="WhiteSmoke">
                 <!--<Border.Effect>
                     <DropShadowEffect></DropShadowEffect>
                 </Border.Effect>-->
@@ -51,11 +51,12 @@
 
 
 
-            <Label Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" FlowDirection="RightToLeft" Content=" الرجاء ادخال المعلومات من هنا :  "  Foreground="DarkGreen" HorizontalAlignment="Center"   />
-            <Label Grid.Row="5" Grid.Column="4"  FlowDirection="RightToLeft" Content="المواد المستخدمة " Foreground="#0063C0" FontSize="20" HorizontalAlignment="Center"   />
+            <Label Grid.Row="3" Grid.Column="4" VerticalAlignment="Center" FlowDirection="RightToLeft" Content=" الرجاء ادخال المعلومات من هنا :  "  Foreground="DarkGreen" HorizontalAlignment="Center"   />
+            <Label Grid.Row="4" Grid.Column="4"  FlowDirection="RightToLeft" Content="المواد المستخدمة " Foreground="#0063C0" FontSize="20" HorizontalAlignment="Center"   />
             <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="4" FlowDirection="RightToLeft" Margin="0,0,50,0" VerticalAlignment="Bottom">
 
                 <Label  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
+                <TextBox   x:Name="card_number" Text=" " HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"  Focusable="False" BorderThickness="0" BorderBrush="Transparent" FlowDirection="RightToLeft"    />
             </StackPanel>
             <TextBox Margin="50,0,50,0" Grid.Row="6" Grid.Column="4" Name="material_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="اسم المادة " Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
@@ -63,7 +64,7 @@
             <TextBox Margin="50,0,50,0" Grid.Row="8" Grid.Column="4" Name="unit" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الواحدة"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
             <TextBox Margin="50,0,50,0" Grid.Row="9" Grid.Column="4" Name="quantity" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الكمية" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
             <TextBox Margin="50,0,50,0" Grid.Row="10" Grid.Column="4" Name="unit_price" FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint=" السعر الافرادي "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-            <TextBox Margin="50,0,50,0" Grid.Row="11" Grid.Column="4" Name="total_price" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" السعر الاجمالي "  Style="{StaticResource MaterialDesignFloatingHintTextBox}" MouseEnter="total_price_MouseEnter"/>
+            <TextBox  IsReadOnly="True" Margin="50,0,50,0" Grid.Row="11" Grid.Column="4" Name="total_price" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" السعر الاجمالي "  Style="{StaticResource MaterialDesignFloatingHintTextBox}" MouseEnter="total_price_MouseEnter"/>
             <TextBox Margin="50,0,50,0" Grid.Row="12"  Grid.Column="4" Name="notes" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="ملاحظات " TextWrapping="Wrap"
 VerticalScrollBarVisibility="Visible" 
 AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="62" VerticalAlignment="Top" Grid.RowSpan="2"/>
@@ -109,8 +110,8 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                 </DataGrid.Resources>
             </DataGrid>
             <Button  Click="add_Click" Name="add" Visibility="Visible"   BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  Grid.Column="4"  Grid.Row="15" HorizontalAlignment="Center" FontSize="20"  />
-            <Label Content="0" Name="total_prices" Grid.Column="1" HorizontalAlignment="Left" Margin="29,10,0,0" Grid.Row="13" VerticalAlignment="Top"/>
-            <Label Content="المجموع الكلي" Grid.Column="1" HorizontalAlignment="Left" Margin="80,10,0,0" Grid.Row="13" VerticalAlignment="Top"/>
+            <Label Content="0" Foreground="Wheat" Name="total_prices" Grid.Column="1" HorizontalAlignment="Left" Margin="29,10,0,0" Grid.Row="13" VerticalAlignment="Top"/>
+            <Label  Foreground="Wheat" Content="المجموع الكلي" Grid.Column="1" HorizontalAlignment="Left" Margin="80,10,0,0" Grid.Row="13" VerticalAlignment="Top"/>
 
 
         </Grid>

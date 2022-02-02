@@ -51,11 +51,11 @@
                     <Label  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
                     <TextBox   x:Name="card_number" Text="8" HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"  Focusable="False" BorderThickness="0" BorderBrush="Transparent" FlowDirection="RightToLeft"    />
                 </StackPanel>-->
-                <TextBox Grid.Row="2" VerticalAlignment="Top" x:Name="result_work" FontSize="16"  Margin="100,0,16,0" materialDesign:HintAssist.Hint="توصيف العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft" Height="42" TextWrapping="Wrap"
-VerticalScrollBarVisibility="Visible" 
-AcceptsReturn="True" />
-                <TextBox Grid.Row="3" VerticalAlignment="Center" FontSize="16"  Margin="100,2,16,2"  x:Name="hour_work" materialDesign:HintAssist.Hint=" عدد ساعات العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FlowDirection="RightToLeft" Height="42"  />
-                <TextBox Grid.Row="4" VerticalAlignment="Top" x:Name="notes" FontSize="16"  Margin="100,0,16,0" materialDesign:HintAssist.Hint="ملاحظات " Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft" Height="42" TextWrapping="Wrap"
+                <TextBox Padding="10,20,0,0" TextWrapping="Wrap"
+VerticalScrollBarVisibility="Visible"
+AcceptsReturn="True"  Margin="43,0,13,0" Grid.Row="1" Grid.RowSpan="3"  x:Name="result_work"  materialDesign:HintAssist.Hint="توصيف نتائج العمل " Text="" VerticalContentAlignment="Top"  FontSize="16" FlowDirection="RightToLeft" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Height="141" VerticalAlignment="Bottom"  />
+                <TextBox Grid.Row="4" VerticalAlignment="Center" FontSize="16"  Margin="40,2,16,3"  x:Name="hour_work" materialDesign:HintAssist.Hint=" عدد ساعات العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FlowDirection="RightToLeft" Height="42"  />
+                <TextBox Grid.Row="5" VerticalAlignment="Top" x:Name="notes" FontSize="16"  Margin="46,0,16,0" materialDesign:HintAssist.Hint="ملاحظات " Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft" Height="42" TextWrapping="Wrap"
 VerticalScrollBarVisibility="Visible" 
 AcceptsReturn="True" />
 

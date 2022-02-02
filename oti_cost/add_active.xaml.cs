@@ -85,8 +85,8 @@ namespace oti_cost
 
                     this.teamgrid.Items.Add((object)new team_work_PC.Add()
                     {
-                        work_done = this.team_name.Text,
-                        hours_number = this.active_name.Text,
+                        //work_done = this.team_name.Text,
+                        //hours_number = this.active_name.Text,
                         worker_name = this.worker_name.Text,
                         self_number = this.self_number.Text,
                         category = this.category.Text,
@@ -94,8 +94,8 @@ namespace oti_cost
 
 
                     });
-                    this.team_name.Text = "";
-                    this.active_name.Text = "";
+                    //this.team_name.Text = "";
+                    //this.active_name.Text = "";
                     this.worker_name.Text = "";
                     this.self_number.Text = "";
                     this.category.Text = "";

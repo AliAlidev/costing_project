@@ -18,15 +18,19 @@
                 <ColumnDefinition Width="398*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="145*"></RowDefinition>
-                <RowDefinition Height="101*"></RowDefinition>
-                <RowDefinition Height="144*"></RowDefinition>
-                <RowDefinition Height="150*"></RowDefinition>
-                <RowDefinition Height="78*"></RowDefinition>
-                <RowDefinition Height="251*"></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
             </Grid.RowDefinitions>
-            <Button Content=" اضــافــة مــركــز الــنــشــاط" FlowDirection="RightToLeft" Grid.Column="1" Grid.Row="2" Background="#FBB634"  HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Foreground="Black" Height="77" Name="active_name" Click="active_name_Click" FontSize="30" BorderBrush="Black" Margin="0,0,0,55"  />
-            <Button Content=" عـــرض مـــراكـــز الـــنــشــاط" FlowDirection="RightToLeft" Grid.Column="1" Grid.Row="4" Background="#599DCC"  HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="Black" Height="77" Name="show_active_name" Click="show_active_name_Click" FontSize="30" BorderBrush="Black"    />
+            <Button Content=" اضــافــة مــركــز الــنــشــاط" FlowDirection="RightToLeft" Grid.Column="1" Grid.Row="3" Background="#FBB634"  HorizontalContentAlignment="Center" VerticalAlignment="Center" Foreground="Black" Height="60" Name="active_name" Click="active_name_Click" FontSize="30" BorderBrush="Black"  />
+            <Button   Content=" عـــرض مـــراكـــز الـــنــشــاط" FlowDirection="RightToLeft" Grid.Column="1" Grid.Row="6" Background="#599DCC"  HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="Black" Height="60" Name="show_active_name" Click="show_active_name_Click" FontSize="30" BorderBrush="Black"    />
 
         </Grid>
 
