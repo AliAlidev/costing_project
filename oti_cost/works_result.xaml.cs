@@ -56,7 +56,7 @@ namespace oti_cost
                     {
 
 
-                        string query = "update engine_card set results='" + result_work.Text + "', hour_work='" + hour_work.Text + "', notes ='" + notes.Text + "' where card_number=" ;
+                        string query = "update project_card set work_done='" + result_work.Text + "', hours='" + hour_work.Text + "', notes ='" + notes.Text + "' where project_number  =" + card_number.Text ;
 
                         DBVariables.executenq(query);
 

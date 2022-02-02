@@ -51,6 +51,12 @@ namespace oti_cost
                 ok = new oknote("يجب إدخال رقم الفهرسة    !");
                 ok.ShowDialog();
             }
+            else if (!sharedvariables.isNumber( index_number.Text ))
+            {
+                ok = new oknote("  رقم الفهرسة يجب أن يكون رقم حصرا   !");
+                ok.ShowDialog();
+            }
+
             else if (unit.Text == "")
             {
                 ok = new oknote("يجب إدخال  الواحدة ! ");
@@ -61,32 +67,35 @@ namespace oti_cost
                 ok = new oknote("يجب إدخال   الكمية ! ");
                 ok.ShowDialog();
             }
+            else if (!sharedvariables.isNumber(quantity.Text))
+            {
+                ok = new oknote("  الكمية  يجب أن تكون رقم حصرا   !");
+                ok.ShowDialog();
+            }
+
             else if (unit_price.Text == "")
             {
                 ok = new oknote("يجب إدخال السعر الافرادي  ! ");
                 ok.ShowDialog();
             }
+            else if (!sharedvariables.isNumber(unit_price.Text))
+            {
+                ok = new oknote("   السعر الإفرادي يجب أن يكون رقم حصرا  !");
+                ok.ShowDialog();
+            }
+
             else if (total_price.Text == "")
             {
                 ok = new oknote("يجب إدخال   السعر الاجمالي ! ");
                 ok.ShowDialog();
             }
-            //else if (hours_number.Text == "")
-            //{
-            //    ok = new oknote("يجب إدخال  عدد ساعات العمل ! ");
-            //    ok.ShowDialog();
-            //}
-            //else if (sent_date.Text == "")
-            //{
-            //    ok = new oknote("يجب إدخال قيمة صحيحة  لتاريخ الاستلام  !    ");
-            //    ok.ShowDialog();
-            //}
+            else if (!sharedvariables.isNumber(total_price.Text))
+            {
+                ok = new oknote("  السعر الإجمالي  يجب أن يكون رقم حصرا   !");
+                ok.ShowDialog();
+            }
 
-            //else if (!sharedvariables.isDate(received_date.Text))
-            //{
-            //    ok = new oknote("يجب إدخال قيمة صحيحة  لتاريخ التسليم  !    ");
-            //    ok.ShowDialog();
-            //}
+           
             else
             {
 
@@ -95,54 +104,7 @@ namespace oti_cost
 
 
 
-                //if (sharedvariables.confirmationmessagebox == "ok")
-                //{
 
-                //    try
-                //    {
-
-                //        DBVariables.executenq("INSERT INTO engine_card (material_name , index_number , unit ,  quantity , origin  )  VALUES('" +
-                //               material_name.Text +
-                //               "' , '" + index_number.Text +
-                //              "' , '" + unit.Text +
-                //              "' , '" + quantity.Text +
-                //               "' , '" + origin.Text + "' ) ");
-
-                //        sharedvariables.confirmationmessagebox = "";
-                //        ok = new oknote("تم الإدخال بنجاح");
-                //        ok.ShowDialog();
-
-                //        material_name.Text = "";
-                //        index_number.Text = "";
-                //        unit.Text = "";
-                //        quantity.Text = "";
-                //        origin.Text = "";
-
-
-
-                //    }
-                //    catch (Exception)
-                //    {
-                //        ok = new oknote("حدثت مشكلة أثناء عملية الإدخال");
-                //        ok.ShowDialog();
-                //    }
-
-
-
-                //}
-                //else
-                //{
-
-                //    sharedvariables.confirmationmessagebox = "";
-                //    ok = new oknote("لم يتم إدخال البيانات ");
-                //    ok.ShowDialog();
-                //    material_name.Text = "";
-                //    index_number.Text = "";
-                //    unit.Text = "";
-                //    quantity.Text = "";
-                //    origin.Text = "";
-                //}
-                //}
                 if (sharedvariables.confirmationmessagebox == "ok")
                 {
 
@@ -220,14 +182,14 @@ namespace oti_cost
 
 
                         string str1 = (string)obj1.GetType().GetProperty("material_name").GetValue(obj1, (object[])null);
-                        object str2 = obj1.GetType().GetProperty("index_number").GetValue(obj1, (object[])null);
+                        string str2 = (string)obj1.GetType().GetProperty("index_number").GetValue(obj1, (object[])null);
                         string str3 = (string)obj1.GetType().GetProperty("unit").GetValue(obj1, (object[])null);
-                        string str4 = (string)obj1.GetType().GetProperty("quantity").GetValue(obj1, (object[])null);
+                        object str4 = obj1.GetType().GetProperty("quantity").GetValue(obj1, (object[])null);
                         object str5 = obj1.GetType().GetProperty("unit_price").GetValue(obj1, (object[])null);
                         object str6 = obj1.GetType().GetProperty("total_price").GetValue(obj1, (object[])null);
                         string str7 = (string)obj1.GetType().GetProperty("notes").GetValue(obj1, (object[])null);
 
-                        string query = "insert into material_used(material_name, index_number, unit, quantity , unit_price , total_price , notes,project_number ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + str7 + "','" + card_number.Text + "' )";
+                        string query = "insert into material_used(material_name, index_number, unit, quantity , unit_price , total_price , notes,project_number , total_sum ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + str7 + "','" + numbercard.Text + "','" +  total_prices.Content.ToString() +"')";
 
                         DBVariables.executenq(query);
 
