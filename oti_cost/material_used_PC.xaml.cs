@@ -9,7 +9,10 @@ namespace oti_cost
     public partial class material_used_PC : Window
     {
         oknote ok;
-        note n; public material_used_PC()
+        note n;
+        internal object numbercard;
+
+        public material_used_PC()
         {
             InitializeComponent();
             double h = SystemParameters.PrimaryScreenHeight;

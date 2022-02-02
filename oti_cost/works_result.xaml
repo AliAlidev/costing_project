@@ -54,13 +54,13 @@
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0"  FlowDirection="RightToLeft" Margin="0,0,15,0" VerticalAlignment="Bottom">
 
                     <Label  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
-                    <TextBox Name="card_number" Text="7" Focusable="False" IsReadOnly="True" HorizontalContentAlignment="Center" Width="30" BorderBrush="Transparent" BorderThickness="0"></TextBox>
+                    <TextBox Name="card_number" Text=" " Focusable="False" IsReadOnly="True" HorizontalContentAlignment="Center" Width="30" BorderBrush="Transparent" BorderThickness="0"></TextBox>
                 </StackPanel>
-                <TextBox Grid.Row="2" VerticalAlignment="Top" x:Name="result_work" FontSize="16"  Margin="100,0,16,0" materialDesign:HintAssist.Hint="توصيف العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft" Height="42" TextWrapping="Wrap"
+                <TextBox Grid.Row="2" VerticalAlignment="Top" x:Name="result_work" FontSize="16"  materialDesign:HintAssist.Hint="توصيف العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft"  TextWrapping="Wrap"
 VerticalScrollBarVisibility="Visible" 
-AcceptsReturn="True" />
-                <TextBox Grid.Row="3" VerticalAlignment="Center" FontSize="16"  Margin="100,2,16,2"  x:Name="hour_work" materialDesign:HintAssist.Hint=" عدد ساعات العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FlowDirection="RightToLeft" Height="42"  />
-                <TextBox Grid.Row="4" VerticalAlignment="Top" x:Name="notes" FontSize="16"  Margin="100,0,16,0" materialDesign:HintAssist.Hint="ملاحظات " Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft" Height="42" TextWrapping="Wrap"
+AcceptsReturn="True" Margin="46,0,15,0" />
+                <TextBox Grid.Row="3" VerticalAlignment="Center" FontSize="16"  Margin="47,3,15,2"  x:Name="hour_work" materialDesign:HintAssist.Hint=" عدد ساعات العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FlowDirection="RightToLeft" Height="42"  />
+                <TextBox Grid.Row="4" VerticalAlignment="Top" x:Name="notes" FontSize="16"  Margin="50,0,15,0" materialDesign:HintAssist.Hint="ملاحظات " Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft"  TextWrapping="Wrap"
 VerticalScrollBarVisibility="Visible" 
 AcceptsReturn="True" />
 
