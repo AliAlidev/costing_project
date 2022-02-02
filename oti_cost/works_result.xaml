@@ -37,7 +37,7 @@
                     <ColumnDefinition Width="0*"></ColumnDefinition>
                     <ColumnDefinition Width="0*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Border Grid.Row="2" Grid.RowSpan="5" Background="White" BorderBrush="#94A76D" BorderThickness="3" >
+                <Border Grid.Row="1" Grid.RowSpan="6" Background="White" BorderBrush="#94A76D" BorderThickness="3" >
 
                     <!--<Border Grid.Row="2" Grid.RowSpan="6" CornerRadius="50" Background="White" BorderBrush="#94A76D" BorderThickness="3" >-->
                     <!--<Border.Effect >
@@ -51,6 +51,11 @@
                     <Label  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
                     <TextBox   x:Name="card_number" Text="8" HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"  Focusable="False" BorderThickness="0" BorderBrush="Transparent" FlowDirection="RightToLeft"    />
                 </StackPanel>-->
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0"  FlowDirection="RightToLeft" Margin="0,0,15,0" VerticalAlignment="Bottom">
+
+                    <Label  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
+                    <TextBox Name="card_number" Text="7" Focusable="False" IsReadOnly="True" HorizontalContentAlignment="Center" Width="30" BorderBrush="Transparent" BorderThickness="0"></TextBox>
+                </StackPanel>
                 <TextBox Grid.Row="2" VerticalAlignment="Top" x:Name="result_work" FontSize="16"  Margin="100,0,16,0" materialDesign:HintAssist.Hint="توصيف العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft" Height="42" TextWrapping="Wrap"
 VerticalScrollBarVisibility="Visible" 
 AcceptsReturn="True" />

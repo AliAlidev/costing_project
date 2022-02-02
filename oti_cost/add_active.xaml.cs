@@ -78,32 +78,72 @@ namespace oti_cost
                 n.ShowDialog();
 
 
-
                 if (sharedvariables.confirmationmessagebox == "ok")
                 {
 
 
-                    this.teamgrid.Items.Add((object)new team_work_PC.Add()
+                    bool res = DBVariables.isFound(active_name.Text, "active_center_name", "active_center" );
+                    if (res == false)
                     {
-                        work_done = this.team_name.Text,
-                        hours_number = this.active_name.Text,
-                        worker_name = this.worker_name.Text,
-                        self_number = this.self_number.Text,
-                        category = this.category.Text,
-                       
+                        string query = "insert into active_center(active_center_name, team_name) values('" + active_name.Text + "','" + team_name.Text + "' )";
 
+                        DBVariables.executenq(query);
 
-                    });
-                    this.team_name.Text = "";
-                    this.active_name.Text = "";
-                    this.worker_name.Text = "";
-                    this.self_number.Text = "";
-                    this.category.Text = "";
-                   
+                        ok = new oknote("تم إضافة مركز النشاط بنجاح ");
+                        ok.ShowDialog();
 
+                        this.teamgrid.Items.Add((object)new team_work_PC.Add()
+                        {
+                            //work_done = this.team_name.Text,
+                            //hours_number = this.active_name.Text,
+                            worker_name = this.worker_name.Text,
+                            self_number = this.self_number.Text,
+                            category = this.category.Text,
 
 
 
+                        });
+                        this.worker_name.Text = "";
+                        this.self_number.Text = "";
+                        this.category.Text = "";
+
+                    }
+                    else
+                    {
+                       string query = "select team_name from active_center where active_center_name='" + active_name.Text + "'";
+                      string team =  DBVariables.executescaler(query);
+
+                        if (team == team_name.Text)
+                        {
+
+
+                        this.teamgrid.Items.Add((object)new team_work_PC.Add()
+                        {
+                            //work_done = this.team_name.Text,
+                            //hours_number = this.active_name.Text,
+                            worker_name = this.worker_name.Text,
+                            self_number = this.self_number.Text,
+                            category = this.category.Text,
+
+
+
+                        });
+                        this.worker_name.Text = "";
+                        this.self_number.Text = "";
+                        this.category.Text = "";
+                        }
+                        else
+                        {
+                            ok = new oknote("خطأ ! .. يرجى  كتابة اسم الفريق بشكل صحيح   ");
+                            ok.ShowDialog();
+                        }
+
+
+
+
+
+                    }
+                
                 }
                 else
                 {
@@ -129,6 +169,10 @@ namespace oti_cost
             {
 
 
+                string query = " ";
+
+
+
 
                 IEnumerable items = (IEnumerable)teamgrid.Items;
 
@@ -136,14 +180,17 @@ namespace oti_cost
                 {
                     try
                     {
-                        string str1 = (string)obj1.GetType().GetProperty("team_name").GetValue(obj1, (object[])null);
-                        object str2 = obj1.GetType().GetProperty("active_name").GetValue(obj1, (object[])null);
-                        string str3 = (string)obj1.GetType().GetProperty("worker_name").GetValue(obj1, (object[])null);
-                        object str4 = obj1.GetType().GetProperty("self_number").GetValue(obj1, (object[])null);
-                        string str5 = (string)obj1.GetType().GetProperty("category").GetValue(obj1, (object[])null);
-                       
+                        string str1 = (string)obj1.GetType().GetProperty("worker_name").GetValue(obj1, (object[])null);
+                        object str2 = obj1.GetType().GetProperty("self_number").GetValue(obj1, (object[])null);                    
+                        string str3 = (string)obj1.GetType().GetProperty("category").GetValue(obj1, (object[])null);
 
-                        string query = "insert into work_team( team_name , active_name, worker_name, self_number, category ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "' )";
+
+                        query = "select id from active_center where active_center_name='" + active_name.Text + "' and team_name ='" + team_name.Text + "'";
+
+
+                       string idnum = DBVariables.executescaler(query);
+
+                        query = "insert into workers_names( worker_name , self_number, category  , active_center_id) values('" + str1 + "','" + str2 + "','" + str3 + "','" + idnum + "' )";
 
                         DBVariables.executenq(query);
 
@@ -160,8 +207,6 @@ namespace oti_cost
 
                 ok = new oknote("تم إدخال البيانات بنجاح");
                 ok.ShowDialog();
-                team_name.Text = "";
-                active_name.Text = "";
                 worker_name.Text = "";
                 self_number.Text = "";
                 category.Text = "";
