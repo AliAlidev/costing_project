@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace oti_cost
 {
@@ -52,7 +40,7 @@ namespace oti_cost
                 ok = new oknote("يجب إدخال  اسم مركز النشاط ! ");
                 ok.ShowDialog();
             }
-            else  if (worker_name.Text == "")
+            else if (worker_name.Text == "")
             {
                 ok = new oknote("يجب إدخال اسم  العامل !");
                 ok.ShowDialog();
@@ -67,9 +55,9 @@ namespace oti_cost
                 ok = new oknote("يجب إدخال  الفئة ! ");
                 ok.ShowDialog();
             }
-            
-          
-            
+
+
+
 
             else
             {
@@ -81,17 +69,6 @@ namespace oti_cost
                 if (sharedvariables.confirmationmessagebox == "ok")
                 {
 
-
-                    bool res = DBVariables.isFound(active_name.Text, "active_center_name", "active_center" );
-                    if (res == false)
-                    {
-                        string query = "insert into active_center(active_center_name, team_name) values('" + active_name.Text + "','" + team_name.Text + "' )";
-
-                        DBVariables.executenq(query);
-
-                        ok = new oknote("تم إضافة مركز النشاط بنجاح ");
-                        ok.ShowDialog();
-
                         this.teamgrid.Items.Add((object)new team_work_PC.Add()
                         {
                             //work_done = this.team_name.Text,
@@ -107,47 +84,13 @@ namespace oti_cost
                         this.self_number.Text = "";
                         this.category.Text = "";
 
-                    }
-                    else
-                    {
-                       string query = "select team_name from active_center where active_center_name='" + active_name.Text + "'";
-                      string team =  DBVariables.executescaler(query);
+       
+                        
 
-                        if (team == team_name.Text)
-                        {
-
-
-                        this.teamgrid.Items.Add((object)new team_work_PC.Add()
-                        {
-                            //work_done = this.team_name.Text,
-                            //hours_number = this.active_name.Text,
-                            worker_name = this.worker_name.Text,
-                            self_number = this.self_number.Text,
-                            category = this.category.Text,
-
-
-
-                        });
-                        this.worker_name.Text = "";
-                        this.self_number.Text = "";
-                        this.category.Text = "";
-                        }
-                        else
-                        {
-                            ok = new oknote("خطأ ! .. يرجى  كتابة اسم الفريق بشكل صحيح   ");
-                            ok.ShowDialog();
-                        }
-
-
-
-
-
-                    }
-                
                 }
                 else
                 {
-                    ok = new oknote("لم يتم إدخال المعلومات المطلوبة !");
+                    ok = new oknote("لم تتم إضافة بيانات العامل  !");
                     ok.ShowDialog();
                 }
             }
@@ -181,14 +124,14 @@ namespace oti_cost
                     try
                     {
                         string str1 = (string)obj1.GetType().GetProperty("worker_name").GetValue(obj1, (object[])null);
-                        object str2 = obj1.GetType().GetProperty("self_number").GetValue(obj1, (object[])null);                    
+                        object str2 = obj1.GetType().GetProperty("self_number").GetValue(obj1, (object[])null);
                         string str3 = (string)obj1.GetType().GetProperty("category").GetValue(obj1, (object[])null);
 
 
                         query = "select id from active_center where active_center_name='" + active_name.Text + "' and team_name ='" + team_name.Text + "'";
 
 
-                       string idnum = DBVariables.executescaler(query);
+                        string idnum = DBVariables.executescaler(query);
 
                         query = "insert into workers_names( worker_name , self_number, category  , active_center_id) values('" + str1 + "','" + str2 + "','" + str3 + "','" + idnum + "' )";
 
@@ -210,7 +153,7 @@ namespace oti_cost
                 worker_name.Text = "";
                 self_number.Text = "";
                 category.Text = "";
-               
+
 
 
                 this.teamgrid.Items.Clear();
@@ -225,7 +168,7 @@ namespace oti_cost
                 worker_name.Text = "";
                 self_number.Text = "";
                 category.Text = "";
-               
+
 
 
             }
@@ -234,6 +177,85 @@ namespace oti_cost
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             teamgrid.Items.RemoveAt(teamgrid.SelectedIndex);
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+            string query = "select count(*) from active_center where active_center_name='" + active_name.Text + "' and team_name ='" + team_name.Text + "'";
+            string count = DBVariables.executescaler(query);
+            if (int.Parse(count) > 0)
+            {
+
+                ok = new oknote("  مركز النشاط هذا موجود بالفعل .. يمكنك  إضافة العمال   ");
+                ok.ShowDialog();
+
+
+
+            }
+            else
+            {
+                bool res = DBVariables.isFound(active_name.Text, "active_center_name", "active_center");
+                bool res1 = DBVariables.isFound(team_name.Text, "team_name", "active_center");
+
+                if (res == false && res1 == false)
+                {
+
+                    query = "insert into active_center(active_center_name, team_name) values('" + active_name.Text + "','" + team_name.Text + "' )";
+
+                    DBVariables.executenq(query);
+
+                    ok = new oknote("تم إضافة مركز النشاط و اسم الفريق التابع له بنجاح .. يمكنك متابعة عملية إضافة العمال  ");
+                    ok.ShowDialog();
+
+
+                  
+                }
+                else
+                {
+                    if (res == true)
+                    {
+                        query = "select team_name from active_center where avtive_center_name='" + active_name.Text + "'";
+                        string team = DBVariables.executescaler(query);
+                        if (team == team_name.Text)
+                        {
+                            ok = new oknote("  مركز النشاط هذا موجود بالفعل .. يمكنك متابعة عملية إضافة العمال   ");
+                            ok.ShowDialog();
+
+
+                        }
+                        else
+                        {
+                            ok = new oknote("خطأ ! .. مركز النشاط ها موجود بالفعل يرجى  كتابة اسم الفريق الخاص به بشكل صحيح   ");
+                            ok.ShowDialog();
+                        }
+
+                    }
+                    else if (res1 == true)
+                    {
+                        res = DBVariables.isFound(team_name.Text, "team_name", "active_center");
+                        if (res == true)
+                        {
+                            query = "select active_center_name from active_center where team_name='" + team_name.Text + "'";
+                            string center = DBVariables.executescaler(query);
+                            if (center == active_name.Text)
+                            {
+                                ok = new oknote("  مركز النشاط هذا موجود بالفعل .. يمكنك متابعة عملية إضافة العمال   ");
+                                ok.ShowDialog();
+
+
+                            }
+                            else
+                            {
+                                ok = new oknote("خطأ ! ..الفريق هذا موجود بالفعل  يرجى  كتابة اسم مركز النشاط الخاص به بشكل صحيح   ");
+                                ok.ShowDialog();
+                            }
+                        }
+
+                    }
+                }
+
+            }
         }
     }
 }

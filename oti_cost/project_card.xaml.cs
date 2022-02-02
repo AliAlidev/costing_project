@@ -25,6 +25,8 @@ namespace oti_cost
 
         private void add_card_number_Click(object sender, RoutedEventArgs e)
         {
+
+
             ok = new oknote("انتبه .. ان رقم المشروع هو رقم تسلسلي فقط للتمييز بين المشاريع ! ");
             ok.ShowDialog();
 
@@ -55,7 +57,7 @@ namespace oti_cost
 
             }
 
-            card_number.Text = id0;
+            card_numberr.Text = id0;
         }
 
 
@@ -133,7 +135,7 @@ namespace oti_cost
                     try
                     {
 
-                        string query = "insert into project_card( active_center_name, project_name , dept, help_team , governorate , start_date , finsh_date , project_number) values('" + active_name.Text + "','" + project_name.Text + "','" + dept_name.Text + "','" + help_team.Text + "','" + governorate.Text + "','" + start_date.Text + "','" + finsh_date.Text + "','" + card_number.Text + "' )";
+                        string query = "insert into project_card( active_center_name, project_name , dept, help_team , governorate , start_date , finsh_date , project_number) values('" + active_name.Text + "','" + project_name.Text + "','" + dept_name.Text + "','" + help_team.Text + "','" + governorate.Text + "','" + start_date.Text + "','" + finsh_date.Text + "','" + card_numberr.Text + "' )";
 
                         DBVariables.executenq(query);
 
@@ -184,7 +186,7 @@ namespace oti_cost
         private void addteam_Click(object sender, RoutedEventArgs e)
         {
             works_result tw = new works_result();
-            tw.card_number.Text = card_number.Text;
+            tw.card_number.Text = card_numberr.Text;
             tw.ShowDialog();
         }
 
@@ -192,7 +194,7 @@ namespace oti_cost
         private void addmaterial_Click(object sender, RoutedEventArgs e)
         {
             material_used_PC ma = new material_used_PC();
-            ma.numbercard.Text = card_number.Text;
+            ma.card_numberrr.Text = card_numberr.Text;
             ma.ShowDialog();
         }
 

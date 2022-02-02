@@ -192,7 +192,7 @@ namespace oti_cost
                         object str6 = obj1.GetType().GetProperty("total_price").GetValue(obj1, (object[])null);
                         string str7 = (string)obj1.GetType().GetProperty("notes").GetValue(obj1, (object[])null);
 
-                        string query = "insert into material_used(material_name, index_number, unit, quantity , unit_price , total_price , notes,project_number , total_sum ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + str7 + "','" + numbercard.Text + "','" +  total_prices.Content.ToString() +"')";
+                        string query = "insert into material_used(material_name, index_number, unit, quantity , unit_price , total_price , notes,project_number , total_sum ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + str7 + "','" + card_numberrr.Text + "','" +  total_prices.Content.ToString() +"')";
 
                         DBVariables.executenq(query);
 
