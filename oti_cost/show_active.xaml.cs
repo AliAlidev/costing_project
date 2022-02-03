@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,14 +20,23 @@ namespace oti_cost
     /// </summary>
     public partial class show_active : Window
     {
-        public show_active()
+        private readonly DataTable _dataset;
+
+        public show_active(System.Data.DataTable dt)
         {
             InitializeComponent();
+
+            _dataset = dt;
+            listrequestgrid.ItemsSource = dt.DefaultView;
+            double w = SystemParameters.PrimaryScreenWidth;
+            double h = SystemParameters.PrimaryScreenHeight;
+            Width = w;
+            Height = h;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            showgrid.Items.RemoveAt(showgrid.SelectedIndex);
+            listrequestgrid.Items.RemoveAt(listrequestgrid.SelectedIndex);
 
         }
 
@@ -34,6 +44,11 @@ namespace oti_cost
         {
             revise r = new revise();
             r.ShowDialog();
+        }
+
+        private void listrequestgrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+
         }
     }
 }
