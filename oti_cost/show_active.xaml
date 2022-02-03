@@ -9,27 +9,9 @@
         mc:Ignorable="d"
         Title="show_active" Height="900" Width="1600"  WindowState="Maximized">
     <!--<Grid>
-        <Image  Stretch="Fill" Source="./image/rr.png"  />
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="148*"></ColumnDefinition>
-                <ColumnDefinition Width="441*"></ColumnDefinition>
-                <ColumnDefinition Width="207*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <DataGrid x:Name="showgrid" FlowDirection="RightToLeft" Grid.Row="2" Grid.Column="1"  Grid.RowSpan="6" BorderBrush="Black" BorderThickness="2"  >
+       
+
+            <DataGrid x:Name="showgrid" FlowDirection="RightToLeft" Grid.Row="2" Grid.Column="1"  Grid.RowSpan="6" BorderBrush="Black" BorderThickness="2"   SelectionUnit="Cell" SelectionMode="Single"  CanUserResizeColumns="False" CanUserReorderColumns="False" >
                 --><!--AllowResizingColumns="True"
                         AutoGenerateColumns="True"
                         ItemsSource="{Binding Orders}" />--><!--
@@ -80,12 +62,46 @@
     </Grid>-->
 
     <Grid>
+        <Image  Stretch="Fill" Source="./image/rr.png"  />
+
+        <Grid>
+            
+        
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="76*"/>
-            <ColumnDefinition Width="525*"/>
-            <ColumnDefinition Width="193*"/>
+            <ColumnDefinition Width="148*"></ColumnDefinition>
+            <ColumnDefinition Width="441*"></ColumnDefinition>
+            <ColumnDefinition Width="207*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <DataGrid Name="listrequestgrid"  HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,0,-0.4,0" SelectionUnit="Cell" SelectionMode="Single" Grid.ColumnSpan="3" CanUserResizeColumns="False" CanUserReorderColumns="False" CellEditEnding="listrequestgrid_CellEditEnding"/>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+            <DataGrid Name="listrequestgrid" FlowDirection="RightToLeft" Grid.Row="2" Grid.Column="1"  Grid.RowSpan="6" HorizontalAlignment="Stretch"  BorderBrush="Black" BorderThickness="2"    SelectionUnit="Cell" SelectionMode="Single"  CanUserResizeColumns="False" CanUserReorderColumns="False" CellEditEnding="listrequestgrid_CellEditEnding">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+
+                    <Setter Property="Focusable" Value="False"></Setter>
+                    <Setter Property="Background" Value="#599DCC"></Setter>
+                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                    <Setter Property="FlowDirection" Value="RightToLeft"></Setter>
+                    <Setter Property="Padding" Value="5"></Setter>
+                    <Setter Property="IsTabStop" Value="True"></Setter>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                    <Setter Property="IsTabStop" Value="True"></Setter>
+                    <Setter Property="IsTabStop" Value="True"></Setter>
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
+        </Grid>
 
     </Grid>
 </Window>
