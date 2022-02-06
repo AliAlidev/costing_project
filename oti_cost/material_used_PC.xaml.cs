@@ -54,7 +54,7 @@ namespace oti_cost
                 ok = new oknote("يجب إدخال رقم الفهرسة    !");
                 ok.ShowDialog();
             }
-            else if (!sharedvariables.isNumber( index_number.Text ))
+            else if (!sharedvariables.isNumber(index_number.Text))
             {
                 ok = new oknote("  رقم الفهرسة يجب أن يكون رقم حصرا   !");
                 ok.ShowDialog();
@@ -98,7 +98,7 @@ namespace oti_cost
                 ok.ShowDialog();
             }
 
-           
+
             else
             {
 
@@ -139,7 +139,7 @@ namespace oti_cost
                     double finalres = 0;
                     foreach (var item in gridmaterial.Items)
                     {
-                        var res =  item.GetType().GetProperty("total_price");
+                        var res = item.GetType().GetProperty("total_price");
                         var tt = res.GetValue(item, null);
                         double res0 = 0;
                         double.TryParse(tt.ToString(), out res0);
@@ -171,55 +171,63 @@ namespace oti_cost
             if (sharedvariables.confirmationmessagebox == "ok")
             {
 
-
-
-                IEnumerable items = (IEnumerable)gridmaterial.Items;
-
-                foreach (object obj1 in items)
+                bool re = DBVariables.isFound(card_numberrr.Text, "project_number", "material_used");
+                if (re == true)
                 {
-                    try
-                    {
-
-
-
-
-
-                        string str1 = (string)obj1.GetType().GetProperty("material_name").GetValue(obj1, (object[])null);
-                        string str2 = (string)obj1.GetType().GetProperty("index_number").GetValue(obj1, (object[])null);
-                        string str3 = (string)obj1.GetType().GetProperty("unit").GetValue(obj1, (object[])null);
-                        object str4 = obj1.GetType().GetProperty("quantity").GetValue(obj1, (object[])null);
-                        object str5 = obj1.GetType().GetProperty("unit_price").GetValue(obj1, (object[])null);
-                        object str6 = obj1.GetType().GetProperty("total_price").GetValue(obj1, (object[])null);
-                        string str7 = (string)obj1.GetType().GetProperty("notes").GetValue(obj1, (object[])null);
-
-                        string query = "insert into material_used(material_name, index_number, unit, quantity , unit_price , total_price , notes,project_number , total_sum ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + str7 + "','" + card_numberrr.Text + "','" +  total_prices.Content.ToString() +"')";
-
-                        DBVariables.executenq(query);
-
-
-                    }
-                    catch (System.Exception)
-                    {
-
-                        ok = new oknote("حدثت مشكلة أثناء عملية الحفظ");
-                        ok.ShowDialog();
-                    }
-
+                    ok = new oknote("تم إضافة هذه البيانات مسبقاً !");
+                    ok.ShowDialog();
                 }
-            
-                ok = new oknote("تم إدخال البيانات بنجاح");
-                ok.ShowDialog();
+                else
+                {
 
-                material_name.Text = "";
-                index_number.Text = "";
-                unit.Text = "";
-                quantity.Text = "";
-                notes.Text = "";
-                total_price.Text = "";
-                unit_price.Text = "";
+                    IEnumerable items = (IEnumerable)gridmaterial.Items;
+
+                    foreach (object obj1 in items)
+                    {
+                        try
+                        {
 
 
-                this.gridmaterial.Items.Clear();
+
+
+
+                            string str1 = (string)obj1.GetType().GetProperty("material_name").GetValue(obj1, (object[])null);
+                            string str2 = (string)obj1.GetType().GetProperty("index_number").GetValue(obj1, (object[])null);
+                            string str3 = (string)obj1.GetType().GetProperty("unit").GetValue(obj1, (object[])null);
+                            object str4 = obj1.GetType().GetProperty("quantity").GetValue(obj1, (object[])null);
+                            object str5 = obj1.GetType().GetProperty("unit_price").GetValue(obj1, (object[])null);
+                            object str6 = obj1.GetType().GetProperty("total_price").GetValue(obj1, (object[])null);
+                            string str7 = (string)obj1.GetType().GetProperty("notes").GetValue(obj1, (object[])null);
+
+                            string query = "insert into material_used(material_name, index_number, unit, quantity , unit_price , total_price , notes,project_number , total_sum ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + str7 + "','" + card_numberrr.Text + "','" + total_prices.Content.ToString() + "')";
+
+                            DBVariables.executenq(query);
+
+
+                        }
+                        catch (System.Exception)
+                        {
+
+                            ok = new oknote("حدثت مشكلة أثناء عملية الحفظ");
+                            ok.ShowDialog();
+                        }
+
+                    }
+
+                    ok = new oknote("تم إدخال البيانات بنجاح");
+                    ok.ShowDialog();
+
+                    material_name.Text = "";
+                    index_number.Text = "";
+                    unit.Text = "";
+                    quantity.Text = "";
+                    notes.Text = "";
+                    total_price.Text = "";
+                    unit_price.Text = "";
+
+
+                    this.gridmaterial.Items.Clear();
+                }
             }
             else
             {
@@ -237,6 +245,7 @@ namespace oti_cost
 
 
             }
+
 
 
         }
@@ -267,8 +276,8 @@ namespace oti_cost
         {
             if (quantity.Text != "" && unit_price.Text != "")
             {
-                double count = 0, price =0;
-                double.TryParse(quantity.Text,out count);
+                double count = 0, price = 0;
+                double.TryParse(quantity.Text, out count);
                 double.TryParse(unit_price.Text, out price);
                 total_price.Text = (count * price).ToString();
             }
