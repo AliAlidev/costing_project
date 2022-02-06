@@ -53,6 +53,7 @@
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
+                                
                                 <Button Click="Button_Click_1" BorderBrush="Black" Foreground="Black"  Background="#599DCC">تعديل</Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
