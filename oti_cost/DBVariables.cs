@@ -113,6 +113,8 @@ namespace oti_cost
             dtColumn.AutoIncrement = false;
             dtColumn.ReadOnly = true;
             dtColumn.Unique = false;
+            dtColumn.MaxLength = 300;
+            
             datatable0.Columns.Add(dtColumn);
 
             // request_date column

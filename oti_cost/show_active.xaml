@@ -93,11 +93,11 @@
                     <Setter Property="Background" Value="#599DCC"></Setter>
                     <Setter Property="FontWeight" Value="Bold"></Setter>
                     <Setter Property="FlowDirection" Value="RightToLeft"></Setter>
-                    <Setter Property="Padding" Value="5"></Setter>
+                    <Setter Property="Padding" Value="15"></Setter>
                     <Setter Property="IsTabStop" Value="True"></Setter>
                     <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
                     <Setter Property="IsTabStop" Value="True"></Setter>
-                    <Setter Property="IsTabStop" Value="True"></Setter>
+                    <Setter Property="Margin" Value="0,0,0,0"></Setter>
                 </Style>
             </DataGrid.Resources>
         </DataGrid>
