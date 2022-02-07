@@ -41,8 +41,8 @@
                 <RowDefinition Height="48*"></RowDefinition>
                 <RowDefinition Height="38*"></RowDefinition>
                 <RowDefinition Height="59*"></RowDefinition>
-                <RowDefinition Height="48*"></RowDefinition>
-                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="64*"></RowDefinition>
+                <RowDefinition Height="32*"></RowDefinition>
                 <RowDefinition Height="48*"></RowDefinition>
                 <RowDefinition Height="48*"></RowDefinition>
             </Grid.RowDefinitions>
@@ -54,9 +54,9 @@
 
 
 
-            <Label Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" FlowDirection="RightToLeft" Content=" الرجاء ادخال المعلومات من هنا :  "  Foreground="DarkGreen" HorizontalAlignment="Center"   />
-            <Label Grid.Row="5" Grid.Column="4" VerticalAlignment="Top"  FlowDirection="RightToLeft" Content="فريق العمل " Foreground="#0063C0" FontSize="20" HorizontalAlignment="Center"   />
-            <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="4" FlowDirection="RightToLeft" Margin="0,0,50,0" VerticalAlignment="Bottom">
+            <Label Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" FlowDirection="RightToLeft" Content=" الرجاء ادخال المعلومات من هنا :  "  Foreground="DarkGreen" HorizontalAlignment="Center" Height="26" Margin="152,11" Width="174"   />
+            <Label Grid.Row="5" Grid.Column="4" VerticalAlignment="Top"  FlowDirection="RightToLeft" Content="فريق العمل " Foreground="#0063C0" FontSize="20" HorizontalAlignment="Center" Height="37" Margin="184,0" Width="110"   />
+            <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="4" FlowDirection="RightToLeft" Margin="0,0,50,0" VerticalAlignment="Bottom" Height="26">
 
                 <Label  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
                 <TextBox   x:Name="card_number" Text=" " HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"  Focusable="False" BorderThickness="0" BorderBrush="Transparent" FlowDirection="RightToLeft"    />
@@ -71,7 +71,7 @@
 VerticalScrollBarVisibility="Visible" 
 AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
-            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="13" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" >
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="13" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" Height="32" Margin="78,0" Width="322" >
                 <Button Click="Button_Click" Content="إضــــــــــافــــــــــة" BorderBrush="Black" Margin="0,0,50,0"  Background="#599DCC" Foreground="Black" FontSize="19" ></Button>
                 <Button Click="Button_Click_2" Content="الــــــــــغــــــــــاء" BorderBrush="Black"   Background="#FBB634" Foreground="Black" FontSize="19" ></Button>
 
@@ -117,7 +117,7 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/
 
             </DataGrid>
 
-            <Button  Click="add_Click" Name="add" Visibility="Visible" FontSize="19"  BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  Grid.Column="4"  Grid.Row="15" HorizontalAlignment="Center" />
+            <Button  Click="add_Click" Name="add" Visibility="Visible" FontSize="19"  BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  Grid.Column="1"  Grid.Row="14" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="64" Width="198" Margin="357,0,46,0" />
 
 
         </Grid>

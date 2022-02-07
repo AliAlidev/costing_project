@@ -331,6 +331,9 @@
     <Compile Include="material_used_PC.xaml.cs">
       <DependentUpon>material_used_PC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="modulation.xaml.cs">
+      <DependentUpon>modulation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="note.xaml.cs">
       <DependentUpon>note.xaml</DependentUpon>
     </Compile>
@@ -401,6 +404,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="material_used_PC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="modulation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -538,6 +545,30 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\rr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\2983175[1].png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\eee.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\ee.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\v.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\uu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\uy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\uyy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="image\rraahh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\build\Microsoft.TeamFoundationServer.ExtendedClient.targets" Condition="Exists('..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\build\Microsoft.TeamFoundationServer.ExtendedClient.targets')" />
