@@ -1,17 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+using System.Windows.Forms;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace oti_cost
 {
@@ -21,6 +18,7 @@ namespace oti_cost
     public partial class show_active : Window
     {
         private readonly DataTable _dataset;
+        oknote ok;
 
         public show_active(System.Data.DataTable dt)
         {
@@ -46,9 +44,35 @@ namespace oti_cost
             r.ShowDialog();
         }
 
-        private void listrequestgrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {
+      
 
+        private void listrequestgrid_Sorting(object sender, DataGridSortingEventArgs e)
+        {
+            var headerName = "Organization";
+
+            var column = e.Column;
+            if (!column.Header.ToString().Equals(headerName))
+            {
+                return;
+            }
+
+            var source = (sender as System.Windows.Controls.DataGrid).ItemsSource as ListCollectionView;
+            if (source == null)
+            {
+                return;
+            }
+
+            e.Handled = true;
+            var sortDirection = column.SortDirection == ListSortDirection.Ascending ?
+                ListSortDirection.Descending : ListSortDirection.Ascending;
+
+            using (source.DeferRefresh())
+            {
+                source.SortDescriptions.Clear();
+                source.SortDescriptions.Add(new SortDescription(headerName, sortDirection));
+            }
+            source.Refresh();
+            column.SortDirection = sortDirection;
         }
     }
 }
