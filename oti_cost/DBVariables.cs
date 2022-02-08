@@ -188,45 +188,7 @@ namespace oti_cost
 
 
 
-        //public static DataTable showWorkers(string tt)
-        //{
-
-        //    //string query = "select worker_name  from workers_names";
-        //    //query = "select worker_name from workers_names where active_center_name='" + active_name.Text + "' and team_name ='" + team_name.Text + "'";
-
-        //    DataTable dt = new DataTable();
-        //    MySqlDataAdapter da = new MySqlDataAdapter(tt, conn);
-        //    da.Fill(dt);
-
-        //    // id column
-        //    DataTable datatable0 = new DataTable();
-        //    DataRow myDataRow;
-        //    DataColumn dtColumn;
-
-
-        //    // worker name column
-        //    dtColumn = new DataColumn();
-        //    dtColumn.DataType = typeof(string);
-        //    dtColumn.ColumnName = "أسماء العمال";
-        //    dtColumn.AutoIncrement = false;
-        //    dtColumn.ReadOnly = true;
-        //    dtColumn.Unique = false;
-        //    datatable0.Columns.Add(dtColumn);
-
-
-
-
-
-        //    foreach (DataRow dr in dt.Rows)
-        //    {
-        //        myDataRow = datatable0.NewRow();
-        //        myDataRow["أسماء العمال"] = dr.ItemArray[0].ToString();
-
-        //        datatable0.Rows.Add(myDataRow);
-        //    }
-
-        //    return datatable0;
-        //}
+       
 
 
 

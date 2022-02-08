@@ -368,9 +368,6 @@
       <DependentUpon>toeditpassword.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CodeViewModel.cs" />
-    <Compile Include="workers.xaml.cs">
-      <DependentUpon>workers.xaml</DependentUpon>
-    </Compile>
     <Compile Include="works_result.xaml.cs">
       <DependentUpon>works_result.xaml</DependentUpon>
     </Compile>
@@ -451,10 +448,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="toeditpassword.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="workers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
