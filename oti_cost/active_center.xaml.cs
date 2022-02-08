@@ -31,10 +31,14 @@ namespace oti_cost
             a.ShowDialog();
         }
 
+
+
         private void show_active_name_Click(object sender, RoutedEventArgs e)
         {
             //show_active a = new show_active();
             //a.ShowDialog();
+
+
             DataTable dt = DBVariables.showactivecenter();
 
             show_active lr = new show_active(dt);
