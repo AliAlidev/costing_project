@@ -32,12 +32,7 @@ namespace oti_cost
             Height = h;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            listrequestgrid.Items.RemoveAt(listrequestgrid.SelectedIndex);
-
-        }
-
+        
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             revise r = new revise();
@@ -74,5 +69,7 @@ namespace oti_cost
             source.Refresh();
             column.SortDirection = sortDirection;
         }
+
+        }
     }
-}
+

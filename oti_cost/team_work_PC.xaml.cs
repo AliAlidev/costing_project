@@ -250,8 +250,8 @@ namespace oti_cost
 
         private void modulation_Click(object sender, RoutedEventArgs e)
         {
-            modulation m = new modulation();
-            m.ShowDialog();
+            //modulation m = new modulation();
+            //m.ShowDialog();
         }
     }
     }

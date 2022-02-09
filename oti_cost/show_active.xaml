@@ -86,16 +86,12 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-            <DataGrid  FlowDirection="RightToLeft" Sorting="listrequestgrid_Sorting" Name="listrequestgrid" Grid.Row="2" Grid.Column="1"  Grid.RowSpan="6" HorizontalAlignment="Stretch"  BorderBrush="Black" BorderThickness="2"    SelectionUnit="Cell" SelectionMode="Single"  CanUserResizeColumns="False" CanUserReorderColumns="False">
+            <TextBox x:Name="y"></TextBox>
+            <TextBox x:Name="yy"></TextBox>
+            <TextBox x:Name="yyy"></TextBox>
+            <DataGrid  FlowDirection="RightToLeft" Name="listrequestgrid" Grid.Row="2" Grid.Column="1"  Grid.RowSpan="6" HorizontalAlignment="Stretch"  BorderBrush="Black" BorderThickness="2"    SelectionUnit="Cell" SelectionMode="Single"  CanUserResizeColumns="False" CanUserReorderColumns="False">
                 <DataGrid.Columns >
-                    <DataGridTemplateColumn >
-                        <DataGridTemplateColumn.CellTemplate >
-                            <DataTemplate>
-                                <Button  Click="Button_Click" BorderBrush="Black" Foreground="Black"  Width="100" Background="#FBB634">حذف</Button>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-
-                    </DataGridTemplateColumn>
+      
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
