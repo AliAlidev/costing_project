@@ -336,6 +336,9 @@
     <Compile Include="mod1.xaml.cs">
       <DependentUpon>mod1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="mod2.xaml.cs">
+      <DependentUpon>mod2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="modulation.xaml.cs">
       <DependentUpon>modulation.xaml</DependentUpon>
     </Compile>
@@ -414,6 +417,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="mod1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="mod2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
