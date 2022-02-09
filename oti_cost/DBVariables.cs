@@ -1,10 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace oti_cost
@@ -15,6 +10,9 @@ namespace oti_cost
         static string connectionstring = "server=127.0.0.1;uid=user1;pwd=123qweASD;database=oti_cost";
         static MySqlConnection conn = new MySqlConnection(connectionstring);
         static MySqlCommand comm = new MySqlCommand();
+        MySqlDataReader myReader;
+
+
 
         static void openConn()
         {
@@ -37,7 +35,7 @@ namespace oti_cost
                 openConn();
                 comm.ExecuteNonQuery();
                 closeConn();
-              
+
             }
             catch (System.Exception ex)
             {
@@ -56,7 +54,26 @@ namespace oti_cost
                 string res = comm.ExecuteScalar().ToString();
                 closeConn();
                 return res;
-            } 
+            }
+            catch (System.Exception ex)
+            {
+                return null;
+            }
+        }
+
+
+        public static MySqlDataReader ExecuteReader(string query)
+        {
+            try
+            {
+                comm.Connection = conn;
+                comm.CommandText = query;
+                openConn();
+
+                MySqlDataReader res = comm.ExecuteReader();
+                //closeConn();
+                return res;
+            }
             catch (System.Exception ex)
             {
                 return null;
@@ -89,7 +106,7 @@ namespace oti_cost
 
         public static DataTable showactivecenter()
         {
-            string query = "select active_center_name , team_name from active_center";
+            string query = "select id , active_center_name , team_name from active_center";
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
             da.Fill(dt);
@@ -98,26 +115,17 @@ namespace oti_cost
             DataTable datatable0 = new DataTable();
             DataRow myDataRow;
             DataColumn dtColumn;
-            dtColumn = new DataColumn();
-            dtColumn.DataType = typeof(string);
-            dtColumn.ColumnName = "معرف";
-            dtColumn.AutoIncrement = true;
-            dtColumn.ReadOnly = true;
-            dtColumn.Unique = false;
-            datatable0.Columns.Add(dtColumn);
 
-            // request_number column
-            dtColumn = new DataColumn();
-            dtColumn.DataType = typeof(string);
-            dtColumn.ColumnName = "اسم مركز النشاط";
-            dtColumn.AutoIncrement = false;
-            dtColumn.ReadOnly = true;
-            dtColumn.Unique = false;
-            dtColumn.MaxLength = 300;
-            
-            datatable0.Columns.Add(dtColumn);
+            //dtColumn = new DataColumn();
+            //dtColumn.DataType = typeof(string);
+            //dtColumn.ColumnName = "معرف";
+            //dtColumn.AutoIncrement = true;
+            //dtColumn.ReadOnly = true;
+            //dtColumn.Unique = false;
+            //datatable0.Columns.Add(dtColumn);
 
-            // request_date column
+
+            // team name column
             dtColumn = new DataColumn();
             dtColumn.DataType = typeof(string);
             dtColumn.ColumnName = "اسم الفريق";
@@ -126,22 +134,62 @@ namespace oti_cost
             dtColumn.Unique = false;
             datatable0.Columns.Add(dtColumn);
 
+
+            // active centers column
+            dtColumn = new DataColumn();
+            dtColumn.DataType = typeof(string);
+            dtColumn.ColumnName = "اسم مركز النشاط";
            
+            dtColumn.AutoIncrement = false;
+            dtColumn.ReadOnly = true;
+            dtColumn.Unique = false;
+            datatable0.Columns.Add(dtColumn);
+
+            // workers column
+            dtColumn = new DataColumn();
+            dtColumn.DataType = typeof(string);
+            dtColumn.ColumnName = "اسم العمال";
+            dtColumn.AutoIncrement = false;
+            dtColumn.ReadOnly = true;
+            dtColumn.Unique = false;
+            datatable0.Columns.Add(dtColumn);
+
+
+
+
 
             foreach (DataRow dr in dt.Rows)
             {
                 myDataRow = datatable0.NewRow();
-                myDataRow["اسم مركز النشاط"] = dr.ItemArray[0].ToString();
-  
-                myDataRow["اسم الفريق"] = dr.ItemArray[1].ToString();
+                int id = (int)dr.ItemArray[0];
+                string quy = "select worker_name from workers_names where active_center_id=" + id;
+                DataSet workersds = new DataSet();
+                da = new MySqlDataAdapter(quy, conn);
+                da.Fill(workersds);
+                string workersnames = "";
+                foreach (DataRow item in workersds.Tables[0].Rows)
+                {
+                    workersnames +=  (item.ItemArray[0].ToString() + ", ");
+                }
+                myDataRow["اسم العمال"] = workersnames;
+                myDataRow["اسم مركز النشاط"] = dr.ItemArray[1].ToString();
+                myDataRow["اسم الفريق"] = dr.ItemArray[2].ToString();
 
-             
+                
+
+
+
+
                 datatable0.Rows.Add(myDataRow);
-
             }
 
             return datatable0;
         }
+
+
+
+       
+
 
 
     }
