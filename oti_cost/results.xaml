@@ -59,7 +59,7 @@ AcceptsReturn="True" BorderBrush="WhiteSmoke" BorderThickness="3" Margin="30,0,3
 
                     <Button x:Name="add" Click="add_Click" BorderBrush="Black" Content="حفظ" Margin="0,0,100,0" Width="130" Background="#599DCC"  Foreground="Black"  FontSize="20" ></Button>
 
-                    <Button Content="إلغاء" Name="delete" Click="delete_Click"  BorderBrush="Black" Width="130" Background="#FBB634"  Foreground="Black" FontSize="20" ></Button>
+                    <Button Content="اغلاق" Name="delete" Click="delete_Click"  BorderBrush="Black" Width="130" Background="#FBB634"  Foreground="Black" FontSize="20" ></Button>
                 </StackPanel>
                 
                 

@@ -68,7 +68,7 @@
 
             <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="14" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Top" Height="32"  Width="322" >
                 <Button Click="Button_Click" Content="إضــــــــــافــــــــــة" BorderBrush="Black" Margin="0,0,50,0"  Background="#599DCC" Foreground="Black" FontSize="19" ></Button>
-                <Button Click="Button_Click_1" Content="الــــــــــغــــــــــاء" BorderBrush="Black"   Background="#FBB634" Foreground="Black" FontSize="19" ></Button>
+                <Button Click="Button_Click_1" Content="اغـــــــــــــــــلاق" BorderBrush="Black"   Background="#FBB634" Foreground="Black" FontSize="19" ></Button>
 
             </StackPanel>
 

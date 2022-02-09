@@ -68,7 +68,7 @@ AcceptsReturn="True" />
 
                     <Button x:Name="add" Click="add_Click" BorderBrush="Black" Content="حفظ" Margin="0,7,100,7" Width="85" Background="#599DCC"  Foreground="Black"  FontSize="20" ></Button>
 
-                    <Button Content="إلغاء" Name="delete" Click="delete_Click"  BorderBrush="Black" Width="96" Background="#FBB634"  Foreground="Black" FontSize="20" Margin="0,7" ></Button>
+                    <Button Content="اغــلاق" Name="delete" Click="delete_Click"  BorderBrush="Black" Width="96" Background="#FBB634"  Foreground="Black" FontSize="20" Margin="0,7" ></Button>
                 </StackPanel>
 
 

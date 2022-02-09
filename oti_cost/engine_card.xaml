@@ -63,7 +63,7 @@
 
                 <Button VerticalAlignment="Bottom" Width="150" Click="add_Click_2" Name="add" Visibility="Visible"  BorderBrush="Black" Background="#599DCC" Foreground="Black" Content="حــفـــظ" Margin="0,0,50,0" FontSize="20" />
 
-                <Button  VerticalAlignment="Bottom" Width="150"  Click="cancel_Click" Name="cancel" Visibility="Visible"  BorderBrush="Black" Background="#FBB634" Foreground="Black" Content="إلـــــغـــــاء"  FontSize="20"  />
+                <Button  VerticalAlignment="Bottom" Width="150"  Click="cancel_Click" Name="cancel" Visibility="Visible"  BorderBrush="Black" Background="#FBB634" Foreground="Black" Content="اغــــــــــــــلاق"  FontSize="20"  />
 
                 <!--<Button VerticalAlignment="Bottom" Width="150" Name="add_engine_info" Click="add_engine_info_Click" Visibility="Visible"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="إضافة بيانات المحرك" Margin="50,0,0,0"   />-->
             </StackPanel>

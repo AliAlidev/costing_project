@@ -74,7 +74,7 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/
             </StackPanel>
 
 
-            <DataGrid x:Name="teamgrid" FlowDirection="RightToLeft" Grid.Row="6" Grid.Column="1"  Grid.RowSpan="8" BorderBrush="Black" BorderThickness="2"  >
+            <DataGrid x:Name="teamgrid" FlowDirection="RightToLeft" Grid.Row="8" Grid.Column="1"  Grid.RowSpan="8" BorderBrush="Black" BorderThickness="2"  >
                 <!--AllowResizingColumns="True"
                         AutoGenerateColumns="True"
                         ItemsSource="{Binding Orders}" />-->
@@ -112,6 +112,18 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/
                 </DataGrid.Resources>
 
             </DataGrid>
+            <Border  Background="GhostWhite" Grid.Column="1" Grid.Row="5"  BorderThickness="6" BorderBrush="GhostWhite" >
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+                </Border.Effect>
+
+            </Border>
+            <TextBox Grid.Row="5" HorizontalAlignment="Left"   x:Name="worker1_name"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="اسم العامل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  VerticalAlignment="Center" Width="99" Height="42" Margin="493,0,0,6" Grid.Column="1"  />
+            <TextBox Grid.Row="5" HorizontalAlignment="Center"  x:Name="self1_number"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="الرقم الذاتي    " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  VerticalAlignment="Center" Width="90" Height="42" Margin="263,0,248,6" Grid.Column="1"    />
+
+            <TextBox Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left"  x:Name="category1"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="الفئة  " Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="88"  VerticalAlignment="Center" Height="42" Margin="0,0,0,6"  />
+            <Button  Click="add1_Click" Name="add1" Visibility="Visible" FontSize="19"  BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="اضــــــــــــــــافة"  Grid.Column="1"  Grid.Row="6" HorizontalAlignment="Center" />
+
 
             <Button  Click="add_Click_1" Name="add" Visibility="Visible" FontSize="19"  BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  Grid.Column="4"  Grid.Row="15" HorizontalAlignment="Center" />
 

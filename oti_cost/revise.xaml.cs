@@ -197,5 +197,10 @@ namespace oti_cost
 
             }
         }
+
+        private void add1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
