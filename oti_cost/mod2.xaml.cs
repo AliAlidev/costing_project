@@ -15,19 +15,18 @@ using System.Windows.Shapes;
 namespace oti_cost
 {
     /// <summary>
-    /// Interaction logic for mod1.xaml
+    /// Interaction logic for mod2.xaml
     /// </summary>
-    public partial class mod1 : Window
+    public partial class mod2 : Window
     {
         private oknote ok;
         private note n;
         private object total_prices;
-        public mod1()
+        public mod2()
         {
             InitializeComponent();
             oknote ok;
             note n;
-
         }
         public class Add
         {
@@ -48,13 +47,13 @@ namespace oti_cost
 
         private void add_Click(object sender, RoutedEventArgs e)
         {
-         
 
         }
 
         private void abrogation_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+
         }
 
         private void addd_Click(object sender, RoutedEventArgs e)
@@ -197,3 +196,5 @@ namespace oti_cost
     //    }
     //}
 }
+    
+
