@@ -333,6 +333,12 @@
     <Compile Include="material_used_PC.xaml.cs">
       <DependentUpon>material_used_PC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="mod1.xaml.cs">
+      <DependentUpon>mod1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="modulation.xaml.cs">
+      <DependentUpon>modulation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="note.xaml.cs">
       <DependentUpon>note.xaml</DependentUpon>
     </Compile>
@@ -407,6 +413,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
+=======
+    <Page Include="mod1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="modulation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+>>>>>>> rahaf_new
     <Page Include="note.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
