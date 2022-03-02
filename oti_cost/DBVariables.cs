@@ -11,6 +11,7 @@ namespace oti_cost
         static MySqlConnection conn = new MySqlConnection(connectionstring);
         static MySqlCommand comm = new MySqlCommand();
         MySqlDataReader myReader;
+        static public MySqlDataAdapter da;
 
 
 
@@ -103,7 +104,6 @@ namespace oti_cost
         }
 
 
-
         public static DataTable showactivecenter()
         {
             string query = "select id , active_center_name , team_name from active_center";
@@ -154,10 +154,6 @@ namespace oti_cost
             dtColumn.Unique = false;
             datatable0.Columns.Add(dtColumn);
 
-
-
-
-
             foreach (DataRow dr in dt.Rows)
             {
                 myDataRow = datatable0.NewRow();
@@ -175,18 +171,19 @@ namespace oti_cost
                 myDataRow["اسم مركز النشاط"] = dr.ItemArray[1].ToString();
                 myDataRow["اسم الفريق"] = dr.ItemArray[2].ToString();
 
-                
-
-
-
-
                 datatable0.Rows.Add(myDataRow);
             }
 
             return datatable0;
         }
 
-
+        public static DataSet fillDataTable(string query)
+        {
+            DataSet ds = new DataSet();
+            da = new MySqlDataAdapter(query,conn);
+            da.Fill(ds);
+            return ds;
+        }
 
        
 

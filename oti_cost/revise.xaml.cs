@@ -22,10 +22,13 @@ namespace oti_cost
     {
         oknote ok;
         note n;
+        public int getRowId = 0;
         public revise()
         {
             InitializeComponent();
+            //getRowId = int.Parse(DBVariables.executescaler("select id from active_center where active_center_name = '" + active_name.Text + "' and team_name= '" + team_name.Text + "'"));
         }
+
         public class Add
         {
             public string worker_name { get; set; }
@@ -86,25 +89,13 @@ namespace oti_cost
 
                     this.teamgrid.Items.Add((object)new team_work_PC.Add()
                     {
-                        work_done = this.team_name.Text,
-                        hours_number = this.active_name.Text,
                         worker_name = this.worker_name.Text,
                         self_number = this.self_number.Text,
-                        category = this.category.Text,
-
-
-
+                        category = this.category.Text
                     });
-                    this.team_name.Text = "";
-                    this.active_name.Text = "";
                     this.worker_name.Text = "";
                     this.self_number.Text = "";
                     this.category.Text = "";
-
-
-
-
-
                 }
                 else
                 {
@@ -140,26 +131,23 @@ namespace oti_cost
             if (sharedvariables.confirmationmessagebox == "ok")
             {
 
-
-
                 IEnumerable items = (IEnumerable)teamgrid.Items;
+  
+                DBVariables.executenq("delete from workers_names where active_center_id=" + getRowId);
 
                 foreach (object obj1 in items)
                 {
                     try
                     {
-                        string str1 = (string)obj1.GetType().GetProperty("team_name").GetValue(obj1, (object[])null);
-                        object str2 = obj1.GetType().GetProperty("active_name").GetValue(obj1, (object[])null);
+
+                        ///////// update workers_names table
                         string str3 = (string)obj1.GetType().GetProperty("worker_name").GetValue(obj1, (object[])null);
                         object str4 = obj1.GetType().GetProperty("self_number").GetValue(obj1, (object[])null);
                         string str5 = (string)obj1.GetType().GetProperty("category").GetValue(obj1, (object[])null);
 
-
-                        string query = "insert into work_team( team_name , active_name, worker_name, self_number, category ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "' )";
+                        string query = "insert into workers_names(worker_name, self_number, category, active_center_id ) values('" + str3 + "','" + str4 + "','" + str5 + "', "+ getRowId + " )";
 
                         DBVariables.executenq(query);
-
-
                     }
                     catch (System.Exception)
                     {
@@ -169,6 +157,10 @@ namespace oti_cost
                     }
 
                 }
+                //////// update active center table
+                DBVariables.executenq("update active_center set active_center_name='" + active_name.Text + "', team_name='" + team_name.Text + "' where id=" + getRowId);
+
+                getRowId = int.Parse(DBVariables.executescaler("select id from active_center where active_center_name = '" + active_name.Text + "' and team_name= '" + team_name.Text + "'"));
 
                 ok = new oknote("تم إدخال البيانات بنجاح");
                 ok.ShowDialog();
@@ -201,6 +193,11 @@ namespace oti_cost
         private void add1_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

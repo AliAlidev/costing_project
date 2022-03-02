@@ -89,9 +89,8 @@
             <TextBox x:Name="y"></TextBox>
             <TextBox x:Name="yy"></TextBox>
             <TextBox x:Name="yyy"></TextBox>
-            <DataGrid  FlowDirection="RightToLeft" Name="listrequestgrid" Grid.Row="2" Grid.Column="1"  Grid.RowSpan="6" HorizontalAlignment="Stretch"  BorderBrush="Black" BorderThickness="2"    SelectionUnit="Cell" SelectionMode="Single"  CanUserResizeColumns="False" CanUserReorderColumns="False">
+            <DataGrid  FlowDirection="RightToLeft" Name="listrequestgrid" Grid.Row="2" Grid.Column="1"  Grid.RowSpan="6" HorizontalAlignment="Stretch"  BorderBrush="Black" BorderThickness="2"    SelectionUnit="FullRow" SelectionMode="Single"  CanUserResizeColumns="False" CanUserReorderColumns="False" SelectionChanged="listrequestgrid_SelectionChanged">
                 <DataGrid.Columns >
-      
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -101,12 +100,6 @@
                         </DataGridTemplateColumn.CellTemplate>
 
                     </DataGridTemplateColumn>
-
-            
-                   
-
-
-
                 </DataGrid.Columns>
                 <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">

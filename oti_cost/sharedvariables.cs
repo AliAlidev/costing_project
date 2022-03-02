@@ -44,5 +44,14 @@ namespace oti_cost
                 return false;
             }
         }
+
+        public class workers_names
+        {
+            public string worker_name { get; set; }
+            public string self_number { get; set; }
+            public string category { get; set; }
+            public string team_name { get; set; }
+            public string active_name { get; set; }
+        }
     }
 }
