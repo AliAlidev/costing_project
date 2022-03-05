@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Windows;
 
 namespace oti_cost
@@ -210,9 +211,13 @@ namespace oti_cost
                         {
 
                             string query = "insert into project_card( active_center_name, project_name , dept, help_team , governorate , start_date , finsh_date , project_number) values('" + active_name.Text + "','" + project_name.Text + "','" + dept_name.Text + "','" + help_team.Text + "','" + governorate.Text + "','" + start_date.Text + "','" + finsh_date.Text + "','" + card_numberr.Text + "' )";
-
-                            DBVariables.executenq(query);
-
+                            response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                            if (!respo.success)
+                            {
+                                ok = new oknote(sharedvariables.errorMsg + respo.code);
+                                ok.ShowDialog();
+                                Close();
+                            }
 
                             sharedvariables.confirmationmessagebox = "";
                             ok = new oknote("تم الإدخال بنجاح");

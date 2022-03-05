@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using System.Collections;
 using System.Windows;
 
@@ -28,7 +28,7 @@ namespace oti_cost
 
         }
 
-       
+
 
         //private void addwor_Click(object sender, RoutedEventArgs e)
         //{
@@ -129,13 +129,13 @@ namespace oti_cost
         private void addwor_Click(object sender, RoutedEventArgs e)
         //private void addworkers_Click(object sender, RoutedEventArgs e)
         {
-             if (operation.Text == "")
+            if (operation.Text == "")
             {
                 ok = new oknote("يجب تحديد العملية  ! ");
                 ok.ShowDialog();
 
             }
-           else if (worker_name.Text == "")
+            else if (worker_name.Text == "")
             {
                 ok = new oknote("يجب إدخال اسم العامل  !");
                 ok.ShowDialog();
@@ -237,60 +237,47 @@ namespace oti_cost
 
                     string query = "update engine_card set engine_sequence_number='" + engine_sequence_number.Text + "', engine_power='" + engine_power.Text + "', engine_rpm ='" + engine_rpm.Text + "' where card_number=" + card_number1.Text;
 
-                    DBVariables.executenq(query);
-                      
+                    response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                    if (!respo.success)
+                    {
+                        ok = new oknote(sharedvariables.errorMsg + respo.code);
+                        ok.ShowDialog();
+                        Close();
+                    }
+
                     IEnumerable items = (IEnumerable)materialgrid.Items;
                     IEnumerable items1 = (IEnumerable)workersgrid.Items;
 
                     foreach (object obj1 in items)
                     {
-                        try
+                        string str1 = (string)obj1.GetType().GetProperty("material_name").GetValue(obj1, (object[])null);
+                        string str2 = (string)obj1.GetType().GetProperty("unit").GetValue(obj1, (object[])null);
+                        string str3 = (string)obj1.GetType().GetProperty("quantity").GetValue(obj1, (object[])null);
+
+                        query = "insert into material_used_ec(material_name, unit, quantity, card_number ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + card_number1.Text + "' )";
+                        respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                        if (!respo.success)
                         {
-
-                            string str1 = (string)obj1.GetType().GetProperty("material_name").GetValue(obj1, (object[])null);
-                            string str2 = (string)obj1.GetType().GetProperty("unit").GetValue(obj1, (object[])null);
-                            string str3 = (string)obj1.GetType().GetProperty("quantity").GetValue(obj1, (object[])null);
-
-
-                             query = "insert into material_used_ec(material_name, unit, quantity, card_number ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + card_number1.Text  + "' )";
-
-                            DBVariables.executenq(query);
-
-
-
-                        }
-                        catch (System.Exception)
-                        {
-
-                            ok = new oknote("حدثت مشكلة أثناء عملية الحفظ");
+                            ok = new oknote(sharedvariables.errorMsg + respo.code);
                             ok.ShowDialog();
+                            Close();
                         }
-
                     }
 
                     foreach (object obj1 in items1)
                     {
-                        try
+                        string str1 = (string)obj1.GetType().GetProperty("operation").GetValue(obj1, (object[])null);
+                        string str2 = (string)obj1.GetType().GetProperty("worker_name").GetValue(obj1, (object[])null);
+                        object obj2 = obj1.GetType().GetProperty("work_hours").GetValue(obj1, (object[])null);
+
+                        query = "insert into maintenance_workers_ec(operation, worker_name, work_hours, card_number ) values('" + str1 + "','" + str2 + "','" + obj2 + "','" + card_number1.Text + "' )";
+                        respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                        if (!respo.success)
                         {
-
-                            string str1 = (string)obj1.GetType().GetProperty("operation").GetValue(obj1, (object[])null);
-                            string str2 = (string)obj1.GetType().GetProperty("worker_name").GetValue(obj1, (object[])null);
-                            object obj2 = obj1.GetType().GetProperty("work_hours").GetValue(obj1, (object[])null);
-
-                            query = "insert into maintenance_workers_ec(operation, worker_name, work_hours, card_number ) values('" + str1 + "','" + str2 + "','" + obj2 + "','" + card_number1.Text + "' )";
-
-                            DBVariables.executenq(query);
-
-
-
-                        }
-                        catch (System.Exception)
-                        {
-
-                            ok = new oknote("حدثت مشكلة أثناء عملية الحفظ");
+                            ok = new oknote(sharedvariables.errorMsg + respo.code);
                             ok.ShowDialog();
+                            Close();
                         }
-
                     }
 
                     ok = new oknote("تم إدخال البيانات بنجاح");
@@ -313,7 +300,7 @@ namespace oti_cost
                     engine_sequence_number.Text = "";
                     engine_power.Text = "";
                     engine_rpm.Text = "";
-                  
+
 
 
                 }
@@ -738,4 +725,4 @@ namespace oti_cost
     }
 
 
-    }
+}

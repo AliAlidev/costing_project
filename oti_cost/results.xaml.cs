@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -62,12 +63,13 @@ namespace oti_cost
 
 
                         string query = "update engine_card set results='" + resultafter.Text + "', sender_after='" + sender_after.Text + "', receiver_after ='" + receiver_after.Text + "' where card_number=" + card_number.Text;
-
-                        DBVariables.executenq(query);
-
-
-                        
-
+                        response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                        if (!respo.success)
+                        {
+                            ok = new oknote(sharedvariables.errorMsg + respo.code);
+                            ok.ShowDialog();
+                            Close();
+                        }
                         sharedvariables.confirmationmessagebox = "";
                         ok = new oknote("تم الإدخال بنجاح");
                         ok.ShowDialog();

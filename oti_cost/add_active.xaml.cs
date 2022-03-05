@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Newtonsoft.Json;
+using System.Collections;
 using System.Windows;
 
 namespace oti_cost
@@ -69,23 +70,23 @@ namespace oti_cost
                 if (sharedvariables.confirmationmessagebox == "ok")
                 {
 
-                        this.teamgrid.Items.Add((object)new team_work_PC.Add()
-                        {
-                            //work_done = this.team_name.Text,
-                            //hours_number = this.active_name.Text,
-                            worker_name = this.worker_name.Text,
-                            self_number = this.self_number.Text,
-                            category = this.category.Text,
+                    this.teamgrid.Items.Add((object)new team_work_PC.Add()
+                    {
+                        //work_done = this.team_name.Text,
+                        //hours_number = this.active_name.Text,
+                        worker_name = this.worker_name.Text,
+                        self_number = this.self_number.Text,
+                        category = this.category.Text,
 
 
 
-                        });
-                        this.worker_name.Text = "";
-                        this.self_number.Text = "";
-                        this.category.Text = "";
+                    });
+                    this.worker_name.Text = "";
+                    this.self_number.Text = "";
+                    this.category.Text = "";
 
-       
-                        
+
+
 
                 }
                 else
@@ -121,31 +122,25 @@ namespace oti_cost
 
                 foreach (object obj1 in items)
                 {
-                    try
+                    string str1 = (string)obj1.GetType().GetProperty("worker_name").GetValue(obj1, (object[])null);
+                    object str2 = obj1.GetType().GetProperty("self_number").GetValue(obj1, (object[])null);
+                    string str3 = (string)obj1.GetType().GetProperty("category").GetValue(obj1, (object[])null);
+
+
+                    query = "select id from active_center where active_center_name='" + active_name.Text + "' and team_name ='" + team_name.Text + "'";
+
+
+                    string idnum = DBVariables.executescaler(query);
+
+                    query = "insert into workers_names( worker_name , self_number, category  , active_center_id) values('" + str1 + "','" + str2 + "','" + str3 + "','" + idnum + "' )";
+
+                    response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                    if (!respo.success)
                     {
-                        string str1 = (string)obj1.GetType().GetProperty("worker_name").GetValue(obj1, (object[])null);
-                        object str2 = obj1.GetType().GetProperty("self_number").GetValue(obj1, (object[])null);
-                        string str3 = (string)obj1.GetType().GetProperty("category").GetValue(obj1, (object[])null);
-
-
-                        query = "select id from active_center where active_center_name='" + active_name.Text + "' and team_name ='" + team_name.Text + "'";
-
-
-                        string idnum = DBVariables.executescaler(query);
-
-                        query = "insert into workers_names( worker_name , self_number, category  , active_center_id) values('" + str1 + "','" + str2 + "','" + str3 + "','" + idnum + "' )";
-
-                        DBVariables.executenq(query);
-
-
-                    }
-                    catch (System.Exception)
-                    {
-
-                        ok = new oknote("حدثت مشكلة أثناء عملية الحفظ");
+                        ok = new oknote(sharedvariables.errorMsg + respo.code);
                         ok.ShowDialog();
+                        Close();
                     }
-
                 }
 
                 ok = new oknote("تم إدخال البيانات بنجاح");
@@ -203,13 +198,18 @@ namespace oti_cost
 
                     query = "insert into active_center(active_center_name, team_name) values('" + active_name.Text + "','" + team_name.Text + "' )";
 
-                    DBVariables.executenq(query);
-
-                    ok = new oknote("تم إضافة مركز النشاط و اسم الفريق التابع له بنجاح .. يمكنك متابعة عملية إضافة العمال  ");
-                    ok.ShowDialog();
-
-
-                  
+                    response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                    if (!respo.success)
+                    {
+                        ok = new oknote(sharedvariables.errorMsg + respo.code);
+                        ok.ShowDialog();
+                        Close();
+                    }
+                    else
+                    {
+                        ok = new oknote("تم إضافة مركز النشاط و اسم الفريق التابع له بنجاح .. يمكنك متابعة عملية إضافة العمال  ");
+                        ok.ShowDialog();
+                    }
                 }
                 else
                 {

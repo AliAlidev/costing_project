@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace oti_cost
 {
@@ -19,7 +10,6 @@ namespace oti_cost
     /// </summary>
     public partial class engine_card : Window
     {
-
         oknote ok;
         note n;
 
@@ -32,16 +22,17 @@ namespace oti_cost
             Height = h;
         }
 
-    
+
 
         private void add_Click_2(object sender, RoutedEventArgs e)
         {
 
-            if ( DBVariables.isFound(card_number.Text, "card_number", "engine_card"))
+            if (DBVariables.isFound(card_number.Text, "card_number", "engine_card"))
             {
                 ok = new oknote("هذه البطاقة  موجودة مسبقاً !");
                 ok.ShowDialog();
-            }else
+            }
+            else
             if (!sharedvariables.isNumber(this.card_number.Text))
             {
                 ok = new oknote("يجب ادخال قيمة صحيحة لرقم البطاقة !");
@@ -62,13 +53,13 @@ namespace oti_cost
             {
                 ok = new oknote("يجب إدخال اسم المستلم ! ");
                 ok.ShowDialog();
-            } 
-            else if (received_date.Text == "" )
+            }
+            else if (received_date.Text == "")
             {
                 ok = new oknote("يجب إدخال قيمة  لتاريخ الاستلام  !    ");
                 ok.ShowDialog();
             }
-         
+
             else if (!sharedvariables.isDate(received_date.Text))
             {
                 ok = new oknote("يجب إدخال قيمة صحيحة  لتاريخ الاستلام  !    ");
@@ -97,8 +88,7 @@ namespace oti_cost
 
                     try
                     {
-
-                        DBVariables.executenq("INSERT INTO engine_card (card_number , dept , sender_name ,  receiver_name , received_date ,sent_date )  VALUES('" +
+                        sharedvariables.proxy.ExecuteNQ("INSERT INTO engine_card (card_number , dept , sender_name ,  receiver_name , received_date ,sent_date )  VALUES('" +
                                card_number.Text +
                                "' , '" + dept.Text +
                                "' , '" + sender_name.Text +
@@ -157,7 +147,7 @@ namespace oti_cost
                 ok = new oknote("يجب ادخال قيمة صحيحة لرقم البطاقة !");
                 ok.ShowDialog();
             }
-           
+
             else if (msg == DBVariables.isFound(card_number.Text, "card_number", "engine_card"))
             {
                 ok = new oknote("هذه البطاقة غير موجودة مسبقاً !");
@@ -173,39 +163,40 @@ namespace oti_cost
                 {
 
                     string query;
-                    try
+                    if (dept.Text != "")
                     {
+                        query = "UPDATE engine_card set dept='" + dept.Text + "' where card_number =" + card_number.Text;
 
-                        if (dept.Text != "")
+                        response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                        if (!respo.success)
                         {
-                            query = "UPDATE engine_card set dept='" + dept.Text + "' where card_number =" + card_number.Text;
-
-                            DBVariables.executenq(query);
+                            ok = new oknote(sharedvariables.errorMsg + respo.code);
+                            ok.ShowDialog();
                         }
-
-                        if (sender_name.Text != "")
-                        {
-                             query = "UPDATE engine_card set sender_name = '" + sender_name.Text + "' where card_number = " + card_number.Text;
-
-                            DBVariables.executenq(query);
-                        }
-
-                        if (receiver_name.Text != "")
-                        {
-                                query = "UPDATE engine_card set receiver_name = '" + receiver_name.Text + "' where card_number = " + card_number.Text ;
-                                DBVariables.executenq(query);
-                        }
-
-                       
-
-
                     }
-                    catch (Exception)
-                    {
-                        ok = new oknote("حدثت مشكلة أثناء عملية التعديل ");
-                        ok.ShowDialog();
 
-                        throw;
+                    if (sender_name.Text != "")
+                    {
+                        query = "UPDATE engine_card set sender_name = '" + sender_name.Text + "' where card_number = " + card_number.Text;
+
+                        response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                        if (!respo.success)
+                        {
+                            ok = new oknote(sharedvariables.errorMsg + respo.code);
+                            ok.ShowDialog();
+                        }
+                    }
+
+                    if (receiver_name.Text != "")
+                    {
+                        query = "UPDATE engine_card set receiver_name = '" + receiver_name.Text + "' where card_number = " + card_number.Text;
+                        response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                        if (!respo.success)
+                        {
+                            ok = new oknote(sharedvariables.errorMsg + respo.code);
+                            ok.ShowDialog();
+                            Close();
+                        }
                     }
 
 
@@ -219,8 +210,6 @@ namespace oti_cost
                     receiver_name.Text = "";
                     sent_date.Text = "";
                     received_date.Text = "";
-                  
-
                 }
                 else
                 {
@@ -260,30 +249,20 @@ namespace oti_cost
 
                 if (sharedvariables.confirmationmessagebox == "ok")
                 {
-                    try
+                    string query = "delete from engine_card where card_number =" + card_number.Text;
+                    response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                    if (!respo.success)
                     {
-
-                        DBVariables.executenq("delete from engine_card where card_number =" + card_number.Text);
-
+                        ok = new oknote(sharedvariables.errorMsg + respo.code);
+                        ok.ShowDialog();
+                        Close();
+                    }
+                    else
+                    {
                         ok = new oknote("تم حذف المشروع بنجاح");
                         ok.ShowDialog();
-
-
-
-
                     }
-                    catch (Exception)
-                    {
-
-                        ok = new oknote("حدثت مشكلة أثناء عملية الحذف");
-                        ok.ShowDialog();
-                        throw;
-                    }
-
                 }
-
-
-
                 else
                 {
                     sharedvariables.confirmationmessagebox = "";
@@ -313,7 +292,7 @@ namespace oti_cost
 
                 res1 = (int.Parse(res) + 1).ToString();
 
-                verify:
+            verify:
                 id0 = res1;
                 query = "select count(*) from engine_card where card_number= " + (int.Parse(res1));
                 res1 = DBVariables.executescaler(query);
@@ -332,25 +311,26 @@ namespace oti_cost
             }
 
             card_number.Text = id0;
-        
+
         }
 
-     
 
-    
+
+
 
         private void engine_data_Click(object sender, RoutedEventArgs e)
         {
 
-            if(card_number.Text == "")
+            if (card_number.Text == "")
             {
                 ok = new oknote("يجب إدخال رقم البطاقة أولاً ! ");
                 ok.ShowDialog();
-            }else  if (DBVariables.isFound(card_number.Text, "card_number", "engine_card"))
+            }
+            else if (DBVariables.isFound(card_number.Text, "card_number", "engine_card"))
             {
 
-            engine_info enginfo = new engine_info();
-               enginfo.card_number1.Text = card_number.Text;
+                engine_info enginfo = new engine_info();
+                enginfo.card_number1.Text = card_number.Text;
                 enginfo.ShowDialog();
             }
             else
@@ -360,13 +340,13 @@ namespace oti_cost
                 ok.ShowDialog();
 
             }
-            
 
-          
-            
+
+
+
         }
 
-     
+
 
         private void cancel_Click(object sender, RoutedEventArgs e)
         {
@@ -375,7 +355,7 @@ namespace oti_cost
 
         private void add_engine_info_Click(object sender, RoutedEventArgs e)
         {
-            
+
             engine_info en = new engine_info();
             en.card_number1.Text = card_number.Text;
             en.ShowDialog();

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Newtonsoft.Json;
+using System.Collections;
 using System.Windows;
 
 namespace oti_cost
@@ -184,34 +185,22 @@ namespace oti_cost
 
                     foreach (object obj1 in items)
                     {
-                        try
+                        string str1 = (string)obj1.GetType().GetProperty("material_name").GetValue(obj1, (object[])null);
+                        string str2 = (string)obj1.GetType().GetProperty("index_number").GetValue(obj1, (object[])null);
+                        string str3 = (string)obj1.GetType().GetProperty("unit").GetValue(obj1, (object[])null);
+                        object str4 = obj1.GetType().GetProperty("quantity").GetValue(obj1, (object[])null);
+                        object str5 = obj1.GetType().GetProperty("unit_price").GetValue(obj1, (object[])null);
+                        object str6 = obj1.GetType().GetProperty("total_price").GetValue(obj1, (object[])null);
+                        string str7 = (string)obj1.GetType().GetProperty("notes").GetValue(obj1, (object[])null);
+
+                        string query = "insert into material_used(material_name, index_number, unit, quantity , unit_price , total_price , notes,project_number , total_sum ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + str7 + "','" + card_numberrr.Text + "','" + total_prices.Content.ToString() + "')";
+                        response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                        if (!respo.success)
                         {
-
-
-
-
-
-                            string str1 = (string)obj1.GetType().GetProperty("material_name").GetValue(obj1, (object[])null);
-                            string str2 = (string)obj1.GetType().GetProperty("index_number").GetValue(obj1, (object[])null);
-                            string str3 = (string)obj1.GetType().GetProperty("unit").GetValue(obj1, (object[])null);
-                            object str4 = obj1.GetType().GetProperty("quantity").GetValue(obj1, (object[])null);
-                            object str5 = obj1.GetType().GetProperty("unit_price").GetValue(obj1, (object[])null);
-                            object str6 = obj1.GetType().GetProperty("total_price").GetValue(obj1, (object[])null);
-                            string str7 = (string)obj1.GetType().GetProperty("notes").GetValue(obj1, (object[])null);
-
-                            string query = "insert into material_used(material_name, index_number, unit, quantity , unit_price , total_price , notes,project_number , total_sum ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + str7 + "','" + card_numberrr.Text + "','" + total_prices.Content.ToString() + "')";
-
-                            DBVariables.executenq(query);
-
-
-                        }
-                        catch (System.Exception)
-                        {
-
-                            ok = new oknote("حدثت مشكلة أثناء عملية الحفظ");
+                            ok = new oknote(sharedvariables.errorMsg + respo.code);
                             ok.ShowDialog();
+                            Close();
                         }
-
                     }
 
                     ok = new oknote("تم إدخال البيانات بنجاح");
@@ -224,8 +213,6 @@ namespace oti_cost
                     notes.Text = "";
                     total_price.Text = "";
                     unit_price.Text = "";
-
-
                     this.gridmaterial.Items.Clear();
                 }
             }
