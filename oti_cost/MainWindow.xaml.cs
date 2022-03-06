@@ -35,8 +35,8 @@ namespace oti_cost
 
         private void jhv_Click(object sender, RoutedEventArgs e)
         {
-            project_card i = new project_card();
-            i.ShowDialog();
+            mainprojectlist mpl = new mainprojectlist();
+            mpl.ShowDialog();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

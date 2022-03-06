@@ -100,7 +100,7 @@
 
             <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="11" Grid.Column="3" HorizontalAlignment="Center" >
                 <Button VerticalAlignment="Bottom" Click="add_Click_2" Name="add" Visibility="Visible"   BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  FontSize="18" />
-                <Button VerticalAlignment="Bottom" Click="modulation_Click_1" Name="modulation" Visibility="Visible"   BorderBrush="Black" Background="#FBB634" Foreground="Black"  Content="تــــــــعـــــــديــــــل"  FontSize="18" />
+                <!--<Button VerticalAlignment="Bottom" Click="modulation_Click_1" Name="modulation" Visibility="Visible"   BorderBrush="Black" Background="#FBB634" Foreground="Black"  Content="تــــــــعـــــــديــــــل"  FontSize="18" />-->
                 <Button VerticalAlignment="Bottom" Click="abrogation_Click" Name="abrogation" Visibility="Visible"    BorderBrush="Black"  Background="#E43D2D" Foreground="Black"  Content="اغــــــــــــــــلاق" FontSize="18" Width="129"   />
 
 

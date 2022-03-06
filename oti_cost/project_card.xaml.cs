@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Windows;
 
 namespace oti_cost
@@ -21,6 +24,7 @@ namespace oti_cost
 
             Width = w;
             Height = h;
+
         }
 
         private void add_card_number_Click(object sender, RoutedEventArgs e)
@@ -42,7 +46,7 @@ namespace oti_cost
                 query = "select work_done  from project_card where project_number= " + (int.Parse(res));
                 re = DBVariables.executescaler(query);
 
-               bool re1 = DBVariables.isFound(res, "project_number", "material_used");
+                bool re1 = DBVariables.isFound(res, "project_number", "material_used");
 
                 if (re == "" || re1 == false)
                 {
@@ -83,7 +87,7 @@ namespace oti_cost
 
                     res1 = (int.Parse(res) + 1).ToString();
 
-                    verify:
+                verify:
                     id0 = res1;
                     query = "select count(*) from project_card where project_number= " + (int.Parse(res1));
                     res1 = DBVariables.executescaler(query);
@@ -122,7 +126,7 @@ namespace oti_cost
 
 
 
-            ENDD:;
+        ENDD:;
 
         }
 
@@ -264,14 +268,14 @@ namespace oti_cost
         private void addteam_Click(object sender, RoutedEventArgs e)
         {
 
-          bool re =  DBVariables.isFound( card_numberr.Text, "project_number", "project_card");
+            bool re = DBVariables.isFound(card_numberr.Text, "project_number", "project_card");
 
-            if (re ==true)
+            if (re == true)
             {
-            works_result tw = new works_result();
-            tw.card_number.Text = card_numberr.Text;
+                works_result tw = new works_result();
+                tw.card_number.Text = card_numberr.Text;
 
-            tw.ShowDialog();
+                tw.ShowDialog();
 
             }
             else
@@ -299,7 +303,7 @@ namespace oti_cost
                 ok = new oknote("يجب إدخال معلومات البطاقة أولاً !");
                 ok.ShowDialog();
             }
-      
+
         }
 
         private void abrogation_Click(object sender, RoutedEventArgs e)
