@@ -1,17 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace oti_cost
 {
@@ -132,33 +121,41 @@ namespace oti_cost
             {
 
                 IEnumerable items = (IEnumerable)teamgrid.Items;
-  
-                DBVariables.executenq("delete from workers_names where active_center_id=" + getRowId);
+
+                string query = "delete from workers_names where active_center_id=" + getRowId;
+                response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                if (!respo.success)
+                {
+                    ok = new oknote(sharedvariables.errorMsg + respo.code);
+                    ok.ShowDialog();
+                    Close();
+                }
 
                 foreach (object obj1 in items)
                 {
-                    try
+                    ///////// update workers_names table
+                    string str3 = (string)obj1.GetType().GetProperty("worker_name").GetValue(obj1, (object[])null);
+                    object str4 = obj1.GetType().GetProperty("self_number").GetValue(obj1, (object[])null);
+                    string str5 = (string)obj1.GetType().GetProperty("category").GetValue(obj1, (object[])null);
+
+                    query = "insert into workers_names(worker_name, self_number, category, active_center_id ) values('" + str3 + "','" + str4 + "','" + str5 + "', " + getRowId + " )";
+                    respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                    if (!respo.success)
                     {
-
-                        ///////// update workers_names table
-                        string str3 = (string)obj1.GetType().GetProperty("worker_name").GetValue(obj1, (object[])null);
-                        object str4 = obj1.GetType().GetProperty("self_number").GetValue(obj1, (object[])null);
-                        string str5 = (string)obj1.GetType().GetProperty("category").GetValue(obj1, (object[])null);
-
-                        string query = "insert into workers_names(worker_name, self_number, category, active_center_id ) values('" + str3 + "','" + str4 + "','" + str5 + "', "+ getRowId + " )";
-
-                        DBVariables.executenq(query);
-                    }
-                    catch (System.Exception)
-                    {
-
-                        ok = new oknote("حدثت مشكلة أثناء عملية الحفظ");
+                        ok = new oknote(sharedvariables.errorMsg + respo.code);
                         ok.ShowDialog();
+                        Close();
                     }
-
                 }
                 //////// update active center table
-                DBVariables.executenq("update active_center set active_center_name='" + active_name.Text + "', team_name='" + team_name.Text + "' where id=" + getRowId);
+                query = "update active_center set active_center_name='" + active_name.Text + "', team_name='" + team_name.Text + "' where id=" + getRowId;
+                respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                if (!respo.success)
+                {
+                    ok = new oknote(sharedvariables.errorMsg + respo.code);
+                    ok.ShowDialog();
+                    Close();
+                }
 
                 getRowId = int.Parse(DBVariables.executescaler("select id from active_center where active_center_name = '" + active_name.Text + "' and team_name= '" + team_name.Text + "'"));
 

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://oti-costing.sy/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://oti-costing.sy/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://oti-costing.sy/">
+      <s:element name="ShowActiveCenter">
+        <s:complexType />
+      </s:element>
+      <s:element name="ShowActiveCenterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ShowActiveCenterResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteNQ">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="qry" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteNQResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteNQResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ShowActiveCenterSoapIn">
+    <wsdl:part name="parameters" element="tns:ShowActiveCenter" />
+  </wsdl:message>
+  <wsdl:message name="ShowActiveCenterSoapOut">
+    <wsdl:part name="parameters" element="tns:ShowActiveCenterResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteNQSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteNQ" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteNQSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteNQResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MainWebServiceSoap">
+    <wsdl:operation name="ShowActiveCenter">
+      <wsdl:input message="tns:ShowActiveCenterSoapIn" />
+      <wsdl:output message="tns:ShowActiveCenterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteNQ">
+      <wsdl:input message="tns:ExecuteNQSoapIn" />
+      <wsdl:output message="tns:ExecuteNQSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MainWebServiceSoap" type="tns:MainWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ShowActiveCenter">
+      <soap:operation soapAction="http://oti-costing.sy/ShowActiveCenter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteNQ">
+      <soap:operation soapAction="http://oti-costing.sy/ExecuteNQ" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MainWebServiceSoap12" type="tns:MainWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ShowActiveCenter">
+      <soap12:operation soapAction="http://oti-costing.sy/ShowActiveCenter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteNQ">
+      <soap12:operation soapAction="http://oti-costing.sy/ExecuteNQ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MainWebService">
+    <wsdl:port name="MainWebServiceSoap" binding="tns:MainWebServiceSoap">
+      <soap:address location="https://localhost:44315/MainWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MainWebServiceSoap12" binding="tns:MainWebServiceSoap12">
+      <soap12:address location="https://localhost:44315/MainWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

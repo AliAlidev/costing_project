@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using Newtonsoft.Json;
+using System.Data;
 using System.Windows;
 
 namespace oti_cost
@@ -27,7 +28,7 @@ namespace oti_cost
             //a.ShowDialog();
 
 
-            DataTable dt = DBVariables.showactivecenter();
+            DataTable dt = JsonConvert.DeserializeObject<DataTable>(sharedvariables.proxy.ShowActiveCenter());
 
             show_active lr = new show_active(dt);
             lr.ShowDialog();

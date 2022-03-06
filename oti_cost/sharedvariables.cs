@@ -8,8 +8,11 @@ namespace oti_cost
 {
    public static class sharedvariables
     {
+        public static localhost.MainWebService proxy;
+
         public static string confirmationmessagebox;
 
+        public static string errorMsg = "حدث خطأ أثناء تنفيذ العملية رمز الخطأ هو ";
 
         public static string team_name;
         public static string project_name;

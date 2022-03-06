@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Newtonsoft.Json;
+using System.Collections;
 using System.Windows;
 
 namespace oti_cost
@@ -181,29 +182,21 @@ namespace oti_cost
 
                 foreach (object obj1 in items)
                 {
-                    try
+                    string str1 = (string)obj1.GetType().GetProperty("worker_name").GetValue(obj1, (object[])null);
+                    object str2 = obj1.GetType().GetProperty("self_number").GetValue(obj1, (object[])null);
+                    string str3 = (string)obj1.GetType().GetProperty("category").GetValue(obj1, (object[])null);
+                    string str4 = (string)obj1.GetType().GetProperty("work_done").GetValue(obj1, (object[])null);
+                    object str5 = obj1.GetType().GetProperty("hours_number").GetValue(obj1, (object[])null);
+                    string str6 = (string)obj1.GetType().GetProperty("notes").GetValue(obj1, (object[])null);
+
+                    string query = "insert into work_team(worker_name, self_number, category, work_done , hours_number , notes , project_number ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + card_number.Text + "' )";
+                    response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                    if (!respo.success)
                     {
-
-                        string str1 = (string)obj1.GetType().GetProperty("worker_name").GetValue(obj1, (object[])null);
-                        object str2 = obj1.GetType().GetProperty("self_number").GetValue(obj1, (object[])null);
-                        string str3 = (string)obj1.GetType().GetProperty("category").GetValue(obj1, (object[])null);
-                        string str4 = (string)obj1.GetType().GetProperty("work_done").GetValue(obj1, (object[])null);
-                        object str5 = obj1.GetType().GetProperty("hours_number").GetValue(obj1, (object[])null);
-                        string str6 = (string)obj1.GetType().GetProperty("notes").GetValue(obj1, (object[])null);
-
-                        string query = "insert into work_team(worker_name, self_number, category, work_done , hours_number , notes , project_number ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + card_number.Text + "' )";
-
-                        DBVariables.executenq(query);
-
-
-                    }
-                    catch (System.Exception)
-                    {
-
-                        ok = new oknote("حدثت مشكلة أثناء عملية الحفظ");
+                        ok = new oknote(sharedvariables.errorMsg + respo.code);
                         ok.ShowDialog();
+                        Close();
                     }
-
                 }
 
                 ok = new oknote("تم إدخال البيانات بنجاح");
@@ -254,4 +247,4 @@ namespace oti_cost
             //m.ShowDialog();
         }
     }
-    }
+}

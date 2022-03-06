@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 using System.Windows;
 
 namespace oti_cost
@@ -61,42 +61,26 @@ namespace oti_cost
                     if (sharedvariables.confirmationmessagebox == "ok")
                     {
 
-                        try
+                        query = "update project_card set work_done='" + result_work.Text + "', hours='" + hour_work.Text + "', notes ='" + notes.Text + "' where project_number  =" + card_number.Text;
+                        response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                        if (!respo.success)
                         {
-
-
-                            query = "update project_card set work_done='" + result_work.Text + "', hours='" + hour_work.Text + "', notes ='" + notes.Text + "' where project_number  =" + card_number.Text;
-
-                            DBVariables.executenq(query);
-
-
-
-
-                            sharedvariables.confirmationmessagebox = "";
-                            ok = new oknote("تم الإدخال بنجاح");
+                            ok = new oknote(sharedvariables.errorMsg + respo.code);
                             ok.ShowDialog();
-
-                            //project_number.Text = "";
-                            result_work.Text = "";
-                            hour_work.Text = "";
-                            notes.Text = "";
-
-
-
-
-                        }
-                        catch (Exception)
-                        {
-                            ok = new oknote("حدثت مشكلة أثناء عملية الإدخال");
-                            ok.ShowDialog();
+                            Close();
                         }
 
+                        sharedvariables.confirmationmessagebox = "";
+                        ok = new oknote("تم الإدخال بنجاح");
+                        ok.ShowDialog();
 
-
+                        //project_number.Text = "";
+                        result_work.Text = "";
+                        hour_work.Text = "";
+                        notes.Text = "";
                     }
                     else
                     {
-
                         sharedvariables.confirmationmessagebox = "";
                         ok = new oknote("لم يتم إدخال البيانات ");
                         ok.ShowDialog();
