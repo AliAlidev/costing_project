@@ -1,0 +1,92 @@
+﻿<Window x:Class="oti_cost.show_active_center"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                                                        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+
+        xmlns:local="clr-namespace:oti_cost"
+        mc:Ignorable="d"
+        Title="show_active_center"   Height="900" Width="1600"  WindowState="Maximized">
+    
+    <Grid>
+        <Image  Stretch="Fill" Source="./image/rr.png"  />
+
+        <Grid>
+
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="148*"></ColumnDefinition>
+                <ColumnDefinition Width="441*"></ColumnDefinition>
+                <ColumnDefinition Width="207*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="y"></TextBox>
+            <TextBox x:Name="yy"></TextBox>
+            <TextBox x:Name="yyy"></TextBox>
+            <DataGrid  FlowDirection="RightToLeft" Name="listrequestgrid" Grid.Row="2" Grid.Column="1"  Grid.RowSpan="6" HorizontalAlignment="Stretch"  BorderBrush="Black" BorderThickness="2"    SelectionUnit="FullRow" SelectionMode="Single"  CanUserResizeColumns="False" CanUserReorderColumns="False">
+                <DataGrid.Columns >
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+
+                                <Button Click="Button_Click" BorderBrush="Black" Foreground="Black" Width="100"  Background="#599DCC">تعديل</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+                <DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+
+                        <Setter Property="Focusable" Value="False"></Setter>
+                        <Setter Property="Foreground" Value="#599DCC"></Setter>
+                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                        <Setter Property="FlowDirection" Value="RightToLeft"></Setter>
+                        <Setter Property="Padding" Value="15"></Setter>
+                        <Setter Property="IsTabStop" Value="True"></Setter>
+                        <Setter Property="IsTabStop" Value="True"></Setter>
+                        <Setter Property="Width" Value="155" ></Setter>
+                        <Setter Property="HorizontalContentAlignment" Value="Center" ></Setter>
+                        <Setter Property="SeparatorVisibility" Value="Hidden" ></Setter>
+                        <Setter Property="Opacity" Value="10" ></Setter>
+                        <Setter Property="FontWeight" Value="Bold" ></Setter>
+                        <Setter Property="BorderThickness" Value="0" ></Setter>
+                        <Setter Property="BorderBrush" Value="Transparent" ></Setter>
+                        <Setter Property="FontSize" Value="18" ></Setter>
+                        <Setter Property="ScrollViewer.CanContentScroll" Value="True" ></Setter>
+
+
+
+                    </Style>
+                    <Style TargetType="{x:Type  DataGridCell}">
+
+
+                        <Setter Property="HorizontalContentAlignment" Value="Center" ></Setter>
+                        <Setter Property="HorizontalAlignment" Value="Center" ></Setter>
+                        <Setter Property="VerticalContentAlignment" Value="Bottom" ></Setter>
+                        <Setter Property="VerticalAlignment" Value="Center" ></Setter>
+
+
+
+
+
+                    </Style>
+
+                </DataGrid.Resources>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>

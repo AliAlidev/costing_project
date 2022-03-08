@@ -9,75 +9,56 @@
         mc:Ignorable="d"
         Title="works_result" Height="450" Width="800">
     <Grid>
-        <Image Source="/image/rr.png" Stretch="Fill"></Image>
-
-        <Grid ShowGridLines="False">
+        <Image Source="/image/rr.png" Stretch="Fill" Grid.ColumnSpan="4" Margin="0,0,2,3" Grid.RowSpan="7"></Image>
+        <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="41*"></ColumnDefinition>
+                <ColumnDefinition Width="91*"></ColumnDefinition>
+                <ColumnDefinition Width="83*"></ColumnDefinition>
+                <ColumnDefinition Width="49*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60*"></RowDefinition>
+                <RowDefinition Height="60*"></RowDefinition>
+                <RowDefinition Height="88*"></RowDefinition>
+                <RowDefinition Height="56*"></RowDefinition>
+                <RowDefinition Height="89*"></RowDefinition>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="49*"></RowDefinition>
+            </Grid.RowDefinitions>
 
 
-            <Grid Grid.Column="0" Margin="48,0,0,0" >
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
+            <Border Grid.Row="1" Grid.RowSpan="6" Background="White" BorderBrush="#94A76D" BorderThickness="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,1,0,0" >
+            </Border>
+            <Label Grid.Row="2" VerticalContentAlignment="Center" FontWeight="DemiBold" Content="  "  FontSize="16"  Foreground="#0063C0" FlowDirection="RightToLeft" HorizontalAlignment="Center" Margin="-56,1,234,0" Width="218" Grid.ColumnSpan="2"   />
 
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="0*"></ColumnDefinition>
-                    <ColumnDefinition Width="0*"></ColumnDefinition>
-                    <ColumnDefinition Width="0*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Border Grid.Row="1" Grid.RowSpan="6" Background="White" BorderBrush="#94A76D" BorderThickness="3" >
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1"  FlowDirection="RightToLeft" Margin="35,0,20,1" VerticalAlignment="Bottom" Height="40" Grid.ColumnSpan="2">
 
-                    <!--<Border Grid.Row="2" Grid.RowSpan="6" CornerRadius="50" Background="White" BorderBrush="#94A76D" BorderThickness="3" >-->
-                    <!--<Border.Effect >
-                        <DropShadowEffect Color="#94A76D" ShadowDepth="10" />
-                    </Border.Effect>-->
-                </Border>
-                <Label Grid.Row="2" VerticalContentAlignment="Center" FontWeight="DemiBold" Content="  "  FontSize="16"  Foreground="#0063C0" FlowDirection="RightToLeft" HorizontalAlignment="Center" Margin="34,0,96,0" Width="218"   />
-                <!--<TextBox Padding="10,20,0,0"  BorderBrush="WhiteSmoke" BorderThickness="3" Margin="30,0,30,0" Grid.Row="3" Grid.RowSpan="2"  x:Name="rhffth"  materialDesign:HintAssist.Hint="نتائج اختبار المحرك بعد الصيانة ............................................" Text="" VerticalContentAlignment="Top"  FlowDirection="RightToLeft" TextWrapping="WrapWithOverflow"/>-->
-                <!--<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" FlowDirection="RightToLeft" Margin="0,0,50,0" VerticalAlignment="Bottom" Height="26">
+                <Label  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
+                <TextBox Name="card_number" Text=" " Focusable="False" IsReadOnly="True" HorizontalContentAlignment="Center" Width="101" BorderBrush="Transparent" BorderThickness="0"></TextBox>
+            </StackPanel>
+            <TextBox Padding="10,20,0,0" TextWrapping="Wrap" Grid.Column="1" Grid.Row="2"
+VerticalScrollBarVisibility="Visible"
+AcceptsReturn="True" BorderBrush="WhiteSmoke" BorderThickness="3" Margin="35,0,30,0"  x:Name="resultafter"  materialDesign:HintAssist.Hint="تـــــوصـــــيـــــف الـــعــــمـــل ............................................" Text="" VerticalContentAlignment="Top"  FontSize="16" FlowDirection="RightToLeft" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.ColumnSpan="2"  />
 
-                    <Label  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
-                    <TextBox   x:Name="card_number" Text="8" HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"  Focusable="False" BorderThickness="0" BorderBrush="Transparent" FlowDirection="RightToLeft"    />
-                </StackPanel>-->
-                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0"  FlowDirection="RightToLeft" Margin="0,0,15,0" VerticalAlignment="Bottom">
-
-                    <Label  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" ></Label>
-                    <TextBox Name="card_number" Text=" " Focusable="False" IsReadOnly="True" HorizontalContentAlignment="Center" Width="30" BorderBrush="Transparent" BorderThickness="0"></TextBox>
-                </StackPanel>
-                <TextBox Grid.Row="2" VerticalAlignment="Top" x:Name="result_work" FontSize="16"  materialDesign:HintAssist.Hint="توصيف العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft"  TextWrapping="Wrap"
+            <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" FontSize="16"  Margin="153,8,34,5"  x:Name="hour_work" materialDesign:HintAssist.Hint=" عدد ساعات العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FlowDirection="RightToLeft" Height="43" Grid.ColumnSpan="2"  />
+            <!--<TextBox Grid.Row="4" Grid.Column="1" VerticalAlignment="Top" VerticalContentAlignment="Top" x:Name="notes" FontSize="16"  Margin="35,0,20,0" materialDesign:HintAssist.Hint="ملاحظات " Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft"  TextWrapping="Wrap"
 VerticalScrollBarVisibility="Visible" 
-AcceptsReturn="True" Margin="46,0,15,0" />
-                <TextBox Grid.Row="3" VerticalAlignment="Center" FontSize="16"  Margin="47,3,15,2"  x:Name="hour_work" materialDesign:HintAssist.Hint=" عدد ساعات العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FlowDirection="RightToLeft" Height="42"  />
-                <TextBox Grid.Row="4" VerticalAlignment="Top" x:Name="notes" FontSize="16"  Margin="50,0,15,0" materialDesign:HintAssist.Hint="ملاحظات " Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft"  TextWrapping="Wrap"
-VerticalScrollBarVisibility="Visible" 
-AcceptsReturn="True" />
-
-                <StackPanel Orientation="Horizontal" Grid.Row="6" HorizontalAlignment="Center" FlowDirection="RightToLeft" Margin="-12,0,13,0" Width="347"   >
-
-                    <Button x:Name="add" Click="add_Click" BorderBrush="Black" Content="حفظ" Margin="0,7,100,7" Width="85" Background="#599DCC"  Foreground="Black"  FontSize="20" ></Button>
-
-                    <Button Content="اغــلاق" Name="delete" Click="delete_Click"  BorderBrush="Black" Width="96" Background="#FBB634"  Foreground="Black" FontSize="20" Margin="0,7" ></Button>
-                </StackPanel>
+AcceptsReturn="True" Height="76" Grid.ColumnSpan="2" />-->
+            <TextBox Padding="10,20,0,0" TextWrapping="Wrap" Grid.Column="1" Grid.Row="4"
+VerticalScrollBarVisibility="Visible"
+AcceptsReturn="True" BorderBrush="WhiteSmoke" BorderThickness="3" Margin="41,3,21,1"  x:Name="notes"  materialDesign:HintAssist.Hint=" مــــــــــــلاحــــظـــات...................................................." Text="" VerticalContentAlignment="Top"  FontSize="16" FlowDirection="RightToLeft" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.ColumnSpan="2"  />
 
 
-            </Grid>
+            <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="1"  HorizontalAlignment="Center" FlowDirection="RightToLeft"  Width="348" Grid.ColumnSpan="2" Margin="87,0"   >
 
+                <Button x:Name="add" Click="add_Click" BorderBrush="Black" Content="حفظ" Margin="0,7,100,7" Width="85" Background="#599DCC"  Foreground="Black"  FontSize="20" ></Button>
+
+                <Button Content="اغــلاق" Name="delete" Click="delete_Click"  BorderBrush="Black" Width="96" Background="#FBB634"  Foreground="Black" FontSize="20" Margin="0,7" ></Button>
+            </StackPanel>
 
 
         </Grid>
-
 
     </Grid>
 </Window>

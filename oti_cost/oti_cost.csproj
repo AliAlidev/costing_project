@@ -344,6 +344,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="mainactivecenter.xaml.cs">
+      <DependentUpon>mainactivecenter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="mainenginecard.xaml.cs">
+      <DependentUpon>mainenginecard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="mainprojectlist.xaml.cs">
       <DependentUpon>mainprojectlist.xaml</DependentUpon>
     </Compile>
@@ -407,6 +413,9 @@
     <Compile Include="show_active.xaml.cs">
       <DependentUpon>show_active.xaml</DependentUpon>
     </Compile>
+    <Compile Include="show_active_center.xaml.cs">
+      <DependentUpon>show_active_center.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="team_work_PC.xaml.cs">
       <DependentUpon>team_work_PC.xaml</DependentUpon>
@@ -419,6 +428,14 @@
     <Compile Include="works_result.xaml.cs">
       <DependentUpon>works_result.xaml</DependentUpon>
     </Compile>
+    <Page Include="mainactivecenter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="mainenginecard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="mainprojectlist.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -500,6 +517,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="show_active.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="show_active_center.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -645,10 +666,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="https://localhost:44315/MainWebService.asmx">
+    <WebReferenceUrl Include="http://192.168.137.1:85/costing_web_service/MainWebService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\localhost\</RelPath>
-      <UpdateFromURL>https://localhost:44315/MainWebService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.137.1:85/costing_web_service/MainWebService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

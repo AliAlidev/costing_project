@@ -33,6 +33,7 @@ namespace oti_cost
         public class Add
         {
             public string material_name { get; set; }
+            public string active_name { get; set; }
 
             public string index_number { get; set; }
 
@@ -48,7 +49,12 @@ namespace oti_cost
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (material_name.Text == "")
+            if (active_name.Text == "")
+            {
+                ok = new oknote("يجب إدخال اسم  مركز النشاط !");
+                ok.ShowDialog();
+            }
+           else if (material_name.Text == "")
             {
                 ok = new oknote("يجب إدخال اسم  المادة !");
                 ok.ShowDialog();
@@ -109,6 +115,8 @@ namespace oti_cost
                 {
                     this.gridmaterial.Items.Add((object)new material_used_PC.Add()
                     {
+                        active_name = this.active_name.Text,
+
                         material_name = this.material_name.Text,
                         index_number = this.index_number.Text,
                         unit = this.unit.Text,
@@ -119,6 +127,7 @@ namespace oti_cost
 
 
                     });
+                    this.active_name.Text = "";
 
                     this.material_name.Text = "";
                     this.index_number.Text = "";
@@ -184,8 +193,9 @@ namespace oti_cost
                         object str5 = obj1.GetType().GetProperty("unit_price").GetValue(obj1, (object[])null);
                         object str6 = obj1.GetType().GetProperty("total_price").GetValue(obj1, (object[])null);
                         string str7 = (string)obj1.GetType().GetProperty("notes").GetValue(obj1, (object[])null);
+                        string str8 = (string)obj1.GetType().GetProperty("active_name").GetValue(obj1, (object[])null);
 
-                        string query1 = "insert into material_used(material_name, index_number, unit, quantity , unit_price , total_price , notes,project_number , total_sum ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + str7 + "','" + card_numberrr.Text + "','" + total_prices.Content.ToString() + "')";
+                        string query1 = "insert into material_used(material_name, index_number, unit, quantity , unit_price , total_price , notes,project_number , total_sum ,active_name) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + str7 + "','" + str8 + "','" + card_numberrr.Text + "','" + total_prices.Content.ToString() + "')";
                         response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query1));
                         if (!respo.success)
                         {
@@ -197,6 +207,7 @@ namespace oti_cost
 
                     ok = new oknote("تم إدخال البيانات بنجاح");
                     ok.ShowDialog();
+                    active_name.Text = "";
 
                     material_name.Text = "";
                     index_number.Text = "";
@@ -230,6 +241,7 @@ namespace oti_cost
                 sharedvariables.confirmationmessagebox = "";
                 ok = new oknote("لم يتم إدخال البيانات المطلوبة !");
                 ok.ShowDialog();
+                active_name.Text = "";
 
                 material_name.Text = "";
                 index_number.Text = "";

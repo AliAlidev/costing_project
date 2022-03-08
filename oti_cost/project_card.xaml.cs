@@ -201,11 +201,7 @@ namespace oti_cost
                     ok = new oknote("يجب إدخال قيمة صحيحة  لتاريخ الانتهاء  !    ");
                     ok.ShowDialog();
                 }
-                else if (active_name.Text == "")
-                {
-                    ok = new oknote("يجب إدخال اسم مركز النشاط !");
-                    ok.ShowDialog();
-                }
+               
                 else
                 {
                     n = new note("هل أنت متأكد بأنك تريد القيام بهذه العملية ؟ .. ( الرجاء التأكد من صحة البيانات المدخلة قبل الموافقة )");
@@ -214,7 +210,7 @@ namespace oti_cost
                     {
                         try
                         {
-                            string query = "insert into project_card( active_center_name, project_name , dept, help_team , governorate , start_date , finsh_date , project_number) values('" + active_name.Text + "','" + project_name.Text + "','" + dept_name.Text + "','" + help_team.Text + "','" + governorate.Text + "','" + start_date.Text + "','" + finsh_date.Text + "','" + card_numberr.Text + "' )";
+                            string query = "insert into project_card( active_center_name, project_name , dept, help_team , governorate , start_date , finsh_date , project_number) values('" + project_name.Text + "','" + dept_name.Text + "','" + help_team.Text + "','" + governorate.Text + "','" + start_date.Text + "','" + finsh_date.Text + "','" + card_numberr.Text + "' )";
                             response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
                             if (!respo.success)
                             {
@@ -232,7 +228,6 @@ namespace oti_cost
                             governorate.Text = "";
                             start_date.Text = "";
                             finsh_date.Text = "";
-                            active_name.Text = "";
                         }
                         catch (Exception)
                         {
@@ -252,7 +247,6 @@ namespace oti_cost
                         governorate.Text = "";
                         start_date.Text = "";
                         finsh_date.Text = "";
-                        active_name.Text = "";
                     }
                 }
             }

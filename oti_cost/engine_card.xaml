@@ -13,23 +13,23 @@
         <Grid ShowGridLines="False">
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="204*" ></ColumnDefinition>
-                <ColumnDefinition Width="340*" ></ColumnDefinition>
-                <ColumnDefinition Width="274*" ></ColumnDefinition>
-                <ColumnDefinition Width="699*" ></ColumnDefinition>
-                <ColumnDefinition Width="75*" ></ColumnDefinition>
+                <ColumnDefinition Width="98*" ></ColumnDefinition>
+                <ColumnDefinition Width="62*" ></ColumnDefinition>
+                <ColumnDefinition Width="77*" ></ColumnDefinition>
+                <ColumnDefinition Width="1095*" ></ColumnDefinition>
+                <ColumnDefinition Width="260*" ></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="66*"></RowDefinition>
+                <RowDefinition Height="68*" ></RowDefinition>
                 <RowDefinition Height="67*" ></RowDefinition>
                 <RowDefinition Height="67*" ></RowDefinition>
                 <RowDefinition Height="67*" ></RowDefinition>
                 <RowDefinition Height="67*" ></RowDefinition>
                 <RowDefinition Height="67*" ></RowDefinition>
-                <RowDefinition Height="67*" ></RowDefinition>
-                <RowDefinition Height="67*" ></RowDefinition>
-                <RowDefinition Height="67*" ></RowDefinition>
+                <RowDefinition Height="70*" ></RowDefinition>
+                <RowDefinition Height="64*" ></RowDefinition>
                 <RowDefinition Height="66.4" ></RowDefinition>
                 <RowDefinition Height="66*" ></RowDefinition>
                 <RowDefinition Height="67*" ></RowDefinition>
@@ -42,10 +42,10 @@
                 </Border.Effect>-->
             </Border>
 
-            <Label Grid.Row="2" Grid.Column="3" VerticalAlignment="Center"  HorizontalContentAlignment="Center" FlowDirection="RightToLeft" HorizontalAlignment="Center" Content="بــطــاقــة مــــحـــــــرك" FontSize="25" FontWeight="Bold"  />
+            <Label Grid.Row="1" Grid.Column="3" VerticalAlignment="Center"  HorizontalContentAlignment="Center" FlowDirection="RightToLeft" HorizontalAlignment="Center" Content="بــطــاقــة مــــحـــــــرك" FontSize="25" FontWeight="Bold" Height="43" Margin="439,12,448,12" Width="208"  />
 
 
-            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="3" FlowDirection="RightToLeft"  Margin="14,0,49,0">
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3" FlowDirection="RightToLeft"  Margin="14,0,49,0">
 
                 <Button Grid.Row="3" Grid.Column="3" Click="add_card_number_Click" Name="add_card_number" VerticalAlignment="Bottom" HorizontalAlignment="Right" FlowDirection="RightToLeft"  Content="إضافة رقم بطاقة " Background="#599DCC" Foreground="Black"   />
                 <TextBox Grid.Row="3" Grid.Column="3"  Name="card_number"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="رقم البطاقة" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Bottom"  VerticalContentAlignment="Center" Margin="50,0,0,0" ></TextBox>
@@ -53,13 +53,16 @@
             </StackPanel>
 
 
-            <TextBox Margin="100,0,49,0" Grid.Row="4" Grid.Column="3"  Name="dept"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="الجهة الطالبة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
-            <TextBox Margin="100,0,49,0" Grid.Row="5" Grid.Column="3"   Name="sender_name"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="المسلم" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-            <TextBox Margin="100,0,49,1"  Grid.Row="6" Grid.Column="3"    Name="receiver_name"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="المستلم" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="receiver_name_TextChanged"/>
-            <TextBox Margin="100,0,49,46" Grid.Row="7" Grid.Column="3"    Name="received_date"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="تاريخ الاستلام" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.RowSpan="2"></TextBox>
-            <TextBox Margin="100,0,49,0"  Grid.Row="8" Grid.Column="3"    Name="sent_date"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="تاريخ التسليم" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+            <TextBox Margin="100,0,49,0" Grid.Row="3" Grid.Column="3"  Name="dept"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="الجهة الطالبة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+            <TextBox Margin="100,0,49,0" Grid.Row="4" Grid.Column="3"   Name="sender_name"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="المسلم" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <TextBox Margin="100,0,49,1"  Grid.Row="5" Grid.Column="3"    Name="receiver_name"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="المستلم" Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="receiver_name_TextChanged"/>
+            <TextBox Margin="100,0,49,10" Grid.Row="6" Grid.Column="3"    Name="received_date"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="تاريخ الاستلام" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <TextBox Margin="100,0,49,12"  Grid.Row="7" Grid.Column="3"    Name="sent_date"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="تاريخ التسليم" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+            <TextBox Margin="100,0,49,0" Grid.Row="8" Grid.Column="3"   Name="engine_sequence_number"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="الرقم التسلسلي للمحرك" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <TextBox Margin="100,0,49,0" Grid.Row="9" Grid.Column="3"   Name="engine_power"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="استطاعة المحرك" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <TextBox Margin="100,0,49,0" Grid.Row="10" Grid.Column="3"   Name="engine_rpm"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="عدد دورات المحرك :  r.p.m " Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
-            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Column="3" Grid.Row="9" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Column="3" Grid.Row="11" HorizontalAlignment="Center" Margin="367,0,378,0" Width="350">
 
                 <Button VerticalAlignment="Bottom" Width="150" Click="add_Click_2" Name="add" Visibility="Visible"  BorderBrush="Black" Background="#599DCC" Foreground="Black" Content="حــفـــظ" Margin="0,0,50,0" FontSize="20" />
 
@@ -67,8 +70,8 @@
 
                 <!--<Button VerticalAlignment="Bottom" Width="150" Name="add_engine_info" Click="add_engine_info_Click" Visibility="Visible"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="إضافة بيانات المحرك" Margin="50,0,0,0"   />-->
             </StackPanel>
-            <Button Name="add_engine_info" Click="add_engine_info_Click" Visibility="Visible"  FontSize="25" BorderBrush="Black" Background="#599DCC" Foreground="Black" Content="إضافة بيانات المحرك" Grid.Column="1" Grid.Row="4" Height="auto"  />
-            <Button  Name="result" Click="result_Click" Visibility="Visible"  FontSize="25" BorderBrush="Black" Background="#599DCC" Foreground="Black" Content="  نتائج اختبار المحرك  " Grid.Column="1" Grid.Row="8"   Height="auto"  />
+            <!--<Button Name="add_engine_info" Click="add_engine_info_Click" Visibility="Visible"  FontSize="25" BorderBrush="Black" Background="#599DCC" Foreground="Black" Content="إضافة بيانات المحرك" Grid.Column="1" Grid.Row="4" Height="auto"  />-->
+            <!--<Button  Name="result" Click="result_Click" Visibility="Visible"  FontSize="25" BorderBrush="Black" Background="#599DCC" Foreground="Black" Content="  نتائج اختبار المحرك  " Grid.Column="1" Grid.Row="8"   Height="auto"  />-->
 
 
 

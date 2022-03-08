@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="oti_cost_localhost_MainWebService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">https://localhost:44315/MainWebService.asmx</Value>
+      <Value Profile="(Default)">http://192.168.137.1:85/costing_web_service/MainWebService.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

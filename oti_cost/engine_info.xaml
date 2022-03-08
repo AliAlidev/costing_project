@@ -20,39 +20,39 @@
                 <ColumnDefinition Width="41*"></ColumnDefinition>
                 <ColumnDefinition Width="315*"></ColumnDefinition>
                 <ColumnDefinition Width="41*"></ColumnDefinition>
-                
+
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="49*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="49*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="49*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="49*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="58*"></RowDefinition>
+                <RowDefinition Height="39*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
+                <RowDefinition Height="48*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Border Grid.Column="3" Background="White" Grid.RowSpan="13" Grid.Row="2" BorderBrush="#94A76D" BorderThickness="3">
+            <Border Grid.Column="3" Background="White" Grid.RowSpan="9" Grid.Row="3" BorderBrush="#94A76D" BorderThickness="3">
 
                 <!--<Border Grid.Column="3" Background="White" Grid.RowSpan="13" Grid.Row="2" CornerRadius="50" BorderBrush="#94A76D" BorderThickness="3">-->
                 <!--<Border.Effect>
                     <DropShadowEffect Color="#94A76D" ShadowDepth="15"></DropShadowEffect>
                 </Border.Effect>-->
             </Border>
-            
-           <Label Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FlowDirection="RightToLeft" Content=" الرجاء ادخال المعلومات من هنا   "  Foreground="DarkGreen"  />
-            <Label Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FlowDirection="RightToLeft" FontSize="16" Content=" بيــانـــات الـــمــحــرك  "  Foreground="#0063C0"  />
+
+            <Label Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FlowDirection="RightToLeft" Content=" الرجاء ادخال المعلومات من هنا   "  Foreground="DarkGreen" Height="26" Margin="199,11,199,12" Width="173"  />
+            <!--<Label Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FlowDirection="RightToLeft" FontSize="16" Content=" بيــانـــات الـــمــحــرك  "  Foreground="#0063C0"  />-->
 
             <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="3" FlowDirection="RightToLeft" Margin="0,0,50,0">
 
@@ -60,38 +60,41 @@
                 <TextBox   x:Name="card_number1" Text="" HorizontalAlignment="Center"  VerticalAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True"  Focusable="False" BorderThickness="0" BorderBrush="Transparent" FlowDirection="RightToLeft"    />
             </StackPanel>
 
-            <TextBox Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right"  x:Name="engine_sequence_number"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="الرقم التسلسلي للمحرك " Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,50,0" />
+            <!--<TextBox Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right"  x:Name="engine_sequence_number"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="الرقم التسلسلي للمحرك " Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,50,0" />
 
             <TextBox Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" Name="engine_power"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="استطاعة المحرك : KW" Style="{StaticResource MaterialDesignFloatingHintTextBox}" ></TextBox>
 
-            <TextBox Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left"  Name="engine_rpm"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="عدد دورات المحرك :  r.p.m " Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="50,0,0,0"></TextBox>
+            <TextBox Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left"  Name="engine_rpm"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="عدد دورات المحرك :  r.p.m " Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="50,0,0,0"></TextBox>-->
 
-            <Label Grid.Row="6" Grid.Column="3" Margin="0,0,50,0" VerticalAlignment="Bottom"  VerticalContentAlignment="Center" FontWeight="DemiBold" Content="المواد المستخدمة :   " FontSize="16" Foreground="#0063C0" FlowDirection="RightToLeft" HorizontalAlignment="Right" />
-            <TextBox Grid.Row="7" Grid.Column="3" HorizontalAlignment="Right" Margin="0,0,50,0" Name="material_name" materialDesign:HintAssist.Hint="اسم المادة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FlowDirection="RightToLeft" VerticalContentAlignment="Center" VerticalAlignment="Center"></TextBox>
+            <Label Grid.Row="3" Grid.Column="3" Margin="0,0,50,0" VerticalAlignment="Bottom"  VerticalContentAlignment="Center" FontWeight="DemiBold" Content="المواد المستخدمة :   " FontSize="16" Foreground="#0063C0" FlowDirection="RightToLeft" HorizontalAlignment="Right" Height="31" Width="147" />
+            <TextBox Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right" Margin="0,0,50,0" Name="material_name" materialDesign:HintAssist.Hint="اسم المادة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FlowDirection="RightToLeft" Width="450" />
 
-            <TextBox VerticalAlignment="Center" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Center" Name="unit" materialDesign:HintAssist.Hint="الواحدة" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FlowDirection="RightToLeft" ></TextBox>
-            <TextBox Grid.Row="7" Grid.Column="3" HorizontalAlignment="Left" Margin="50,0,0,0" Name="quantity"  materialDesign:HintAssist.Hint="الكمية" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FlowDirection="RightToLeft" VerticalAlignment="Center" ></TextBox>
-            <Button Grid.Row="8" Grid.Column="3" Click="addmaterial_Click" Name="addmaterial" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Content="إضافة" Background="#599DCC" Foreground="Black"  BorderBrush="Black" HorizontalAlignment="Center"  Width="100"></Button>
+            <TextBox  Grid.Row="6" Grid.Column="3" HorizontalAlignment="Right" Name="unit"  Margin="0,0,50,0" materialDesign:HintAssist.Hint="الواحدة" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FlowDirection="RightToLeft" Width="450" ></TextBox>
+            <TextBox Grid.Row="7" Grid.Column="3" HorizontalAlignment="Right" Name="quantity" Margin="0,0,50,0" materialDesign:HintAssist.Hint="الكمية" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FlowDirection="RightToLeft" Width="450" />
+            <TextBox Margin="0,0,50,0" Grid.Row="8" HorizontalAlignment="Right" Grid.Column="3" Name="unit_price" FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="السعر الافرادي"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="450" />
+            <TextBox  IsReadOnly="True"  HorizontalAlignment="Right" Margin="0,0,50,0" Grid.Row="9" Grid.Column="3" Name="total_price" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" السعر الاجمالي "  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="450"  />
+
+            <Button Grid.Row="11" Grid.Column="3" Click="addmaterial_Click" Name="addmaterial" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Content="إضافة" Background="#599DCC" Foreground="Black"  BorderBrush="Black" HorizontalAlignment="Center"  Width="174" Height="41" Margin="223,0,174,0"></Button>
 
 
-            <Label Grid.Row="9" Grid.Column="3" VerticalContentAlignment="Center" VerticalAlignment="Bottom" FontWeight="DemiBold" Content="العاملين في صيانة المحرك : " FontSize="16" Foreground="#0063C0" FlowDirection="RightToLeft" HorizontalAlignment="Right"  Margin="0,0,50,0"/>
+            <!--<Label Grid.Row="9" Grid.Column="3" VerticalContentAlignment="Center" VerticalAlignment="Bottom" FontWeight="DemiBold" Content="العاملين في صيانة المحرك : " FontSize="16" Foreground="#0063C0" FlowDirection="RightToLeft" HorizontalAlignment="Right"  Margin="0,0,50,0"/>
 
             <TextBox VerticalAlignment="Center" Grid.Row="10" Grid.Column="3" HorizontalAlignment="Right" Name="operation" materialDesign:HintAssist.Hint="العملية" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FlowDirection="RightToLeft" Margin="0,0,50,0" ></TextBox>
 
             <TextBox VerticalAlignment="Center" Margin="0,0,0,0" Grid.Row="10" Grid.Column="3" HorizontalAlignment="Center" Name="worker_name" materialDesign:HintAssist.Hint="اسم العامل" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FlowDirection="RightToLeft" ></TextBox>
-            <TextBox VerticalAlignment="Center" Grid.Row="10" Grid.Column="3"  Margin="50,0,0,0" HorizontalAlignment="Left" Name="work_hours" materialDesign:HintAssist.Hint="عدد ساعات العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FlowDirection="RightToLeft" ></TextBox>
+            <TextBox VerticalAlignment="Center" Grid.Row="10" Grid.Column="3"  Margin="50,0,0,0" HorizontalAlignment="Left" Name="work_hours" materialDesign:HintAssist.Hint="عدد ساعات العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FlowDirection="RightToLeft" ></TextBox>-->
 
-            <Button Width="100" Grid.Row="11" Grid.Column="3" Click="addwor_Click" Name="addwor"  VerticalContentAlignment="Center" Content="إضافة" Background="#599DCC" Foreground="Black"  BorderBrush="Black" HorizontalAlignment="Center"  VerticalAlignment="Bottom" />
+            <!--<Button Width="100" Grid.Row="11" Grid.Column="3" Click="addwor_Click" Name="addwor"  VerticalContentAlignment="Center" Content="إضافة" Background="#599DCC" Foreground="Black"  BorderBrush="Black" HorizontalAlignment="Center"  VerticalAlignment="Bottom" />-->
 
-            <StackPanel Grid.Column="3" Orientation="Horizontal" Grid.Row="13" HorizontalAlignment="Center" FlowDirection="RightToLeft"  >
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Grid.Row="12" HorizontalAlignment="Center" FlowDirection="RightToLeft" Margin="220,0,219,0" Width="360"  >
 
                 <Button Content="حفظ" Name="addd" Click="addd_Click" Margin="0,0,100,0" Width="130" Background="#599DCC"   BorderBrush="Black" Foreground="Black"  FontSize="19"></Button>
 
                 <Button Content="اغـــــــــــــلاق" Name="delet" Click="delet_Click" Width="130" Background="#FBB634"  Foreground="Black"  BorderBrush="Black" FontSize="19" ></Button>
             </StackPanel>
 
-           
-            <DataGrid Grid.Row="3" Grid.RowSpan="5" Grid.Column="1" Name="materialgrid"  Background="White" HorizontalContentAlignment="Center" BorderThickness="1" BorderBrush="Black"  FlowDirection="RightToLeft"  >
+
+            <DataGrid Grid.Row="4" Grid.RowSpan="6" Grid.Column="1" Name="materialgrid"  Background="White" HorizontalContentAlignment="Center" BorderThickness="1" BorderBrush="Black"  FlowDirection="RightToLeft"  >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="اسم المادة" Width="300"  IsReadOnly="True"  CanUserSort="True"  Binding="{Binding material_name}" ></DataGridTextColumn>
                     <DataGridTextColumn Header="الواحدة" Width="200"  IsReadOnly="True"  CanUserSort="True"  Binding="{Binding unit}"></DataGridTextColumn>
@@ -124,7 +127,7 @@
             </DataGrid>
 
 
-            <DataGrid CanUserAddRows="True"  CanUserDeleteRows="True" CanUserReorderColumns="True" Grid.Row="9" Grid.RowSpan="5" Grid.Column="1" Name="workersgrid" HorizontalContentAlignment="Center" BorderThickness="1" BorderBrush="Black" FlowDirection="RightToLeft" >
+            <!--<DataGrid CanUserAddRows="True"  CanUserDeleteRows="True" CanUserReorderColumns="True" Grid.Row="9" Grid.RowSpan="5" Grid.Column="1" Name="workersgrid" HorizontalContentAlignment="Center" BorderThickness="1" BorderBrush="Black" FlowDirection="RightToLeft" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="العملية" Width="300" IsReadOnly="True"  CanUserSort="True"  Binding="{Binding operation}"></DataGridTextColumn>
                     <DataGridTextColumn Header="اسم العامل" Width="200" IsReadOnly="True"  CanUserSort="True" Binding="{Binding worker_name}"></DataGridTextColumn>
@@ -154,7 +157,7 @@
                     </Style>
                 </DataGrid.Resources>
 
-            </DataGrid>
+            </DataGrid>-->
 
 
         </Grid>

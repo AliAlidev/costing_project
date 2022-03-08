@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="project_card" Height="900" Width="1600" WindowState="Maximized" >
     <Grid >
-        <Image  Stretch="Fill" Source="./image/rr.png" />
+        <Image  Stretch="Fill" Source="./image/rr.png" RenderTransformOrigin="0.158,0.517" />
 
         <Grid>
             <Grid.RowDefinitions>
@@ -97,9 +97,18 @@
             <DatePicker Name="start_date"  Grid.Row="8" Grid.Column="3"  FlowDirection="RightToLeft" Margin="100,23,50,1" materialDesign:HintAssist.Hint="تاريخ البدء" Height="48"  ></DatePicker>
             <!--<TextBox Grid.Row="9" Grid.Column="3" Name="fiinsh_date" FlowDirection="RightToLeft"  Margin="100,0,50,0" materialDesign:HintAssist.Hint="تاريخ الانتهاء" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>-->
             <DatePicker Grid.Row="9" Grid.Column="3" Name="finsh_date" FlowDirection="RightToLeft"  Margin="100,17,50,1" materialDesign:HintAssist.Hint="تاريخ الانتهاء" Height="42"></DatePicker>
-            <TextBox Grid.Row="10" Grid.Column="3" Name="active_name" Margin="100,0,50,0" VerticalAlignment="Bottom"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" اسم مركز النشاط" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="37"  />
-            <!--<TextBox Grid.Row="11" Grid.Column="3" Name="work_hours" Margin="100,0,50,0" VerticalAlignment="Bottom"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" عدد ساعات العمل" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="37" TextChanged="team_name_TextChanged"  />-->
+            <!--<TextBox Grid.Row="10" Grid.Column="3" Name="active_name" Margin="100,0,50,0" VerticalAlignment="Bottom"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" اسم مركز النشاط" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="37"  />-->
+            <!--<StackPanel Orientation="Horizontal" Grid.Row="10" Grid.Column="3" FlowDirection="RightToLeft" HorizontalAlignment="Right" Margin="0,0,50,0" Width="444">
+                <Label VerticalContentAlignment="Bottom" Foreground="Gray" Content="اختر مركز النشاط :" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Width="90" ></Label>
 
+                <ComboBox VerticalContentAlignment="Top" Margin="50,0,0,0" VerticalAlignment="Bottom" Name="active_name" FlowDirection="RightToLeft" Width="310" >
+                    <ComboBoxItem Content=" "></ComboBoxItem>
+
+                  
+                </ComboBox>
+
+
+            </StackPanel>-->
             <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="10" Grid.Column="3" HorizontalAlignment="Center" Margin="0,43,0,0" Width="424" Grid.RowSpan="2" >
                 <Button VerticalAlignment="Bottom" Click="add_Click_2" Name="add" Visibility="Visible"   BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  FontSize="18" />
                 <Button VerticalAlignment="Bottom" Click="abrogation_Click" Name="abrogation" Visibility="Visible" Margin="50,0,0,0"   BorderBrush="Black"  Background="#FBB634" Foreground="Black"  Content="اغــــــــــــــــلاق" FontSize="18" Width="129"   />

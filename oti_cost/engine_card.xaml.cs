@@ -82,6 +82,21 @@ namespace oti_cost
                 ok = new oknote("يجب إدخال قيمة صحيحة  لتاريخ التسليم  !    ");
                 ok.ShowDialog();
             }
+           else if (engine_sequence_number.Text == "")
+            {
+                ok = new oknote("يجب إدخال الرقم التسلسلي للمحرك   !");
+                ok.ShowDialog();
+            }
+            else if (engine_power.Text == "")
+            {
+                ok = new oknote("يجب تحديد استطاعة المحرك    !");
+                ok.ShowDialog();
+            }
+            else if (engine_rpm.Text == "")
+            {
+                ok = new oknote("يجب تحديد عدد دورات المحرك    ! ");
+                ok.ShowDialog();
+            }
             else
             {
 
@@ -95,13 +110,17 @@ namespace oti_cost
 
                     try
                     {
-                        string query = "INSERT INTO engine_card (card_number , dept , sender_name ,  receiver_name , received_date ,sent_date )  VALUES('" +
+                        string query = "INSERT INTO engine_card (card_number , dept , sender_name ,  receiver_name , received_date ,sent_date,engine_sequence_number,engine_power,engine_rpm )  VALUES('" +
                                card_number.Text +
                                "' , '" + dept.Text +
                                "' , '" + sender_name.Text +
                               "' , '" + receiver_name.Text +
                               "' , '" + received_date.Text +
-                               "' , '" + sent_date.Text + "' ) ";
+                              "' , '" + sent_date.Text +
+                               "' , '" + engine_sequence_number.Text +
+                              "' , '" + engine_power.Text +
+
+                               "' , '" + engine_rpm.Text + "' ) ";
 
                         /////////////////// insert into engine table
                         response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
@@ -132,6 +151,9 @@ namespace oti_cost
                         sent_date.Text = "";
                         received_date.Text = "";
                         receiver_name.Text = "";
+                        engine_sequence_number.Text = "";
+                        engine_power.Text = "";
+                        engine_rpm.Text = "";
 
 
 
@@ -157,6 +179,9 @@ namespace oti_cost
                     receiver_name.Text = "";
                     received_date.Text = "";
                     sender_name.Text = "";
+                    engine_sequence_number.Text = "";
+                    engine_power.Text = "";
+                    engine_rpm.Text = "";
                 }
             }
 
@@ -243,6 +268,9 @@ namespace oti_cost
                     receiver_name.Text = "";
                     sent_date.Text = "";
                     received_date.Text = "";
+                    engine_sequence_number.Text = "";
+                    engine_power.Text = "";
+                    engine_rpm.Text = "";
                 }
                 else
                 {
@@ -255,6 +283,9 @@ namespace oti_cost
                     receiver_name.Text = "";
                     sent_date.Text = "";
                     received_date.Text = "";
+                    engine_sequence_number.Text = "";
+                    engine_power.Text = "";
+                    engine_rpm.Text = "";
                 }
 
             }
@@ -312,6 +343,9 @@ namespace oti_cost
                     received_date.Text = "";
                     sender_name.Text = "";
                     receiver_name.Text = "";
+                    engine_sequence_number.Text = "";
+                    engine_power.Text = "";
+                    engine_rpm.Text = "";
                 }
             }
         }
