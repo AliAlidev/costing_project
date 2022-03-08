@@ -27,7 +27,14 @@ namespace oti_cost
         private void add_Click_2(object sender, RoutedEventArgs e)
         {
 
-            if (DBVariables.isFound(card_number.Text, "card_number", "engine_card"))
+            string[] values = new string[3];
+            values[0] = card_number.Text;
+            values[1] = "card_number";
+            values[2] = "engine_card";
+            string data = JsonConvert.SerializeObject(values);
+            bool res = JsonConvert.DeserializeObject<bool>(sharedvariables.proxy.IsFound(data));
+
+            if (res)
             {
                 ok = new oknote("هذه البطاقة  موجودة مسبقاً !");
                 ok.ShowDialog();
@@ -88,13 +95,33 @@ namespace oti_cost
 
                     try
                     {
-                        sharedvariables.proxy.ExecuteNQ("INSERT INTO engine_card (card_number , dept , sender_name ,  receiver_name , received_date ,sent_date )  VALUES('" +
+                        string query = "INSERT INTO engine_card (card_number , dept , sender_name ,  receiver_name , received_date ,sent_date )  VALUES('" +
                                card_number.Text +
                                "' , '" + dept.Text +
                                "' , '" + sender_name.Text +
                               "' , '" + receiver_name.Text +
                               "' , '" + received_date.Text +
-                               "' , '" + sent_date.Text + "' ) ");
+                               "' , '" + sent_date.Text + "' ) ";
+
+                        /////////////////// insert into engine table
+                        response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                        if (!respo.success)
+                        {
+                            ok = new oknote(sharedvariables.errorMsg + respo.code);
+                            ok.ShowDialog();
+                            Close();
+                        }
+
+                        //////////////////// insert into project table
+                        query = "insert into project_card( active_center_name, project_name , dept , start_date , finsh_date , project_number) values('Ali shaheen','engine maintenance','" +
+                            dept.Text + "','" + sent_date.Text + "','" + received_date.Text + "','" + card_number.Text + "' )";
+                        respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                        if (!respo.success)
+                        {
+                            ok = new oknote(sharedvariables.errorMsg + respo.code);
+                            ok.ShowDialog();
+                            Close();
+                        }
 
                         sharedvariables.confirmationmessagebox = "";
                         ok = new oknote("تم الإدخال بنجاح");
@@ -141,14 +168,20 @@ namespace oti_cost
 
         private void edit_Click(object sender, RoutedEventArgs e)
         {
-            bool msg = false;
+            string[] values = new string[3];
+            values[0] = card_number.Text;
+            values[1] = "card_number";
+            values[2] = "engine_card";
+            string data = JsonConvert.SerializeObject(values);
+            bool res = JsonConvert.DeserializeObject<bool>(sharedvariables.proxy.IsFound(data));
+
             if (!sharedvariables.isNumber(this.card_number.Text))
             {
                 ok = new oknote("يجب ادخال قيمة صحيحة لرقم البطاقة !");
                 ok.ShowDialog();
             }
 
-            else if (msg == DBVariables.isFound(card_number.Text, "card_number", "engine_card"))
+            else if (res)
             {
                 ok = new oknote("هذه البطاقة غير موجودة مسبقاً !");
                 ok.ShowDialog();
@@ -229,14 +262,19 @@ namespace oti_cost
 
         private void delete_Click(object sender, RoutedEventArgs e)
         {
-            bool msg = false;
+            string[] values = new string[3];
+            values[0] = card_number.Text;
+            values[1] = "card_number";
+            values[2] = "engine_card";
+            string data = JsonConvert.SerializeObject(values);
+            bool res = JsonConvert.DeserializeObject<bool>(sharedvariables.proxy.IsFound(data));
+
             if (!sharedvariables.isNumber(this.card_number.Text))
             {
                 ok = new oknote("يجب ادخال قيمة صحيحة لرقم المشروع");
                 ok.ShowDialog();
             }
-            else if (msg == DBVariables.isFound(card_number.Text, "card_number", "engine_card")
-)
+            else if (res)
             {
                 ok = new oknote("هذه البطاقة غير موجودة مسبقاً ! ");
                 ok.ShowDialog();
@@ -286,7 +324,7 @@ namespace oti_cost
             string id0 = "";
             string res1 = null;
             string query = "select card_number from engine_card order by id desc limit 1 ";
-            string res = DBVariables.executescaler(query);
+            string res = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
             if (res != null)
             {
 
@@ -295,7 +333,7 @@ namespace oti_cost
             verify:
                 id0 = res1;
                 query = "select count(*) from engine_card where card_number= " + (int.Parse(res1));
-                res1 = DBVariables.executescaler(query);
+                res1 = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
 
                 if (int.Parse(res1) > 0)
                 {
@@ -320,22 +358,26 @@ namespace oti_cost
 
         private void engine_data_Click(object sender, RoutedEventArgs e)
         {
+            string[] values = new string[3];
+            values[0] = card_number.Text;
+            values[1] = "card_number";
+            values[2] = "engine_card";
+            string data = JsonConvert.SerializeObject(values);
+            bool res = JsonConvert.DeserializeObject<bool>(sharedvariables.proxy.IsFound(data));
 
             if (card_number.Text == "")
             {
                 ok = new oknote("يجب إدخال رقم البطاقة أولاً ! ");
                 ok.ShowDialog();
             }
-            else if (DBVariables.isFound(card_number.Text, "card_number", "engine_card"))
+            else if (res)
             {
-
                 engine_info enginfo = new engine_info();
                 enginfo.card_number1.Text = card_number.Text;
                 enginfo.ShowDialog();
             }
             else
             {
-
                 ok = new oknote("هذه البطاقة غير موجودة مسبقاً ! .. يرجى إدخال رقم بطاقة صحيح !");
                 ok.ShowDialog();
 

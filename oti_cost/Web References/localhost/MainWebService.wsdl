@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://oti-costing.sy/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://oti-costing.sy/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://oti-costing.sy/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://oti-costing.sy/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://oti-costing.sy/">
       <s:element name="ShowActiveCenter">
@@ -26,6 +26,48 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="FillDataTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FillDataTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FillDataTableResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScaler">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScalerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteScalerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsFound">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsFoundResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IsFoundResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="ShowActiveCenterSoapIn">
@@ -40,6 +82,24 @@
   <wsdl:message name="ExecuteNQSoapOut">
     <wsdl:part name="parameters" element="tns:ExecuteNQResponse" />
   </wsdl:message>
+  <wsdl:message name="FillDataTableSoapIn">
+    <wsdl:part name="parameters" element="tns:FillDataTable" />
+  </wsdl:message>
+  <wsdl:message name="FillDataTableSoapOut">
+    <wsdl:part name="parameters" element="tns:FillDataTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScalerSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteScaler" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScalerSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteScalerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsFoundSoapIn">
+    <wsdl:part name="parameters" element="tns:IsFound" />
+  </wsdl:message>
+  <wsdl:message name="IsFoundSoapOut">
+    <wsdl:part name="parameters" element="tns:IsFoundResponse" />
+  </wsdl:message>
   <wsdl:portType name="MainWebServiceSoap">
     <wsdl:operation name="ShowActiveCenter">
       <wsdl:input message="tns:ShowActiveCenterSoapIn" />
@@ -48,6 +108,18 @@
     <wsdl:operation name="ExecuteNQ">
       <wsdl:input message="tns:ExecuteNQSoapIn" />
       <wsdl:output message="tns:ExecuteNQSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FillDataTable">
+      <wsdl:input message="tns:FillDataTableSoapIn" />
+      <wsdl:output message="tns:FillDataTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScaler">
+      <wsdl:input message="tns:ExecuteScalerSoapIn" />
+      <wsdl:output message="tns:ExecuteScalerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFound">
+      <wsdl:input message="tns:IsFoundSoapIn" />
+      <wsdl:output message="tns:IsFoundSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="MainWebServiceSoap" type="tns:MainWebServiceSoap">
@@ -70,6 +142,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="FillDataTable">
+      <soap:operation soapAction="http://oti-costing.sy/FillDataTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScaler">
+      <soap:operation soapAction="http://oti-costing.sy/ExecuteScaler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFound">
+      <soap:operation soapAction="http://oti-costing.sy/IsFound" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="MainWebServiceSoap12" type="tns:MainWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -84,6 +183,33 @@
     </wsdl:operation>
     <wsdl:operation name="ExecuteNQ">
       <soap12:operation soapAction="http://oti-costing.sy/ExecuteNQ" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FillDataTable">
+      <soap12:operation soapAction="http://oti-costing.sy/FillDataTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScaler">
+      <soap12:operation soapAction="http://oti-costing.sy/ExecuteScaler" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFound">
+      <soap12:operation soapAction="http://oti-costing.sy/IsFound" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

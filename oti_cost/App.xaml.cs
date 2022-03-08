@@ -13,5 +13,14 @@ namespace oti_cost
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            bool serverAvailable = sharedvariables.isServerAvailable();
+            if (!serverAvailable)
+            {
+                MessageBox.Show("الاتصال مع السيرفر غير متوفر حاليا يرجى طلب الدعم من الفريق التقني");
+                Environment.Exit(0);
+            }
+        }
     }
 }

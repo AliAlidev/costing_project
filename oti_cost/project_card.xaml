@@ -31,20 +31,20 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="194*"></ColumnDefinition>
+                <ColumnDefinition Width="11*"></ColumnDefinition>
 
-                <ColumnDefinition Width="350*"></ColumnDefinition>
-                <ColumnDefinition Width="274*"></ColumnDefinition>
+                <ColumnDefinition Width="6*"></ColumnDefinition>
+                <ColumnDefinition Width="20*"></ColumnDefinition>
 
-                <ColumnDefinition Width="699*"></ColumnDefinition>
-                <ColumnDefinition Width="75*"></ColumnDefinition>
+                <ColumnDefinition Width="124*"></ColumnDefinition>
+                <ColumnDefinition Width="38*"></ColumnDefinition>
 
             </Grid.ColumnDefinitions>
 
-            <Button Name="addteam" Click="addteam_Click" Content="توصيف نتائج العمل " BorderBrush="Black" FontSize="25" Foreground="Black" Grid.Column="1" Grid.Row="5" Height="auto" Background="#599DCC"  ></Button>
+            <!--<Button Name="addteam" Click="addteam_Click" Content="توصيف نتائج العمل " BorderBrush="Black" FontSize="25" Foreground="Black" Grid.Column="1" Grid.Row="5" Height="auto" Background="#599DCC"  ></Button>-->
 
 
-            <Button  Name="addmaterial" Click="addmaterial_Click" Content="إضافة المواد المستخدمة" BorderBrush="Black" FontSize="25" Foreground="Black" Grid.Column="1" Grid.Row="9"  Height="Auto" Background="#599DCC"  />
+            <!--<Button  Name="addmaterial" Click="addmaterial_Click" Content="إضافة المواد المستخدمة" BorderBrush="Black" FontSize="25" Foreground="Black" Grid.Column="1" Grid.Row="9"  Height="Auto" Background="#599DCC"  />-->
 
             <Border Background="GhostWhite" Grid.Column="3" Grid.Row="2" Grid.RowSpan="10" BorderThickness="3" BorderBrush="GhostWhite">
 
@@ -52,7 +52,7 @@
                     <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
                 </Border.Effect>
             </Border>
-            <Label HorizontalAlignment="Center" BorderBrush="DarkGreen" Content="  بطاقة مشروع" FontWeight="Bold" Grid.Column="3" Grid.Row="2" FontSize="25" VerticalContentAlignment="Center"   />
+            <Label HorizontalAlignment="Center" BorderBrush="DarkGreen" Content="  بطاقة مشروع" FontWeight="Bold" Grid.Column="3" Grid.Row="1" FontSize="25" VerticalContentAlignment="Center" Margin="0,59,0,59" Width="172" Grid.RowSpan="3"   />
 
             <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="3" FlowDirection="RightToLeft" Margin="0,0,50,0">
                 <Button Click="add_card_number_Click" x:Name="add_card_number" VerticalAlignment="Bottom" HorizontalAlignment="Right" FlowDirection="RightToLeft"  Content="إضافة رقم مشروع " Background="#599DCC" Foreground="Black"   />
@@ -93,15 +93,16 @@
 
             </StackPanel>
 
-            <TextBox Grid.Row="8" Grid.Column="3" Name="start_date" FlowDirection="RightToLeft" Margin="100,0,50,0" materialDesign:HintAssist.Hint="تاريخ البدء" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
-            <TextBox Grid.Row="9" Grid.Column="3" Name="finsh_date" FlowDirection="RightToLeft"  Margin="100,0,50,0" materialDesign:HintAssist.Hint="تاريخ الانتهاء" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>
+            <!--<TextBox Grid.Row="8" Grid.Column="3" Name="staret_date" FlowDirection="RightToLeft" Margin="100,0,50,0" materialDesign:HintAssist.Hint="تاريخ البدء" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>-->
+            <DatePicker Name="start_date"  Grid.Row="8" Grid.Column="3"  FlowDirection="RightToLeft" Margin="100,23,50,1" materialDesign:HintAssist.Hint="تاريخ البدء" Height="48"  ></DatePicker>
+            <!--<TextBox Grid.Row="9" Grid.Column="3" Name="fiinsh_date" FlowDirection="RightToLeft"  Margin="100,0,50,0" materialDesign:HintAssist.Hint="تاريخ الانتهاء" Style="{StaticResource MaterialDesignFloatingHintTextBox}"></TextBox>-->
+            <DatePicker Grid.Row="9" Grid.Column="3" Name="finsh_date" FlowDirection="RightToLeft"  Margin="100,17,50,1" materialDesign:HintAssist.Hint="تاريخ الانتهاء" Height="42"></DatePicker>
             <TextBox Grid.Row="10" Grid.Column="3" Name="active_name" Margin="100,0,50,0" VerticalAlignment="Bottom"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" اسم مركز النشاط" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="37"  />
             <!--<TextBox Grid.Row="11" Grid.Column="3" Name="work_hours" Margin="100,0,50,0" VerticalAlignment="Bottom"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" عدد ساعات العمل" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="37" TextChanged="team_name_TextChanged"  />-->
 
-            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="11" Grid.Column="3" HorizontalAlignment="Center" >
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="10" Grid.Column="3" HorizontalAlignment="Center" Margin="0,43,0,0" Width="424" Grid.RowSpan="2" >
                 <Button VerticalAlignment="Bottom" Click="add_Click_2" Name="add" Visibility="Visible"   BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="حــــــــــفــــــــــظ"  FontSize="18" />
-                <!--<Button VerticalAlignment="Bottom" Click="modulation_Click_1" Name="modulation" Visibility="Visible"   BorderBrush="Black" Background="#FBB634" Foreground="Black"  Content="تــــــــعـــــــديــــــل"  FontSize="18" />-->
-                <Button VerticalAlignment="Bottom" Click="abrogation_Click" Name="abrogation" Visibility="Visible"    BorderBrush="Black"  Background="#E43D2D" Foreground="Black"  Content="اغــــــــــــــــلاق" FontSize="18" Width="129"   />
+                <Button VerticalAlignment="Bottom" Click="abrogation_Click" Name="abrogation" Visibility="Visible" Margin="50,0,0,0"   BorderBrush="Black"  Background="#FBB634" Foreground="Black"  Content="اغــــــــــــــــلاق" FontSize="18" Width="129"   />
 
 
             </StackPanel>

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Newtonsoft.Json;
+using System.ComponentModel;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
@@ -75,8 +76,11 @@ namespace oti_cost
                 revise r = new revise();
 
                 DataSet ds = new DataSet();
-                int getRowId = int.Parse(DBVariables.executescaler("select id from active_center where active_center_name = '" + tt[1].ToString() + "' and team_name= '" + tt[0].ToString() + "'"));
-                ds = DBVariables.fillDataTable("select worker_name, self_number, category from workers_names where active_center_id =" + getRowId);
+                string query = "select id from active_center where active_center_name = '" + tt[1].ToString() + "' and team_name= '" + tt[0].ToString() + "'";
+                int getRowId = int.Parse(JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query)));
+
+                query = "select worker_name, self_number, category from workers_names where active_center_id =" + getRowId;
+                ds = JsonConvert.DeserializeObject<DataSet>(sharedvariables.proxy.FillDataTable(query));
 
                 foreach (DataRow item in ds.Tables[0].Rows)
                 {

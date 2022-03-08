@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections;
+using System.Data;
 using System.Windows;
 
 namespace oti_cost
@@ -12,8 +13,9 @@ namespace oti_cost
         oknote ok;
         note n;
         internal object numbercard;
+        private listprojects _listprojects;
 
-        public material_used_PC()
+        public material_used_PC(listprojects lp)
         {
             InitializeComponent();
             double h = SystemParameters.PrimaryScreenHeight;
@@ -21,6 +23,7 @@ namespace oti_cost
 
             Width = w;
             Height = h;
+            _listprojects = lp;
         }
 
         //private void close_Click(object sender, RoutedEventArgs e)
@@ -98,21 +101,12 @@ namespace oti_cost
                 ok = new oknote("  السعر الإجمالي  يجب أن يكون رقم حصرا   !");
                 ok.ShowDialog();
             }
-
-
             else
             {
-
                 n = new note("هل أنت متأكد بأنك تريد القيام بهذه العملية ؟ .. ( الرجاء التأكد من صحة البيانات المدخلة قبل الموافقة )");
                 n.ShowDialog();
-
-
-
-
                 if (sharedvariables.confirmationmessagebox == "ok")
                 {
-
-
                     this.gridmaterial.Items.Add((object)new material_used_PC.Add()
                     {
                         material_name = this.material_name.Text,
@@ -147,7 +141,6 @@ namespace oti_cost
                         finalres += res0;
                     }
                     total_prices.Content = finalres.ToString();
-
                 }
                 else
                 {
@@ -166,23 +159,22 @@ namespace oti_cost
         {
             n = new note("هل أنت متأكد بأنك تريد القيام بهذه العملية ؟ .. ( الرجاء التأكد من صحة البيانات المدخلة قبل الموافقة )");
             n.ShowDialog();
-
-
-
             if (sharedvariables.confirmationmessagebox == "ok")
             {
-
-                bool re = DBVariables.isFound(card_numberrr.Text, "project_number", "material_used");
-                if (re == true)
+                string[] values = new string[3];
+                values[0] = card_numberrr.Text;
+                values[1] = "project_number";
+                values[2] = "material_used";
+                string data = JsonConvert.SerializeObject(values);
+                bool res = JsonConvert.DeserializeObject<bool>(sharedvariables.proxy.IsFound(data));
+                if (res)
                 {
                     ok = new oknote("تم إضافة هذه البيانات مسبقاً !");
                     ok.ShowDialog();
                 }
                 else
                 {
-
                     IEnumerable items = (IEnumerable)gridmaterial.Items;
-
                     foreach (object obj1 in items)
                     {
                         string str1 = (string)obj1.GetType().GetProperty("material_name").GetValue(obj1, (object[])null);
@@ -193,8 +185,8 @@ namespace oti_cost
                         object str6 = obj1.GetType().GetProperty("total_price").GetValue(obj1, (object[])null);
                         string str7 = (string)obj1.GetType().GetProperty("notes").GetValue(obj1, (object[])null);
 
-                        string query = "insert into material_used(material_name, index_number, unit, quantity , unit_price , total_price , notes,project_number , total_sum ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + str7 + "','" + card_numberrr.Text + "','" + total_prices.Content.ToString() + "')";
-                        response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                        string query1 = "insert into material_used(material_name, index_number, unit, quantity , unit_price , total_price , notes,project_number , total_sum ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + str7 + "','" + card_numberrr.Text + "','" + total_prices.Content.ToString() + "')";
+                        response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query1));
                         if (!respo.success)
                         {
                             ok = new oknote(sharedvariables.errorMsg + respo.code);
@@ -214,6 +206,23 @@ namespace oti_cost
                     total_price.Text = "";
                     unit_price.Text = "";
                     this.gridmaterial.Items.Clear();
+
+                    ////////////// list projects
+                    DataSet ds = new DataSet();
+                    string query = "select active_center_name, project_name, dept, help_team, governorate, start_date, finsh_date, project_number from project_card";
+                    ds = JsonConvert.DeserializeObject<DataSet>(sharedvariables.proxy.FillDataTable(query));
+                    ds.Tables[0].Columns[0].ColumnName = "اسم مركز النشاط";
+                    ds.Tables[0].Columns[1].ColumnName = "اسم المشروع";
+                    ds.Tables[0].Columns[2].ColumnName = "الجهة الطالبة";
+                    ds.Tables[0].Columns[3].ColumnName = "الفرق المساعدة";
+                    ds.Tables[0].Columns[4].ColumnName = "لمحافظة";
+                    ds.Tables[0].Columns[5].ColumnName = "تاريخ البدء";
+                    ds.Tables[0].Columns[6].ColumnName = "تاريخ الانتهاء";
+                    ds.Tables[0].Columns[7].ColumnName = "رقم المشروع";
+                    _listprojects.listproject.ItemsSource = ds.Tables[0].DefaultView;
+
+                    ////////////
+                    Close();
                 }
             }
             else

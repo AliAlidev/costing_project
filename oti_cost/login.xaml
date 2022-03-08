@@ -10,17 +10,19 @@
          Width="549.592" Height="613.339" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Title="تــســجــيــل الــدخــول" >
 
     <Grid Background="GhostWhite" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
 
-        <Border Background="GhostWhite" Margin="0,0,0,-0.2" MinWidth="400" VerticalAlignment="Center" Padding="30" CornerRadius="10" MaxWidth="600" Height="617">
+        <Border Background="GhostWhite" CornerRadius="10" Grid.ColumnSpan="2" Margin="0,0,0,-20">
 
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
 
-            <StackPanel  Background="GhostWhite">
-
-
-                <Image Source="/image/otii.jpg"></Image>
+            <StackPanel  Background="GhostWhite" HorizontalAlignment="Stretch" VerticalAlignment="Center" Orientation="Vertical" Width="490" Height="557">
+                <Image Source="/image/otii.jpg" Width="490" Height="150"></Image>
                 <Label FlowDirection="RightToLeft" Content=" البريد الالكتروني" Margin="0,40,0,0" HorizontalAlignment="Center"></Label>
                 <TextBox Name="user_email" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="أدخل البريد الالكتروني الخاص بك" Width="400" materialDesign:HintAssist.FloatingScale="1" materialDesign:HintAssist.FloatingOffset="0,-25" materialDesign:HintAssist.IsFloating="True"  />
 
@@ -29,9 +31,7 @@
 
                 <Button Name="signin" Click="signin_Click" BorderBrush="Blue" Background="LightSkyBlue" Foreground="Black" Width="200" Content="تسجيل الدخول" Margin="0,40,0,0"/>
 
-
-
             </StackPanel>
         </Border>
-    </Grid>  
+    </Grid>
 </Window>

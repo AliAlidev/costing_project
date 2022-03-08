@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using System;
+using System.Data;
 
 namespace oti_cost
 {
-   public static class sharedvariables
+    public static class sharedvariables
     {
-        public static localhost.MainWebService proxy;
+        public static localhost.MainWebService proxy = new localhost.MainWebService();
 
         public static string confirmationmessagebox;
 
@@ -21,6 +19,8 @@ namespace oti_cost
         public static string governorate;
         public static string start_date;
         public static string finsh_date;
+
+        public static string username;
 
         public static bool isDate(string val)
         {
@@ -46,6 +46,21 @@ namespace oti_cost
             {
                 return false;
             }
+        }
+
+        public static bool isServerAvailable()
+        {
+            try
+            {
+                localhost.MainWebService p = new localhost.MainWebService();
+                DataSet ds = JsonConvert.DeserializeObject<DataSet>(p.FillDataTable("select * from project_card"));
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
         }
 
         public class workers_names

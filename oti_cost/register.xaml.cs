@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace oti_cost
 {
@@ -26,17 +15,31 @@ namespace oti_cost
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //string query = "insert into users(user_type, user_name, email, password) values(" +
+            //    "'" + usertype.Text + "'" +
+            //    ",'" + user_name.Text + "'" +
+            //    ",'" + email.Text + "'" +
+            //    ",'" + your_password.Password.GetHashCode() + "'" +
+            //    ")";
 
-        }
+            string query = "insert into users(user_type, user_name, email, password) values(" +
+                           "'" + "admin" + "'" +
+                           ",'" + "ali" + "'" +
+                           ",'" + "ali@gmail.com" + "'" +
+                           ",'" + "12345".GetHashCode() + "'" +
+                           ")";
 
-        private void primary_facility_manager_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void secondary_facility_manager_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+            oknote ok;
+            if (respo.success)
+            {
+                ok = new oknote("تم اضافة المستخدم بنجاح");
+            }
+            else if (!respo.success)
+            {
+                ok = new oknote(sharedvariables.errorMsg + respo.code);
+                ok.ShowDialog();
+            }
         }
     }
 }

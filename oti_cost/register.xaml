@@ -3,121 +3,44 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
         xmlns:local="clr-namespace:oti_cost"
-                                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-
         mc:Ignorable="d"
-       WindowState="Maximized" Title="تــســجــيــل مــســتــخــدم جــديــد" >
+          WindowState="Maximized" Title="أضـــافـــة مــســتــخــدم جــديــد"  Height="600" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="109*"></ColumnDefinition>
+            <ColumnDefinition Width="195*"></ColumnDefinition>
+            <ColumnDefinition Width="138*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"></RowDefinition>
+            <RowDefinition Height="68*"></RowDefinition>
+            <RowDefinition Height="51*"></RowDefinition>
+            <RowDefinition Height="51*"></RowDefinition>
+            <RowDefinition Height="52*"></RowDefinition>
+            <RowDefinition Height="52*"></RowDefinition>
+            <RowDefinition Height="52*"></RowDefinition>
+            <RowDefinition Height="52*"></RowDefinition>
+            <RowDefinition Height="52*"></RowDefinition>
+            <RowDefinition Height="52*"></RowDefinition>
+            <RowDefinition Height="52*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border Grid.Column="1" Grid.Row="0" Grid.RowSpan="9" Background="WhiteSmoke" CornerRadius="60" Margin="0,0,0,1">
+        </Border>
+        <Image Source="/image/otii.jpg" Grid.Column="1"  Margin="17,0,25,1" Grid.Row="1" Grid.RowSpan="2" />
+        <ComboBox Grid.Row="3" Grid.Column="1" Margin="20,0,20,0" materialDesign:HintAssist.Hint=" نــوع الـمـسـتـخـــدم" HorizontalContentAlignment="Right" Name="usertype"  >
+            <ComboBoxItem FlowDirection="RightToLeft" Content="مــــديــــر الأتــــمــــتــــة الــــصــــنــــاعــــيــــة"/>
+            <ComboBoxItem FlowDirection="RightToLeft" Content="الــــفــــريـــــق الـــــتـــــقـــــنـــــــــي"/>
+        </ComboBox>
 
-    <Grid  Background="GhostWhite" >
+        <TextBox Name="specialization"  Margin="20,0,20,0" Grid.Row="4" Grid.Column="1" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="أدخل اسم المستخدم الخاص بك" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-
-            <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="15" Background="White"  CornerRadius="10">
-
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
-                </Border.Effect>
-            </Border>
-
-
-
-
-            <StackPanel  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="16" Background="GhostWhite" >
-                <Image Source="/image/otii.jpg" Height="107" ></Image>
-
-
-
-                <StackPanel Orientation="Vertical">
-
-
-                    <!-- <Label  FlowDirection="RightToLeft" Content=" اخــتـــر الفعالية "  HorizontalAlignment="Center" Width="133" Margin="0,10,30,-10" />-->
-
-
-                    <ComboBox SelectionChanged="primary_facility_manager_SelectionChanged" materialDesign:HintAssist.Hint=" الفعالية الـرئــيــسـيــة "  HorizontalContentAlignment="Center" Width="400" Name="primary_facility_manager">
-                        <ComboBoxItem  FlowDirection="RightToLeft" Content="  "/>
-                        <ComboBoxItem FlowDirection="RightToLeft" Content="فــرع الالــكــتــروبــصــريــات"/>
-                        <ComboBoxItem  FlowDirection="RightToLeft" Content="فــرع الـتـصــنـيــع الــمــيــكــانـيـكــي "/>
-                        <ComboBoxItem FlowDirection="RightToLeft" Content="الــصــنــاعــات الــتــحــويــلــيـة"/>
-                        <ComboBoxItem FlowDirection="RightToLeft" Content="مــديــريـــة الــخــدمـــات الــمــســـانــدة"/>
-                        <ComboBoxItem FlowDirection="RightToLeft" Content="الــشــركــة الــســوريــة لــتــكــنــولــوجــيــا الــمــعــلــومــات"/>
-                    </ComboBox>
-
-                    <!--<ComboBox SelectionChanged="secondary_facility_manager_SelectionChanged"  materialDesign:HintAssist.Hint=" الفعالية الــفــرعــيــة "  HorizontalContentAlignment="Center" Width="400" Margin="0 10 0 0" Name="secondary_facility_manager">-->
-                    <!-- <ComboBoxItem FlowDirection="RightToLeft" Content="مــعــمــل 2"/>
-                        <ComboBoxItem FlowDirection="RightToLeft" Content="مــعــمــل 3"/>
-                        <ComboBoxItem FlowDirection="RightToLeft" Content="أخــــــــرى"/>-->
-                    <!--</ComboBox>-->
-
-                    <ComboBox materialDesign:HintAssist.Hint=" نــوع الـمـسـتـخـــدم" HorizontalContentAlignment="Center" Width="400" Name="usertype" >
-                        <ComboBoxItem FlowDirection="RightToLeft" Content="مــــديــــر الأتــــمــــتــــة الــــصــــنــــاعــــيــــة"/>
-                        <ComboBoxItem FlowDirection="RightToLeft" Content="الــــفــــريـــــق الـــــتـــــقـــــنـــــــــي"/>
-
-
-                    </ComboBox>
-
-
-                </StackPanel>
-                <Label FlowDirection="RightToLeft" Content="اســـم الـمـسـتـخـــدم" HorizontalContentAlignment="Center"  HorizontalAlignment="Center" Width="108"/>
-
-                <StackPanel Orientation="Horizontal">
-                    <ComboBox Margin="140,10,369,0"  Name="specialization" Width="50" Height="27">
-                        <ComboBoxItem FlowDirection="RightToLeft" Content="د."/>
-                        <ComboBoxItem FlowDirection="RightToLeft" Content="م."/>
-                        <ComboBoxItem FlowDirection="RightToLeft" Content="م.م"/>
-                        <ComboBoxItem FlowDirection="RightToLeft" Content="أ."/>
-                    </ComboBox>
-                    <TextBox Width="188" x:Name="user_name" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="أدخل اسم المستخدم الخاص بك" Style="{StaticResource MaterialDesignFloatingHintTextBox}"   Margin="-560,10,0,0"/>
-                </StackPanel>
-
-
-
-
-                <Label HorizontalContentAlignment="Center"  FlowDirection="RightToLeft" Content=" الـبــريــد الالـكـتـــرونــي"  HorizontalAlignment="Center"></Label>
-                <TextBox Name="email" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="أدخل البريد الالكتروني الخاص بك" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
-
-
-                <Label HorizontalContentAlignment="Center"  FlowDirection="RightToLeft" Content="كـلـمـة الـمــــرور"  HorizontalAlignment="Center"></Label>
-                <PasswordBox  Focusable="False" PasswordChar="*"  Name="your_password" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="***" Width="400"   />
-
-                <Label HorizontalContentAlignment="Center"  HorizontalAlignment="Center" FlowDirection="RightToLeft" Content="تــأكــيــد كـلـمــة الـمـــرور"></Label>
-                <PasswordBox Focusable="False" PasswordChar="*" Name="repassword" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="***" Width="400"  />
-
-
-
-                <Button Click="Button_Click"  BorderBrush="Blue" Background="LightSkyBlue" Foreground="Black" Width="200" Content="الـتـــســجــيــل الآن"/>
-
-
-
-            </StackPanel>
-        </Grid>
-
+        <TextBox Name="email"  Margin="20,0,20,0" Grid.Row="5" Grid.Column="1" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="أدخل البريد الالكتروني الخاص بك" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+        <PasswordBox  Focusable="False"  Margin="20,0,20,0" PasswordChar="*" Grid.Column="1" Grid.Row="6"  Name="your_password" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="كــلــمــة الـــمــــرور"   />
+        <PasswordBox Focusable="False"  Margin="20,0,20,0" PasswordChar="*" Grid.Column="1" Grid.Row="7" Name="repassword" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="تــأكــيــد كـلـمــة الـمـــرور "   />
+        <Button BorderBrush="Blue" Grid.Column="1" Grid.Row="8" Background="#599DCC" Foreground="Black"  Content=" أضــافــة مـسـتـخـدم جــديــد" Margin="83,11,76,10" Height="Auto" Width="200" />
 
     </Grid>
 </Window>

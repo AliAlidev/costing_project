@@ -41,65 +41,70 @@ namespace oti_cost
             string re = " ";
 
             string query = "select project_number from project_card order by id desc limit 1 ";
-            string res = DBVariables.executescaler(query);
+            string res = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
+
             if (res != null)
             {
+                id0 = (int.Parse(res) + 1).ToString();
 
-                query = "select work_done  from project_card where project_number= " + (int.Parse(res));
-                re = DBVariables.executescaler(query);
+                //query = "select work_done  from project_card where project_number= " + (int.Parse(res));
+                //re = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
+                //string[] values = new string[3];
+                //values[0] = res;
+                //values[1] = "project_number";
+                //values[2] = "material_used";
+                //string data = JsonConvert.SerializeObject(values);
+                //bool re1 = JsonConvert.DeserializeObject<bool>(sharedvariables.proxy.IsFound(data));
+                //if (re == "" || re1 == false)
+                //{
+                //    id0 = res.ToString();
+                //    card_numberr.Text = id0;
+                //    query = "select project_name from project_card where project_number= " + card_numberr.Text;
+                //    re = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
 
-                bool re1 = DBVariables.isFound(res, "project_number", "material_used");
+                //    ok = new oknote("البطاقة التي تحمل الرقم " + "   " + card_numberr.Text + "   " + " و الاسم " + "( " + re + ") " + "    " + "يجب  التأكد من إضافة توصيف نتائج العمل الخاص بها و إضافة المواد المستخدمة .. بعد ذلك يمكنك إضافة بطاقة مشروع جديدة ");
+                //    ok.ShowDialog();
 
-                if (re == "" || re1 == false)
-                {
-                    id0 = res.ToString();
-                    card_numberr.Text = id0;
-                    query = "select project_name from project_card where project_number= " + card_numberr.Text;
-                    re = DBVariables.executescaler(query);
+                //    query = "select project_name  from project_card where project_number= " + card_numberr.Text;
+                //    re = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
+                //    project_name.Text = re.ToString();
 
-                    ok = new oknote("البطاقة التي تحمل الرقم " + "   " + card_numberr.Text + "   " + " و الاسم " + "( " + re + ") " + "    " + "يجب  التأكد من إضافة توصيف نتائج العمل الخاص بها و إضافة المواد المستخدمة .. بعد ذلك يمكنك إضافة بطاقة مشروع جديدة ");
-                    ok.ShowDialog();
+                //    query = "select active_center_name  from project_card where project_number= " + card_numberr.Text;
+                //    re = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
+                //    active_name.Text = re.ToString();
 
-                    query = "select project_name  from project_card where project_number= " + card_numberr.Text;
-                    re = DBVariables.executescaler(query);
-                    project_name.Text = re.ToString();
-
-                    query = "select active_center_name  from project_card where project_number= " + card_numberr.Text;
-                    re = DBVariables.executescaler(query);
-                    active_name.Text = re.ToString();
-
-                    project_name.Focusable = false;
-                    project_name.IsReadOnly = true;
-                    dept_name.Focusable = false;
-                    dept_name.IsReadOnly = true;
-                    help_team.Focusable = false;
-                    help_team.IsReadOnly = true;
-                    finsh_date.Focusable = false;
-                    finsh_date.IsReadOnly = true;
-                    start_date.Focusable = false;
-                    start_date.IsReadOnly = true;
-                    active_name.Focusable = false;
-                    active_name.IsReadOnly = true;
+                //    project_name.Focusable = false;
+                //    project_name.IsReadOnly = true;
+                //    dept_name.Focusable = false;
+                //    dept_name.IsReadOnly = true;
+                //    help_team.Focusable = false;
+                //    help_team.IsReadOnly = true;
+                //    finsh_date.Focusable = false;
+                //    //finsh_date.IsReadOnly = true;
+                //    start_date.Focusable = false;
+                //    //start_date.IsReadOnly = true;
+                //    active_name.Focusable = false;
+                //    active_name.IsReadOnly = true;
 
 
-                    goto ENDD;
-                }
-                else
-                {
+                //    goto ENDD;
+                //}
+                //else
+                //{
 
-                    res1 = (int.Parse(res) + 1).ToString();
+                //    res1 = (int.Parse(res) + 1).ToString();
 
-                verify:
-                    id0 = res1;
-                    query = "select count(*) from project_card where project_number= " + (int.Parse(res1));
-                    res1 = DBVariables.executescaler(query);
+                //verify:
+                //    id0 = res1;
+                //    query = "select count(*) from project_card where project_number= " + (int.Parse(res1));
+                //    res1 = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
 
-                    if (int.Parse(res1) > 0)
-                    {
-                        res1 = (int.Parse(res1) + 1).ToString();
-                        goto verify;
-                    }
-                }
+                //    if (int.Parse(res1) > 0)
+                //    {
+                //        res1 = (int.Parse(res1) + 1).ToString();
+                //        goto verify;
+                //    }
+                //}
             }
             else
             {
@@ -110,21 +115,21 @@ namespace oti_cost
 
             card_numberr.Text = id0;
 
-            project_name.Focusable = true;
-            project_name.IsReadOnly = false;
-            dept_name.Focusable = true;
-            dept_name.IsReadOnly = false;
-            help_team.Focusable = true;
-            help_team.IsReadOnly = false;
-            finsh_date.Focusable = true;
-            finsh_date.IsReadOnly = false;
-            start_date.Focusable = true;
-            start_date.IsReadOnly = false;
-            active_name.Focusable = true;
-            active_name.IsReadOnly = false;
+            //project_name.Focusable = true;
+            //project_name.IsReadOnly = false;
+            //dept_name.Focusable = true;
+            //dept_name.IsReadOnly = false;
+            //help_team.Focusable = true;
+            //help_team.IsReadOnly = false;
+            //finsh_date.Focusable = true;
+            ////finsh_date.IsReadOnly = false;
+            //start_date.Focusable = true;
+            ////start_date.IsReadOnly = false;
+            //active_name.Focusable = true;
+            //active_name.IsReadOnly = false;
 
-            active_name.Text = "";
-            project_name.Text = "";
+            //active_name.Text = "";
+            //project_name.Text = "";
 
 
 
@@ -140,11 +145,14 @@ namespace oti_cost
             this.Close();
         }
 
-
-
         private void add_Click_2(object sender, RoutedEventArgs e)
         {
-            bool res = DBVariables.isFound(card_numberr.Text, "project_number", "project_card");
+            string[] values = new string[3];
+            values[0] = card_numberr.Text;
+            values[1] = "project_number";
+            values[2] = "project_card";
+            string data = JsonConvert.SerializeObject(values);
+            bool res = JsonConvert.DeserializeObject<bool>(sharedvariables.proxy.IsFound(data));
 
             if (res == true)
             {
@@ -153,7 +161,6 @@ namespace oti_cost
             }
             else
             {
-
                 if (project_name.Text == "")
                 {
                     ok = new oknote("يجب إدخال اسم المشروع !");
@@ -179,7 +186,6 @@ namespace oti_cost
                     ok = new oknote("يجب إدخال    تاريخ البدء  !    ");
                     ok.ShowDialog();
                 }
-
                 else if (!sharedvariables.isDate(start_date.Text))
                 {
                     ok = new oknote("يجب إدخال قيمة صحيحة  لتاريخ البدء  !    ");
@@ -200,21 +206,14 @@ namespace oti_cost
                     ok = new oknote("يجب إدخال اسم مركز النشاط !");
                     ok.ShowDialog();
                 }
-
                 else
                 {
-
                     n = new note("هل أنت متأكد بأنك تريد القيام بهذه العملية ؟ .. ( الرجاء التأكد من صحة البيانات المدخلة قبل الموافقة )");
                     n.ShowDialog();
-
-
-
                     if (sharedvariables.confirmationmessagebox == "ok")
                     {
-
                         try
                         {
-
                             string query = "insert into project_card( active_center_name, project_name , dept, help_team , governorate , start_date , finsh_date , project_number) values('" + active_name.Text + "','" + project_name.Text + "','" + dept_name.Text + "','" + help_team.Text + "','" + governorate.Text + "','" + start_date.Text + "','" + finsh_date.Text + "','" + card_numberr.Text + "' )";
                             response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
                             if (!respo.success)
@@ -223,12 +222,10 @@ namespace oti_cost
                                 ok.ShowDialog();
                                 Close();
                             }
-
                             sharedvariables.confirmationmessagebox = "";
                             ok = new oknote("تم الإدخال بنجاح");
                             ok.ShowDialog();
 
-                            //project_number.Text = "";
                             project_name.Text = "";
                             dept_name.Text = "";
                             help_team.Text = "";
@@ -236,21 +233,15 @@ namespace oti_cost
                             start_date.Text = "";
                             finsh_date.Text = "";
                             active_name.Text = "";
-
-
                         }
                         catch (Exception)
                         {
                             ok = new oknote("حدثت مشكلة أثناء عملية الإدخال");
                             ok.ShowDialog();
                         }
-
-
-
                     }
                     else
                     {
-
                         sharedvariables.confirmationmessagebox = "";
                         ok = new oknote("لم يتم إدخال البيانات ");
                         ok.ShowDialog();
@@ -262,54 +253,9 @@ namespace oti_cost
                         start_date.Text = "";
                         finsh_date.Text = "";
                         active_name.Text = "";
-
                     }
                 }
             }
-
-
-
-        }
-
-        private void addteam_Click(object sender, RoutedEventArgs e)
-        {
-
-            bool re = DBVariables.isFound(card_numberr.Text, "project_number", "project_card");
-
-            if (re == true)
-            {
-                works_result tw = new works_result();
-                tw.card_number.Text = card_numberr.Text;
-
-                tw.ShowDialog();
-
-            }
-            else
-            {
-                ok = new oknote("يجب إدخال معلومات البطاقة أولاً !");
-                ok.ShowDialog();
-            }
-        }
-
-
-        private void addmaterial_Click(object sender, RoutedEventArgs e)
-        {
-
-            bool re = DBVariables.isFound(card_numberr.Text, "project_number", "project_card");
-
-            if (re == true)
-            {
-                material_used_PC ma = new material_used_PC();
-                ma.card_numberrr.Text = card_numberr.Text;
-                ma.ShowDialog();
-
-            }
-            else
-            {
-                ok = new oknote("يجب إدخال معلومات البطاقة أولاً !");
-                ok.ShowDialog();
-            }
-
         }
 
         private void abrogation_Click(object sender, RoutedEventArgs e)
@@ -317,15 +263,5 @@ namespace oti_cost
             this.Close();
         }
 
-        private void modulation_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void modulation_Click_1(object sender, RoutedEventArgs e)
-        {
-            modulation m = new modulation();
-            m.ShowDialog();
-        }
     }
 }

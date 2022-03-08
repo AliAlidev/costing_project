@@ -110,9 +110,10 @@ namespace oti_cost
                     {
                         int projectNum = int.Parse(card_number.Text);
                         //////////////
-                        DBVariables.executenq("delete from material_used where project_number=" + projectNum);
+                        string query = "delete from material_used where project_number=" + projectNum;
+                        sharedvariables.proxy.ExecuteNQ(query);
                         //////////////
-                        string query = "update project_card set";
+                        query = "update project_card set";
                         if (project_name.Text != null)
                             query = query + " project_name = '" + project_name.Text + "'";
                         if (active_name.Text != null)
@@ -135,7 +136,7 @@ namespace oti_cost
                             query = query + ", notes='" + notes.Text + "'";
                         query = query + " where project_number=" + projectNum;
 
-                        DBVariables.executenq(query);
+                        sharedvariables.proxy.ExecuteNQ(query);
 
                         /////////////////////////
                         if (teamgrid.Items.Count > 0)
@@ -150,8 +151,9 @@ namespace oti_cost
                                 string total_price = item.GetType().GetProperty("total_price").GetValue(item, null).ToString();
                                 string notes = item.GetType().GetProperty("notes").GetValue(item, null).ToString();
 
-                                DBVariables.executenq("insert into material_used(material_name,index_number,unit,quantity,unit_price,total_price,notes,project_number) " +
-                                    "values('"+ material_name + "','"+ index_number + "','"+unit+"','"+ quantity + "','"+ unit_price + "','"+ total_price + "','"+notes+"','"+projectNum+"')");
+                                query = "insert into material_used(material_name,index_number,unit,quantity,unit_price,total_price,notes,project_number) " +
+                                    "values('" + material_name + "','" + index_number + "','" + unit + "','" + quantity + "','" + unit_price + "','" + total_price + "','" + notes + "','" + projectNum + "')";
+                                sharedvariables.proxy.ExecuteNQ(query);
                             }
 
                         }

@@ -157,7 +157,8 @@ namespace oti_cost
                     Close();
                 }
 
-                getRowId = int.Parse(DBVariables.executescaler("select id from active_center where active_center_name = '" + active_name.Text + "' and team_name= '" + team_name.Text + "'"));
+                query = "select id from active_center where active_center_name = '" + active_name.Text + "' and team_name= '" + team_name.Text + "'";
+                getRowId = int.Parse(JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query)));
 
                 ok = new oknote("تم إدخال البيانات بنجاح");
                 ok.ShowDialog();

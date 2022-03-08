@@ -130,7 +130,7 @@ namespace oti_cost
                     query = "select id from active_center where active_center_name='" + active_name.Text + "' and team_name ='" + team_name.Text + "'";
 
 
-                    string idnum = DBVariables.executescaler(query);
+                    string idnum = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
 
                     query = "insert into workers_names( worker_name , self_number, category  , active_center_id) values('" + str1 + "','" + str2 + "','" + str3 + "','" + idnum + "' )";
 
@@ -178,7 +178,7 @@ namespace oti_cost
         {
 
             string query = "select count(*) from active_center where active_center_name='" + active_name.Text + "' and team_name ='" + team_name.Text + "'";
-            string count = DBVariables.executescaler(query);
+            string count = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
             if (int.Parse(count) > 0)
             {
 
@@ -190,8 +190,18 @@ namespace oti_cost
             }
             else
             {
-                bool res = DBVariables.isFound(active_name.Text, "active_center_name", "active_center");
-                bool res1 = DBVariables.isFound(team_name.Text, "team_name", "active_center");
+                string[] values = new string[3];
+                values[0] = active_name.Text;
+                values[1] = "active_center_name";
+                values[2] = "active_center";
+                string data = JsonConvert.SerializeObject(values);
+                bool res = JsonConvert.DeserializeObject<bool>(sharedvariables.proxy.IsFound(data));
+
+                values[0] = team_name.Text;
+                values[1] = "active_center_name";
+                values[2] = "active_center";
+                data = JsonConvert.SerializeObject(values);
+                bool res1 = JsonConvert.DeserializeObject<bool>(sharedvariables.proxy.IsFound(data));
 
                 if (res == false && res1 == false)
                 {
@@ -216,7 +226,7 @@ namespace oti_cost
                     if (res == true)
                     {
                         query = "select team_name from active_center where avtive_center_name='" + active_name.Text + "'";
-                        string team = DBVariables.executescaler(query);
+                        string team = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
                         if (team == team_name.Text)
                         {
                             ok = new oknote("  مركز النشاط هذا موجود بالفعل .. يمكنك متابعة عملية إضافة العمال   ");
@@ -233,11 +243,16 @@ namespace oti_cost
                     }
                     else if (res1 == true)
                     {
-                        res = DBVariables.isFound(team_name.Text, "team_name", "active_center");
+                        values = new string[3];
+                        values[0] = team_name.Text;
+                        values[1] = "team_name";
+                        values[2] = "active_center";
+                        data = JsonConvert.SerializeObject(values);
+                        res = JsonConvert.DeserializeObject<bool>(sharedvariables.proxy.IsFound(data));
                         if (res == true)
                         {
                             query = "select active_center_name from active_center where team_name='" + team_name.Text + "'";
-                            string center = DBVariables.executescaler(query);
+                            string center = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
                             if (center == active_name.Text)
                             {
                                 ok = new oknote("  مركز النشاط هذا موجود بالفعل .. يمكنك متابعة عملية إضافة العمال   ");

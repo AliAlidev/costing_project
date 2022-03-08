@@ -185,12 +185,16 @@ namespace oti_cost
 
         private void addd_Click(object sender, RoutedEventArgs e)
         {
-
-            if (DBVariables.isFound(card_number1.Text, "card_number", "engine_info"))
+            string[] values = new string[3];
+            values[0] = card_number1.Text;
+            values[1] = "card_number";
+            values[2] = "engine_info";
+            string data = JsonConvert.SerializeObject(values);
+            bool res = JsonConvert.DeserializeObject<bool>(sharedvariables.proxy.IsFound(data));
+            if (res)
             {
                 ok = new oknote("معلومات هذه البطاقة مدخلة مسبقاً !");
                 ok.ShowDialog();
-
             }
             else
           if (engine_sequence_number.Text == "")

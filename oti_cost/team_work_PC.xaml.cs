@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections;
+using System.Data;
 using System.Windows;
 
 namespace oti_cost
@@ -11,6 +12,7 @@ namespace oti_cost
     {
         oknote ok;
         note n;
+
         public team_work_PC()
         {
             InitializeComponent();
@@ -189,8 +191,8 @@ namespace oti_cost
                     object str5 = obj1.GetType().GetProperty("hours_number").GetValue(obj1, (object[])null);
                     string str6 = (string)obj1.GetType().GetProperty("notes").GetValue(obj1, (object[])null);
 
-                    string query = "insert into work_team(worker_name, self_number, category, work_done , hours_number , notes , project_number ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + card_number.Text + "' )";
-                    response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                    string query1 = "insert into work_team(worker_name, self_number, category, work_done , hours_number , notes , project_number ) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + card_number.Text + "' )";
+                    response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query1));
                     if (!respo.success)
                     {
                         ok = new oknote(sharedvariables.errorMsg + respo.code);
@@ -208,9 +210,8 @@ namespace oti_cost
                 category.Text = "";
                 notes.Text = "";
                 hours_number.Text = "";
-
-
                 this.teamgrid.Items.Clear();
+
             }
             else
             {

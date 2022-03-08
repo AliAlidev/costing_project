@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Data;
 using System.Windows;
 
 namespace oti_cost
@@ -8,25 +9,28 @@ namespace oti_cost
     /// </summary>
     public partial class works_result : Window
     {
+        public listprojects mainWindows { get; private set; }
         oknote ok;
         note n;
-        public works_result()
+        public works_result(listprojects mw = null)
         {
             InitializeComponent();
+            mainWindows = mw;
         }
+
 
         private void add_Click(object sender, RoutedEventArgs e)
         {
             string q = "", q1 = "", q2 = "";
 
             string query = "select work_done from project_card where project_number= " + card_number.Text;
-            q = DBVariables.executescaler(query);
+            q = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
 
             query = "select hours from project_card where project_number= " + card_number.Text;
-            q1 = DBVariables.executescaler(query);
+            q1 = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
 
             query = "select notes from project_card where project_number= " + card_number.Text;
-            q2 = DBVariables.executescaler(query);
+            q2 = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
 
 
             if (q == "" || q1 == "" || q2 == "")
@@ -78,6 +82,23 @@ namespace oti_cost
                         result_work.Text = "";
                         hour_work.Text = "";
                         notes.Text = "";
+
+                        ////////////// list projects
+                        DataSet ds = new DataSet();
+                        query = "select active_center_name, project_name, dept, help_team, governorate, start_date, finsh_date, project_number from project_card";
+                        ds = JsonConvert.DeserializeObject<DataSet>(sharedvariables.proxy.FillDataTable(query));
+                        ds.Tables[0].Columns[0].ColumnName = "اسم مركز النشاط";
+                        ds.Tables[0].Columns[1].ColumnName = "اسم المشروع";
+                        ds.Tables[0].Columns[2].ColumnName = "الجهة الطالبة";
+                        ds.Tables[0].Columns[3].ColumnName = "الفرق المساعدة";
+                        ds.Tables[0].Columns[4].ColumnName = "لمحافظة";
+                        ds.Tables[0].Columns[5].ColumnName = "تاريخ البدء";
+                        ds.Tables[0].Columns[6].ColumnName = "تاريخ الانتهاء";
+                        ds.Tables[0].Columns[7].ColumnName = "رقم المشروع";
+                        mainWindows.listproject.ItemsSource = ds.Tables[0].DefaultView;
+
+                        ////////////
+                        Close();
                     }
                     else
                     {
