@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="listprojects" Height="900" Width="1600" WindowState="Maximized">
     <Grid>
-        <Image  Stretch="Fill" Source="./image/rr.png"  />
+        <Image  Stretch="Fill" Source="/projects/list/rr.png"  />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="148*"></ColumnDefinition>

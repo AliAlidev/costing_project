@@ -13,7 +13,7 @@
             <RowDefinition Height="829*"/>
             <RowDefinition Height="40*"/>
         </Grid.RowDefinitions>
-        <Image  Stretch="Fill" Source="./image/rr.png" Grid.RowSpan="2"  />
+        <Image  Stretch="Fill" Source="/active_centers/add_team_work/rr.png" Grid.RowSpan="2"  />
 
 
         <Grid Grid.RowSpan="2">

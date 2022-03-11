@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="mainactivecenter" Height="900" Width="1600">
     <Grid>
-        <Image  Stretch="Fill" Source="./image/rr.png" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="0,0,3,2"  />
+        <Image  Stretch="Fill" Source="/projects/add_active_center/rr.png" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="0,0,3,2"  />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="86*"></ColumnDefinition>

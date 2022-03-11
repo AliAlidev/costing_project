@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="engine_card"  WindowState="Maximized"  Width="1600" Height="900" >
     <Grid >
-        <Image   Stretch="Fill" Source="./image/rr.png" />
+        <Image   Stretch="Fill" Source="/engines/create/rr.png" />
         <Grid ShowGridLines="False">
 
             <Grid.ColumnDefinitions>

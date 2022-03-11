@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="modulation" Height="900" Width="1600" WindowState="Maximized">
     <Grid>
-        <Image  Stretch="Fill" Source="./image/rr.png" RenderTransformOrigin="1.06,0.359" />
+        <Image  Stretch="Fill" Source="/projects/edit/rr.png" RenderTransformOrigin="1.06,0.359" />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="54*"></ColumnDefinition>

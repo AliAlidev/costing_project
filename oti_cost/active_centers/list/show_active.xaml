@@ -63,7 +63,7 @@
     </Grid>-->
 
     <Grid>
-        <Image  Stretch="Fill" Source="./image/rr.png"  />
+        <Image  Stretch="Fill" Source="/active_centers/list/rr.png"  />
 
         <Grid>
             

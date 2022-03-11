@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="project_card" Height="900" Width="1600" WindowState="Maximized" >
     <Grid >
-        <Image  Stretch="Fill" Source="./image/rr.png" RenderTransformOrigin="0.158,0.517" />
+        <Image  Stretch="Fill" Source="/projects/create/rr.png" RenderTransformOrigin="0.158,0.517" />
 
         <Grid>
             <Grid.RowDefinitions>

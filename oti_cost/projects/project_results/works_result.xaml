@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="works_result" Height="450" Width="800">
     <Grid>
-        <Image Source="/image/rr.png" Stretch="Fill" Grid.ColumnSpan="4" Margin="0,0,2,3" Grid.RowSpan="7"></Image>
+        <Image Source="/image/rr.png" Stretch="Fill" Margin="0,0,2,-30"/>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="41*"></ColumnDefinition>
@@ -28,8 +28,7 @@
             </Grid.RowDefinitions>
 
 
-            <Border Grid.Row="1" Grid.RowSpan="6" Background="White" BorderBrush="#94A76D" BorderThickness="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,1,0,0" >
-            </Border>
+            <Border Grid.Row="1" Grid.RowSpan="6" Background="White" BorderBrush="#94A76D" BorderThickness="3" Grid.ColumnSpan="4" Margin="124,1,148,-11" />
             <Label Grid.Row="2" VerticalContentAlignment="Center" FontWeight="DemiBold" Content="  "  FontSize="16"  Foreground="#0063C0" FlowDirection="RightToLeft" HorizontalAlignment="Center" Margin="-56,1,234,0" Width="218" Grid.ColumnSpan="2"   />
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1"  FlowDirection="RightToLeft" Margin="35,0,20,1" VerticalAlignment="Bottom" Height="40" Grid.ColumnSpan="2">
@@ -52,9 +51,9 @@ AcceptsReturn="True" BorderBrush="WhiteSmoke" BorderThickness="3" Margin="41,3,2
 
             <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="1"  HorizontalAlignment="Center" FlowDirection="RightToLeft"  Width="348" Grid.ColumnSpan="2" Margin="87,0"   >
 
-                <Button x:Name="add" Click="add_Click" BorderBrush="Black" Content="حفظ" Margin="0,7,100,7" Width="85" Background="#599DCC"  Foreground="Black"  FontSize="20" ></Button>
+                <Button x:Name="add" Click="add_Click" BorderBrush="Black" Content="حفظ" Margin="0,7,100,7" Width="85" Background="#599DCC"  Foreground="Black"  FontSize="20" Height="36" ></Button>
 
-                <Button Content="اغــلاق" Name="delete" Click="delete_Click"  BorderBrush="Black" Width="96" Background="#FBB634"  Foreground="Black" FontSize="20" Margin="0,7" ></Button>
+                <Button Content="اغــلاق" Name="delete" Click="delete_Click"  BorderBrush="Black" Width="96" Background="#FBB634"  Foreground="Black" FontSize="20" Margin="0,7" Height="36" ></Button>
             </StackPanel>
 
 

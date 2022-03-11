@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="material_used_PC" Height="900" Width="1600" WindowState="Maximized" >
     <Grid >
-        <Image  Stretch="Fill" Source="./image/rr.png" RenderTransformOrigin="1.19,0.262"  />
+        <Image  Stretch="Fill" Source="/projects/add_materials/rr.png" RenderTransformOrigin="1.19,0.262"  />
 
 
         <Grid>

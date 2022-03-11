@@ -9,7 +9,7 @@
         mc:Ignorable="d"
         Title="active_center" Height="900" Width="1600" WindowState="Maximized">
     <Grid>
-        <Image  Stretch="Fill" Source="./image/rr.png"  />
+        <Image  Stretch="Fill" Source="/projects/list_index/rr.png"  />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="62*"></ColumnDefinition>
