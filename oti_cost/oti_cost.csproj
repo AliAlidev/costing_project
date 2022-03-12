@@ -383,10 +383,10 @@
     <Compile Include="projects\edit\modulation.xaml.cs">
       <DependentUpon>modulation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="note.xaml.cs">
+    <Compile Include="main\notes\note.xaml.cs">
       <DependentUpon>note.xaml</DependentUpon>
     </Compile>
-    <Compile Include="oknote.xaml.cs">
+    <Compile Include="main\notes\oknote.xaml.cs">
       <DependentUpon>oknote.xaml</DependentUpon>
     </Compile>
     <Compile Include="projects\create\project_card.xaml.cs">
@@ -395,26 +395,20 @@
     <Compile Include="register\register.xaml.cs">
       <DependentUpon>register.xaml</DependentUpon>
     </Compile>
-    <Compile Include="report1.xaml.cs">
-      <DependentUpon>report1.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="report2.xaml.cs">
-      <DependentUpon>report2.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="report_class.cs" />
-    <Compile Include="response.cs" />
+    <Compile Include="other\report_class.cs" />
+    <Compile Include="other\response.cs" />
     <Compile Include="engines\maintenance_result\results.xaml.cs">
       <DependentUpon>results.xaml</DependentUpon>
     </Compile>
     <Compile Include="active_centers\edit_team_work\revise.xaml.cs">
       <DependentUpon>revise.xaml</DependentUpon>
     </Compile>
-    <Compile Include="sharedvariables.cs" />
+    <Compile Include="other\sharedvariables.cs" />
     <Compile Include="active_centers\list\show_active.xaml.cs">
       <DependentUpon>show_active.xaml</DependentUpon>
     </Compile>
-    <Compile Include="show_active_center.xaml.cs">
-      <DependentUpon>show_active_center.xaml</DependentUpon>
+    <Compile Include="engines\list\show_engines.xaml.cs">
+      <DependentUpon>show_engines.xaml</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="active_centers\add_team_work\team_work_PC.xaml.cs">
@@ -464,7 +458,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="main\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -472,7 +466,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="main\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -484,11 +478,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="note.xaml">
+    <Page Include="main\notes\note.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="oknote.xaml">
+    <Page Include="main\notes\oknote.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -497,14 +491,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="register\register.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="report1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="report2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -520,7 +506,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="show_active_center.xaml">
+    <Page Include="engines\list\show_engines.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -550,12 +536,12 @@
     <EmbeddedResource Include="projects\show_report\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cost_Card.rdlc" />
+    <EmbeddedResource Include="reports\Cost_Card.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Project_Card.rdlc" />
+    <EmbeddedResource Include="reports\Project_Card.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\materials_class.datasource" />
     <None Include="Properties\DataSources\project_class.datasource" />
@@ -574,7 +560,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="otii.PNG" />
+    <Resource Include="reports\otii.PNG" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\a.jpg" />
@@ -666,10 +652,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:85/costing_web_service/MainWebService.asmx">
+    <WebReferenceUrl Include="http://localhost/costing/MainWebService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\localhost\</RelPath>
-      <UpdateFromURL>http://localhost:85/costing_web_service/MainWebService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost/costing/MainWebService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -728,6 +714,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="active_centers\edit_team_work\rr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="main\rr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="engines\list\rr.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\build\Microsoft.TeamFoundationServer.ExtendedClient.targets" Condition="Exists('..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\build\Microsoft.TeamFoundationServer.ExtendedClient.targets')" />

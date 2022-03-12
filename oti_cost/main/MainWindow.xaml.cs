@@ -22,15 +22,10 @@ namespace oti_cost
             Width = w;
         }
 
-
-       
-
-
-
         private void engine_card_Click(object sender, RoutedEventArgs e)
         {
-            engine_card en = new engine_card();
-            en.ShowDialog();
+            mainenginecard mec = new mainenginecard();
+            mec.ShowDialog();
         }
 
         private void jhv_Click(object sender, RoutedEventArgs e)
@@ -38,13 +33,6 @@ namespace oti_cost
             mainprojectlist mpl = new mainprojectlist();
             mpl.ShowDialog();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            report1 r1 = new report1();
-            r1.ShowDialog();
-        }
-
      
 
         private void login_in_Click(object sender, RoutedEventArgs e)
@@ -57,6 +45,11 @@ namespace oti_cost
         {
             active_center a1 = new active_center();
             a1.ShowDialog();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         //private void next_Click(object sender, RoutedEventArgs e)

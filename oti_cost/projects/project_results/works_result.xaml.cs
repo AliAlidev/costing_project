@@ -12,112 +12,75 @@ namespace oti_cost
         public listprojects mainWindows { get; private set; }
         oknote ok;
         note n;
-        public works_result(listprojects mw = null)
+        public works_result(int projectNumber,listprojects mw = null)
         {
             InitializeComponent();
             mainWindows = mw;
+
+            /////////////////////// fill active centers
+            DataSet ds = sharedvariables.getActiveCentersList(projectNumber);
+            foreach (DataRow item in ds.Tables[0].Rows)
+            {
+                active_name.Items.Add(item.ItemArray[0]);
+            }
         }
 
 
         private void add_Click(object sender, RoutedEventArgs e)
         {
-            string q = "", q1 = "", q2 = "";
+            if (resultafter.Text == "")
+            {
+                ok = new oknote("يجب إدخال توصيف العمل   !    ");
+                ok.ShowDialog();
+                goto end1;
+            }
+            else if (hour_work.Text == "")
+            {
+                ok = new oknote("يجب إدخال عدد ساعات العمل      !    ");
+                ok.ShowDialog();
+                goto end1;
+            }
+            else if (!sharedvariables.isNumber(hour_work.Text))
+            {
+                ok = new oknote("  عدد ساعات العمل يجب أن يكون رقم حصراً ! ");
+                ok.ShowDialog();
+                goto end1;
+            }
+            else if (notes.Text == "")
+            {
+                ok = new oknote("يجب إدخال الملاحظات    !    ");
+                ok.ShowDialog();
+                goto end1;
+            }
 
-            string query = "select work_done from project_card where project_number= " + card_number.Text;
-            q = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
+            n = new note("هل أنت متأكد بأنك تريد القيام بهذه العملية ؟ .. ( الرجاء التأكد من صحة البيانات المدخلة قبل الموافقة )");
+            n.ShowDialog();
+            if (sharedvariables.confirmationmessagebox == "ok")
+            {
+                ////////////////// remove old
+                string query = "delete from project_results where project_number='"+ card_number.Text + "' and active_center_name='"+active_name.Text+"'";
+                response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                if (!respo.success)
+                {
+                    ok = new oknote(sharedvariables.errorMsg + respo.code);
+                    ok.ShowDialog();
+                }
 
-            query = "select hours from project_card where project_number= " + card_number.Text;
-            q1 = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
+                ////////////////// add new
+                query = "insert into project_results(project_number, work_done, hours, notes, active_center_name) values('" + card_number.Text + "','"+ resultafter.Text + "','"+ hour_work.Text + "','"+ notes.Text + "','"+active_name.Text+"')";
+                respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
+                if (!respo.success)
+                {
+                    ok = new oknote(sharedvariables.errorMsg + respo.code);
+                    ok.ShowDialog();
+                }
 
-            query = "select notes from project_card where project_number= " + card_number.Text;
-            q2 = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
+                ////////////// list projects
+                sharedvariables.listPrpjects(mainWindows);
 
-
-            //if (q == "" || q1 == "" || q2 == "")
-            //{
-
-            //    if (result_work.Text == "")
-            //    {
-            //        ok = new oknote("يجب إدخال توصيف العمل   !    ");
-            //        ok.ShowDialog();
-            //    }
-            //    else if (hour_work.Text == "")
-            //    {
-            //        ok = new oknote("يجب إدخال عدد ساعات العمل      !    ");
-            //        ok.ShowDialog();
-            //    }
-            //    else if (!sharedvariables.isNumber(hour_work.Text))
-            //    {
-            //        ok = new oknote("  عدد ساعات العمل يجب أن يكون رقم حصراً ! ");
-            //        ok.ShowDialog();
-            //    }
-            //    else if (notes.Text == "")
-            //    {
-            //        ok = new oknote("يجب إدخال الملاحظات    !    ");
-            //        ok.ShowDialog();
-            //    }
-
-            //    else
-            //    {
-
-            //        n = new note("هل أنت متأكد بأنك تريد القيام بهذه العملية ؟ .. ( الرجاء التأكد من صحة البيانات المدخلة قبل الموافقة )");
-            //        n.ShowDialog();
-            //        if (sharedvariables.confirmationmessagebox == "ok")
-            //        {
-
-            //            query = "update project_card set work_done='" + result_work.Text + "', hours='" + hour_work.Text + "', notes ='" + notes.Text + "' where project_number  =" + card_number.Text;
-            //            response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
-            //            if (!respo.success)
-            //            {
-            //                ok = new oknote(sharedvariables.errorMsg + respo.code);
-            //                ok.ShowDialog();
-            //                Close();
-            //            }
-
-            //            sharedvariables.confirmationmessagebox = "";
-            //            ok = new oknote("تم الإدخال بنجاح");
-            //            ok.ShowDialog();
-
-            //            //project_number.Text = "";
-            //            result_work.Text = "";
-            //            hour_work.Text = "";
-            //            notes.Text = "";
-
-            //            ////////////// list projects
-            //            DataSet ds = new DataSet();
-            //            query = "select active_center_name, project_name, dept, help_team, governorate, start_date, finsh_date, project_number from project_card";
-            //            ds = JsonConvert.DeserializeObject<DataSet>(sharedvariables.proxy.FillDataTable(query));
-            //            ds.Tables[0].Columns[0].ColumnName = "اسم مركز النشاط";
-            //            ds.Tables[0].Columns[1].ColumnName = "اسم المشروع";
-            //            ds.Tables[0].Columns[2].ColumnName = "الجهة الطالبة";
-            //            ds.Tables[0].Columns[3].ColumnName = "الفرق المساعدة";
-            //            ds.Tables[0].Columns[4].ColumnName = "لمحافظة";
-            //            ds.Tables[0].Columns[5].ColumnName = "تاريخ البدء";
-            //            ds.Tables[0].Columns[6].ColumnName = "تاريخ الانتهاء";
-            //            ds.Tables[0].Columns[7].ColumnName = "رقم المشروع";
-            //            mainWindows.listproject.ItemsSource = ds.Tables[0].DefaultView;
-
-            //            ////////////
-            //            Close();
-            //        }
-            //        else
-            //        {
-            //            sharedvariables.confirmationmessagebox = "";
-            //            ok = new oknote("لم يتم إدخال البيانات ");
-            //            ok.ShowDialog();
-            //            //project_number.Text = "";
-            //            result_work.Text = "";
-            //            hour_work.Text = "";
-            //            notes.Text = "";
-
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    ok = new oknote("تم إدخال بيانات هذه البطاقة مسبقاً .. تأكد من إضافة المواد المستخدمة !");
-            //    ok.ShowDialog();
-            //}
+                Close();
+            }
+        end1:;
         }
 
         private void delete_Click(object sender, RoutedEventArgs e)

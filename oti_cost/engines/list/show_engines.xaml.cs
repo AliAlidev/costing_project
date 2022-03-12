@@ -17,9 +17,9 @@ namespace oti_cost
     /// <summary>
     /// Interaction logic for show_active_center.xaml
     /// </summary>
-    public partial class show_active_center : Window
+    public partial class show_engines : Window
     {
-        public show_active_center()
+        public show_engines()
         {
             InitializeComponent();
         }

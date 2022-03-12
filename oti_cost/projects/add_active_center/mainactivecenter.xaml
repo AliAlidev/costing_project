@@ -7,15 +7,21 @@
 
         xmlns:local="clr-namespace:oti_cost"
         mc:Ignorable="d"
-        Title="mainactivecenter" Height="900" Width="1600">
+        Title="mainactivecenter" Height="700" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Image  Stretch="Fill" Source="/projects/add_active_center/rr.png" Grid.RowSpan="5" Grid.ColumnSpan="4" Margin="0,0,3,2"  />
-        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="42*"/>
+            <ColumnDefinition Width="717*"/>
+            <ColumnDefinition Width="32*"/>
+        </Grid.ColumnDefinitions>
+        <Image  Stretch="Fill" Source="/projects/add_active_center/rr.png" Grid.ColumnSpan="4" Margin="0,0,3,2"  />
+        <Grid Grid.ColumnSpan="4">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="86*"></ColumnDefinition>
-                <ColumnDefinition Width="111*"></ColumnDefinition>
-                <ColumnDefinition Width="1170*"></ColumnDefinition>
-                <ColumnDefinition Width="225*"></ColumnDefinition>
+                <ColumnDefinition Width="43*"></ColumnDefinition>
+                <ColumnDefinition Width="55*"></ColumnDefinition>
+                <ColumnDefinition Width="664*"></ColumnDefinition>
+                <ColumnDefinition Width="30*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="69*"></RowDefinition>
@@ -24,21 +30,21 @@
                 <RowDefinition Height="267*"></RowDefinition>
                 <RowDefinition Height="143*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Border  BorderBrush="GhostWhite" Background="WhiteSmoke" Grid.Column="2" Grid.Row="1" Margin="0,3,0,0"></Border>
-            <Label Grid.Row="1" Grid.Column="2" VerticalAlignment="Top"  FlowDirection="RightToLeft" Content="مـــراكــــز الـــنــشـــاط " Foreground="#0063C0" FontSize="20" HorizontalAlignment="Center" Height="76" Margin="332,33,434,0" Width="404"   />
-            <Label Grid.Row="1" Grid.Column="2"  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" Height="58" Margin="20,91,21,124" Width="802" ></Label>
-            <TextBox Name="card_numberrr" Text=" " IsReadOnly="True" Focusable="False" BorderBrush="Transparent" BorderThickness="0" HorizontalContentAlignment="Center"></TextBox>
+            <Border  BorderBrush="GhostWhite" Background="WhiteSmoke" Grid.Column="1" Grid.Row="1" Margin="35,3,0,67" Grid.ColumnSpan="2" Grid.RowSpan="2"></Border>
+            <Label Grid.Row="1" Grid.Column="2" VerticalAlignment="Top"  FlowDirection="RightToLeft" Content="مـــراكــــز الـــنــشـــاط " Foreground="#0063C0" FontSize="20" HorizontalAlignment="Center" Height="75" Margin="79,10,250,0" Width="335"   />
+            <Label Grid.Row="1"  Content="رقم البطاقة : " FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right" Height="30" Margin="0,59,21,121" Width="75" Grid.Column="2" />
+            <TextBox Name="card_number" Text="2" IsReadOnly="True" Focusable="False" BorderBrush="Transparent" BorderThickness="0" HorizontalContentAlignment="Center" Grid.Column="2" Margin="523,59,92,125" Grid.Row="1"/>
 
-            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2" FlowDirection="RightToLeft" HorizontalAlignment="Right" Width="835">
-                <Label VerticalContentAlignment="Bottom" Foreground="Gray" Content="اختر مركز النشاط :" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Width="246" Height="101" Margin="20,0,0,84" FontSize="25" ></Label>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" FlowDirection="RightToLeft" HorizontalAlignment="Right" Width="835" Grid.ColumnSpan="3" Margin="-73,0,0,0">
+                <Label VerticalContentAlignment="Bottom" Foreground="Gray" Content="اختر مركز النشاط :" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Width="254" Height="49" Margin="20,0,0,73" FontSize="25" ></Label>
 
-                <ComboBox VerticalContentAlignment="Top" VerticalAlignment="Top" Name="active_name" FlowDirection="RightToLeft" Height="58" Width="566" Margin="0,131,0,0" >
+                <ComboBox VerticalContentAlignment="Top" VerticalAlignment="Top" Name="active_name" FlowDirection="RightToLeft" Height="58" Width="516" Margin="-250,150,0,0" >
                     <ComboBoxItem Content=" "></ComboBoxItem>
                 </ComboBox>
             </StackPanel>
-            <DataGrid  x:Name="gridmaterial" FlowDirection="RightToLeft" Grid.Row="3" Grid.Column="2"  BorderBrush="Black" BorderThickness="2">
+            <DataGrid  x:Name="gridmaterial" FlowDirection="RightToLeft" Grid.Row="3" Grid.Column="1"  BorderBrush="Black" BorderThickness="2" Margin="32,0,1,0" Grid.ColumnSpan="2">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header= " اسم مركز النشاط " Binding="{Binding active_name}" IsReadOnly="True" CanUserSort="True" Width="400"></DataGridTextColumn>
+                    <DataGridTextColumn Header= " اسم مركز النشاط " Binding="{Binding center_name}" IsReadOnly="True" CanUserSort="True" Width="400"></DataGridTextColumn>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -63,8 +69,8 @@
                     </Style>
                 </DataGrid.Resources>
             </DataGrid>
-            <Button x:Name="add" Content="أضـــافــــة" Click="add_Click" Grid.Column="2" Grid.Row="2" Background="#599DCC" Foreground="Black" Height="Auto" Margin="0,13,894,46"></Button>
-            <Button x:Name="save" Content="حـــــفــــظ" Click="save_Click" Grid.Column="2" Grid.Row="4" Background="#599DCC" Foreground="Black" Margin="0,13,894,73" Height="Auto" HorizontalAlignment="Right" Width="273"></Button>
+            <Button x:Name="add" Content="أضـــافــــة" Click="add_Click" Grid.Column="1" Grid.Row="2" Background="#599DCC" Foreground="Black" Height="Auto" Margin="35,34,550,25" Grid.ColumnSpan="2"></Button>
+            <Button x:Name="save" Content="حـــــفــــظ" Click="save_Click" Grid.Row="4" Background="#599DCC" Foreground="Black" Margin="0,13,550,73" Height="Auto" HorizontalAlignment="Right" Width="118" Grid.ColumnSpan="2" Grid.Column="1"/>
 
         </Grid>
     </Grid>

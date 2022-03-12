@@ -42,7 +42,7 @@
                                     <Button Name="edit" Loaded="edit_Loaded" Click="edit_Click" BorderBrush="Black" Foreground="Black" Width="80"  Background="DarkGray">تعديل</Button>
                                     <Button Name="show" Loaded="show_Loaded" Click="show_Click" BorderBrush="Black" Foreground="Black" Width="80"  Background="LightGray">عرض</Button>
 
-                                    <Button Name="description" Loaded="description_Loaded" Click="description_Click" BorderBrush="Black" Foreground="Black" Width="100" Background="#599DCC">
+                                    <Button Name="description" Loaded="description_Loaded" Click="description_Click" BorderBrush="Black" Foreground="Black" Width="100" Background="#599DAA">
                                         <DockPanel>
                                             <TextBlock>توصيف</TextBlock>
                                             <Image Source="/image/uyy.png"/>
@@ -51,6 +51,12 @@
                                     <Button Name="materials" Loaded="materials_Loaded" Click="materials_Click" BorderBrush="Black" Foreground="Black" Width="80"  Background="#599DCC">
                                         <DockPanel>
                                             <TextBlock>مواد</TextBlock>
+                                            <Image Source="/image/uyy.png" />
+                                        </DockPanel>
+                                    </Button>
+                                    <Button Name="active_center" Loaded="active_center_Loaded" Click="active_center_Click" BorderBrush="Black" Foreground="Black" Width="120"  Background="#599DEE">
+                                        <DockPanel>
+                                            <TextBlock>مركز نشاط</TextBlock>
                                             <Image Source="/image/uyy.png" />
                                         </DockPanel>
                                     </Button>

@@ -26,13 +26,14 @@ namespace oti_cost
 
         private void show_engine_name_Click(object sender, RoutedEventArgs e)
         {
-            engine_card g = new engine_card();
-            g.ShowDialog();
+            show_engines se = new show_engines();
+            se.ShowDialog();
         }
 
         private void engine_name_Click(object sender, RoutedEventArgs e)
         {
-
+            engine_card g = new engine_card();
+            g.ShowDialog();
         }
     }
 }

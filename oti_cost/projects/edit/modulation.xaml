@@ -12,20 +12,9 @@
         <Image  Stretch="Fill" Source="/projects/edit/rr.png" RenderTransformOrigin="1.06,0.359" />
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="54*"></ColumnDefinition>
-                <ColumnDefinition Width="78*"></ColumnDefinition>
-                <ColumnDefinition Width="80*"></ColumnDefinition>
-                <ColumnDefinition Width="109*"></ColumnDefinition>
-                <ColumnDefinition Width="108.543"></ColumnDefinition>
-                <ColumnDefinition Width="115*"></ColumnDefinition>
-                <ColumnDefinition Width="103*"></ColumnDefinition>
-                <ColumnDefinition Width="60*"></ColumnDefinition>
+                <ColumnDefinition Width="781*"></ColumnDefinition>
+                <ColumnDefinition Width="811*"></ColumnDefinition>
 
-                <ColumnDefinition Width="90*"></ColumnDefinition>
-                <ColumnDefinition Width="27*"></ColumnDefinition>
-                <ColumnDefinition Width="742*"></ColumnDefinition>
-                <ColumnDefinition Width="22*"></ColumnDefinition>
-                <ColumnDefinition Width="11*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="55*"></RowDefinition>
@@ -45,89 +34,34 @@
                 <RowDefinition Height="54*"></RowDefinition>
                 <RowDefinition Height="54*"></RowDefinition>
             </Grid.RowDefinitions>
-            <DataGrid x:Name="teamgrid" FlowDirection="RightToLeft" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="7" Grid.RowSpan="8" BorderBrush="Black" BorderThickness="2"  >
 
-                <DataGrid.Resources>
-                    <Style TargetType="{x:Type DataGridColumnHeader}">
-
-                        <Setter Property="Focusable" Value="False"/>
-                        <Setter Property="Background" Value="#599DCC"/>
-                        <Setter Property="FontWeight" Value="Bold"/>
-                        <Setter Property="FlowDirection" Value="RightToLeft"/>
-                        <Setter Property="Padding" Value="5"/>
-                        <Setter Property="IsTabStop" Value="True"/>
-                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                        <Setter Property="IsTabStop" Value="True"/>
-                        <Setter Property="IsTabStop" Value="True"/>
-                    </Style>
-                </DataGrid.Resources>
-                <!--AllowResizingColumns="True"
-                        AutoGenerateColumns="True"
-                        ItemsSource="{Binding Orders}" />-->
-
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="اسم المادة" Binding="{Binding material_name}" IsReadOnly="True" CanUserSort="True" Width="80"/>
-                    <DataGridTextColumn Header="رقم الفهرسة"  Binding="{Binding index_number}" IsReadOnly="True" CanUserSort="True" Width="80"/>
-                    <DataGridTextColumn Header="الواحدة"  Binding="{Binding unit}" IsReadOnly="True" CanUserSort="True" Width="80"/>
-                    <DataGridTextColumn Header="الكمية"  Binding="{Binding quantity}"  IsReadOnly="True" CanUserSort="True" Width="80"/>
-                    <DataGridTextColumn Header="السعر الافرادي"  Binding="{Binding unit_price}"  IsReadOnly="True" CanUserSort="True" Width="100"/>
-                    <DataGridTextColumn Header="السعر الاجمالي"  Binding="{Binding total_price}"  IsReadOnly="True" CanUserSort="True" Width="100"/>
-                    <DataGridTextColumn Header="ملاحظات"  Binding="{Binding notes}" IsReadOnly="True" CanUserSort="True" Width="150"/>
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Click="Button_Click" BorderBrush="Black" Foreground="Black"  Background="#FBB634" Content="حذف"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-
-            </DataGrid>
-            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="7" Content="الرجاء ادخال معلومات المواد المستخدمة  من هنا :" FontSize="20" Background="White" FlowDirection="RightToLeft" Margin="10,51,10,5" Grid.RowSpan="2"/>
-            <Button Grid.ColumnSpan="2" Grid.Row="5" Content="اضـافة" x:Name="addd" Click="addd_Click_1" BorderBrush="Black" Background="#599DCC" Foreground="Black" Margin="51,8,10,7" Height="40" Grid.Column="6"/>
             <!--<Image Grid.Column="1" Grid.Row="3" Panel.ZIndex="0" Source= "./image/uyy.png" />-->
 
-            <Border  Background="GhostWhite" Grid.Column="1" Grid.ColumnSpan="7" Grid.Row="2" Grid.RowSpan="3"  BorderThickness="6" BorderBrush="GhostWhite" Margin="10,56,10,0" >
-                <Border.Effect>
-                    <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
-                </Border.Effect>
 
-            </Border>
-            <TextBox Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Left" x:Name="material_name"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="اسم المادة " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  VerticalAlignment="Center" Width="209" Height="37" Margin="1,0,0,0"  />
-            <TextBox Grid.Row="3" HorizontalAlignment="Center"  x:Name="index_number"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="رقم الفهرسة   " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  VerticalAlignment="Center" Width="90" Height="37" Margin="19,9,5,9" Grid.Column="4"    />
-
-            <TextBox Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left"  x:Name="unit"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="الواحدة  " Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="88"  VerticalAlignment="Center" Height="37" Margin="0,9"  />
-            <TextBox Grid.Row="3" HorizontalAlignment="Right"  x:Name="quantity"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="الكمية  " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  VerticalAlignment="Center" Height="36" Margin="0,10,10,9" Width="117" Grid.Column="2"   />
-            <TextBox Grid.Row="4" HorizontalAlignment="Center"  x:Name="unit_price"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="السعر الافرادي   " Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" Grid.Column="6" Height="37" Margin="11,9" Width="80"   />
-            <TextBox IsReadOnly="True" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Left"  x:Name="total_price"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="السعر الاجمالي    " Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" MouseEnter="total_price_MouseEnter" Height="37" Width="106" />
-            <TextBox Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left"  x:Name="note"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="ملاحظات  " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  VerticalAlignment="Center" Height="37" Margin="109,0,0,0" Width="96" Grid.ColumnSpan="2" />
-
-
-            <Border  Background="GhostWhite" Grid.Column="10" Grid.Row="2" Grid.RowSpan="13" BorderThickness="3" BorderBrush="GhostWhite">
+            <Border  Background="GhostWhite" Grid.Column="1" Grid.Row="2" Grid.RowSpan="11" BorderThickness="3" BorderBrush="GhostWhite" Margin="0,0,25,24">
 
 
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
                 </Border.Effect>
             </Border>
-            <Label HorizontalAlignment="Center" BorderBrush="DarkGreen" Content="تعديل بطاقة مشروع" FontWeight="Bold" Grid.Row="1" FontSize="25" VerticalContentAlignment="Center"  Width="232" Margin="0,56,0,0" Grid.Column="10" Grid.RowSpan="2"   />
+            <Label HorizontalAlignment="Center" BorderBrush="DarkGreen" Content="تعديل بطاقة مشروع" FontWeight="Bold" Grid.Row="2" FontSize="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="718" Margin="45,1,48,0" Grid.Column="1"   />
 
-            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="10" FlowDirection="RightToLeft" Margin="0,0,19,0">
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" FlowDirection="RightToLeft" Margin="50,0,60,0">
                 <!--<Button Click="add_card_number_Click" x:Name="add_card_number" VerticalAlignment="Bottom" HorizontalAlignment="Right" FlowDirection="RightToLeft"  Content="إضافة رقم مشروع " Background="#599DCC" Foreground="Black"   />-->
                 <!--<TextBox  IsReadOnly="True" Focusable="False" Grid.Row="2" Grid.Column="3"  Name="card_numberr"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="رقم المشروع" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Bottom"  VerticalContentAlignment="Center" Margin="50,0,0,0" />-->
                 <Label VerticalContentAlignment="Bottom" Foreground="Gray" Content=" رقم المشروع :" VerticalAlignment="Bottom" FlowDirection="RightToLeft" />
-                <TextBox Grid.Row="4" Grid.Column="10" x:Name="card_number" Margin="18,0,7,0" FlowDirection="RightToLeft" IsReadOnly="True"  materialDesign:HintAssist.Hint="رقم المشروع" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="195" />
+                <TextBox Grid.Row="4" Grid.Column="10" x:Name="card_number" Margin="18,0,7,0" FlowDirection="RightToLeft" IsReadOnly="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="195" />
 
             </StackPanel>
 
+            <TextBox Grid.Row="4" Grid.Column="1" x:Name="project_name" Margin="50,1,60,0" FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="اسم المشروع" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
-            <TextBox Grid.Row="3" Grid.Column="10" x:Name="project_name" Margin="18,56,25,0" FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="اسم المشروع" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.RowSpan="2" />
-
-            <TextBox  Grid.Row="5" Grid.Column="10" x:Name="dept_name"  Margin="18,0,25,0" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الجهة الطالبة" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-            <TextBox  Grid.Row="6" Grid.Column="10" x:Name="help_team"  Margin="18,0,25,0" FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="الفرق المساعدة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <TextBox  Grid.Row="5" Grid.Column="1" x:Name="dept_name"  Margin="50,0,60,0" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="الجهة الطالبة" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+            <TextBox  Grid.Row="6" Grid.Column="1" x:Name="help_team"  Margin="50,0,60,0" FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="الفرق المساعدة" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
 
-            <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="10" FlowDirection="RightToLeft" HorizontalAlignment="Right" Width="522" Margin="0,0,25,0">
+            <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="1" FlowDirection="RightToLeft" HorizontalAlignment="Right" Width="522" Margin="50,0,60,0">
                 <Label VerticalContentAlignment="Bottom" Foreground="Gray"  Content="اختر المحافظة :" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Height="44" Width="111" />
 
                 <ComboBox VerticalContentAlignment="Top" VerticalAlignment="Bottom" x:Name="governorate" FlowDirection="RightToLeft" Width="325" >
@@ -152,24 +86,17 @@
 
             </StackPanel>
 
-            <TextBox Grid.Row="8" Grid.Column="10" x:Name="start_date" FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="تاريخ البدء" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,25,0"/>
-            <TextBox Grid.Row="9" Grid.Column="10" x:Name="finsh_date" FlowDirection="RightToLeft"  Margin="18,0,25,0" materialDesign:HintAssist.Hint="تاريخ الانتهاء" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-            <TextBox Grid.Row="10" Grid.Column="10" x:Name="active_name" Margin="18,0,25,0" VerticalAlignment="Bottom"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" اسم مركز النشاط" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="37"  />
+            <TextBox Grid.Row="8" Grid.Column="1" x:Name="start_date" FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="تاريخ البدء" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="50,0,60,0"/>
+            <TextBox Grid.Row="9" Grid.Column="1" x:Name="finsh_date" FlowDirection="RightToLeft"  Margin="50,0,60,0" materialDesign:HintAssist.Hint="تاريخ الانتهاء" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             <!--<TextBox Grid.Row="11" Grid.Column="3" Name="work_hours" Margin="100,0,50,0" VerticalAlignment="Bottom"  FlowDirection="RightToLeft" materialDesign:HintAssist.Hint=" عدد ساعات العمل" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="37" TextChanged="team_name_TextChanged"  />-->
-            <TextBox Grid.Row="11" Grid.Column="10" VerticalAlignment="Center" x:Name="result_work" FontSize="16"  materialDesign:HintAssist.Hint="توصيف العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft"  TextWrapping="Wrap"
-VerticalScrollBarVisibility="Visible" 
-AcceptsReturn="True" Margin="18,0,28,0" Height="54" />
-            <TextBox Grid.Row="12" Grid.Column="10" VerticalAlignment="Bottom" FontSize="16"  Margin="0,0,25,0"  x:Name="hour_work" materialDesign:HintAssist.Hint=" عدد ساعات العمل " Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FlowDirection="RightToLeft" Height="47"  />
-            <TextBox Grid.Row="13" Grid.Column="10" VerticalAlignment="Center" x:Name="notes" FontSize="16"  Margin="10,0,28,0" materialDesign:HintAssist.Hint="ملاحظات " Style="{StaticResource MaterialDesignFloatingHintTextBox}"   FlowDirection="RightToLeft"  TextWrapping="Wrap"
-VerticalScrollBarVisibility="Visible" 
-AcceptsReturn="True" Height="54" />
 
-            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="13" HorizontalAlignment="Center" Width="381" Margin="0,55,0,0" Grid.Column="10" Grid.RowSpan="2"  >
-                <Button VerticalAlignment="Bottom" Click="add_Click_1" x:Name="add" Visibility="Visible"  Margin="0,0,50,0"   BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="تــــــعــــــديـــــــــل"  FontSize="18" />
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="11" HorizontalAlignment="Center" Width="526" Margin="183,0,102,0" Grid.Column="1" >
+                <Button VerticalAlignment="Bottom" Click="add_Click_1" x:Name="add" Visibility="Visible"  Margin="100,0,50,0"   BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="تــــــعــــــديـــــــــل"  FontSize="18" />
                 <Button VerticalAlignment="Bottom" Click="abrogation_Click_1" x:Name="abrogation" Visibility="Visible"    BorderBrush="Black"  Background="#FBB634" Foreground="Black"  Content="اغــــــــــلاق" FontSize="18" Width="115"  />
-
-
             </StackPanel>
+            <Button Click="Button_Click" Height="40" Grid.Column="0" Grid.Row="5" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Visibility="Visible"  Margin="170,0,170,0"   BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="تعـــديــــل مــــواد"  FontSize="18" />
+            <Button Click="Button_Click_3" Height="40" Grid.Column="0" Grid.Row="7" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Visibility="Visible"  Margin="170,0,170,0"   BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="تعـــديـــل تـــوصـــيــف"  FontSize="18" />
+            <Button Click="Button_Click_4" Height="40" Grid.Column="0" Grid.Row="9" HorizontalContentAlignment="Center" VerticalAlignment="Bottom" Visibility="Visible"  Margin="170,0,170,0"   BorderBrush="Black" Background="#599DCC" Foreground="Black"  Content="تعـــديـــل مـــراكـــز النــشــاط"  FontSize="18" />
         </Grid>
     </Grid>
 </Window>
