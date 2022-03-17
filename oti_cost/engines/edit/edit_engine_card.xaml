@@ -1,4 +1,4 @@
-﻿<Window x:Class="oti_cost.engine_card"
+﻿<Window x:Class="oti_cost.edit_engine_card"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -42,13 +42,13 @@
                 </Border.Effect>-->
             </Border>
 
-            <Label Grid.Row="1" Grid.Column="3" VerticalAlignment="Center"  HorizontalContentAlignment="Center" FlowDirection="RightToLeft" HorizontalAlignment="Center" Content="بــطــاقــة مــــحـــــــرك" FontSize="25" FontWeight="Bold" Height="43" Width="342"  />
+            <Label Grid.Row="1" Grid.Column="3" VerticalAlignment="Center"  HorizontalContentAlignment="Center" FlowDirection="RightToLeft" HorizontalAlignment="Center" Content="بــطــاقــة مــــحـــــــرك" FontSize="25" FontWeight="Bold" Height="43" Width="246"  />
 
 
             <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3" FlowDirection="RightToLeft"  Margin="14,0,49,0">
 
                 <Button Grid.Row="3" Grid.Column="3" Click="add_card_number_Click" Name="add_card_number" VerticalAlignment="Bottom" HorizontalAlignment="Right" FlowDirection="RightToLeft"  Content="إضافة رقم بطاقة " Background="#599DCC" Foreground="Black"   />
-                <TextBox Grid.Row="3" Grid.Column="3"  Name="card_number"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="رقم البطاقة" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Bottom"  VerticalContentAlignment="Center" Margin="50,0,0,0" ></TextBox>
+                <TextBox Grid.Row="3" Grid.Column="3"  Name="card_number"  FlowDirection="RightToLeft"  materialDesign:HintAssist.Hint="رقم البطاقة" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Bottom"  VerticalContentAlignment="Center" Margin="50,0,0,0" IsReadOnly="True" ></TextBox>
 
             </StackPanel>
 
@@ -62,11 +62,11 @@
             <TextBox Margin="100,0,49,0" Grid.Row="9" Grid.Column="3"   Name="engine_power"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="استطاعة المحرك" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
             <TextBox Margin="100,0,49,0" Grid.Row="10" Grid.Column="3"   Name="engine_rpm"  FlowDirection="RightToLeft"   materialDesign:HintAssist.Hint="عدد دورات المحرك :  r.p.m " Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
-            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Column="3" Grid.Row="10" HorizontalAlignment="Center" Margin="0,67,0,67" Width="541" Grid.RowSpan="3">
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Column="3" Grid.Row="10" HorizontalAlignment="Center" Margin="0,67,0,67" Width="413" Grid.RowSpan="3">
 
-                <Button VerticalAlignment="Bottom" Width="150" Click="add_Click_2" Name="add" Visibility="Visible"  BorderBrush="Black" Background="#599DCC" Foreground="Black" Content="حــفـــظ" Margin="10,0,50,15" FontSize="20" Height="39" />
+                <Button VerticalAlignment="Bottom" Width="150" Click="add_Click_2" Name="add" Visibility="Visible"  BorderBrush="Black" Background="#599DCC" Foreground="Black" Content="تــــعــــديـــل" Margin="30,0,50,10" FontSize="20" Height="40" />
 
-                <Button  VerticalAlignment="Bottom" Width="150"  Click="cancel_Click" Name="cancel" Visibility="Visible"  BorderBrush="Black" Background="#FBB634" Foreground="Black" Content="اغــــــــــــــلاق" Margin="10,0,50,15" FontSize="20" Height="37"  />
+                <Button  VerticalAlignment="Bottom" Width="150"  Click="cancel_Click" Name="cancel" Visibility="Visible"  BorderBrush="Black" Background="#FBB634" Foreground="Black" Content="اغــــــــــــــلاق" Margin="0,0,50,10" FontSize="20" Height="40"  />
 
                 <!--<Button VerticalAlignment="Bottom" Width="150" Name="add_engine_info" Click="add_engine_info_Click" Visibility="Visible"  BorderBrush="Black" Background="#9EC43D" Foreground="Black" Content="إضافة بيانات المحرك" Margin="50,0,0,0"   />-->
             </StackPanel>

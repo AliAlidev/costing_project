@@ -344,6 +344,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="engines\edit\edit_engine_card.xaml.cs">
+      <DependentUpon>edit_engine_card.xaml</DependentUpon>
+    </Compile>
     <Compile Include="projects\add_active_center\mainactivecenter.xaml.cs">
       <DependentUpon>mainactivecenter.xaml</DependentUpon>
     </Compile>
@@ -422,6 +425,10 @@
     <Compile Include="projects\project_results\works_result.xaml.cs">
       <DependentUpon>works_result.xaml</DependentUpon>
     </Compile>
+    <Page Include="engines\edit\edit_engine_card.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="projects\add_active_center\mainactivecenter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -652,10 +659,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost/costing/MainWebService.asmx">
+    <WebReferenceUrl Include="http://localhost:85/costing_web_service/MainWebService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\localhost\</RelPath>
-      <UpdateFromURL>http://localhost/costing/MainWebService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:85/costing_web_service/MainWebService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -720,6 +727,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="engines\list\rr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="engines\edit\rr.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\build\Microsoft.TeamFoundationServer.ExtendedClient.targets" Condition="Exists('..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\build\Microsoft.TeamFoundationServer.ExtendedClient.targets')" />

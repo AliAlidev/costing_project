@@ -30,7 +30,7 @@
                 <RowDefinition ></RowDefinition>
             </Grid.RowDefinitions>
             <Button Content=" اضــافــة محرك  جديد" FlowDirection="RightToLeft" Grid.Column="1" Grid.Row="3" Background="#FBB634"  HorizontalContentAlignment="Center" VerticalAlignment="Center" Foreground="Black" Height="60" Name="engine_name" FontSize="30" BorderBrush="Black" Click="engine_name_Click" />
-            <Button   Content=" عـــرض جميع المحركات" FlowDirection="RightToLeft" Grid.Column="1" Grid.Row="6" Background="#599DCC"  HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="Black" Height="60" Name="show_engine_name" Click="show_engine_name_Click" FontSize="30" BorderBrush="Black"    />
+            <Button   Content=" عـــرض جميع المحركات" FlowDirection="RightToLeft" Grid.Column="1" Grid.Row="6" Background="#599DCC"  HorizontalContentAlignment="Center" VerticalAlignment="Top" Foreground="Black" Height="60" Name="show_engine_name" Click="show_engine_name_Click_1" FontSize="30" BorderBrush="Black"    />
 
         </Grid>
 

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +36,12 @@ namespace oti_cost
         {
             engine_card g = new engine_card();
             g.ShowDialog();
+        }
+
+        private void show_engine_name_Click_1(object sender, RoutedEventArgs e)
+        {
+            show_engines sheng = new show_engines();
+            sheng.ShowDialog();
         }
     }
 }

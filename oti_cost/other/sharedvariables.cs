@@ -88,6 +88,23 @@ namespace oti_cost
             
         }
 
+        public class engine_data
+        {
+            public string engine_name { set; get;}
+            public string engine_number { set; get;}
+            public string dept { set; get; }
+            public string card_number { set; get; }
+            public string sender_name { set; get; }
+            public string receiver_name { set; get; }
+            public string received_date { set; get; }
+            public string sent_date { set; get; }
+            public string results { set; get; }
+            public string engine_sequence_number { set; get; }
+            public string engine_power { set; get; }
+            public string engine_rpm { set; get; }
+
+        }
+
         public static void listPrpjects(listprojects mainWindows)
         {
             ////////////// list projects

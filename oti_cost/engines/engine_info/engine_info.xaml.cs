@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Collections;
 using System.Windows;
 
 namespace oti_cost
@@ -194,21 +193,21 @@ namespace oti_cost
                 ok.ShowDialog();
             }
             //else
-          //if (engine_sequence_number.Text == "")
-          //  {
-          //      ok = new oknote("يجب إدخال الرقم التسلسلي للمحرك   !");
-          //      ok.ShowDialog();
-          //  }
-          //  else if (engine_power.Text == "")
-          //  {
-          //      ok = new oknote("يجب تحديد استطاعة المحرك    !");
-          //      ok.ShowDialog();
-          //  }
-          //  else if (engine_rpm.Text == "")
-          //  {
-          //      ok = new oknote("يجب تحديد عدد دورات المحرك    ! ");
-          //      ok.ShowDialog();
-          //  }
+            //if (engine_sequence_number.Text == "")
+            //  {
+            //      ok = new oknote("يجب إدخال الرقم التسلسلي للمحرك   !");
+            //      ok.ShowDialog();
+            //  }
+            //  else if (engine_power.Text == "")
+            //  {
+            //      ok = new oknote("يجب تحديد استطاعة المحرك    !");
+            //      ok.ShowDialog();
+            //  }
+            //  else if (engine_rpm.Text == "")
+            //  {
+            //      ok = new oknote("يجب تحديد عدد دورات المحرك    ! ");
+            //      ok.ShowDialog();
+            //  }
             //  //  else if (results.Text == "")
             //  //  {
             //  //      ok = new oknote("يجب إدخال نتائج الاختبار   !    ");
@@ -306,17 +305,7 @@ namespace oti_cost
 
                 //}
 
-
-
-
-
-
             }
-
-
-
-
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

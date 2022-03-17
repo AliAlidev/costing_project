@@ -795,3 +795,4 @@ FodyWeavers.xsd
 
 oti_cost/bin/
 oti_cost/obj/
+oti_cost/Web*References/localhost/
