@@ -43,4 +43,14 @@ namespace oti_cost
         public string hours { get; set; }
         public string notes { get; set; }
     }
+
+    internal class project_cost_class
+    {
+        public string project_name { get; set; }
+        public string active_center_name { get; set; }
+        public string work_done { get; set; }
+        public string hours { get; set; }
+        public string notes { get; set; }
+
+    }
 }

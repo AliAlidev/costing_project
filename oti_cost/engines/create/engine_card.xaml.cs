@@ -22,8 +22,6 @@ namespace oti_cost
             Height = h;
         }
 
-
-
         private void add_Click_2(object sender, RoutedEventArgs e)
         {
 
@@ -103,8 +101,6 @@ namespace oti_cost
                 n = new note("هل أنت متأكد بأنك تريد القيام بهذه العملية ؟ .. ( الرجاء التأكد من صحة البيانات المدخلة قبل الموافقة )");
                 n.ShowDialog();
 
-
-
                 if (sharedvariables.confirmationmessagebox == "ok")
                 {
                     try
@@ -131,8 +127,8 @@ namespace oti_cost
                         }
 
                         //////////////////// insert into project table
-                        query = "insert into project_card( active_center_name, project_name , dept , start_date , finsh_date , project_number) values('Ali shaheen','engine maintenance','" +
-                            dept.Text + "','" + sent_date.Text + "','" + received_date.Text + "','" + card_number.Text + "' )";
+                        query = "insert into project_card( active_center_name, project_name , dept , start_date , finsh_date , project_number, project_type) values('Ali shaheen','engine maintenance','" +
+                            dept.Text + "','" + sent_date.Text + "','" + received_date.Text + "','" + card_number.Text + "','1' )";
                         respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
                         if (!respo.success)
                         {

@@ -31,16 +31,14 @@
         </Border>
         <Image Source="/image/otii.jpg" Grid.Column="1"  Margin="17,0,25,1" Grid.Row="1" Grid.RowSpan="2" />
         <ComboBox Grid.Row="3" Grid.Column="1" Margin="20,0,20,0" materialDesign:HintAssist.Hint=" نــوع الـمـسـتـخـــدم" HorizontalContentAlignment="Right" Name="usertype"  >
-            <ComboBoxItem FlowDirection="RightToLeft" Content="مــــديــــر الأتــــمــــتــــة الــــصــــنــــاعــــيــــة"/>
-            <ComboBoxItem FlowDirection="RightToLeft" Content="الــــفــــريـــــق الـــــتـــــقـــــنـــــــــي"/>
         </ComboBox>
 
-        <TextBox Name="specialization"  Margin="20,0,20,0" Grid.Row="4" Grid.Column="1" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="أدخل اسم المستخدم الخاص بك" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+        <TextBox Name="userName"  Margin="20,0,20,0" Grid.Row="4" Grid.Column="1" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="أدخل اسم المستخدم الخاص بك" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
 
-        <TextBox Name="email"  Margin="20,0,20,0" Grid.Row="5" Grid.Column="1" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="أدخل البريد الالكتروني الخاص بك" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
-        <PasswordBox  Focusable="False"  Margin="20,0,20,0" PasswordChar="*" Grid.Column="1" Grid.Row="6"  Name="your_password" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="كــلــمــة الـــمــــرور"   />
-        <PasswordBox Focusable="False"  Margin="20,0,20,0" PasswordChar="*" Grid.Column="1" Grid.Row="7" Name="repassword" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="تــأكــيــد كـلـمــة الـمـــرور "   />
-        <Button BorderBrush="Blue" Grid.Column="1" Grid.Row="8" Background="#599DCC" Foreground="Black"  Content=" أضــافــة مـسـتـخـدم جــديــد" Margin="83,11,76,10" Height="Auto" Width="200" />
+        <TextBox Name="userEmail"  Margin="20,0,20,0" Grid.Row="5" Grid.Column="1" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="أدخل البريد الالكتروني الخاص بك" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  />
+        <PasswordBox  Margin="20,0,20,0" PasswordChar="*" Grid.Column="1" Grid.Row="6"  Name="your_password" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="كــلــمــة الـــمــــرور"   />
+        <PasswordBox  Margin="20,0,20,0" PasswordChar="*" Grid.Column="1" Grid.Row="7" Name="repassword" FlowDirection="RightToLeft" materialDesign:HintAssist.Hint="تــأكــيــد كـلـمــة الـمـــرور "   />
+        <Button Click="Button_Click" BorderBrush="Blue" Grid.Column="1" Grid.Row="8" Background="#599DCC" Foreground="Black"  Content=" أضــافــة مـسـتـخـدم جــديــد" Margin="83,11,76,10" Height="Auto" Width="200" />
 
     </Grid>
 </Window>

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,9 +37,10 @@ namespace oti_cost
             }
             else
             {
-                query = "select user_name from users where email='" + user_email.Text + "' and pasword='" + user_password.Password.GetHashCode() + "'";
-                string username = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler(query));
-                sharedvariables.username = username;
+                query = "select user_name, user_type from users where email='" + user_email.Text + "' and password='" + user_password.Password.GetHashCode() + "'";
+                DataSet ds = JsonConvert.DeserializeObject<DataSet>(sharedvariables.proxy.FillDataTable(query));
+                sharedvariables.username = ds.Tables[0].Rows[0].ItemArray[0].ToString();
+                sharedvariables.usertype = ds.Tables[0].Rows[0].ItemArray[1].ToString();
                 MainWindow main = new MainWindow();
                 main.ShowDialog();
                 Close();

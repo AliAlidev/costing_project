@@ -37,6 +37,8 @@ namespace oti_cost
 
         }
 
+
+        // project card report
         private void show_Click(object sender, RoutedEventArgs e)
         {
             if (listproject.SelectedItem.GetType().Name == "DataRowView")
@@ -102,6 +104,14 @@ namespace oti_cost
                 int.TryParse(dr.Row.ItemArray[7].ToString(), out projectNum);
                 works_result wr = new works_result(projectNum, this);
                 wr.card_number.Text = projectNum.ToString();
+                // get project type
+                string projectType = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler("select project_type from project_card where project_number = '" + projectNum + "'"));
+                if (projectType == "1")
+                {
+                    wr.active_name.Items.Clear();
+                    wr.active_name.Items.Add("Ali Shaheen");
+                    wr.active_name.SelectedIndex = 0;
+                }
                 wr.ShowDialog();
             }
         }
@@ -115,6 +125,14 @@ namespace oti_cost
                 int.TryParse(dr.Row.ItemArray[7].ToString(), out projectNum);
                 material_used_PC mu = new material_used_PC(projectNum, this);
                 mu.card_number.Text = projectNum.ToString();
+                // get project type
+                string projectType = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler("select project_type from project_card where project_number = '" + projectNum + "'"));
+                if(projectType == "1")
+                {
+                    mu.active_name.Items.Clear();
+                    mu.active_name.Items.Add("Ali Shaheen");
+                    mu.active_name.SelectedIndex = 0;
+                }
                 mu.ShowDialog();
             }
         }
@@ -209,9 +227,12 @@ namespace oti_cost
                     DataRowView drv = (DataRowView)((Button)e.Source).DataContext;
                     int projectNum = 0;
                     int.TryParse(drv.Row.ItemArray[7].ToString(), out projectNum);
+                    // get project type
+                    string projectType = JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler("select project_type from project_card where project_number = '" + projectNum + "'"));
+
                     int res = 0;
                     int.TryParse(JsonConvert.DeserializeObject<string>(sharedvariables.proxy.ExecuteScaler("select count(*) from project_active_center where project_id=" + projectNum)), out res);
-                    if (res > 0)
+                    if (res > 0 || projectType == "1")
                     {
                         btn.Visibility = Visibility.Hidden;
                     }
@@ -239,6 +260,47 @@ namespace oti_cost
                 mainactivecenter mac = new mainactivecenter(projectNum, this);
                 mac.ShowDialog();
             }
+        }
+
+        private void show_costing_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // costing report
+        private void show_costing_Click(object sender, RoutedEventArgs e)
+        {
+            if (listproject.SelectedItem.GetType().Name == "DataRowView")
+            {
+                DataRowView dr = (DataRowView)listproject.SelectedItem;
+                int projectNum = 0;
+                int.TryParse(dr.Row.ItemArray[7].ToString(), out projectNum);
+
+                ////////////////////////////
+                Form1 f1 = new Form1();
+                //////// append project data
+                string query = "select project_card.project_name, active_center.active_center_name, project_results.work_done, project_results.hours, project_results.notes from ((project_card join project_active_center on project_active_center.project_id = project_card.project_number) join active_center on project_active_center.active_center_id = active_center.id) join project_results on project_results.project_number = project_card.project_number and project_results.active_center_name = active_center.active_center_name where project_card.project_number=" + projectNum;
+                DataSet ds = JsonConvert.DeserializeObject<DataSet>(sharedvariables.proxy.FillDataTable(query));
+                ReportDataSource rdc = new ReportDataSource("CostDataSet", ds.Tables[0]);
+                f1.reportViewer1.LocalReport.ReportPath = "Cost_Card.rdlc";
+                f1.reportViewer1.LocalReport.DataSources.Add(rdc);
+
+                //////// append materials used
+                query = "select * from material_used where project_number=" + projectNum + " group by active_center_name";
+                ds = JsonConvert.DeserializeObject<DataSet>(sharedvariables.proxy.FillDataTable(query));
+                rdc = new ReportDataSource("MaterialsDataSet", ds.Tables[0]);
+                f1.reportViewer1.LocalReport.DataSources.Add(rdc);
+
+                //////// append project data
+                query = "select * from project_card where project_number=" + projectNum;
+                ds = JsonConvert.DeserializeObject<DataSet>(sharedvariables.proxy.FillDataTable(query));
+                rdc = new ReportDataSource("ProjectDataSet", ds.Tables[0]);
+                f1.reportViewer1.LocalReport.DataSources.Add(rdc);
+
+                f1.reportViewer1.RefreshReport();
+                f1.Show();
+            }
+
         }
     }
 }

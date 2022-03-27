@@ -40,7 +40,8 @@
                             <DataTemplate>
                                 <StackPanel  Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Center">
                                     <Button Name="edit" Loaded="edit_Loaded" Click="edit_Click" BorderBrush="Black" Foreground="Black" Width="80"  Background="DarkGray">تعديل</Button>
-                                    <Button Name="show" Loaded="show_Loaded" Click="show_Click" BorderBrush="Black" Foreground="Black" Width="80"  Background="LightGray">عرض</Button>
+                                    <Button Name="show" Loaded="show_Loaded" Click="show_Click" BorderBrush="Black" Foreground="Black" Width="80"  Background="LightGray">تقرير تكاليف</Button>
+                                    <Button Name="show_costing" Loaded="show_costing_Loaded" Click="show_costing_Click" BorderBrush="Black" Foreground="Black" Width="80"  Background="LightGray">تقرير مشروع</Button>
 
                                     <Button Name="description" Loaded="description_Loaded" Click="description_Click" BorderBrush="Black" Foreground="Black" Width="100" Background="#599DAA">
                                         <DockPanel>

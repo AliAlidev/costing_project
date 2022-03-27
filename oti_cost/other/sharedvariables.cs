@@ -21,6 +21,7 @@ namespace oti_cost
         public static string finsh_date;
 
         public static string username;
+        public static string usertype;
 
         public static bool isDate(string val)
         {

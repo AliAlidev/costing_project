@@ -20,6 +20,15 @@ namespace oti_cost
             double w = SystemParameters.PrimaryScreenWidth;
             Height = h;
             Width = w;
+            if (sharedvariables.usertype == "SuperAdmin")
+            {
+                addUser.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                addUser.Visibility = Visibility.Hidden;
+            }
+            logout.Content = "  تسجيل خروج  " + sharedvariables.username;
         }
 
         private void engine_card_Click(object sender, RoutedEventArgs e)
@@ -49,7 +58,17 @@ namespace oti_cost
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            register r = new register();
+            r.ShowDialog();
+        }
 
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            login lo = new login();
+            sharedvariables.username = "";
+            sharedvariables.usertype = "";
+            Close();
+            lo.ShowDialog();
         }
 
         //private void next_Click(object sender, RoutedEventArgs e)

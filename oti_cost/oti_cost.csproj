@@ -552,6 +552,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\materials_class.datasource" />
     <None Include="Properties\DataSources\project_class.datasource" />
+    <None Include="Properties\DataSources\project_cost_class.datasource" />
     <None Include="Properties\DataSources\workers_class.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
