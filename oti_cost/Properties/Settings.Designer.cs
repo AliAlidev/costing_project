@@ -26,10 +26,10 @@ namespace oti_cost.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:85/costing_web_service/MainWebService.asmx")]
-        public string oti_cost_localhost_MainWebService {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://10.41.0.119/Costing/MainWebService.asmx")]
+        public string oti_cost_WebReference1_MainWebService {
             get {
-                return ((string)(this["oti_cost_localhost_MainWebService"]));
+                return ((string)(this["oti_cost_WebReference1_MainWebService"]));
             }
         }
     }

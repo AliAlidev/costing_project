@@ -2,8 +2,8 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="oti_cost.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="oti_cost_localhost_MainWebService" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://localhost:85/costing_web_service/MainWebService.asmx</Value>
+    <Setting Name="oti_cost_WebReference1_MainWebService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.41.0.119/Costing/MainWebService.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>
