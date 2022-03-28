@@ -30,7 +30,7 @@
             <TextBox x:Name="y"></TextBox>
             <TextBox x:Name="yy"></TextBox>
             <TextBox x:Name="yyy"></TextBox>
-            <DataGrid  FlowDirection="RightToLeft" Name="listproject" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="10"  BorderBrush="Black" BorderThickness="2"    SelectionUnit="FullRow" SelectionMode="Single"  CanUserResizeColumns="False" CanUserReorderColumns="False" Margin="20,0,20,80">
+            <DataGrid  FlowDirection="RightToLeft" Name="listproject" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="10"  BorderBrush="Black" BorderThickness="2"    SelectionUnit="FullRow" SelectionMode="Single"  CanUserResizeColumns="False" CanUserReorderColumns="False" Margin="20,0,20,80" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
                 <DataGrid.Columns >
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.Header>
