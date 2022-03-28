@@ -6,7 +6,7 @@ namespace oti_cost
 {
     public static class sharedvariables
     {
-        public static WebReference.MainWebService proxy = new WebReference.MainWebService();
+        public static WebReference1.MainWebService proxy = new WebReference1.MainWebService();
 
         public static string confirmationmessagebox;
 
@@ -53,7 +53,7 @@ namespace oti_cost
         {
             try
             {
-                WebReference.MainWebService p = new WebReference.MainWebService();
+                WebReference1.MainWebService p = new WebReference1.MainWebService();
                 DataSet ds = JsonConvert.DeserializeObject<DataSet>(p.FillDataTable("select * from project_card"));
                 return true;
             }
