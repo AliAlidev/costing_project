@@ -264,7 +264,10 @@ namespace oti_cost
 
         private void show_costing_Loaded(object sender, RoutedEventArgs e)
         {
-
+            Button btn = (Button)sender;
+            var rowType = ((Button)e.Source).DataContext.GetType().Name;
+            if (rowType != "DataRowView")
+                btn.Visibility = Visibility.Hidden;
         }
 
         // costing report

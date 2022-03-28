@@ -30,7 +30,7 @@
             <TextBox x:Name="y"></TextBox>
             <TextBox x:Name="yy"></TextBox>
             <TextBox x:Name="yyy"></TextBox>
-            <DataGrid  FlowDirection="RightToLeft" Name="listproject" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="10"  BorderBrush="Black" BorderThickness="2"    SelectionUnit="FullRow" SelectionMode="Single"  CanUserResizeColumns="False" CanUserReorderColumns="False" Margin="20,0,20,80">
+            <DataGrid  FlowDirection="RightToLeft" Name="listproject" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="10"  BorderBrush="Black" BorderThickness="2"    SelectionUnit="FullRow" SelectionMode="Single"  CanUserResizeColumns="False" CanUserReorderColumns="False" Margin="20,0,20,80" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
                 <DataGrid.Columns >
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.Header>
@@ -40,8 +40,8 @@
                             <DataTemplate>
                                 <StackPanel  Orientation="Horizontal" FlowDirection="RightToLeft" HorizontalAlignment="Center">
                                     <Button Name="edit" Loaded="edit_Loaded" Click="edit_Click" BorderBrush="Black" Foreground="Black" Width="80"  Background="DarkGray">تعديل</Button>
-                                    <Button Name="show" Loaded="show_Loaded" Click="show_Click" BorderBrush="Black" Foreground="Black" Width="80"  Background="LightGray">تقرير تكاليف</Button>
-                                    <Button Name="show_costing" Loaded="show_costing_Loaded" Click="show_costing_Click" BorderBrush="Black" Foreground="Black" Width="80"  Background="LightGray">تقرير مشروع</Button>
+                                    <Button Name="show" Loaded="show_Loaded" Click="show_Click" BorderBrush="Black" Foreground="Black" Width="120"  Background="LightGray">تقرير مشروع</Button>
+                                    <Button Name="show_costing" Loaded="show_costing_Loaded" Click="show_costing_Click" BorderBrush="Black" Foreground="Black" Width="120"  Background="LightGray">تقرير تكاليف</Button>
 
                                     <Button Name="description" Loaded="description_Loaded" Click="description_Click" BorderBrush="Black" Foreground="Black" Width="100" Background="#599DAA">
                                         <DockPanel>
