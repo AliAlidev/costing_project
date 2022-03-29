@@ -52,6 +52,13 @@ namespace oti_cost
                 ok.ShowDialog();
                 goto end1;
             }
+            else if( sharedvariables.isNullString(active_name.Text))
+            {
+                ok = new oknote("يجب اختيار مركز النشاط    !    ");
+                ok.ShowDialog();
+                goto end1;
+            }
+            
 
             n = new note("هل أنت متأكد بأنك تريد القيام بهذه العملية ؟ .. ( الرجاء التأكد من صحة البيانات المدخلة قبل الموافقة )");
             n.ShowDialog();

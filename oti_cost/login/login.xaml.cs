@@ -34,6 +34,7 @@ namespace oti_cost
             if(res==0)
             {
                 oknote ok = new oknote("البيانات المدخلة غير صحيحة يرجى التأكد منها");
+                ok.ShowDialog();
             }
             else
             {

@@ -136,5 +136,19 @@ namespace oti_cost
             DataSet ds = JsonConvert.DeserializeObject<DataSet>(sharedvariables.proxy.FillDataTable(query));
             return ds;
         }
+
+        public static bool isNullString(string data)
+        {
+            bool result= true;
+            foreach (char ch in data)
+            {
+                if (ch != ' ')
+                {
+                    result = false; 
+                    break;
+                }
+            }
+            return result;
+        }
     }
 }
