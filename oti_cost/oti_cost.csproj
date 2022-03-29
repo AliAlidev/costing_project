@@ -372,6 +372,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="active_centers\select_active_center\selectactivecenter.xaml.cs">
+      <DependentUpon>selectactivecenter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="engines\edit\edit_engine_card.xaml.cs">
       <DependentUpon>edit_engine_card.xaml</DependentUpon>
     </Compile>
@@ -453,6 +456,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Page Include="active_centers\select_active_center\selectactivecenter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="engines\edit\edit_engine_card.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

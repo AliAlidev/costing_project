@@ -86,7 +86,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <DataGrid  FlowDirection="RightToLeft" Name="listrequestgrid" Grid.Row="2" Grid.Column="1"  Grid.RowSpan="6" HorizontalAlignment="Stretch"  BorderBrush="Black" BorderThickness="2"    SelectionUnit="FullRow" SelectionMode="Single"  CanUserResizeColumns="False" CanUserReorderColumns="False" SelectionChanged="listrequestgrid_SelectionChanged">
+            <DataGrid  FlowDirection="RightToLeft" Name="listrequestgrid" Grid.Row="2" Grid.Column="1"  Grid.RowSpan="6" HorizontalAlignment="Stretch"  BorderBrush="Black" BorderThickness="2"    SelectionUnit="FullRow" SelectionMode="Single"  CanUserResizeColumns="False" CanUserReorderColumns="False" SelectionChanged="listrequestgrid_SelectionChanged" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
                 <DataGrid.Columns >
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>

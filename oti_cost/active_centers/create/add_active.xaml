@@ -73,7 +73,7 @@
             </StackPanel>
 
 
-            <DataGrid x:Name="teamgrid" FlowDirection="RightToLeft" Grid.Row="6" Grid.Column="1"  Grid.RowSpan="8" BorderBrush="Black" BorderThickness="2"  >
+            <DataGrid x:Name="teamgrid" FlowDirection="RightToLeft" Grid.Row="6" Grid.Column="1"  Grid.RowSpan="8" BorderBrush="Black" BorderThickness="2" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"  >
                 <!--AllowResizingColumns="True"
                         AutoGenerateColumns="True"
                         ItemsSource="{Binding Orders}" />-->

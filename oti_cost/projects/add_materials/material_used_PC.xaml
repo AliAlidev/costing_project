@@ -80,7 +80,7 @@ AcceptsReturn="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
             </StackPanel>
 
 
-            <DataGrid  x:Name="gridmaterial" FlowDirection="RightToLeft" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="8" BorderBrush="Black" BorderThickness="2">
+            <DataGrid  x:Name="gridmaterial" FlowDirection="RightToLeft" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="8" BorderBrush="Black" BorderThickness="2" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="مركز النشاط " Binding="{Binding active_center_name}" IsReadOnly="True" CanUserSort="True" Width="100"></DataGridTextColumn>
 

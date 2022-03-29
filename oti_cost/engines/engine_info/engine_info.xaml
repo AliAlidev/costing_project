@@ -94,7 +94,7 @@
             </StackPanel>
 
 
-            <DataGrid Grid.Row="4" Grid.RowSpan="6" Grid.Column="1" Name="materialgrid"  Background="White" HorizontalContentAlignment="Center" BorderThickness="1" BorderBrush="Black"  FlowDirection="RightToLeft"  >
+            <DataGrid Grid.Row="4" Grid.RowSpan="6" Grid.Column="1" Name="materialgrid"  Background="White" HorizontalContentAlignment="Center" BorderThickness="1" BorderBrush="Black"  FlowDirection="RightToLeft" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"  >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="اسم المادة" Width="300"  IsReadOnly="True"  CanUserSort="True"  Binding="{Binding material_name}" ></DataGridTextColumn>
                     <DataGridTextColumn Header="الواحدة" Width="200"  IsReadOnly="True"  CanUserSort="True"  Binding="{Binding unit}"></DataGridTextColumn>
