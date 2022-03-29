@@ -96,12 +96,17 @@ namespace oti_cost
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (active_name.Text == "")
+            if (sharedvariables.isNullString(active_name.Text))
+            {
+                ok = new oknote("يجب اختيار مركز النشاط !");
+                ok.ShowDialog();
+            }
+            else if (active_name.Text == "")
             {
                 ok = new oknote("يجب إدخال اسم  مركز النشاط !");
                 ok.ShowDialog();
             }
-           else if (material_name.Text == "")
+            else if (material_name.Text == "")
             {
                 ok = new oknote("يجب إدخال اسم  المادة !");
                 ok.ShowDialog();
@@ -181,7 +186,7 @@ namespace oti_cost
                     this.notes.Text = "";
                     this.source.Text = "";
 
-                   //////////////////////////////////////// get total prices
+                    //////////////////////////////////////// get total prices
                     double finalres = 0;
                     foreach (sharedvariables.materials item in gridmaterial.Items)
                     {
@@ -207,66 +212,71 @@ namespace oti_cost
 
         private void add_Click(object sender, RoutedEventArgs e)
         {
-            n = new note("هل أنت متأكد بأنك تريد القيام بهذه العملية ؟ .. ( الرجاء التأكد من صحة البيانات المدخلة قبل الموافقة )");
-            n.ShowDialog();
-            if (sharedvariables.confirmationmessagebox == "ok")
+            if (gridmaterial.Items.Count == 0)
             {
-                /////////////////// remove old
-                string query = "delete from material_used where project_number=" + card_number.Text;
-                sharedvariables.proxy.ExecuteNQ(query);
-
-                IEnumerable items = (IEnumerable)gridmaterial.Items;
-                foreach (object obj1 in items)
-                {
-                    string str1 = (string)obj1.GetType().GetProperty("material_name").GetValue(obj1, (object[])null);
-                    string str2 = (string)obj1.GetType().GetProperty("index_number").GetValue(obj1, (object[])null);
-                    string str3 = (string)obj1.GetType().GetProperty("unit").GetValue(obj1, (object[])null);
-                    object str4 = obj1.GetType().GetProperty("quantity").GetValue(obj1, (object[])null);
-                    object str5 = obj1.GetType().GetProperty("unit_price").GetValue(obj1, (object[])null);
-                    object str6 = obj1.GetType().GetProperty("total_price").GetValue(obj1, (object[])null);
-                    string str7 = (string)obj1.GetType().GetProperty("notes").GetValue(obj1, (object[])null);
-                    string str8 = (string)obj1.GetType().GetProperty("active_center_name").GetValue(obj1, (object[])null);
-                    string str9 = (string)obj1.GetType().GetProperty("source").GetValue(obj1, (object[])null);
-
-                    string query1 = "insert into material_used(material_name, index_number, unit, quantity , unit_price , total_price , notes, project_number ,active_center_name, source) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + str7 + "','"+ card_number.Text + "','" + str8 + "','" + str9 + "')";
-                    response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query1));
-                    if (!respo.success)
-                    {
-                        ok = new oknote(sharedvariables.errorMsg + respo.code);
-                        ok.ShowDialog();
-                        Close();
-                    }
-                }
-
-                ok = new oknote("تم إدخال البيانات بنجاح");
+                ok = new oknote("لم يتم إدخال المعلومات المطلوبة !");
                 ok.ShowDialog();
-
-                ////////////// list projects
-                sharedvariables.listPrpjects(_listprojects);
-
-                ////////////
-                Close();
             }
             else
             {
-                sharedvariables.confirmationmessagebox = "";
-                ok = new oknote("لم يتم إدخال البيانات المطلوبة !");
-                ok.ShowDialog();
-                active_name.Text = "";
+                n = new note("هل أنت متأكد بأنك تريد القيام بهذه العملية ؟ .. ( الرجاء التأكد من صحة البيانات المدخلة قبل الموافقة )");
+                n.ShowDialog();
+                if (sharedvariables.confirmationmessagebox == "ok")
+                {
+                    /////////////////// remove old
+                    string query = "delete from material_used where project_number=" + card_number.Text;
+                    sharedvariables.proxy.ExecuteNQ(query);
 
-                material_name.Text = "";
-                index_number.Text = "";
-                unit.Text = "";
-                quantity.Text = "";
-                notes.Text = "";
-                total_price.Text = "";
-                unit_price.Text = "";
+                    IEnumerable items = (IEnumerable)gridmaterial.Items;
+                    foreach (object obj1 in items)
+                    {
+                        string str1 = (string)obj1.GetType().GetProperty("material_name").GetValue(obj1, (object[])null);
+                        string str2 = (string)obj1.GetType().GetProperty("index_number").GetValue(obj1, (object[])null);
+                        string str3 = (string)obj1.GetType().GetProperty("unit").GetValue(obj1, (object[])null);
+                        object str4 = obj1.GetType().GetProperty("quantity").GetValue(obj1, (object[])null);
+                        object str5 = obj1.GetType().GetProperty("unit_price").GetValue(obj1, (object[])null);
+                        object str6 = obj1.GetType().GetProperty("total_price").GetValue(obj1, (object[])null);
+                        string str7 = (string)obj1.GetType().GetProperty("notes").GetValue(obj1, (object[])null);
+                        string str8 = (string)obj1.GetType().GetProperty("active_center_name").GetValue(obj1, (object[])null);
+                        string str9 = (string)obj1.GetType().GetProperty("source").GetValue(obj1, (object[])null);
+
+                        string query1 = "insert into material_used(material_name, index_number, unit, quantity , unit_price , total_price , notes, project_number ,active_center_name, source) values('" + str1 + "','" + str2 + "','" + str3 + "','" + str4 + "','" + str5 + "','" + str6 + "','" + str7 + "','" + card_number.Text + "','" + str8 + "','" + str9 + "')";
+                        response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query1));
+                        if (!respo.success)
+                        {
+                            ok = new oknote(sharedvariables.errorMsg + respo.code);
+                            ok.ShowDialog();
+                            Close();
+                        }
+                    }
+
+                    ok = new oknote("تم إدخال البيانات بنجاح");
+                    ok.ShowDialog();
+
+                    ////////////// list projects
+                    sharedvariables.listPrpjects(_listprojects);
+
+                    ////////////
+                    Close();
+                }
+                else
+                {
+                    sharedvariables.confirmationmessagebox = "";
+                    ok = new oknote("لم يتم إدخال البيانات المطلوبة !");
+                    ok.ShowDialog();
+                    active_name.Text = "";
+
+                    material_name.Text = "";
+                    index_number.Text = "";
+                    unit.Text = "";
+                    quantity.Text = "";
+                    notes.Text = "";
+                    total_price.Text = "";
+                    unit_price.Text = "";
 
 
+                }
             }
-
-
-
         }
 
 

@@ -6,7 +6,7 @@ namespace oti_cost
 {
     public static class sharedvariables
     {
-        public static WebReference.MainWebService proxy = new WebReference.MainWebService();
+        public static localhost.MainWebService proxy = new localhost.MainWebService();
 
         public static string confirmationmessagebox;
 
@@ -53,7 +53,7 @@ namespace oti_cost
         {
             try
             {
-                WebReference.MainWebService p = new WebReference.MainWebService();
+                localhost.MainWebService p = new localhost.MainWebService();
                 DataSet ds = JsonConvert.DeserializeObject<DataSet>(p.FillDataTable("select * from project_card"));
                 return true;
             }
@@ -135,6 +135,20 @@ namespace oti_cost
             string query = "select active_center_name from active_center";
             DataSet ds = JsonConvert.DeserializeObject<DataSet>(sharedvariables.proxy.FillDataTable(query));
             return ds;
+        }
+
+        public static bool isNullString(string data)
+        {
+            bool result= true;
+            foreach (char ch in data)
+            {
+                if (ch != ' ')
+                {
+                    result = false; 
+                    break;
+                }
+            }
+            return result;
         }
     }
 }

@@ -210,7 +210,7 @@ namespace oti_cost
                     {
                         try
                         {
-                            string query = "insert into project_card( active_center_name, project_name , dept, help_team , governorate , start_date , finsh_date , project_number) values('" + project_name.Text + "','" + dept_name.Text + "','" + help_team.Text + "','" + governorate.Text + "','" + start_date.Text + "','" + finsh_date.Text + "','" + card_numberr.Text + "' )";
+                            string query = "insert into project_card( project_name , dept, help_team , governorate , start_date , finsh_date , project_number) values('" + project_name.Text + "','" + dept_name.Text + "','" + help_team.Text + "','" + governorate.Text + "','" + start_date.Text + "','" + finsh_date.Text + "','" + card_numberr.Text + "' )";
                             response respo = JsonConvert.DeserializeObject<response>(sharedvariables.proxy.ExecuteNQ(query));
                             if (!respo.success)
                             {
