@@ -16,17 +16,20 @@ namespace oti_cost
             /////////////// fill data
             string query = "select card_number, dept, sender_name, receiver_name, received_date, sent_date, results, engine_sequence_number, engine_power, engine_rpm from engine_card";
             DataSet ds = JsonConvert.DeserializeObject<DataSet>(sharedvariables.proxy.FillDataTable(query));
-            ds.Tables[0].Columns[0].ColumnName = "رقم البطاقة";
-            ds.Tables[0].Columns[1].ColumnName = "الجهة الطالبة";
-            ds.Tables[0].Columns[2].ColumnName = "اسم المرسل";
-            ds.Tables[0].Columns[3].ColumnName = "اسم المستلم";
-            ds.Tables[0].Columns[4].ColumnName = "تاريخ الاستلام";
-            ds.Tables[0].Columns[5].ColumnName = "تاريخ الارسال";
-            ds.Tables[0].Columns[6].ColumnName = "النتائج";
-            ds.Tables[0].Columns[7].ColumnName = "الرقم التسلسلي للمحرك";
-            ds.Tables[0].Columns[8].ColumnName = "استطاعة المحرك";
-            ds.Tables[0].Columns[9].ColumnName = "سرعة دوران المحرك";
-            listrequestgrid.ItemsSource = ds.Tables[0].DefaultView;
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                ds.Tables[0].Columns[0].ColumnName = "رقم البطاقة";
+                ds.Tables[0].Columns[1].ColumnName = "الجهة الطالبة";
+                ds.Tables[0].Columns[2].ColumnName = "اسم المرسل";
+                ds.Tables[0].Columns[3].ColumnName = "اسم المستلم";
+                ds.Tables[0].Columns[4].ColumnName = "تاريخ الاستلام";
+                ds.Tables[0].Columns[5].ColumnName = "تاريخ الارسال";
+                ds.Tables[0].Columns[6].ColumnName = "النتائج";
+                ds.Tables[0].Columns[7].ColumnName = "الرقم التسلسلي للمحرك";
+                ds.Tables[0].Columns[8].ColumnName = "استطاعة المحرك";
+                ds.Tables[0].Columns[9].ColumnName = "سرعة دوران المحرك";
+                listrequestgrid.ItemsSource = ds.Tables[0].DefaultView;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

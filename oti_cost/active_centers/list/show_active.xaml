@@ -73,22 +73,19 @@
             <ColumnDefinition Width="441*"></ColumnDefinition>
             <ColumnDefinition Width="207*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-            <TextBox x:Name="y"></TextBox>
-            <TextBox x:Name="yy"></TextBox>
-            <TextBox x:Name="yyy"></TextBox>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
             <DataGrid  FlowDirection="RightToLeft" Name="listrequestgrid" Grid.Row="2" Grid.Column="1"  Grid.RowSpan="6" HorizontalAlignment="Stretch"  BorderBrush="Black" BorderThickness="2"    SelectionUnit="FullRow" SelectionMode="Single"  CanUserResizeColumns="False" CanUserReorderColumns="False" SelectionChanged="listrequestgrid_SelectionChanged">
                 <DataGrid.Columns >
                     <DataGridTemplateColumn>
