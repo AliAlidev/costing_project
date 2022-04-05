@@ -43,8 +43,8 @@ namespace oti_cost
                 sharedvariables.username = ds.Tables[0].Rows[0].ItemArray[0].ToString();
                 sharedvariables.usertype = ds.Tables[0].Rows[0].ItemArray[1].ToString();
                 MainWindow main = new MainWindow();
-                main.ShowDialog();
                 Close();
+                main.ShowDialog();
             }
         }
 

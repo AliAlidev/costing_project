@@ -6,7 +6,8 @@ namespace oti_cost
 {
     public static class sharedvariables
     {
-        public static WebReference1.MainWebService proxy = new WebReference1.MainWebService();
+        //public static WebReference1.MainWebService proxy = new WebReference1.MainWebService();
+        public static localhost1.MainWebService proxy = new localhost1.MainWebService();
 
         public static string confirmationmessagebox;
 
@@ -53,8 +54,7 @@ namespace oti_cost
         {
             try
             {
-                WebReference1.MainWebService p = new WebReference1.MainWebService();
-                DataSet ds = JsonConvert.DeserializeObject<DataSet>(p.FillDataTable("select * from project_card"));
+                DataSet ds = JsonConvert.DeserializeObject<DataSet>(sharedvariables.proxy.FillDataTable("select * from project_card"));
                 return true;
             }
             catch (Exception ex)
@@ -75,6 +75,7 @@ namespace oti_cost
 
         public class materials
         {
+            public string id { set; get; }
             public string material_name { set; get; }
             public string index_number { set; get; }
             public string unit { set; get; }

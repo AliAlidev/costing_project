@@ -32,5 +32,15 @@ namespace oti_cost.Properties {
                 return ((string)(this["oti_cost_WebReference1_MainWebService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:85/costing_web_service/MainWebService.asmx")]
+        public string oti_cost_localhost1_MainWebService {
+            get {
+                return ((string)(this["oti_cost_localhost1_MainWebService"]));
+            }
+        }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Globalization;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 
 namespace oti_cost
 {
@@ -42,7 +39,7 @@ namespace oti_cost
             mainprojectlist mpl = new mainprojectlist();
             mpl.ShowDialog();
         }
-     
+
 
         private void login_in_Click(object sender, RoutedEventArgs e)
         {
@@ -64,11 +61,22 @@ namespace oti_cost
 
         private void logout_Click(object sender, RoutedEventArgs e)
         {
-            login lo = new login();
             sharedvariables.username = "";
             sharedvariables.usertype = "";
+            login lo = new login();
+            lo.Show();
             Close();
-            lo.ShowDialog();
+        }
+
+        private void CloseAllWindows(string name)
+        {
+            for (int intCounter = App.Current.Windows.Count - 1; intCounter >= 0; intCounter--)
+            {
+                if (App.Current.Windows[intCounter].Name != name)
+                {
+                    App.Current.Windows[intCounter].Close();
+                }
+            }
         }
 
         //private void next_Click(object sender, RoutedEventArgs e)

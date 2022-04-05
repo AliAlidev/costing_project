@@ -34,7 +34,7 @@ namespace oti_cost
             }
 
             /////////////////////// fill materials
-            string query = "select material_name, index_number, unit, quantity, unit_price, total_price, notes, source, active_center_name from material_used where project_number=" + projectNum;
+            string query = "select material_name, index_number, unit, quantity, unit_price, total_price, notes, source, active_center_name, id from material_used where project_number=" + projectNum;
             ds = JsonConvert.DeserializeObject<DataSet>(sharedvariables.proxy.FillDataTable(query));
             double total_prices_sum = 0;
             foreach (DataRow item in ds.Tables[0].Rows)
@@ -49,6 +49,7 @@ namespace oti_cost
                 mat.notes = item.ItemArray[6].ToString();
                 mat.source = item.ItemArray[7].ToString();
                 mat.active_center_name = item.ItemArray[8].ToString();
+                mat.id = item.ItemArray[9].ToString();
                 gridmaterial.Items.Add(mat);
                 double tmp = 0;
                 double.TryParse(mat.total_price, out tmp);
@@ -312,10 +313,72 @@ namespace oti_cost
             }
         }
 
-        //private void Button_Click_1(object sender, RoutedEventArgs e)
-        //{
-        //    this.Close();
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            sharedvariables.materials mat = (sharedvariables.materials)gridmaterial.SelectedItem;
+            material_name.Text = mat.material_name;
+            index_number.Text = mat.index_number;
+            unit.Text = mat.unit;
+            quantity.Text = mat.quantity;
+            unit_price.Text = mat.unit_price;
+            total_price.Text = mat.total_price;
+            notes.Text = mat.notes;
+            material_number.Text = mat.id;
+        }
 
-        //}
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            if (material_number.Text == "")
+            {
+                oknote o = new oknote("يجب اختيار بطاقة المادة المراد تعديلها أولاً ");
+                o.ShowDialog();
+            }
+            else
+            {
+                sharedvariables.materials[] mat = new sharedvariables.materials[gridmaterial.Items.Count];
+                int count = 0;
+                foreach (sharedvariables.materials item in gridmaterial.Items)
+                {
+                    mat[count] = new sharedvariables.materials();
+                    if (item.id != material_number.Text)
+                    {
+                        mat[count].material_name = item.material_name;
+                        mat[count].index_number = item.index_number;
+                        mat[count].unit = item.unit;
+                        mat[count].quantity = item.quantity;
+                        mat[count].unit_price = item.unit_price;
+                        mat[count].total_price = item.total_price;
+                        mat[count].notes = item.notes;
+                        mat[count].source = item.source;
+                        mat[count].active_center_name = item.active_center_name;
+                        mat[count].id = item.id;
+                    }
+                    else
+                    {
+                        mat[count].material_name = material_name.Text;
+                        mat[count].index_number = index_number.Text;
+                        mat[count].unit = unit.Text;
+                        mat[count].quantity = quantity.Text;
+                        mat[count].unit_price = unit_price.Text;
+                        mat[count].total_price = total_price.Text;
+                        mat[count].notes = notes.Text;
+                        mat[count].source = item.source;
+                        mat[count].active_center_name = item.active_center_name;
+                        mat[count].id = item.id;
+                    }
+                    ++count;
+                }
+                gridmaterial.Items.Clear();
+                double total_prices_sum = 0;
+                foreach (sharedvariables.materials item in mat)
+                {
+                    gridmaterial.Items.Add(item);
+                    double tmp = 0;
+                    double.TryParse(item.total_price, out tmp);
+                    total_prices_sum += tmp;
+                }
+                total_prices.Content = total_prices_sum.ToString();
+            }
+        }
     }
 }

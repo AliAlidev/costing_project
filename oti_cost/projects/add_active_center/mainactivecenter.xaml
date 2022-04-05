@@ -39,7 +39,7 @@
                 <Label VerticalContentAlignment="Bottom" Foreground="Gray" Content="اختر مركز النشاط :" VerticalAlignment="Bottom" FlowDirection="RightToLeft" Width="254" Height="49" Margin="20,0,0,73" FontSize="25" ></Label>
 
                 <ComboBox VerticalContentAlignment="Top" VerticalAlignment="Top" Name="active_name" FlowDirection="RightToLeft" Height="58" Width="516" Margin="-250,150,0,0" >
-                    <ComboBoxItem Content=" "></ComboBoxItem>
+                    
                 </ComboBox>
             </StackPanel>
             <DataGrid  x:Name="gridmaterial" FlowDirection="RightToLeft" Grid.Row="3" Grid.Column="1"  BorderBrush="Black" BorderThickness="2" Margin="32,0,1,0" Grid.ColumnSpan="2" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False">
@@ -69,8 +69,8 @@
                     </Style>
                 </DataGrid.Resources>
             </DataGrid>
-            <Button x:Name="add" Content="أضـــافــــة" Click="add_Click" Grid.Column="1" Grid.Row="2" Background="#599DCC" Foreground="Black" Height="Auto" Margin="35,34,550,25" Grid.ColumnSpan="2"></Button>
-            <Button x:Name="save" Content="حـــــفــــظ" Click="save_Click" Grid.Row="4" Background="#599DCC" Foreground="Black" Margin="0,13,550,73" Height="Auto" HorizontalAlignment="Right" Width="118" Grid.ColumnSpan="2" Grid.Column="1"/>
+            <Button x:Name="add" Content="إضـــافــــة" Click="add_Click" Grid.Column="1" Grid.Row="2" Background="#599DCC" Foreground="Black" Height="35" Margin="35,34,550,20" Grid.ColumnSpan="2"></Button>
+            <Button x:Name="save" Content="حـــــفــــظ" Click="save_Click" Grid.Row="4" Background="#599DCC" Foreground="Black" Margin="0,13,550,40" Height="35" HorizontalAlignment="Right" Width="118" Grid.ColumnSpan="2" Grid.Column="1"/>
 
         </Grid>
     </Grid>

@@ -22,7 +22,9 @@
             </Grid.RowDefinitions>
             <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Grid.Row="1" Background="White" Margin="0,7,0,0"/>
             <Label Grid.Column="1" Content="اسم مركز النشاط" HorizontalAlignment="Left" Margin="115,21,0,0" Grid.Row="1" VerticalAlignment="Top" Width="121" Height="26"/>
-            <ComboBox Name="active_name" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" Width="286" Height="28"/>
+            <ComboBox Name="active_name" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" Width="286" Height="35">
+                
+            </ComboBox>
             <Button Click="Button_Click" Content="موافق" Grid.Column="1" Grid.Row="2" Background="#599DCC" Margin="0,16,238,15"/>
         </Grid>
 
